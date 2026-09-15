@@ -10,8 +10,17 @@ CHANNEL = os.environ.get("CHANNEL", "@Kozelets_Alarm")
 
 NEWS_SEEN_FILE = "news_seen.txt"
 ALERT_STATE_FILE = "alert_state.txt"
+MAPA_STATE_FILE = "mapa_state.txt"
 
 MAX_NEWS_AGE_HOURS = 3
+
+# Приблизна координата Козельця.
+# Використовується лише для визначення загроз поблизу.
+KOZELETS_LAT = 50.913
+KOZELETS_LON = 31.115
+
+# Радіус перевірки MAPA.UA
+MAPA_RADIUS_KM = 100
 
 
 def send_telegram(text):
@@ -44,6 +53,10 @@ def send_telegram(text):
         return False
 
 
+# ============================================================
+# НОВИНИ
+# ============================================================
+
 def load_seen_news():
     if not os.path.exists(NEWS_SEEN_FILE):
         return set()
@@ -63,6 +76,7 @@ def save_seen_news(seen):
 
 
 def get_news():
+
     news_sources = [
         {
             "query": "Козелець Козелецька громада",
@@ -96,7 +110,10 @@ def get_news():
         )
 
         try:
-            response = requests.get(url, timeout=20)
+            response = requests.get(
+                url,
+                timeout=20
+            )
 
             print(
                 f"Google News [{category}]:",
@@ -110,9 +127,20 @@ def get_news():
 
             for item in root.findall(".//item"):
 
-                title = item.findtext("title", "")
-                link = item.findtext("link", "")
-                pub_date = item.findtext("pubDate", "")
+                title = item.findtext(
+                    "title",
+                    ""
+                )
+
+                link = item.findtext(
+                    "link",
+                    ""
+                )
+
+                pub_date = item.findtext(
+                    "pubDate",
+                    ""
+                )
 
                 if not title or not link:
                     continue
@@ -125,6 +153,7 @@ def get_news():
                 })
 
         except Exception as error:
+
             print(
                 f"Помилка Google News [{category}]:",
                 error
@@ -159,36 +188,40 @@ def publish_news():
         if link in seen:
             continue
 
-        # Перевірка дати
         try:
+
             pub_time = datetime.strptime(
                 item["date"],
                 "%a, %d %b %Y %H:%M:%S %Z"
-            ).replace(tzinfo=timezone.utc)
+            ).replace(
+                tzinfo=timezone.utc
+            )
 
             age = now - pub_time
 
-            if age > timedelta(hours=MAX_NEWS_AGE_HOURS):
+            if age > timedelta(
+                hours=MAX_NEWS_AGE_HOURS
+            ):
                 continue
 
-            if age < timedelta(seconds=0):
+            if age < timedelta(
+                seconds=0
+            ):
                 continue
 
         except Exception:
-            # Якщо Google News повернув дату
-            # у незвичному форматі — не блокуємо новину
             pass
 
         title_lower = item["title"].lower()
 
-        # Не публікуємо спортивні новини
-        if any(word in title_lower for word in sports_words):
+        if any(
+            word in title_lower
+            for word in sports_words
+        ):
             continue
 
-        category = item["category"]
-
         message = (
-            f"{category}\n\n"
+            f"{item['category']}\n\n"
             f"📰 {html.unescape(item['title'])}\n\n"
             f"🔗 {item['link']}"
         )
@@ -206,11 +239,17 @@ def publish_news():
     )
 
 
+# ============================================================
+# NEPTUN
+# ============================================================
+
 def load_alert_states():
 
     states = {}
 
-    if not os.path.exists(ALERT_STATE_FILE):
+    if not os.path.exists(
+        ALERT_STATE_FILE
+    ):
         return states
 
     with open(
@@ -228,7 +267,9 @@ def load_alert_states():
                     1
                 )
 
-                states[name] = state == "true"
+                states[name] = (
+                    state == "true"
+                )
 
     return states
 
@@ -249,13 +290,16 @@ def save_alert_states(states):
             )
 
 
-def check_alerts():
+def check_neptun():
 
     old_states = load_alert_states()
 
     try:
 
-        url = "https://neptun.in.ua/api/v1/alerts"
+        url = (
+            "https://neptun.in.ua/"
+            "api/v1/alerts"
+        )
 
         response = requests.get(
             url,
@@ -281,16 +325,28 @@ def check_alerts():
         active_regions = set()
         active_districts = set()
 
-        for item in data.get("oblasts", []):
+        for item in data.get(
+            "oblasts",
+            []
+        ):
 
-            name = item.get("name", "")
+            name = item.get(
+                "name",
+                ""
+            )
 
             if name:
                 active_regions.add(name)
 
-        for item in data.get("raions", []):
+        for item in data.get(
+            "raions",
+            []
+        ):
 
-            name = item.get("name", "")
+            name = item.get(
+                "name",
+                ""
+            )
 
             if name:
                 active_districts.add(name)
@@ -328,11 +384,9 @@ def check_alerts():
                     f"🔴 ПОВІТРЯНА ТРИВОГА\n\n"
                     f"📍 {name}\n\n"
                     f"⚠️ Стежте за офіційними повідомленнями.\n"
-                    f"ℹ️ Дані: NEPTUN"
+                    f"ℹ️ Джерело: NEPTUN"
                 )
 
-                # Записуємо true ТІЛЬКИ якщо Telegram
-                # підтвердив успішну відправку
                 if success:
                     new_states[name] = True
                 else:
@@ -347,11 +401,9 @@ def check_alerts():
                 success = send_telegram(
                     f"🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\n"
                     f"📍 {name}\n\n"
-                    f"ℹ️ Дані: NEPTUN"
+                    f"ℹ️ Джерело: NEPTUN"
                 )
 
-                # Записуємо false ТІЛЬКИ після
-                # успішної відправки
                 if success:
                     new_states[name] = False
                 else:
@@ -360,8 +412,8 @@ def check_alerts():
                         "відправити. Повторимо спробу."
                     )
 
-            # Стан не змінився
             else:
+
                 new_states[name] = active
 
         save_alert_states(new_states)
@@ -369,10 +421,147 @@ def check_alerts():
     except Exception as error:
 
         print(
-            "Помилка перевірки тривоги:",
+            "Помилка перевірки NEPTUN:",
             error
         )
 
+
+# ============================================================
+# MAPA.UA
+# ============================================================
+
+def load_mapa_state():
+
+    if not os.path.exists(
+        MAPA_STATE_FILE
+    ):
+        return False
+
+    try:
+
+        with open(
+            MAPA_STATE_FILE,
+            "r",
+            encoding="utf-8"
+        ) as file:
+
+            value = file.read().strip()
+
+            return value == "true"
+
+    except Exception:
+        return False
+
+
+def save_mapa_state(active):
+
+    with open(
+        MAPA_STATE_FILE,
+        "w",
+        encoding="utf-8"
+    ) as file:
+
+        file.write(
+            "true" if active else "false"
+        )
+
+
+def check_mapa():
+
+    old_active = load_mapa_state()
+
+    try:
+
+        url = (
+            "https://mapa.ua/api/v1/nearby"
+        )
+
+        params = {
+            "lat": KOZELETS_LAT,
+            "lon": KOZELETS_LON,
+            "radius_km": MAPA_RADIUS_KM
+        }
+
+        response = requests.get(
+            url,
+            params=params,
+            timeout=20
+        )
+
+        print(
+            "MAPA.UA API:",
+            response.status_code
+        )
+
+        if not response.ok:
+
+            print(
+                "Помилка MAPA.UA:",
+                response.text
+            )
+
+            return
+
+        data = response.json()
+
+        threats = data.get(
+            "threats",
+            []
+        )
+
+        active = len(threats) > 0
+
+        print(
+            "MAPA.UA: активних загроз:",
+            len(threats)
+        )
+
+        # НОВА ДОДАТКОВА ЗАГРОЗА
+        if active and not old_active:
+
+            success = send_telegram(
+                "⚠️ ДОДАТКОВА ІНФОРМАЦІЯ\n\n"
+                "🗺️ MAPA.UA повідомляє "
+                "про активні повітряні загрози "
+                "поблизу Козельця.\n\n"
+                "⚠️ Дані MAPA.UA є приблизними "
+                "та не замінюють офіційні "
+                "повідомлення про повітряну тривогу."
+            )
+
+            if success:
+                save_mapa_state(True)
+
+        # ЗАГРОЗИ ЗНИКЛИ
+        elif not active and old_active:
+
+            success = send_telegram(
+                "ℹ️ MAPA.UA\n\n"
+                "Активних загроз поблизу "
+                "Козельця більше не виявлено.\n\n"
+                "⚠️ Це додаткове інформаційне "
+                "повідомлення і не є офіційним "
+                "відбоєм повітряної тривоги."
+            )
+
+            if success:
+                save_mapa_state(False)
+
+        else:
+
+            save_mapa_state(active)
+
+    except Exception as error:
+
+        print(
+            "Помилка перевірки MAPA.UA:",
+            error
+        )
+
+
+# ============================================================
+# ЗАПУСК
+# ============================================================
 
 def main():
 
@@ -382,7 +571,9 @@ def main():
 
     publish_news()
 
-    check_alerts()
+    check_neptun()
+
+    check_mapa()
 
     print(
         "=== Перевірку завершено ==="

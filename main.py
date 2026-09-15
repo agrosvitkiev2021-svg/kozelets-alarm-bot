@@ -363,118 +363,93 @@ def save_seen_news(seen):
 # ОТРИМАННЯ ДАНИХ СТАТТІ
 # ============================================================
 
-def get_article_data(url):
-
-    description = ""
-    image_url = ""
-
+def get_article_data(link):
     try:
+        headers = {
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/139.0 Safari/537.36"
+            )
+        }
 
         response = requests.get(
-            url,
-            timeout=20,
-            headers={
-                "User-Agent":
-                    "Mozilla/5.0 "
-                    "(Windows NT 10.0; Win64; x64) "
-                    "AppleWebKit/537.36 "
-                    "Chrome/120 Safari/537.36"
-            }
+            link,
+            headers=headers,
+            timeout=15,
+            allow_redirects=True
         )
 
-        if not response.ok:
+        if response.status_code != 200:
+            return "", ""
 
-            return (
-                description,
-                image_url
-            )
+        text = response.text
 
-        page = response.text
-
-        # ----------------------------------------------------
-        # OG DESCRIPTION
-        # ----------------------------------------------------
-
-        match = re.search(
-            r'<meta[^>]+property=["\']'
-            r'og:description["\'][^>]+'
-            r'content=["\']([^"\']+)',
-            page,
-            re.IGNORECASE
+        # Видаляємо службові частини HTML
+        text = re.sub(
+            r"<script.*?</script>",
+            "",
+            text,
+            flags=re.I | re.S
         )
 
-        if match:
+        text = re.sub(
+            r"<style.*?</style>",
+            "",
+            text,
+            flags=re.I | re.S
+        )
 
-            description = clean_text(
-                match.group(1)
-            )
+        # Спочатку шукаємо нормальний опис статті
+        description = ""
 
-        # ----------------------------------------------------
-        # DESCRIPTION
-        # ----------------------------------------------------
+        patterns = [
+            r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\'](.*?)["\']',
+            r'<meta[^>]+name=["\']description["\'][^>]+content=["\'](.*?)["\']',
+            r'<meta[^>]+content=["\'](.*?)["\'][^>]+property=["\']og:description["\']',
+            r'<meta[^>]+content=["\'](.*?)["\'][^>]+name=["\']description["\']'
+        ]
 
-        if not description:
-
-            match = re.search(
-                r'<meta[^>]+name=["\']'
-                r'description["\'][^>]+'
-                r'content=["\']([^"\']+)',
-                page,
-                re.IGNORECASE
-            )
+        for pattern in patterns:
+            match = re.search(pattern, text, re.I | re.S)
 
             if match:
+                description = html.unescape(match.group(1)).strip()
 
-                description = clean_text(
-                    match.group(1)
-                )
+                if description:
+                    break
 
-        # ----------------------------------------------------
-        # OG IMAGE
-        # ----------------------------------------------------
-
-        match = re.search(
-            r'<meta[^>]+property=["\']'
-            r'og:image["\'][^>]+'
-            r'content=["\']([^"\']+)',
-            page,
-            re.IGNORECASE
+        # Якщо отримали службовий текст Google News — відкидаємо його
+        bad_text = (
+            "Comprehensive up-to-date news coverage",
+            "aggregated from sources all over the world by Google News"
         )
 
-        if match:
+        if any(bad.lower() in description.lower() for bad in bad_text):
+            description = ""
 
-            image_url = html.unescape(
-                match.group(1)
-            )
+        # Отримуємо зображення статті
+        image = ""
 
-        # ----------------------------------------------------
-        # TWITTER IMAGE
-        # ----------------------------------------------------
+        image_patterns = [
+            r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\'](.*?)["\']',
+            r'<meta[^>]+content=["\'](.*?)["\'][^>]+property=["\']og:image["\']'
+        ]
 
-        if not image_url:
-
-            match = re.search(
-                r'<meta[^>]+name=["\']'
-                r'twitter:image["\'][^>]+'
-                r'content=["\']([^"\']+)',
-                page,
-                re.IGNORECASE
-            )
+        for pattern in image_patterns:
+            match = re.search(pattern, text, re.I | re.S)
 
             if match:
+                image = html.unescape(match.group(1)).strip()
 
-                image_url = html.unescape(
-                    match.group(1)
-                )
+                if image:
+                    break
 
-    except Exception as error:
+        return description, image
 
-        print(
-            "Помилка отримання статті:",
-            error
-        )
-
-    return (
+    except Exception as e:
+        print(f"Помилка отримання статті: {e}")
+        return "", ""
         description,
         image_url
     )

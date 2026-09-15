@@ -1,8 +1,11 @@
 import os
 import html
 import re
+import hashlib
 import requests
 import xml.etree.ElementTree as ET
+
+from difflib import SequenceMatcher
 from datetime import datetime, timezone, timedelta
 
 
@@ -21,17 +24,112 @@ MAPA_RADIUS_KM = 100
 
 
 # ============================================================
+# НАЛАШТУВАННЯ ДЖЕРЕЛ
+# ============================================================
+
+NEWS_SOURCES = [
+
+    # --------------------------------------------------------
+    # СУСПІЛЬНЕ — НАЙВИЩИЙ ПРІОРИТЕТ
+    # --------------------------------------------------------
+
+    {
+        "query": "site:suspilne.media/chernihiv Козелець",
+        "category": "📍 КОЗЕЛЕЦЬ",
+        "priority": 1
+    },
+
+    {
+        "query": "site:suspilne.media/chernihiv Чернігів",
+        "category": "🏙️ ЧЕРНІГІВ",
+        "priority": 1
+    },
+
+    # --------------------------------------------------------
+    # CHELINE
+    # --------------------------------------------------------
+
+    {
+        "query": "site:cheline.com.ua Козелець",
+        "category": "📍 КОЗЕЛЕЦЬ",
+        "priority": 2
+    },
+
+    {
+        "query": "site:cheline.com.ua Чернігів",
+        "category": "🏙️ ЧЕРНІГІВ",
+        "priority": 2
+    },
+
+    # --------------------------------------------------------
+    # ЧАС ЧЕРНІГІВСЬКИЙ
+    # --------------------------------------------------------
+
+    {
+        "query": "site:cntime.cn.ua Козелець",
+        "category": "📍 КОЗЕЛЕЦЬ",
+        "priority": 3
+    },
+
+    {
+        "query": "site:cntime.cn.ua Чернігів",
+        "category": "🏙️ ЧЕРНІГІВ",
+        "priority": 3
+    },
+
+    # --------------------------------------------------------
+    # GOOGLE NEWS — ЗАГАЛЬНИЙ ПОШУК
+    # --------------------------------------------------------
+
+    {
+        "query": "\"Козелець\" \"Козелецька громада\"",
+        "category": "📍 КОЗЕЛЕЦЬ",
+        "priority": 4
+    },
+
+    {
+        "query": "\"Чернігів\"",
+        "category": "🏙️ ЧЕРНІГІВ",
+        "priority": 4
+    },
+
+    {
+        "query": "\"Чернігівщина\"",
+        "category": "🏙️ ЧЕРНІГІВЩИНА",
+        "priority": 4
+    },
+
+    {
+        "query": "\"Україна\" головні новини",
+        "category": "🇺🇦 УКРАЇНА",
+        "priority": 5
+    },
+
+    {
+        "query": "війна Україна фронт",
+        "category": "⚔️ ФРОНТ / ВІЙНА",
+        "priority": 5
+    }
+]
+
+
+# ============================================================
 # TELEGRAM
 # ============================================================
 
 def send_telegram(text):
+
     if not BOT_TOKEN:
         print("Помилка: BOT_TOKEN не заданий")
         return False
 
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+    url = (
+        f"https://api.telegram.org/"
+        f"bot{BOT_TOKEN}/sendMessage"
+    )
 
     try:
+
         response = requests.post(
             url,
             json={
@@ -42,99 +140,236 @@ def send_telegram(text):
             timeout=20
         )
 
-        print("Telegram:", response.status_code)
+        print(
+            "Telegram:",
+            response.status_code
+        )
 
         if not response.ok:
-            print("Помилка Telegram:", response.text)
+            print(
+                "Помилка Telegram:",
+                response.text
+            )
 
         return response.ok
 
     except Exception as error:
-        print("Помилка Telegram:", error)
+
+        print(
+            "Помилка Telegram:",
+            error
+        )
+
         return False
 
 
-def send_telegram_photo(photo_url, caption):
+def send_telegram_photo(
+    photo_url,
+    caption
+):
+
     if not BOT_TOKEN:
-        print("Помилка: BOT_TOKEN не заданий")
+        print(
+            "Помилка: BOT_TOKEN не заданий"
+        )
         return False
-
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto"
 
     try:
+
+        image_response = requests.get(
+            photo_url,
+            timeout=20,
+            headers={
+                "User-Agent":
+                    "Mozilla/5.0"
+            }
+        )
+
+        if not image_response.ok:
+            return False
+
+        url = (
+            f"https://api.telegram.org/"
+            f"bot{BOT_TOKEN}/sendPhoto"
+        )
+
         response = requests.post(
             url,
             data={
                 "chat_id": CHANNEL,
-                "caption": caption
+                "caption": caption[:1024]
             },
             files={
-                "photo": requests.get(
-                    photo_url,
-                    timeout=20
-                ).content
+                "photo": (
+                    "image.jpg",
+                    image_response.content,
+                    image_response.headers.get(
+                        "Content-Type",
+                        "image/jpeg"
+                    )
+                )
             },
             timeout=30
         )
 
-        print("Telegram photo:", response.status_code)
+        print(
+            "Telegram photo:",
+            response.status_code
+        )
 
         if not response.ok:
-            print("Помилка Telegram photo:", response.text)
+            print(
+                "Помилка Telegram photo:",
+                response.text
+            )
 
         return response.ok
 
     except Exception as error:
-        print("Помилка відправки фото:", error)
+
+        print(
+            "Помилка відправки фото:",
+            error
+        )
+
         return False
 
 
 # ============================================================
-# НОВИНИ
+# ДОПОМІЖНІ ФУНКЦІЇ
 # ============================================================
 
-def load_seen_news():
-    if not os.path.exists(NEWS_SEEN_FILE):
-        return set()
-
-    with open(NEWS_SEEN_FILE, "r", encoding="utf-8") as file:
-        return set(
-            line.strip()
-            for line in file
-            if line.strip()
-        )
-
-
-def save_seen_news(seen):
-    with open(NEWS_SEEN_FILE, "w", encoding="utf-8") as file:
-        for item in sorted(seen):
-            file.write(item + "\n")
-
-
 def clean_text(text):
+
     if not text:
         return ""
 
     text = html.unescape(text)
-    text = re.sub(r"<[^>]+>", " ", text)
-    text = re.sub(r"\s+", " ", text)
+
+    text = re.sub(
+        r"<[^>]+>",
+        " ",
+        text
+    )
+
+    text = re.sub(
+        r"\s+",
+        " ",
+        text
+    )
 
     return text.strip()
 
 
-def get_article_data(url):
-    """
-    Отримує короткий опис та головне зображення
-    зі сторінки новини.
+def normalize_text(text):
 
-    Посилання використовується тільки всередині бота
-    і НЕ публікується в Telegram.
-    """
+    text = clean_text(text).lower()
+
+    text = text.replace(
+        "’",
+        "'"
+    )
+
+    text = re.sub(
+        r"[^а-яіїєґa-z0-9\s]",
+        " ",
+        text
+    )
+
+    text = re.sub(
+        r"\s+",
+        " ",
+        text
+    )
+
+    return text.strip()
+
+
+def make_hash(text):
+
+    normalized = normalize_text(text)
+
+    return hashlib.sha256(
+        normalized.encode(
+            "utf-8"
+        )
+    ).hexdigest()
+
+
+def similarity(
+    text1,
+    text2
+):
+
+    a = normalize_text(text1)
+    b = normalize_text(text2)
+
+    if not a or not b:
+        return 0
+
+    return SequenceMatcher(
+        None,
+        a,
+        b
+    ).ratio()
+
+
+# ============================================================
+# ЗБЕРЕЖЕНІ НОВИНИ
+# ============================================================
+
+def load_seen_news():
+
+    if not os.path.exists(
+        NEWS_SEEN_FILE
+    ):
+        return set()
+
+    try:
+
+        with open(
+            NEWS_SEEN_FILE,
+            "r",
+            encoding="utf-8"
+        ) as file:
+
+            return set(
+                line.strip()
+                for line in file
+                if line.strip()
+            )
+
+    except Exception:
+
+        return set()
+
+
+def save_seen_news(seen):
+
+    with open(
+        NEWS_SEEN_FILE,
+        "w",
+        encoding="utf-8"
+    ) as file:
+
+        for item in sorted(seen):
+
+            file.write(
+                item + "\n"
+            )
+
+
+# ============================================================
+# ОТРИМАННЯ ДАНИХ СТАТТІ
+# ============================================================
+
+def get_article_data(url):
 
     description = ""
     image_url = ""
 
     try:
+
         response = requests.get(
             url,
             timeout=20,
@@ -148,164 +383,271 @@ def get_article_data(url):
         )
 
         if not response.ok:
-            return description, image_url
+
+            return (
+                description,
+                image_url
+            )
 
         page = response.text
 
-        # Опис новини
-        description_match = re.search(
-            r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\']([^"\']+)',
+        # ----------------------------------------------------
+        # OG DESCRIPTION
+        # ----------------------------------------------------
+
+        match = re.search(
+            r'<meta[^>]+property=["\']'
+            r'og:description["\'][^>]+'
+            r'content=["\']([^"\']+)',
             page,
             re.IGNORECASE
         )
 
-        if not description_match:
-            description_match = re.search(
-                r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']+)',
-                page,
-                re.IGNORECASE
-            )
+        if match:
 
-        if description_match:
             description = clean_text(
-                description_match.group(1)
+                match.group(1)
             )
 
-        # Головне зображення
-        image_match = re.search(
-            r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)',
-            page,
-            re.IGNORECASE
-        )
+        # ----------------------------------------------------
+        # DESCRIPTION
+        # ----------------------------------------------------
 
-        if image_match:
-            image_url = html.unescape(
-                image_match.group(1)
-            )
+        if not description:
 
-        # Додатковий варіант пошуку картинки
-        if not image_url:
-            image_match = re.search(
-                r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)',
+            match = re.search(
+                r'<meta[^>]+name=["\']'
+                r'description["\'][^>]+'
+                r'content=["\']([^"\']+)',
                 page,
                 re.IGNORECASE
             )
 
-            if image_match:
+            if match:
+
+                description = clean_text(
+                    match.group(1)
+                )
+
+        # ----------------------------------------------------
+        # OG IMAGE
+        # ----------------------------------------------------
+
+        match = re.search(
+            r'<meta[^>]+property=["\']'
+            r'og:image["\'][^>]+'
+            r'content=["\']([^"\']+)',
+            page,
+            re.IGNORECASE
+        )
+
+        if match:
+
+            image_url = html.unescape(
+                match.group(1)
+            )
+
+        # ----------------------------------------------------
+        # TWITTER IMAGE
+        # ----------------------------------------------------
+
+        if not image_url:
+
+            match = re.search(
+                r'<meta[^>]+name=["\']'
+                r'twitter:image["\'][^>]+'
+                r'content=["\']([^"\']+)',
+                page,
+                re.IGNORECASE
+            )
+
+            if match:
+
                 image_url = html.unescape(
-                    image_match.group(1)
+                    match.group(1)
                 )
 
     except Exception as error:
+
         print(
-            "Не вдалося отримати дані статті:",
+            "Помилка отримання статті:",
             error
         )
 
-    return description, image_url
+    return (
+        description,
+        image_url
+    )
 
 
-def get_news():
+# ============================================================
+# GOOGLE NEWS
+# ============================================================
 
-    news_sources = [
-        {
-            "query": "Козелець Козелецька громада",
-            "category": "📍 КОЗЕЛЕЦЬ"
-        },
-        {
-            "query": "Чернігів Чернігівщина",
-            "category": "🏙️ ЧЕРНІГІВЩИНА"
-        },
-        {
-            "query": "Україна головні новини",
-            "category": "🇺🇦 УКРАЇНА"
-        },
-        {
-            "query": "війна Україна фронт",
-            "category": "⚔️ ФРОНТ / ВІЙНА"
-        }
-    ]
+def get_google_news(
+    source
+):
 
-    all_news = []
+    news = []
 
-    for source in news_sources:
+    query = source["query"]
+    category = source["category"]
+    priority = source["priority"]
 
-        query = source["query"]
-        category = source["category"]
+    url = (
+        "https://news.google.com/rss/search?"
+        f"q={requests.utils.quote(query)}"
+        "&hl=uk&gl=UA&ceid=UA:uk"
+    )
 
-        url = (
-            "https://news.google.com/rss/search?"
-            f"q={requests.utils.quote(query)}"
-            "&hl=uk&gl=UA&ceid=UA:uk"
+    try:
+
+        response = requests.get(
+            url,
+            timeout=20
         )
 
-        try:
-            response = requests.get(
-                url,
-                timeout=20
+        print(
+            f"Google News [{category}]:",
+            response.status_code
+        )
+
+        if not response.ok:
+            return news
+
+        root = ET.fromstring(
+            response.text
+        )
+
+        for item in root.findall(
+            ".//item"
+        ):
+
+            title = item.findtext(
+                "title",
+                ""
             )
 
-            print(
-                f"Google News [{category}]:",
-                response.status_code
+            link = item.findtext(
+                "link",
+                ""
             )
 
-            if not response.ok:
+            pub_date = item.findtext(
+                "pubDate",
+                ""
+            )
+
+            description = item.findtext(
+                "description",
+                ""
+            )
+
+            if not title or not link:
                 continue
 
-            root = ET.fromstring(response.text)
-
-            for item in root.findall(".//item"):
-
-                title = item.findtext(
-                    "title",
-                    ""
-                )
-
-                link = item.findtext(
-                    "link",
-                    ""
-                )
-
-                pub_date = item.findtext(
-                    "pubDate",
-                    ""
-                )
-
-                description = item.findtext(
-                    "description",
-                    ""
-                )
-
-                if not title or not link:
-                    continue
-
-                all_news.append({
+            news.append(
+                {
                     "title": title,
                     "link": link,
                     "date": pub_date,
                     "description": description,
-                    "category": category
-                })
-
-        except Exception as error:
-
-            print(
-                f"Помилка Google News [{category}]:",
-                error
+                    "category": category,
+                    "priority": priority
+                }
             )
+
+    except Exception as error:
+
+        print(
+            "Помилка Google News:",
+            error
+        )
+
+    return news
+
+
+# ============================================================
+# ОТРИМАННЯ ВСІХ НОВИН
+# ============================================================
+
+def get_all_news():
+
+    all_news = []
+
+    for source in NEWS_SOURCES:
+
+        source_news = get_google_news(
+            source
+        )
+
+        all_news.extend(
+            source_news
+        )
 
     return all_news
 
 
-def publish_news():
+# ============================================================
+# ПЕРЕВІРКА ЧАСУ
+# ============================================================
 
-    seen = load_seen_news()
-    news = get_news()
+def is_recent(
+    date_string
+):
 
-    now = datetime.now(timezone.utc)
+    if not date_string:
+        return True
 
-    published = 0
+    try:
+
+        pub_time = datetime.strptime(
+            date_string,
+            "%a, %d %b %Y %H:%M:%S %Z"
+        ).replace(
+            tzinfo=timezone.utc
+        )
+
+        now = datetime.now(
+            timezone.utc
+        )
+
+        age = now - pub_time
+
+        if age < timedelta(
+            seconds=0
+        ):
+            return False
+
+        if age > timedelta(
+            hours=MAX_NEWS_AGE_HOURS
+        ):
+            return False
+
+        return True
+
+    except Exception:
+
+        return True
+
+
+# ============================================================
+# ФІЛЬТР НОВИН
+# ============================================================
+
+def allowed_news(
+    item
+):
+
+    title = normalize_text(
+        item["title"]
+    )
+
+    category = item["category"]
+
+    # --------------------------------------------------------
+    # СПОРТ
+    # --------------------------------------------------------
 
     sports_words = [
         "футбол",
@@ -317,63 +659,235 @@ def publish_news():
         "хокей"
     ]
 
-    for item in news:
+    if any(
+        word in title
+        for word in sports_words
+    ):
 
-        link = item["link"]
+        return False
 
-        if link in seen:
-            continue
+    # --------------------------------------------------------
+    # КОЗЕЛЕЦЬ
+    # --------------------------------------------------------
 
-        try:
+    if category == "📍 КОЗЕЛЕЦЬ":
 
-            pub_time = datetime.strptime(
-                item["date"],
-                "%a, %d %b %Y %H:%M:%S %Z"
-            ).replace(
-                tzinfo=timezone.utc
-            )
+        if (
+            "козелець" not in title
+            and
+            "козелецька громада"
+            not in title
+        ):
 
-            age = now - pub_time
+            return False
 
-            if age > timedelta(
-                hours=MAX_NEWS_AGE_HOURS
-            ):
-                continue
+    # --------------------------------------------------------
+    # ЧЕРНІГІВ
+    # --------------------------------------------------------
 
-            if age < timedelta(
-                seconds=0
-            ):
-                continue
+    if category == "🏙️ ЧЕРНІГІВ":
 
-        except Exception:
-            pass
+        if "чернігів" not in title:
 
-        title_lower = item["title"].lower()
+            return False
 
-        if any(
-            word in title_lower
-            for word in sports_words
+    return True
+
+
+# ============================================================
+# ДЕДУПЛІКАЦІЯ
+# ============================================================
+
+def is_duplicate(
+    item,
+    published_items
+):
+
+    item_title = item["title"]
+
+    item_description = clean_text(
+        item.get(
+            "description",
+            ""
+        )
+    )
+
+    item_text = (
+        item_title
+        + " "
+        + item_description
+    )
+
+    # --------------------------------------------------------
+    # Перевірка по хешу
+    # --------------------------------------------------------
+
+    item_hash = make_hash(
+        item_title
+        + item_description
+    )
+
+    for existing in published_items:
+
+        if existing["hash"] == item_hash:
+
+            return True
+
+    # --------------------------------------------------------
+    # Перевірка схожості
+    # --------------------------------------------------------
+
+    for existing in published_items:
+
+        existing_text = (
+            existing["title"]
+            + " "
+            + existing["description"]
+        )
+
+        title_similarity = similarity(
+            item_title,
+            existing["title"]
+        )
+
+        text_similarity = similarity(
+            item_text,
+            existing_text
+        )
+
+        # Дуже схожі заголовки
+        if title_similarity >= 0.82:
+
+            return True
+
+        # Схожий заголовок + текст
+        if (
+            title_similarity >= 0.65
+            and
+            text_similarity >= 0.70
+        ):
+
+            return True
+
+    return False
+
+
+# ============================================================
+# ПУБЛІКАЦІЯ НОВИН
+# ============================================================
+
+def publish_news():
+
+    seen = load_seen_news()
+
+    raw_news = get_all_news()
+
+    prepared = []
+
+    # --------------------------------------------------------
+    # ПЕРВИННИЙ ФІЛЬТР
+    # --------------------------------------------------------
+
+    for item in raw_news:
+
+        if not is_recent(
+            item["date"]
         ):
             continue
 
+        if not allowed_news(
+            item
+        ):
+            continue
+
+        if item["link"] in seen:
+            continue
+
+        prepared.append(
+            item
+        )
+
+    # --------------------------------------------------------
+    # СПОЧАТКУ ОБРОБЛЯЄМО ДЖЕРЕЛА
+    # З НАЙВИЩИМ ПРІОРИТЕТОМ
+    # --------------------------------------------------------
+
+    prepared.sort(
+        key=lambda item: (
+            item["priority"],
+            item["date"]
+        ),
+        reverse=False
+    )
+
+    published_items = []
+
+    published = 0
+
+    for item in prepared:
+
         print(
-            "Обробка новини:",
-            item["title"]
+            "Перевірка:",
+            item["title"],
+            "| пріоритет:",
+            item["priority"]
         )
 
-        # Отримуємо короткий текст і картинку
-        article_text, image_url = get_article_data(
-            link
+        # ----------------------------------------------------
+        # ОТРИМУЄМО ТЕКСТ ТА КАРТИНКУ
+        # ----------------------------------------------------
+
+        article_text = ""
+        image_url = ""
+
+        article_text, image_url = (
+            get_article_data(
+                item["link"]
+            )
         )
 
-        # Якщо сайт не дав опис —
-        # використовуємо опис RSS
         if not article_text:
+
             article_text = clean_text(
-                item.get("description", "")
+                item.get(
+                    "description",
+                    ""
+                )
             )
 
-        # Прибираємо зайві службові фрази
+        # ----------------------------------------------------
+        # ПЕРЕВІРЯЄМО ДУБЛІКАТ
+        # ----------------------------------------------------
+
+        temp_item = {
+            "title": item["title"],
+            "description": article_text,
+            "hash": make_hash(
+                item["title"]
+                + article_text
+            )
+        }
+
+        if is_duplicate(
+            temp_item,
+            published_items
+        ):
+
+            print(
+                "⏭️ ДУБЛІКАТ:",
+                item["title"]
+            )
+
+            seen.add(
+                item["link"]
+            )
+
+            continue
+
+        # ----------------------------------------------------
+        # ОЧИЩЕННЯ ТЕКСТУ
+        # ----------------------------------------------------
+
         article_text = re.sub(
             r"Читайте також.*",
             "",
@@ -381,15 +895,17 @@ def publish_news():
             flags=re.IGNORECASE
         ).strip()
 
-        # Якщо текст дуже короткий,
-        # залишаємо хоча б заголовок
         if len(article_text) < 20:
+
             article_text = (
                 "Подробиці новини "
-                "будуть уточнюватися."
+                "уточнюються."
             )
 
-        # Telegram має обмеження на caption 1024 символи
+        # ----------------------------------------------------
+        # ОБМЕЖЕННЯ ДЛЯ TELEGRAM
+        # ----------------------------------------------------
+
         article_text = article_text[:750]
 
         message = (
@@ -398,30 +914,56 @@ def publish_news():
             f"{article_text}"
         )
 
+        # ----------------------------------------------------
+        # ПУБЛІКАЦІЯ
+        # ----------------------------------------------------
+
         success = False
 
-        # Якщо є картинка — публікуємо з нею
         if image_url:
 
             success = send_telegram_photo(
                 image_url,
-                message[:1024]
+                message
             )
 
-        # Якщо картинку отримати не вдалося —
-        # публікуємо текстову новину
         if not success:
 
             success = send_telegram(
                 message
             )
 
+        # ----------------------------------------------------
+        # ЗБЕРІГАЄМО ТІЛЬКИ УСПІШНУ ПУБЛІКАЦІЮ
+        # ----------------------------------------------------
+
         if success:
 
-            seen.add(link)
+            seen.add(
+                item["link"]
+            )
+
+            published_items.append(
+                temp_item
+            )
+
             published += 1
 
-    save_seen_news(seen)
+            print(
+                "✅ Опубліковано:",
+                item["title"]
+            )
+
+        else:
+
+            print(
+                "❌ Не вдалося опублікувати:",
+                item["title"]
+            )
+
+    save_seen_news(
+        seen
+    )
 
     print(
         "Нових новин опубліковано:",
@@ -452,9 +994,11 @@ def load_alert_states():
 
             if "=" in line:
 
-                name, state = line.strip().split(
-                    "=",
-                    1
+                name, state = (
+                    line.strip().split(
+                        "=",
+                        1
+                    )
                 )
 
                 states[name] = (
@@ -464,7 +1008,9 @@ def load_alert_states():
     return states
 
 
-def save_alert_states(states):
+def save_alert_states(
+    states
+):
 
     with open(
         ALERT_STATE_FILE,
@@ -472,7 +1018,9 @@ def save_alert_states(states):
         encoding="utf-8"
     ) as file:
 
-        for name, active in states.items():
+        for name, active in (
+            states.items()
+        ):
 
             file.write(
                 f"{name}="
@@ -482,7 +1030,9 @@ def save_alert_states(states):
 
 def check_neptun():
 
-    old_states = load_alert_states()
+    old_states = (
+        load_alert_states()
+    )
 
     try:
 
@@ -526,7 +1076,9 @@ def check_neptun():
             )
 
             if name:
-                active_regions.add(name)
+                active_regions.add(
+                    name
+                )
 
         for item in data.get(
             "raions",
@@ -539,7 +1091,9 @@ def check_neptun():
             )
 
             if name:
-                active_districts.add(name)
+                active_districts.add(
+                    name
+                )
 
         checks = {
 
@@ -552,13 +1106,19 @@ def check_neptun():
                 in active_districts
         }
 
-        new_states = old_states.copy()
+        new_states = (
+            old_states.copy()
+        )
 
-        for name, active in checks.items():
+        for name, active in (
+            checks.items()
+        ):
 
-            old_active = old_states.get(
-                name,
-                False
+            old_active = (
+                old_states.get(
+                    name,
+                    False
+                )
             )
 
             print(
@@ -567,44 +1127,63 @@ def check_neptun():
                 active
             )
 
-            if active and not old_active:
+            # НОВА ТРИВОГА
+
+            if (
+                active
+                and
+                not old_active
+            ):
 
                 success = send_telegram(
                     f"🔴 ПОВІТРЯНА ТРИВОГА\n\n"
                     f"📍 {name}\n\n"
-                    f"⚠️ Стежте за офіційними повідомленнями.\n"
-                    f"ℹ️ Джерело: NEPTUN"
+                    f"⚠️ Стежте за офіційними "
+                    f"повідомленнями."
                 )
 
                 if success:
+
                     new_states[name] = True
+
                 else:
+
                     print(
                         "⚠️ Тривогу не вдалося "
-                        "відправити. Повторимо спробу."
+                        "відправити."
                     )
 
-            elif not active and old_active:
+            # ВІДБІЙ
+
+            elif (
+                not active
+                and
+                old_active
+            ):
 
                 success = send_telegram(
                     f"🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\n"
-                    f"📍 {name}\n\n"
-                    f"ℹ️ Джерело: NEPTUN"
+                    f"📍 {name}"
                 )
 
                 if success:
+
                     new_states[name] = False
+
                 else:
+
                     print(
                         "⚠️ Відбій не вдалося "
-                        "відправити. Повторимо спробу."
+                        "відправити."
                     )
 
             else:
 
                 new_states[name] = active
 
-        save_alert_states(new_states)
+        save_alert_states(
+            new_states
+        )
 
     except Exception as error:
 
@@ -633,15 +1212,19 @@ def load_mapa_state():
             encoding="utf-8"
         ) as file:
 
-            value = file.read().strip()
-
-            return value == "true"
+            return (
+                file.read().strip()
+                == "true"
+            )
 
     except Exception:
+
         return False
 
 
-def save_mapa_state(active):
+def save_mapa_state(
+    active
+):
 
     with open(
         MAPA_STATE_FILE,
@@ -650,24 +1233,35 @@ def save_mapa_state(active):
     ) as file:
 
         file.write(
-            "true" if active else "false"
+            "true"
+            if active
+            else "false"
         )
 
 
 def check_mapa():
 
-    old_active = load_mapa_state()
+    old_active = (
+        load_mapa_state()
+    )
 
     try:
 
         url = (
-            "https://mapa.ua/api/v1/nearby"
+            "https://mapa.ua/"
+            "api/v1/nearby"
         )
 
         params = {
-            "lat": KOZELETS_LAT,
-            "lon": KOZELETS_LON,
-            "radius_km": MAPA_RADIUS_KM
+
+            "lat":
+                KOZELETS_LAT,
+
+            "lon":
+                KOZELETS_LON,
+
+            "radius_km":
+                MAPA_RADIUS_KM
         }
 
         response = requests.get(
@@ -697,14 +1291,22 @@ def check_mapa():
             []
         )
 
-        active = len(threats) > 0
+        active = (
+            len(threats) > 0
+        )
 
         print(
             "MAPA.UA: активних загроз:",
             len(threats)
         )
 
-        if active and not old_active:
+        # НОВА ЗАГРОЗА
+
+        if (
+            active
+            and
+            not old_active
+        ):
 
             success = send_telegram(
                 "⚠️ ДОДАТКОВА ІНФОРМАЦІЯ\n\n"
@@ -717,9 +1319,18 @@ def check_mapa():
             )
 
             if success:
-                save_mapa_state(True)
 
-        elif not active and old_active:
+                save_mapa_state(
+                    True
+                )
+
+        # ЗАГРОЗИ ЗНИКЛИ
+
+        elif (
+            not active
+            and
+            old_active
+        ):
 
             success = send_telegram(
                 "ℹ️ MAPA.UA\n\n"
@@ -731,11 +1342,16 @@ def check_mapa():
             )
 
             if success:
-                save_mapa_state(False)
+
+                save_mapa_state(
+                    False
+                )
 
         else:
 
-            save_mapa_state(active)
+            save_mapa_state(
+                active
+            )
 
     except Exception as error:
 
@@ -767,4 +1383,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()

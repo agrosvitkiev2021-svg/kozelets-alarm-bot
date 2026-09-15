@@ -1,5 +1,6 @@
 import os
 import html
+import re
 import requests
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
@@ -14,14 +15,14 @@ MAPA_STATE_FILE = "mapa_state.txt"
 
 MAX_NEWS_AGE_HOURS = 3
 
-# Приблизна координата Козельця.
-# Використовується лише для визначення загроз поблизу.
 KOZELETS_LAT = 50.913
 KOZELETS_LON = 31.115
-
-# Радіус перевірки MAPA.UA
 MAPA_RADIUS_KM = 100
 
+
+# ============================================================
+# TELEGRAM
+# ============================================================
 
 def send_telegram(text):
     if not BOT_TOKEN:
@@ -53,6 +54,41 @@ def send_telegram(text):
         return False
 
 
+def send_telegram_photo(photo_url, caption):
+    if not BOT_TOKEN:
+        print("Помилка: BOT_TOKEN не заданий")
+        return False
+
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto"
+
+    try:
+        response = requests.post(
+            url,
+            data={
+                "chat_id": CHANNEL,
+                "caption": caption
+            },
+            files={
+                "photo": requests.get(
+                    photo_url,
+                    timeout=20
+                ).content
+            },
+            timeout=30
+        )
+
+        print("Telegram photo:", response.status_code)
+
+        if not response.ok:
+            print("Помилка Telegram photo:", response.text)
+
+        return response.ok
+
+    except Exception as error:
+        print("Помилка відправки фото:", error)
+        return False
+
+
 # ============================================================
 # НОВИНИ
 # ============================================================
@@ -73,6 +109,100 @@ def save_seen_news(seen):
     with open(NEWS_SEEN_FILE, "w", encoding="utf-8") as file:
         for item in sorted(seen):
             file.write(item + "\n")
+
+
+def clean_text(text):
+    if not text:
+        return ""
+
+    text = html.unescape(text)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s+", " ", text)
+
+    return text.strip()
+
+
+def get_article_data(url):
+    """
+    Отримує короткий опис та головне зображення
+    зі сторінки новини.
+
+    Посилання використовується тільки всередині бота
+    і НЕ публікується в Telegram.
+    """
+
+    description = ""
+    image_url = ""
+
+    try:
+        response = requests.get(
+            url,
+            timeout=20,
+            headers={
+                "User-Agent":
+                    "Mozilla/5.0 "
+                    "(Windows NT 10.0; Win64; x64) "
+                    "AppleWebKit/537.36 "
+                    "Chrome/120 Safari/537.36"
+            }
+        )
+
+        if not response.ok:
+            return description, image_url
+
+        page = response.text
+
+        # Опис новини
+        description_match = re.search(
+            r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\']([^"\']+)',
+            page,
+            re.IGNORECASE
+        )
+
+        if not description_match:
+            description_match = re.search(
+                r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']+)',
+                page,
+                re.IGNORECASE
+            )
+
+        if description_match:
+            description = clean_text(
+                description_match.group(1)
+            )
+
+        # Головне зображення
+        image_match = re.search(
+            r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)',
+            page,
+            re.IGNORECASE
+        )
+
+        if image_match:
+            image_url = html.unescape(
+                image_match.group(1)
+            )
+
+        # Додатковий варіант пошуку картинки
+        if not image_url:
+            image_match = re.search(
+                r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)',
+                page,
+                re.IGNORECASE
+            )
+
+            if image_match:
+                image_url = html.unescape(
+                    image_match.group(1)
+                )
+
+    except Exception as error:
+        print(
+            "Не вдалося отримати дані статті:",
+            error
+        )
+
+    return description, image_url
 
 
 def get_news():
@@ -142,6 +272,11 @@ def get_news():
                     ""
                 )
 
+                description = item.findtext(
+                    "description",
+                    ""
+                )
+
                 if not title or not link:
                     continue
 
@@ -149,6 +284,7 @@ def get_news():
                     "title": title,
                     "link": link,
                     "date": pub_date,
+                    "description": description,
                     "category": category
                 })
 
@@ -220,13 +356,67 @@ def publish_news():
         ):
             continue
 
+        print(
+            "Обробка новини:",
+            item["title"]
+        )
+
+        # Отримуємо короткий текст і картинку
+        article_text, image_url = get_article_data(
+            link
+        )
+
+        # Якщо сайт не дав опис —
+        # використовуємо опис RSS
+        if not article_text:
+            article_text = clean_text(
+                item.get("description", "")
+            )
+
+        # Прибираємо зайві службові фрази
+        article_text = re.sub(
+            r"Читайте також.*",
+            "",
+            article_text,
+            flags=re.IGNORECASE
+        ).strip()
+
+        # Якщо текст дуже короткий,
+        # залишаємо хоча б заголовок
+        if len(article_text) < 20:
+            article_text = (
+                "Подробиці новини "
+                "будуть уточнюватися."
+            )
+
+        # Telegram має обмеження на caption 1024 символи
+        article_text = article_text[:750]
+
         message = (
             f"{item['category']}\n\n"
             f"📰 {html.unescape(item['title'])}\n\n"
-            f"🔗 {item['link']}"
+            f"{article_text}"
         )
 
-        if send_telegram(message):
+        success = False
+
+        # Якщо є картинка — публікуємо з нею
+        if image_url:
+
+            success = send_telegram_photo(
+                image_url,
+                message[:1024]
+            )
+
+        # Якщо картинку отримати не вдалося —
+        # публікуємо текстову новину
+        if not success:
+
+            success = send_telegram(
+                message
+            )
+
+        if success:
 
             seen.add(link)
             published += 1
@@ -377,7 +567,6 @@ def check_neptun():
                 active
             )
 
-            # НОВА ТРИВОГА
             if active and not old_active:
 
                 success = send_telegram(
@@ -395,7 +584,6 @@ def check_neptun():
                         "відправити. Повторимо спробу."
                     )
 
-            # ВІДБІЙ
             elif not active and old_active:
 
                 success = send_telegram(
@@ -516,7 +704,6 @@ def check_mapa():
             len(threats)
         )
 
-        # НОВА ДОДАТКОВА ЗАГРОЗА
         if active and not old_active:
 
             success = send_telegram(
@@ -532,7 +719,6 @@ def check_mapa():
             if success:
                 save_mapa_state(True)
 
-        # ЗАГРОЗИ ЗНИКЛИ
         elif not active and old_active:
 
             success = send_telegram(

@@ -29,10 +29,6 @@ MAPA_RADIUS_KM = 100
 
 NEWS_SOURCES = [
 
-    # --------------------------------------------------------
-    # СУСПІЛЬНЕ — НАЙВИЩИЙ ПРІОРИТЕТ
-    # --------------------------------------------------------
-
     {
         "query": "site:suspilne.media/chernihiv Козелець",
         "category": "📍 КОЗЕЛЕЦЬ",
@@ -44,10 +40,6 @@ NEWS_SOURCES = [
         "category": "🏙️ ЧЕРНІГІВ",
         "priority": 1
     },
-
-    # --------------------------------------------------------
-    # CHELINE
-    # --------------------------------------------------------
 
     {
         "query": "site:cheline.com.ua Козелець",
@@ -61,10 +53,6 @@ NEWS_SOURCES = [
         "priority": 2
     },
 
-    # --------------------------------------------------------
-    # ЧАС ЧЕРНІГІВСЬКИЙ
-    # --------------------------------------------------------
-
     {
         "query": "site:cntime.cn.ua Козелець",
         "category": "📍 КОЗЕЛЕЦЬ",
@@ -76,10 +64,6 @@ NEWS_SOURCES = [
         "category": "🏙️ ЧЕРНІГІВ",
         "priority": 3
     },
-
-    # --------------------------------------------------------
-    # GOOGLE NEWS — ЗАГАЛЬНИЙ ПОШУК
-    # --------------------------------------------------------
 
     {
         "query": "\"Козелець\" \"Козелецька громада\"",
@@ -169,9 +153,7 @@ def send_telegram_photo(
 ):
 
     if not BOT_TOKEN:
-        print(
-            "Помилка: BOT_TOKEN не заданий"
-        )
+        print("Помилка: BOT_TOKEN не заданий")
         return False
 
     try:
@@ -186,6 +168,22 @@ def send_telegram_photo(
         )
 
         if not image_response.ok:
+            print(
+                "Не вдалося завантажити зображення:",
+                image_response.status_code
+            )
+            return False
+
+        content_type = image_response.headers.get(
+            "Content-Type",
+            "image/jpeg"
+        )
+
+        if not content_type.startswith("image/"):
+            print(
+                "Посилання не є зображенням:",
+                content_type
+            )
             return False
 
         url = (
@@ -203,10 +201,7 @@ def send_telegram_photo(
                 "photo": (
                     "image.jpg",
                     image_response.content,
-                    image_response.headers.get(
-                        "Content-Type",
-                        "image/jpeg"
-                    )
+                    content_type
                 )
             },
             timeout=30
@@ -290,9 +285,7 @@ def make_hash(text):
     normalized = normalize_text(text)
 
     return hashlib.sha256(
-        normalized.encode(
-            "utf-8"
-        )
+        normalized.encode("utf-8")
     ).hexdigest()
 
 
@@ -364,7 +357,9 @@ def save_seen_news(seen):
 # ============================================================
 
 def get_article_data(link):
+
     try:
+
         headers = {
             "User-Agent": (
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -380,12 +375,19 @@ def get_article_data(link):
             allow_redirects=True
         )
 
+        print(
+            "Сторінка статті:",
+            response.status_code,
+            response.url
+        )
+
         if response.status_code != 200:
             return "", ""
 
         text = response.text
 
         # Видаляємо службові частини HTML
+
         text = re.sub(
             r"<script.*?</script>",
             "",
@@ -400,68 +402,112 @@ def get_article_data(link):
             flags=re.I | re.S
         )
 
-        # Спочатку шукаємо нормальний опис статті
+        # ----------------------------------------------------
+        # ОПИС СТАТТІ
+        # ----------------------------------------------------
+
         description = ""
 
         patterns = [
+
             r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\'](.*?)["\']',
+
             r'<meta[^>]+name=["\']description["\'][^>]+content=["\'](.*?)["\']',
+
             r'<meta[^>]+content=["\'](.*?)["\'][^>]+property=["\']og:description["\']',
+
             r'<meta[^>]+content=["\'](.*?)["\'][^>]+name=["\']description["\']'
         ]
 
         for pattern in patterns:
-            match = re.search(pattern, text, re.I | re.S)
+
+            match = re.search(
+                pattern,
+                text,
+                re.I | re.S
+            )
 
             if match:
-                description = html.unescape(match.group(1)).strip()
+
+                description = html.unescape(
+                    match.group(1)
+                ).strip()
 
                 if description:
                     break
 
-        # Якщо отримали службовий текст Google News — відкидаємо його
-        bad_text = (
+        # ----------------------------------------------------
+        # ВИДАЛЯЄМО СЛУЖБОВИЙ ТЕКСТ GOOGLE NEWS
+        # ----------------------------------------------------
+
+        bad_texts = [
+
             "Comprehensive up-to-date news coverage",
-            "aggregated from sources all over the world by Google News"
-        )
 
-        if any(bad.lower() in description.lower() for bad in bad_text):
-            description = ""
+            "aggregated from sources all over the world by Google News",
 
-        # Отримуємо зображення статті
+            "Google News"
+        ]
+
+        for bad_text in bad_texts:
+
+            if bad_text.lower() in description.lower():
+
+                description = ""
+
+                break
+
+        # ----------------------------------------------------
+        # ЗОБРАЖЕННЯ
+        # ----------------------------------------------------
+
         image = ""
 
         image_patterns = [
+
             r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\'](.*?)["\']',
-            r'<meta[^>]+content=["\'](.*?)["\'][^>]+property=["\']og:image["\']'
+
+            r'<meta[^>]+content=["\'](.*?)["\'][^>]+property=["\']og:image["\']',
+
+            r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\'](.*?)["\']',
+
+            r'<meta[^>]+content=["\'](.*?)["\'][^>]+name=["\']twitter:image["\']'
         ]
 
         for pattern in image_patterns:
-            match = re.search(pattern, text, re.I | re.S)
+
+            match = re.search(
+                pattern,
+                text,
+                re.I | re.S
+            )
 
             if match:
-                image = html.unescape(match.group(1)).strip()
+
+                image = html.unescape(
+                    match.group(1)
+                ).strip()
 
                 if image:
                     break
 
         return description, image
 
-    except Exception as e:
-        print(f"Помилка отримання статті: {e}")
+    except Exception as error:
+
+        print(
+            "Помилка отримання статті:",
+            error
+        )
+
         return "", ""
-        description,
-        image_url
-    )
 
 
 # ============================================================
 # GOOGLE NEWS
 # ============================================================
 
-def get_google_news(
-    source
-):
+def get_google_news(source):
 
     news = []
 
@@ -567,9 +613,7 @@ def get_all_news():
 # ПЕРЕВІРКА ЧАСУ
 # ============================================================
 
-def is_recent(
-    date_string
-):
+def is_recent(date_string):
 
     if not date_string:
         return True
@@ -610,9 +654,7 @@ def is_recent(
 # ФІЛЬТР НОВИН
 # ============================================================
 
-def allowed_news(
-    item
-):
+def allowed_news(item):
 
     title = normalize_text(
         item["title"]
@@ -620,11 +662,8 @@ def allowed_news(
 
     category = item["category"]
 
-    # --------------------------------------------------------
-    # СПОРТ
-    # --------------------------------------------------------
-
     sports_words = [
+
         "футбол",
         "спорт",
         "матч",
@@ -650,8 +689,7 @@ def allowed_news(
         if (
             "козелець" not in title
             and
-            "козелецька громада"
-            not in title
+            "козелецька громада" not in title
         ):
 
             return False
@@ -693,10 +731,6 @@ def is_duplicate(
         + item_description
     )
 
-    # --------------------------------------------------------
-    # Перевірка по хешу
-    # --------------------------------------------------------
-
     item_hash = make_hash(
         item_title
         + item_description
@@ -707,10 +741,6 @@ def is_duplicate(
         if existing["hash"] == item_hash:
 
             return True
-
-    # --------------------------------------------------------
-    # Перевірка схожості
-    # --------------------------------------------------------
 
     for existing in published_items:
 
@@ -730,12 +760,10 @@ def is_duplicate(
             existing_text
         )
 
-        # Дуже схожі заголовки
         if title_similarity >= 0.82:
 
             return True
 
-        # Схожий заголовок + текст
         if (
             title_similarity >= 0.65
             and
@@ -759,10 +787,6 @@ def publish_news():
 
     prepared = []
 
-    # --------------------------------------------------------
-    # ПЕРВИННИЙ ФІЛЬТР
-    # --------------------------------------------------------
-
     for item in raw_news:
 
         if not is_recent(
@@ -782,17 +806,13 @@ def publish_news():
             item
         )
 
-    # --------------------------------------------------------
-    # СПОЧАТКУ ОБРОБЛЯЄМО ДЖЕРЕЛА
-    # З НАЙВИЩИМ ПРІОРИТЕТОМ
-    # --------------------------------------------------------
+    # Найвищий пріоритет обробляється першим
 
     prepared.sort(
         key=lambda item: (
             item["priority"],
             item["date"]
-        ),
-        reverse=False
+        )
     )
 
     published_items = []
@@ -809,17 +829,17 @@ def publish_news():
         )
 
         # ----------------------------------------------------
-        # ОТРИМУЄМО ТЕКСТ ТА КАРТИНКУ
+        # ОТРИМУЄМО ТЕКСТ І ЗОБРАЖЕННЯ
         # ----------------------------------------------------
-
-        article_text = ""
-        image_url = ""
 
         article_text, image_url = (
             get_article_data(
                 item["link"]
             )
         )
+
+        # Якщо сторінка видання не дала опис,
+        # використовуємо опис із RSS
 
         if not article_text:
 
@@ -831,16 +851,36 @@ def publish_news():
             )
 
         # ----------------------------------------------------
-        # ПЕРЕВІРЯЄМО ДУБЛІКАТ
+        # ПЕРЕВІРКА GOOGLE NEWS ТЕКСТУ
+        # ----------------------------------------------------
+
+        if (
+            "Comprehensive up-to-date news coverage"
+            in article_text
+            or
+            "aggregated from sources all over the world"
+            in article_text
+        ):
+
+            article_text = ""
+
+        # ----------------------------------------------------
+        # ДЕДУПЛІКАЦІЯ
         # ----------------------------------------------------
 
         temp_item = {
-            "title": item["title"],
-            "description": article_text,
-            "hash": make_hash(
-                item["title"]
-                + article_text
-            )
+
+            "title":
+                item["title"],
+
+            "description":
+                article_text,
+
+            "hash":
+                make_hash(
+                    item["title"]
+                    + article_text
+                )
         }
 
         if is_duplicate(
@@ -877,15 +917,19 @@ def publish_news():
                 "уточнюються."
             )
 
-        # ----------------------------------------------------
-        # ОБМЕЖЕННЯ ДЛЯ TELEGRAM
-        # ----------------------------------------------------
-
         article_text = article_text[:750]
 
+        # ----------------------------------------------------
+        # ФОРМУВАННЯ ПОВІДОМЛЕННЯ
+        # ----------------------------------------------------
+
         message = (
+
             f"{item['category']}\n\n"
-            f"📰 {html.unescape(item['title'])}\n\n"
+
+            f"📰 "
+            f"{html.unescape(item['title'])}\n\n"
+
             f"{article_text}"
         )
 
@@ -957,6 +1001,7 @@ def load_alert_states():
     if not os.path.exists(
         ALERT_STATE_FILE
     ):
+
         return states
 
     with open(
@@ -983,9 +1028,7 @@ def load_alert_states():
     return states
 
 
-def save_alert_states(
-    states
-):
+def save_alert_states(states):
 
     with open(
         ALERT_STATE_FILE,
@@ -993,9 +1036,7 @@ def save_alert_states(
         encoding="utf-8"
     ) as file:
 
-        for name, active in (
-            states.items()
-        ):
+        for name, active in states.items():
 
             file.write(
                 f"{name}="
@@ -1005,9 +1046,7 @@ def save_alert_states(
 
 def check_neptun():
 
-    old_states = (
-        load_alert_states()
-    )
+    old_states = load_alert_states()
 
     try:
 
@@ -1051,6 +1090,7 @@ def check_neptun():
             )
 
             if name:
+
                 active_regions.add(
                     name
                 )
@@ -1066,6 +1106,7 @@ def check_neptun():
             )
 
             if name:
+
                 active_districts.add(
                     name
                 )
@@ -1081,19 +1122,13 @@ def check_neptun():
                 in active_districts
         }
 
-        new_states = (
-            old_states.copy()
-        )
+        new_states = old_states.copy()
 
-        for name, active in (
-            checks.items()
-        ):
+        for name, active in checks.items():
 
-            old_active = (
-                old_states.get(
-                    name,
-                    False
-                )
+            old_active = old_states.get(
+                name,
+                False
             )
 
             print(
@@ -1111,8 +1146,11 @@ def check_neptun():
             ):
 
                 success = send_telegram(
+
                     f"🔴 ПОВІТРЯНА ТРИВОГА\n\n"
+
                     f"📍 {name}\n\n"
+
                     f"⚠️ Стежте за офіційними "
                     f"повідомленнями."
                 )
@@ -1137,7 +1175,10 @@ def check_neptun():
             ):
 
                 success = send_telegram(
-                    f"🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\n"
+
+                    f"🟢 ВІДБІЙ "
+                    f"ПОВІТРЯНОЇ ТРИВОГИ\n\n"
+
                     f"📍 {name}"
                 )
 
@@ -1177,6 +1218,7 @@ def load_mapa_state():
     if not os.path.exists(
         MAPA_STATE_FILE
     ):
+
         return False
 
     try:
@@ -1197,9 +1239,7 @@ def load_mapa_state():
         return False
 
 
-def save_mapa_state(
-    active
-):
+def save_mapa_state(active):
 
     with open(
         MAPA_STATE_FILE,
@@ -1216,9 +1256,7 @@ def save_mapa_state(
 
 def check_mapa():
 
-    old_active = (
-        load_mapa_state()
-    )
+    old_active = load_mapa_state()
 
     try:
 
@@ -1266,9 +1304,7 @@ def check_mapa():
             []
         )
 
-        active = (
-            len(threats) > 0
-        )
+        active = len(threats) > 0
 
         print(
             "MAPA.UA: активних загроз:",
@@ -1284,10 +1320,13 @@ def check_mapa():
         ):
 
             success = send_telegram(
+
                 "⚠️ ДОДАТКОВА ІНФОРМАЦІЯ\n\n"
+
                 "🗺️ MAPA.UA повідомляє "
                 "про активні повітряні загрози "
                 "поблизу Козельця.\n\n"
+
                 "⚠️ Дані MAPA.UA є приблизними "
                 "та не замінюють офіційні "
                 "повідомлення про повітряну тривогу."
@@ -1295,9 +1334,7 @@ def check_mapa():
 
             if success:
 
-                save_mapa_state(
-                    True
-                )
+                save_mapa_state(True)
 
         # ЗАГРОЗИ ЗНИКЛИ
 
@@ -1308,9 +1345,12 @@ def check_mapa():
         ):
 
             success = send_telegram(
+
                 "ℹ️ MAPA.UA\n\n"
+
                 "Активних загроз поблизу "
                 "Козельця більше не виявлено.\n\n"
+
                 "⚠️ Це додаткове інформаційне "
                 "повідомлення і не є офіційним "
                 "відбоєм повітряної тривоги."
@@ -1318,15 +1358,11 @@ def check_mapa():
 
             if success:
 
-                save_mapa_state(
-                    False
-                )
+                save_mapa_state(False)
 
         else:
 
-            save_mapa_state(
-                active
-            )
+            save_mapa_state(active)
 
     except Exception as error:
 

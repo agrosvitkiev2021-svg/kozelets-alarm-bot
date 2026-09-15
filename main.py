@@ -13,7 +13,7 @@ ALERT_STATE_FILE = "alert_state.txt"
 
 MAX_NEWS_AGE_HOURS = 2
 
-BASE_URL = "https://tryvoha.online/api/v1"
+BASE_URL = "https://neptun.in.ua/api/v1"
 
 REGIONS = {
     "Чернігівська область": "cernigivska-oblast",

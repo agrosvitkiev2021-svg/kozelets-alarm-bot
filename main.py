@@ -190,50 +190,62 @@ def save_alert_states(states):
 
 def check_alerts():
     old_states = load_alert_states()
-    new_states = {}
 
-    first_run = not os.path.exists(ALERT_STATE_FILE)
+    try:
+        url = "https://neptun.in.ua/api/v1/alerts"
+        response = requests.get(url, timeout=20)
 
-    for name, slug in REGIONS.items():
+        print("NEPTUN API:", response.status_code)
 
-        try:
-            url = f"{BASE_URL}/alerts/{slug}"
-            response = requests.get(url, timeout=20)
+        if not response.ok:
+            print("Помилка NEPTUN:", response.text)
+            return
 
-            print(name, "API:", response.status_code)
+        data = response.json()
 
-            if not response.ok:
-                continue
+        active_regions = set()
+        active_districts = set()
 
-            data = response.json()
-            active = bool(data.get("active", False))
+        for item in data.get("oblasts", []):
+            name = item.get("name", "")
+            if name:
+                active_regions.add(name)
 
-            new_states[name] = active
+        for item in data.get("raions", []):
+            name = item.get("name", "")
+            if name:
+                active_districts.add(name)
 
-            if first_run:
-                continue
+        checks = {
+            "Чернігівська область": "Чернігівська область" in active_regions,
+            "Чернігівський район": "Чернігівський район" in active_districts
+        }
+
+        for name, active in checks.items():
 
             old_active = old_states.get(name, False)
+
+            print(name, "активна:", active)
 
             if active and not old_active:
                 send_telegram(
                     f"🔴 ПОВІТРЯНА ТРИВОГА\n\n"
                     f"📍 {name}\n\n"
-                    f"⚠️ Стежте за офіційними повідомленнями."
+                    f"⚠️ Стежте за офіційними повідомленнями.\n"
+                    f"ℹ️ Дані: NEPTUN"
                 )
 
             elif not active and old_active:
                 send_telegram(
                     f"🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\n"
-                    f"📍 {name}"
+                    f"📍 {name}\n\n"
+                    f"ℹ️ Дані: NEPTUN"
                 )
 
-        except Exception as error:
-            print("Помилка перевірки тривоги:", name, error)
+        save_alert_states(checks)
 
-    if new_states:
-        save_alert_states(new_states)
-
+    except Exception as error:
+        print("Помилка перевірки тривоги:", error)
 
 def main():
     print("=== Перевірка Козелець Alarm ===")

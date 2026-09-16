@@ -6,8 +6,7 @@
 274787_u1|drone_piston
 274787_u2|drone_piston
 274794|drone_piston
-274795_u0|drone_jet
-274795_u1|drone_jet
+274795|drone_piston
 274797|drone_jet
 274804|drone_jet
 274805|drone_piston

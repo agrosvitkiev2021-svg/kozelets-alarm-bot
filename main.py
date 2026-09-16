@@ -27,11 +27,8 @@ CHANNEL = os.getenv("CHANNEL")
 
 TIMEZONE = ZoneInfo("Europe/Kyiv")
 
-# Координати регіону (Козелець як центр)
 KOZELETS_LAT = 50.913
 KOZELETS_LON = 31.115
-
-# Радіус MAPA.UA навколо регіону
 MAPA_RADIUS_KM = 100
 
 # Файли стану
@@ -58,7 +55,7 @@ KOZELETS_HISTORY_FACTS = [
     (
         "📜 ІСТОРИЧНІ ФАКТИ: Старовинний Остер\n\n"
         "Остер — одне з найдавніших міст регіону, засноване ще у 1098 році Володимиром Мономахом як фортеця «Городець». "
-        "Донині тут збереглася унікальна пам'ятка домонгольської архітектури — уламки Борисоглібської церкви (Стернівської божзниці), що є свідком тисячолітньої історії."
+        "Донині тут збереглася унікальна пам'ятка домонгольської архітектури — уламки Борисоглібської церкви."
     ),
     (
         "👥 ВИДАТНІ ЛЮДИ: Родина Розумовських\n\n"
@@ -68,37 +65,34 @@ KOZELETS_HISTORY_FACTS = [
     (
         "🏛️ ВИДАТНІ БУДІВЛІ: Будинок полкової канцелярії\n\n"
         "Унікальна пам'ятка адміністративної архітектури XVIII століття в Козельці (зведена близько 1756–1760 рр.). "
-        "Тут колись засідала Козелецька полкова канцелярія Київського полку, що свідчить про високий автономний статус краю у часи Гетьманщини."
+        "Тут колись засідала Козелецька полкова канцелярія Київського полку."
     ),
     (
         "📜 ІСТОРИЧНІ ФАКТИ: Бобровицький край\n\n"
-        "Бобровичина має багату історію, тісно пов'язану з козацьким землеробством, розвитком цукроваріння у XIX столітті та давніми традиціями Лівобережжя. "
-        "Місцеві села зберігають унікальний фольклор, народні ремесла та пам'ятки давньої архітектури."
+        "Бобровичина має багату історію, тісно пов'язану з козацьким землеробством, розвитком цукроваріння у XIX столітті та давніми традиціями Лівобережжя."
     ),
     (
         "👥 ВИДАТНІ ЛЮДИ: Павло Чубинський\n\n"
         "Видатний етнограф і поет, автор слів державного гімну України «Ще не вмерла Україна», Павло Чубинський активно досліджував побут, "
-        "традиції та говірки корінних мешканців Чернігівщини, залишаючи безцінну спадщину про наш регіон."
+        "традиції та говірки корінних мешканців Чернігівщини."
     ),
     (
         "🏛️ ВИДАТНІ БУДІВЛІ: Миколаївська церква (Козелець)\n\n"
-        "Визначна сакральна пам'ятка (побудована у 1781 році), яка гармонійно доповнює історичний архітектурний ансамбль центру Козельця, "
-        "демонструючи майстерність українських мулярів минулих століть."
+        "Визначна сакральна пам'ятка (побудована у 1781 році), яка гармонійно доповнює історичний архітектурний ансамбль центру Козельця."
     ),
     (
         "📜 ІСТОРИЧНІ ФАКТИ: Магдебурзьке право в регіоні\n\n"
-        "Козелець та інші містечка краю у XVII столітті мали Магдебурзьке право, що гарантувало їм самоврядування, власні ратуші, розвинені ремісничі цехи "
-        "та великі ярмарки, які збирали купців з усієї Лівобережної України."
+        "Козелець та інші містечка краю у XVII столітті мали Магдебурзьке право, що гарантувало їм самоврядування, ратуші та розвинені ремісничі цехи."
     )
 ]
 
 
 # =========================================================
-# ДЖЕРЕЛА НОВИН (ВКЛЮЧАЮЧИ "ВІСНИК Ч" / ЧЕЛІНЕ)
+# ДЖЕРЕЛА НОВИН (ВКЛЮЧАЮЧИ "ВІСНИК Ч" / ЧЕЛІНЕ ТА ІНШІ)
 # =========================================================
 
 NEWS_SOURCES = [
-    # 📰 «Вісник Ч» (Cheline) — спеціально налаштований на Козелець, Остер та Бобровицю
+    # 📰 «Вісник Ч» (Cheline) — спеціально під Остер, Козелець та Бобровицю
     {
         "query": "site:cheline.com.ua Козелець",
         "category": "📍 КОЗЕЛЕЦЬ (Вісник Ч)",
@@ -119,8 +113,7 @@ NEWS_SOURCES = [
         "category": "📍 КОЗЕЛЕЧЧИНА (Вісник Ч)",
         "priority": 1
     },
-    
-    # Інші ключові джерела регіону
+    # Регіональні джерела
     {
         "query": "site:suspilne.media/chernihiv Козелець",
         "category": "📍 КОЗЕЛЕЦЬ",
@@ -147,11 +140,6 @@ NEWS_SOURCES = [
         "priority": 2
     },
     {
-        "query": "\"Козелець\" \"Козелецька громада\"",
-        "category": "📍 КОЗЕЛЕЦЬ",
-        "priority": 3
-    },
-    {
         "query": "\"Остер\" новини",
         "category": "📍 ОСТЕР",
         "priority": 2
@@ -165,11 +153,6 @@ NEWS_SOURCES = [
         "query": "\"Чернігівщина\" головні новини",
         "category": "🏙️ ЧЕРНІГІВЩИНА",
         "priority": 4
-    },
-    {
-        "query": "війна Україна фронт",
-        "category": "⚔️ ФРОНТ / ВІЙНА",
-        "priority": 5
     }
 ]
 
@@ -184,110 +167,72 @@ def telegram_url(method):
 
 def send_message(text):
     if not BOT_TOKEN or not CHANNEL:
-        print("❌ BOT_TOKEN або CHANNEL не задані")
         return None
-
     text = re.sub(r"https?://\S+", "", text).strip()
-
     try:
         response = requests.post(
             telegram_url("sendMessage"),
-            data={
-                "chat_id": CHANNEL,
-                "text": text,
-                "disable_web_page_preview": True
-            },
+            data={"chat_id": CHANNEL, "text": text, "disable_web_page_preview": True},
             timeout=30
         )
-
         if response.ok:
-            result = response.json()
-            return result.get("result", {}).get("message_id")
-
-        print("Telegram error:", response.text)
-
+            return response.json().get("result", {}).get("message_id")
     except Exception as error:
         print("Telegram exception:", error)
-
     return None
 
 
 def send_photo(photo_url, caption):
     if not BOT_TOKEN or not CHANNEL or not photo_url:
         return None
-
     caption = re.sub(r"https?://\S+", "", caption).strip()
-
     try:
         response = requests.post(
             telegram_url("sendPhoto"),
-            data={
-                "chat_id": CHANNEL,
-                "photo": photo_url,
-                "caption": caption
-            },
+            data={"chat_id": CHANNEL, "photo": photo_url, "caption": caption},
             timeout=40
         )
-
         if response.ok:
-            result = response.json()
-            return result.get("result", {}).get("message_id")
-
+            return response.json().get("result", {}).get("message_id")
         print("Telegram photo error:", response.text)
-
     except Exception as error:
         print("Telegram photo exception:", error)
-
     return None
 
 
 def edit_message(message_id, text):
     if not BOT_TOKEN or not CHANNEL or not message_id:
         return False
-
     text = re.sub(r"https?://\S+", "", text).strip()
-
     try:
         response = requests.post(
             telegram_url("editMessageText"),
-            data={
-                "chat_id": CHANNEL,
-                "message_id": message_id,
-                "text": text,
-                "disable_web_page_preview": True
-            },
+            data={"chat_id": CHANNEL, "message_id": message_id, "text": text, "disable_web_page_preview": True},
             timeout=30
         )
         return response.ok
     except Exception as error:
         print("Edit message exception:", error)
-
     return False
 
 
 def pin_message(message_id):
     if not BOT_TOKEN or not CHANNEL or not message_id:
         return False
-
     try:
         response = requests.post(
             telegram_url("pinChatMessage"),
-            data={
-                "chat_id": CHANNEL,
-                "message_id": message_id,
-                "disable_notification": True
-            },
+            data={"chat_id": CHANNEL, "message_id": message_id, "disable_notification": True},
             timeout=30
         )
         return response.ok
     except Exception as error:
         print("Pin message exception:", error)
-
     return False
 
 
 # =========================================================
-# ФАЙЛИ СТАНУ ТА ЛОГІКА ІСТОРИЧНИХ ПОСТІВ (2 РАЗИ НА ДОБУ)
+# ФАЙЛИ СТАНУ ТА ІСТОРІЯ
 # =========================================================
 
 def read_state(filename):
@@ -307,16 +252,13 @@ def write_state(filename, value):
 
 
 def check_and_send_history_post():
-    """Публікує історичний факт 2 рази на добу (кожні 12 годин)."""
     now = datetime.now(TIMEZONE)
     current_timestamp = now.timestamp()
     
     last_time_str = read_state(HISTORY_LAST_TIME_FILE)
     last_timestamp = float(last_time_str) if last_time_str else 0.0
 
-    twelve_hours = 12 * 3600
-
-    if current_timestamp - last_timestamp >= twelve_hours or last_timestamp == 0.0:
+    if current_timestamp - last_timestamp >= 12 * 3600 or last_timestamp == 0.0:
         index_str = read_state(HISTORY_INDEX_FILE)
         index = int(index_str) if index_str else 0
 
@@ -335,18 +277,16 @@ def check_and_send_history_post():
 
 
 # =========================================================
-# ОЧИЩЕННЯ ТЕКСТУ ТА ПАРСИНГ НОВИН
+# ПАРСИНГ НОВИН ТА КАРТИНОК
 # =========================================================
 
 def clean_text(text):
     if not text:
         return ""
-
     text = html.unescape(text)
     text = re.sub(r"<[^>]+>", " ", text)
     text = re.sub(r"https?://\S+", " ", text)
     text = re.sub(r"\s+", " ", text)
-
     return text.strip()
 
 
@@ -368,10 +308,8 @@ def clean_title(title):
 def resolve_news_link(link):
     if not link or "news.google.com" not in link:
         return link
-
     if new_decoderv1 is None:
         return link
-
     try:
         result = new_decoderv1(link, interval_time=1)
         if isinstance(result, dict) and result.get("status"):
@@ -380,13 +318,13 @@ def resolve_news_link(link):
             return result
     except Exception:
         pass
-
     return link
 
 
-def extract_article_text(url):
+def extract_article_data(url):
+    """Витягує текст та головну картинку (og:image) зі сторінки новини"""
     if not url:
-        return ""
+        return "", ""
 
     try:
         response = requests.get(
@@ -395,10 +333,16 @@ def extract_article_text(url):
             timeout=15
         )
         if not response.ok:
-            return ""
+            return "", ""
 
         page = response.text
         article_text = ""
+        image_url = ""
+
+        m_img = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', page, flags=re.IGNORECASE)
+        if m_img:
+            image_url = m_img.group(1).strip()
+
         json_blocks = re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', page, flags=re.DOTALL)
         for block in json_blocks:
             try:
@@ -418,19 +362,15 @@ def extract_article_text(url):
             if m_desc:
                 article_text = clean_text(m_desc.group(1))
 
-        if len(article_text) > 700:
-            article_text = article_text[:700].rsplit(" ", 1)[0] + "…"
+        if len(article_text) > 650:
+            article_text = article_text[:650].rsplit(" ", 1)[0] + "…"
 
-        return article_text
+        return article_text, image_url
     except Exception:
         pass
 
-    return ""
+    return "", ""
 
-
-# =========================================================
-# RSS GOOGLE NEWS ТА ДЕДУПЛІКАЦІЯ
-# =========================================================
 
 def get_google_news(query):
     url = f"https://news.google.com/rss/search?q={quote(query)}&hl=uk&gl=UA&ceid=UA:uk"
@@ -520,7 +460,6 @@ def check_news():
             category = source["category"]
             title_lower = title.lower()
 
-            # Строга релевантність для локальних містечок
             if "козелець" in category and not ("козелець" in title_lower or "козелеч" in title_lower):
                 continue
             if "остер" in category and not "остер" in title_lower:
@@ -551,12 +490,17 @@ def check_news():
     published = 0
     for item in unique_news:
         original_url = resolve_news_link(item["link"])
-        article_text = extract_article_text(original_url)
+        article_text, image_url = extract_article_data(original_url)
+
         if not article_text:
             article_text = item["description"] or "Подробиці новини уточнюються."
 
         caption = f"{item['category']}\n\n📰 {item['title']}\n\n{clean_text(article_text)}"
-        msg_id = send_message(caption)
+
+        if image_url and image_url.startswith("http"):
+            msg_id = send_photo(image_url, caption)
+        else:
+            msg_id = send_message(caption)
 
         if msg_id:
             seen.add(item["id"])
@@ -567,51 +511,37 @@ def check_news():
 
 
 # =========================================================
-# ТРИВОГИ ТА ЗАГРОЗИ З МАПИ
+# ПОВІТРЯНІ ТРИВОГИ (НАДІЙНИЙ МОНІТОРИНГ ОБЛАСТІ)
 # =========================================================
 
-def region_is_active(region):
-    if not isinstance(region, dict):
-        return False
-    if any(region.get(k) is True for k in ["active", "is_active", "alarm", "alert"]):
-        return True
-    return str(region.get("status", "")).lower() in ["active", "alarm", "alert", "on"]
-
-
-def find_neptun_region(data, words):
-    if isinstance(data, dict):
-        name = str(data.get("name", data.get("title", data.get("region", "")))).lower()
-        if any(w in name for w in words):
-            return region_is_active(data)
-        for v in data.values():
-            if find_neptun_region(v, words):
-                return True
-    elif isinstance(data, list):
-        for item in data:
-            if find_neptun_region(item, words):
-                return True
-    return False
-
-
-def check_neptun():
+def check_alerts():
+    """Перевіряє статус повітряної тривоги по Чернігівській області"""
     try:
-        response = requests.get("https://neptun.in.ua/api/v1/alerts", timeout=15)
-        if not response.ok:
-            return False
+        # Використовуємо стабільний відкритий інструмент мапи тривог
+        response = requests.get("https://map.ukrainealarm.com/api/v3/alerts/states", headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
+        if response.ok:
+            data = response.json()
+            regions = data.get("states", data.get("regions", []))
+            is_alarm = False
+            
+            for region in regions:
+                name = str(region.get("regionName", region.get("name", ""))).lower()
+                if "чернігівська" in name:
+                    if region.get("alerted", region.get("active", False)):
+                        is_alarm = True
+                    break
 
-        data = response.json()
-        active = find_neptun_region(data, ["чернігівська область", "чернігівський район"])
-        old_state = read_state(ALERT_STATE_FILE) == "1"
+            old_state = read_state(ALERT_STATE_FILE) == "1"
 
-        if active and not old_state:
-            send_message("🚨 ПОВІТРЯНА ТРИВОГА\n\nЧернігівська область / район\n\n⚠️ Перейдіть в укриття!")
-            write_state(ALERT_STATE_FILE, "1")
-        elif not active and old_state:
-            send_message("🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\nЗагроза для регіону минула.")
-            write_state(ALERT_STATE_FILE, "0")
-        return active
-    except Exception:
-        pass
+            if is_alarm and not old_state:
+                send_message("🚨 ПОВІТРЯНА ТРИВОГА\n\nЧернігівська область!\n\n⚠️ Перейдіть в укриття!")
+                write_state(ALERT_STATE_FILE, "1")
+            elif not is_alarm and old_state:
+                send_message("🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\nЗагроза для регіону минула.")
+                write_state(ALERT_STATE_FILE, "0")
+            return is_alarm
+    except Exception as error:
+        print("Помилка перевірки тривоги:", error)
     return False
 
 
@@ -735,10 +665,10 @@ def update_live_dashboard():
 # =========================================================
 
 if __name__ == "__main__":
-    print("=== Автономний запуск бота (з Вісником Ч) ===")
+    print("=== Повний автономний запуск бота ===")
     check_news()
-    check_neptun()
+    check_alerts()
     check_mapa()
     check_and_send_history_post()
     update_live_dashboard()
-    print("=== Завершено ===")
+    print("=== Завершено успішно ===")

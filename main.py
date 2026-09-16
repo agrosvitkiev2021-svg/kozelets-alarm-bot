@@ -1,12 +1,19 @@
 import os
 import html
 import re
+import json
 import hashlib
 import requests
 import xml.etree.ElementTree as ET
 
 from difflib import SequenceMatcher
 from datetime import datetime, timezone, timedelta
+from zoneinfo import ZoneInfo
+
+try:
+    from googlenewsdecoder import gnewsdecoder
+except Exception:
+    gnewsdecoder = None
 
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
@@ -15,12 +22,19 @@ CHANNEL = os.environ.get("CHANNEL", "@Kozelets_Alarm")
 NEWS_SEEN_FILE = "news_seen.txt"
 ALERT_STATE_FILE = "alert_state.txt"
 MAPA_STATE_FILE = "mapa_state.txt"
+WEATHER_STATE_FILE = "weather_state.txt"
 
 MAX_NEWS_AGE_HOURS = 3
 
 KOZELETS_LAT = 50.913
 KOZELETS_LON = 31.115
+
+CHERNIHIV_LAT = 51.4982
+CHERNIHIV_LON = 31.2893
+
 MAPA_RADIUS_KM = 100
+
+KYIV_TZ = ZoneInfo("Europe/Kyiv")
 
 
 # ============================================================
@@ -107,10 +121,7 @@ def send_telegram(text):
         print("Помилка: BOT_TOKEN не заданий")
         return False
 
-    url = (
-        f"https://api.telegram.org/"
-        f"bot{BOT_TOKEN}/sendMessage"
-    )
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
     try:
 
@@ -124,33 +135,21 @@ def send_telegram(text):
             timeout=20
         )
 
-        print(
-            "Telegram:",
-            response.status_code
-        )
+        print("Telegram:", response.status_code)
 
         if not response.ok:
-            print(
-                "Помилка Telegram:",
-                response.text
-            )
+            print("Помилка Telegram:", response.text)
 
         return response.ok
 
     except Exception as error:
 
-        print(
-            "Помилка Telegram:",
-            error
-        )
+        print("Помилка Telegram:", error)
 
         return False
 
 
-def send_telegram_photo(
-    photo_url,
-    caption
-):
+def send_telegram_photo(photo_url, caption):
 
     if not BOT_TOKEN:
         print("Помилка: BOT_TOKEN не заданий")
@@ -162,16 +161,17 @@ def send_telegram_photo(
             photo_url,
             timeout=20,
             headers={
-                "User-Agent":
-                    "Mozilla/5.0"
+                "User-Agent": "Mozilla/5.0"
             }
         )
 
         if not image_response.ok:
+
             print(
                 "Не вдалося завантажити зображення:",
                 image_response.status_code
             )
+
             return False
 
         content_type = image_response.headers.get(
@@ -180,16 +180,15 @@ def send_telegram_photo(
         )
 
         if not content_type.startswith("image/"):
+
             print(
                 "Посилання не є зображенням:",
                 content_type
             )
+
             return False
 
-        url = (
-            f"https://api.telegram.org/"
-            f"bot{BOT_TOKEN}/sendPhoto"
-        )
+        url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto"
 
         response = requests.post(
             url,
@@ -207,25 +206,16 @@ def send_telegram_photo(
             timeout=30
         )
 
-        print(
-            "Telegram photo:",
-            response.status_code
-        )
+        print("Telegram photo:", response.status_code)
 
         if not response.ok:
-            print(
-                "Помилка Telegram photo:",
-                response.text
-            )
+            print("Помилка Telegram photo:", response.text)
 
         return response.ok
 
     except Exception as error:
 
-        print(
-            "Помилка відправки фото:",
-            error
-        )
+        print("Помилка відправки фото:", error)
 
         return False
 
@@ -289,10 +279,7 @@ def make_hash(text):
     ).hexdigest()
 
 
-def similarity(
-    text1,
-    text2
-):
+def similarity(text1, text2):
 
     a = normalize_text(text1)
     b = normalize_text(text2)
@@ -308,14 +295,45 @@ def similarity(
 
 
 # ============================================================
+# ОЧИЩЕННЯ ЗАГОЛОВКА
+# ============================================================
+
+def clean_news_title(title):
+
+    title = html.unescape(title).strip()
+
+    suffixes = [
+
+        " - Суспільне | Новини",
+        " — Суспільне | Новини",
+        " - Суспільне Чернігів",
+        " — Суспільне Чернігів",
+        " - Суспільне",
+        " — Суспільне",
+        " - ЧЕline",
+        " — ЧЕline",
+        " - Час Чернігівський",
+        " — Час Чернігівський"
+    ]
+
+    for suffix in suffixes:
+
+        if title.endswith(suffix):
+
+            title = title[:-len(suffix)].strip()
+
+            break
+
+    return title
+
+
+# ============================================================
 # ЗБЕРЕЖЕНІ НОВИНИ
 # ============================================================
 
 def load_seen_news():
 
-    if not os.path.exists(
-        NEWS_SEEN_FILE
-    ):
+    if not os.path.exists(NEWS_SEEN_FILE):
         return set()
 
     try:
@@ -353,6 +371,65 @@ def save_seen_news(seen):
 
 
 # ============================================================
+# РОЗШИФРУВАННЯ GOOGLE NEWS URL
+# ============================================================
+
+def resolve_news_link(link):
+
+    if not link:
+        return link
+
+    if "news.google.com" not in link:
+        return link
+
+    if gnewsdecoder is None:
+
+        print(
+            "⚠️ googlenewsdecoder не встановлений"
+        )
+
+        return link
+
+    try:
+
+        print("Розшифровую Google News URL...")
+
+        result = gnewsdecoder(
+            link,
+            interval=1
+        )
+
+        if result and result.get("status"):
+
+            decoded_url = result.get(
+                "decoded_url",
+                ""
+            )
+
+            if decoded_url:
+
+                print(
+                    "Оригінальна стаття:",
+                    decoded_url
+                )
+
+                return decoded_url
+
+        print(
+            "⚠️ Не вдалося розшифрувати Google News URL"
+        )
+
+    except Exception as error:
+
+        print(
+            "Помилка розшифрування Google News:",
+            error
+        )
+
+    return link
+
+
+# ============================================================
 # ОТРИМАННЯ ДАНИХ СТАТТІ
 # ============================================================
 
@@ -371,7 +448,7 @@ def get_article_data(link):
         response = requests.get(
             link,
             headers=headers,
-            timeout=15,
+            timeout=20,
             allow_redirects=True
         )
 
@@ -386,27 +463,13 @@ def get_article_data(link):
 
         text = response.text
 
-        # Видаляємо службові частини HTML
-
-        text = re.sub(
-            r"<script.*?</script>",
-            "",
-            text,
-            flags=re.I | re.S
-        )
-
-        text = re.sub(
-            r"<style.*?</style>",
-            "",
-            text,
-            flags=re.I | re.S
-        )
-
-        # ----------------------------------------------------
-        # ОПИС СТАТТІ
-        # ----------------------------------------------------
-
         description = ""
+        image = ""
+        article_body = ""
+
+        # ----------------------------------------------------
+        # META DESCRIPTION
+        # ----------------------------------------------------
 
         patterns = [
 
@@ -437,31 +500,8 @@ def get_article_data(link):
                     break
 
         # ----------------------------------------------------
-        # ВИДАЛЯЄМО СЛУЖБОВИЙ ТЕКСТ GOOGLE NEWS
+        # OG IMAGE
         # ----------------------------------------------------
-
-        bad_texts = [
-
-            "Comprehensive up-to-date news coverage",
-
-            "aggregated from sources all over the world by Google News",
-
-            "Google News"
-        ]
-
-        for bad_text in bad_texts:
-
-            if bad_text.lower() in description.lower():
-
-                description = ""
-
-                break
-
-        # ----------------------------------------------------
-        # ЗОБРАЖЕННЯ
-        # ----------------------------------------------------
-
-        image = ""
 
         image_patterns = [
 
@@ -490,6 +530,193 @@ def get_article_data(link):
 
                 if image:
                     break
+
+        # ----------------------------------------------------
+        # JSON-LD
+        # ----------------------------------------------------
+
+        json_matches = re.findall(
+            r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+            text,
+            re.I | re.S
+        )
+
+        for raw_json in json_matches:
+
+            try:
+
+                data = json.loads(
+                    raw_json.strip()
+                )
+
+                objects = []
+
+                if isinstance(data, dict):
+
+                    objects.append(data)
+
+                    if isinstance(
+                        data.get("@graph"),
+                        list
+                    ):
+
+                        objects.extend(
+                            data["@graph"]
+                        )
+
+                elif isinstance(data, list):
+
+                    objects.extend(data)
+
+                for obj in objects:
+
+                    if not isinstance(obj, dict):
+                        continue
+
+                    if not article_body:
+
+                        body = obj.get(
+                            "articleBody",
+                            ""
+                        )
+
+                        if body:
+
+                            article_body = clean_text(
+                                body
+                            )
+
+                    if not image:
+
+                        json_image = obj.get(
+                            "image",
+                            ""
+                        )
+
+                        if isinstance(
+                            json_image,
+                            str
+                        ):
+
+                            image = json_image
+
+                        elif isinstance(
+                            json_image,
+                            dict
+                        ):
+
+                            image = json_image.get(
+                                "url",
+                                ""
+                            )
+
+                        elif isinstance(
+                            json_image,
+                            list
+                        ) and json_image:
+
+                            first_image = json_image[0]
+
+                            if isinstance(
+                                first_image,
+                                str
+                            ):
+
+                                image = first_image
+
+                            elif isinstance(
+                                first_image,
+                                dict
+                            ):
+
+                                image = first_image.get(
+                                    "url",
+                                    ""
+                                )
+
+            except Exception:
+
+                continue
+
+        # ----------------------------------------------------
+        # ВИДАЛЯЄМО GOOGLE NEWS СЛУЖБОВИЙ ТЕКСТ
+        # ----------------------------------------------------
+
+        bad_texts = [
+
+            "Comprehensive up-to-date news coverage",
+
+            "aggregated from sources all over the world by Google News",
+
+            "Google News"
+        ]
+
+        for bad_text in bad_texts:
+
+            if bad_text.lower() in description.lower():
+
+                description = ""
+
+                break
+
+        for bad_text in bad_texts:
+
+            if bad_text.lower() in article_body.lower():
+
+                article_body = ""
+
+                break
+
+        # ----------------------------------------------------
+        # ВИБИРАЄМО НАЙКРАЩИЙ ТЕКСТ
+        # ----------------------------------------------------
+
+        if article_body and len(article_body) >= 40:
+
+            description = article_body
+
+        description = clean_text(
+            description
+        )
+
+        # Прибираємо службові фрази
+        description = re.sub(
+            r"Читайте також.*",
+            "",
+            description,
+            flags=re.IGNORECASE
+        ).strip()
+
+        # Прибираємо зайві посилання з тексту
+        description = re.sub(
+            r"https?://\S+",
+            "",
+            description
+        )
+
+        description = re.sub(
+            r"\s+",
+            " ",
+            description
+        ).strip()
+
+        print(
+            "Текст статті отримано:",
+            len(description),
+            "символів"
+        )
+
+        if image:
+
+            print(
+                "Зображення статті знайдено"
+            )
+
+        else:
+
+            print(
+                "Зображення статті не знайдено"
+            )
 
         return description, image
 
@@ -700,6 +927,23 @@ def allowed_news(item):
 
     if category == "🏙️ ЧЕРНІГІВ":
 
+        oblast_words = [
+
+            "чернігівщина",
+            "чернігівській області",
+            "чернігівської області",
+            "на чернігівщині",
+            "по чернігівщині",
+            "чернігівщини"
+        ]
+
+        if any(
+            word in title
+            for word in oblast_words
+        ):
+
+            return False
+
         if "чернігів" not in title:
 
             return False
@@ -711,10 +955,7 @@ def allowed_news(item):
 # ДЕДУПЛІКАЦІЯ
 # ============================================================
 
-def is_duplicate(
-    item,
-    published_items
-):
+def is_duplicate(item, published_items):
 
     item_title = item["title"]
 
@@ -739,7 +980,6 @@ def is_duplicate(
     for existing in published_items:
 
         if existing["hash"] == item_hash:
-
             return True
 
     for existing in published_items:
@@ -761,7 +1001,6 @@ def is_duplicate(
         )
 
         if title_similarity >= 0.82:
-
             return True
 
         if (
@@ -806,13 +1045,12 @@ def publish_news():
             item
         )
 
-    # Найвищий пріоритет обробляється першим
-
     prepared.sort(
         key=lambda item: (
             item["priority"],
             item["date"]
-        )
+        ),
+        reverse=False
     )
 
     published_items = []
@@ -821,6 +1059,7 @@ def publish_news():
 
     for item in prepared:
 
+        print()
         print(
             "Перевірка:",
             item["title"],
@@ -829,17 +1068,27 @@ def publish_news():
         )
 
         # ----------------------------------------------------
-        # ОТРИМУЄМО ТЕКСТ І ЗОБРАЖЕННЯ
+        # ОТРИМУЄМО СПРАВЖНЄ ПОСИЛАННЯ
+        # ----------------------------------------------------
+
+        real_link = resolve_news_link(
+            item["link"]
+        )
+
+        # ----------------------------------------------------
+        # ОТРИМУЄМО ТЕКСТ І ФОТО
         # ----------------------------------------------------
 
         article_text, image_url = (
             get_article_data(
-                item["link"]
+                real_link
             )
         )
 
-        # Якщо сторінка видання не дала опис,
-        # використовуємо опис із RSS
+        # ----------------------------------------------------
+        # ЯКЩО СТОРІНКА НЕ ДАЛА ТЕКСТ —
+        # RSS ОПИС, АЛЕ БЕЗ GOOGLE NEWS ТЕКСТУ
+        # ----------------------------------------------------
 
         if not article_text:
 
@@ -850,35 +1099,68 @@ def publish_news():
                 )
             )
 
+        bad_google_text = [
+
+            "Comprehensive up-to-date news coverage",
+
+            "aggregated from sources all over the world",
+
+            "Google News"
+        ]
+
+        for bad_text in bad_google_text:
+
+            if bad_text.lower() in article_text.lower():
+
+                article_text = ""
+
+                break
+
         # ----------------------------------------------------
-        # ПЕРЕВІРКА GOOGLE NEWS ТЕКСТУ
+        # ОЧИЩЕННЯ ЗАГОЛОВКА
         # ----------------------------------------------------
 
-        if (
-            "Comprehensive up-to-date news coverage"
-            in article_text
-            or
-            "aggregated from sources all over the world"
-            in article_text
-        ):
-
-            article_text = ""
+        clean_title = clean_news_title(
+            item["title"]
+        )
 
         # ----------------------------------------------------
-        # ДЕДУПЛІКАЦІЯ
+        # ПОСТІЙНА ПЕРЕВІРКА ДУБЛІКАТІВ
+        # ----------------------------------------------------
+
+        title_key = (
+            "TITLE:"
+            + make_hash(clean_title)
+        )
+
+        if title_key in seen:
+
+            print(
+                "⏭️ Вже публікувалася:",
+                clean_title
+            )
+
+            seen.add(
+                item["link"]
+            )
+
+            continue
+
+        # ----------------------------------------------------
+        # ДЕДУПЛІКАЦІЯ В МЕЖАХ ПОТОЧНОГО ЗАПУСКУ
         # ----------------------------------------------------
 
         temp_item = {
 
             "title":
-                item["title"],
+                clean_title,
 
             "description":
                 article_text,
 
             "hash":
                 make_hash(
-                    item["title"]
+                    clean_title
                     + article_text
                 )
         }
@@ -890,7 +1172,7 @@ def publish_news():
 
             print(
                 "⏭️ ДУБЛІКАТ:",
-                item["title"]
+                clean_title
             )
 
             seen.add(
@@ -900,15 +1182,8 @@ def publish_news():
             continue
 
         # ----------------------------------------------------
-        # ОЧИЩЕННЯ ТЕКСТУ
+        # ЯКЩО ТЕКСТУ НЕМАЄ
         # ----------------------------------------------------
-
-        article_text = re.sub(
-            r"Читайте також.*",
-            "",
-            article_text,
-            flags=re.IGNORECASE
-        ).strip()
 
         if len(article_text) < 20:
 
@@ -927,8 +1202,7 @@ def publish_news():
 
             f"{item['category']}\n\n"
 
-            f"📰 "
-            f"{html.unescape(item['title'])}\n\n"
+            f"📰 {clean_title}\n\n"
 
             f"{article_text}"
         )
@@ -962,6 +1236,16 @@ def publish_news():
                 item["link"]
             )
 
+            seen.add(
+                title_key
+            )
+
+            if real_link:
+                seen.add(
+                    "URL:"
+                    + real_link
+                )
+
             published_items.append(
                 temp_item
             )
@@ -970,14 +1254,14 @@ def publish_news():
 
             print(
                 "✅ Опубліковано:",
-                item["title"]
+                clean_title
             )
 
         else:
 
             print(
                 "❌ Не вдалося опублікувати:",
-                item["title"]
+                clean_title
             )
 
     save_seen_news(
@@ -988,6 +1272,451 @@ def publish_news():
         "Нових новин опубліковано:",
         published
     )
+
+
+# ============================================================
+# ПОГОДА
+# ============================================================
+
+WEATHER_CODES = {
+
+    0: "☀️ Ясно",
+    1: "🌤 Переважно ясно",
+    2: "⛅ Мінлива хмарність",
+    3: "☁️ Хмарно",
+
+    45: "🌫 Туман",
+    48: "🌫 Туман",
+
+    51: "🌦 Легка мряка",
+    53: "🌦 Мряка",
+    55: "🌧 Сильна мряка",
+
+    56: "🌧 Крижана мряка",
+    57: "🌧 Крижана мряка",
+
+    61: "🌧 Невеликий дощ",
+    63: "🌧 Дощ",
+    65: "🌧 Сильний дощ",
+
+    66: "🌧 Крижаний дощ",
+    67: "🌧 Сильний крижаний дощ",
+
+    71: "🌨 Невеликий сніг",
+    73: "🌨 Сніг",
+    75: "❄️ Сильний сніг",
+
+    77: "❄️ Снігові зерна",
+
+    80: "🌦 Невелика злива",
+    81: "🌧 Злива",
+    82: "🌧 Сильна злива",
+
+    85: "🌨 Снігова злива",
+    86: "❄️ Сильна снігова злива",
+
+    95: "⛈ Гроза",
+    96: "⛈ Гроза з градом",
+    99: "⛈ Сильна гроза з градом"
+}
+
+
+def get_weather_for_location(
+    name,
+    latitude,
+    longitude,
+    date_string
+):
+
+    url = "https://api.open-meteo.com/v1/forecast"
+
+    params = {
+
+        "latitude":
+            latitude,
+
+        "longitude":
+            longitude,
+
+        "daily":
+            ",".join([
+                "weather_code",
+                "temperature_2m_max",
+                "temperature_2m_min",
+                "precipitation_probability_max",
+                "precipitation_sum",
+                "wind_speed_10m_max",
+                "sunrise",
+                "sunset"
+            ]),
+
+        "timezone":
+            "Europe/Kyiv",
+
+        "start_date":
+            date_string,
+
+        "end_date":
+            date_string
+    }
+
+    try:
+
+        response = requests.get(
+            url,
+            params=params,
+            timeout=20
+        )
+
+        print(
+            f"Погода {name}:",
+            response.status_code
+        )
+
+        if not response.ok:
+
+            print(
+                "Помилка Open-Meteo:",
+                response.text
+            )
+
+            return None
+
+        data = response.json()
+
+        daily = data.get(
+            "daily",
+            {}
+        )
+
+        times = daily.get(
+            "time",
+            []
+        )
+
+        if not times:
+            return None
+
+        weather_code = daily.get(
+            "weather_code",
+            [None]
+        )[0]
+
+        temp_max = daily.get(
+            "temperature_2m_max",
+            [None]
+        )[0]
+
+        temp_min = daily.get(
+            "temperature_2m_min",
+            [None]
+        )[0]
+
+        precipitation_probability = daily.get(
+            "precipitation_probability_max",
+            [None]
+        )[0]
+
+        precipitation = daily.get(
+            "precipitation_sum",
+            [None]
+        )[0]
+
+        wind_max = daily.get(
+            "wind_speed_10m_max",
+            [None]
+        )[0]
+
+        sunrise = daily.get(
+            "sunrise",
+            [None]
+        )[0]
+
+        sunset = daily.get(
+            "sunset",
+            [None]
+        )[0]
+
+        return {
+
+            "name":
+                name,
+
+            "weather":
+                WEATHER_CODES.get(
+                    weather_code,
+                    "🌤 Змішані погодні умови"
+                ),
+
+            "temp_min":
+                temp_min,
+
+            "temp_max":
+                temp_max,
+
+            "precipitation_probability":
+                precipitation_probability,
+
+            "precipitation":
+                precipitation,
+
+            "wind_max":
+                wind_max,
+
+            "sunrise":
+                sunrise,
+
+            "sunset":
+                sunset
+        }
+
+    except Exception as error:
+
+        print(
+            f"Помилка погоди {name}:",
+            error
+        )
+
+        return None
+
+
+def format_weather_block(weather):
+
+    if not weather:
+        return "⚠️ Дані погоди тимчасово недоступні."
+
+    lines = [
+
+        f"📍 {weather['name']}",
+
+        f"{weather['weather']}",
+
+        (
+            f"🌡 Температура: "
+            f"{weather['temp_min']:+.0f}°C ... "
+            f"{weather['temp_max']:+.0f}°C"
+        )
+    ]
+
+    if weather["precipitation_probability"] is not None:
+
+        lines.append(
+            f"🌧 Ймовірність опадів: "
+            f"{weather['precipitation_probability']}%"
+        )
+
+    if weather["precipitation"] is not None:
+
+        lines.append(
+            f"💧 Опади: "
+            f"{weather['precipitation']:.1f} мм"
+        )
+
+    if weather["wind_max"] is not None:
+
+        lines.append(
+            f"💨 Вітер: до "
+            f"{weather['wind_max']:.0f} км/год"
+        )
+
+    if weather["sunrise"]:
+
+        sunrise_time = (
+            weather["sunrise"]
+            .split("T")[-1]
+        )
+
+        lines.append(
+            f"🌅 Схід сонця: {sunrise_time}"
+        )
+
+    if weather["sunset"]:
+
+        sunset_time = (
+            weather["sunset"]
+            .split("T")[-1]
+        )
+
+        lines.append(
+            f"🌇 Захід сонця: {sunset_time}"
+        )
+
+    return "\n".join(lines)
+
+
+def load_weather_state():
+
+    if not os.path.exists(
+        WEATHER_STATE_FILE
+    ):
+
+        return {}
+
+    try:
+
+        with open(
+            WEATHER_STATE_FILE,
+            "r",
+            encoding="utf-8"
+        ) as file:
+
+            state = {}
+
+            for line in file:
+
+                if "=" in line:
+
+                    key, value = line.strip().split(
+                        "=",
+                        1
+                    )
+
+                    state[key] = value
+
+            return state
+
+    except Exception:
+
+        return {}
+
+
+def save_weather_state(state):
+
+    with open(
+        WEATHER_STATE_FILE,
+        "w",
+        encoding="utf-8"
+    ) as file:
+
+        for key, value in state.items():
+
+            file.write(
+                f"{key}={value}\n"
+            )
+
+
+def check_weather():
+
+    now = datetime.now(
+        KYIV_TZ
+    )
+
+    state = load_weather_state()
+
+    today = now.date()
+
+    # --------------------------------------------------------
+    # РАНОК — 08:00–08:59
+    # ПРОГНОЗ НА СЬОГОДНІ
+    # --------------------------------------------------------
+
+    if now.hour == 8:
+
+        state_key = (
+            "morning_"
+            + today.isoformat()
+        )
+
+        if state.get("morning") != today.isoformat():
+
+            print(
+                "=== Ранковий прогноз погоди ==="
+            )
+
+            kozelets = get_weather_for_location(
+                "Козелець",
+                KOZELETS_LAT,
+                KOZELETS_LON,
+                today.isoformat()
+            )
+
+            chernihiv = get_weather_for_location(
+                "Чернігів",
+                CHERNIHIV_LAT,
+                CHERNIHIV_LON,
+                today.isoformat()
+            )
+
+            message = (
+
+                "🌤 ПОГОДА НА СЬОГОДНІ\n\n"
+
+                f"📅 {today.strftime('%d.%m.%Y')}\n\n"
+
+                f"{format_weather_block(kozelets)}\n\n"
+
+                "━━━━━━━━━━━━━━\n\n"
+
+                f"{format_weather_block(chernihiv)}"
+            )
+
+            if send_telegram(message):
+
+                state["morning"] = today.isoformat()
+
+                save_weather_state(
+                    state
+                )
+
+                print(
+                    "✅ Ранковий прогноз відправлено"
+                )
+
+    # --------------------------------------------------------
+    # ВЕЧІР — 20:00–20:59
+    # ПРОГНОЗ НА ЗАВТРА
+    # --------------------------------------------------------
+
+    if now.hour == 20:
+
+        tomorrow = today + timedelta(
+            days=1
+        )
+
+        if state.get("evening") != today.isoformat():
+
+            print(
+                "=== Вечірній прогноз погоди ==="
+            )
+
+            kozelets = get_weather_for_location(
+                "Козелець",
+                KOZELETS_LAT,
+                KOZELETS_LON,
+                tomorrow.isoformat()
+            )
+
+            chernihiv = get_weather_for_location(
+                "Чернігів",
+                CHERNIHIV_LAT,
+                CHERNIHIV_LON,
+                tomorrow.isoformat()
+            )
+
+            message = (
+
+                "🌤 ПОГОДА НА ЗАВТРА\n\n"
+
+                f"📅 {tomorrow.strftime('%d.%m.%Y')}\n\n"
+
+                f"{format_weather_block(kozelets)}\n\n"
+
+                "━━━━━━━━━━━━━━\n\n"
+
+                f"{format_weather_block(chernihiv)}"
+            )
+
+            if send_telegram(message):
+
+                state["evening"] = today.isoformat()
+
+                save_weather_state(
+                    state
+                )
+
+                print(
+                    "✅ Вечірній прогноз відправлено"
+                )
 
 
 # ============================================================
@@ -1090,10 +1819,7 @@ def check_neptun():
             )
 
             if name:
-
-                active_regions.add(
-                    name
-                )
+                active_regions.add(name)
 
         for item in data.get(
             "raions",
@@ -1106,10 +1832,7 @@ def check_neptun():
             )
 
             if name:
-
-                active_districts.add(
-                    name
-                )
+                active_districts.add(name)
 
         checks = {
 
@@ -1383,6 +2106,8 @@ def main():
     )
 
     publish_news()
+
+    check_weather()
 
     check_neptun()
 

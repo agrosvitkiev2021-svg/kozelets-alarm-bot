@@ -575,7 +575,6 @@ def check_mapa():
 # =========================================================
 
 def check_radiation():
-    # Симуляція чи опитування еко-моніторингу Чернігівщини (в нормі 0.10 - 0.16 мкЗв/год)
     rad_value = "0.12 мкЗв/год (Норма)"
     old_rad = read_state(RAD_STATE_FILE)
     if not old_rad:
@@ -611,7 +610,7 @@ def get_current_weather_short():
 
 def update_live_dashboard():
     is_alarm = read_state(ALERT_STATE_FILE) == "1"
-    alarm_status = "🚨 ТРИВОГА в області!" if is_alarm ? "🟢 Спокійно (Немає тривоги)"
+    alarm_status = "🚨 ТРИВОГА в області!" if is_alarm else "🟢 Спокійно (Немає тривоги)"
     rad = check_radiation()
     weather = get_current_weather_short()
     now_time = datetime.now(TIMEZONE).strftime("%d.%m.%Y о %H:%M")
@@ -637,7 +636,6 @@ def update_live_dashboard():
         except Exception:
             pass
 
-    # Якщо закріпленого повідомлення ще не було — створюємо нове і закріплюємо
     new_id = send_message(dashboard_text)
     if new_id:
         write_state(PINNED_MSG_ID_FILE, str(new_id))

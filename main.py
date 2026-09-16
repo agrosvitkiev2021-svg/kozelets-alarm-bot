@@ -1,7 +1,6 @@
 import os
 import re
 import json
-import math
 import html
 import hashlib
 import requests
@@ -88,11 +87,10 @@ KOZELETS_HISTORY_FACTS = [
 
 
 # =========================================================
-# ДЖЕРЕЛА НОВИН (ВКЛЮЧАЮЧИ "ВІСНИК Ч" / ЧЕЛІНЕ ТА ІНШІ)
+# ДЖЕРЕЛА НОВИН
 # =========================================================
 
 NEWS_SOURCES = [
-    # 📰 «Вісник Ч» (Cheline) — спеціально під Остер, Козелець та Бобровицю
     {
         "query": "site:cheline.com.ua Козелець",
         "category": "📍 КОЗЕЛЕЦЬ (Вісник Ч)",
@@ -113,7 +111,6 @@ NEWS_SOURCES = [
         "category": "📍 КОЗЕЛЕЧЧИНА (Вісник Ч)",
         "priority": 1
     },
-    # Регіональні джерела
     {
         "query": "site:suspilne.media/chernihiv Козелець",
         "category": "📍 КОЗЕЛЕЦЬ",
@@ -277,7 +274,7 @@ def check_and_send_history_post():
 
 
 # =========================================================
-# ПАРСИНГ НОВИН ТА КАРТИНОК
+# ПОКРАЩЕНИЙ ПАРСИНГ НОВИН ТА ОРИГІНАЛЬНИХ ЗОБРАЖЕНЬ
 # =========================================================
 
 def clean_text(text):
@@ -308,30 +305,31 @@ def clean_title(title):
 def resolve_news_link(link):
     if not link or "news.google.com" not in link:
         return link
-    if new_decoderv1 is None:
-        return link
-    try:
-        result = new_decoderv1(link, interval_time=1)
-        if isinstance(result, dict) and result.get("status"):
-            return result.get("url", link)
-        elif isinstance(result, str) and result.startswith("http"):
-            return result
-    except Exception:
-        pass
+    if new_decoderv1 is not None:
+        try:
+            result = new_decoderv1(link, interval_time=1)
+            if isinstance(result, dict) and result.get("status"):
+                return result.get("url", link)
+            elif isinstance(result, str) and result.startswith("http"):
+                return result
+        except Exception:
+            pass
     return link
 
 
 def extract_article_data(url):
-    """Витягує текст та головну картинку (og:image) зі сторінки новини"""
+    """Якісно витягує текст та оригінальну повнорозмірну обкладинку зі сторінки новини"""
     if not url:
         return "", ""
 
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "uk-UA,uk;q=0.9,en-US;q=0.8,en;q=0.7"
+    }
+
     try:
-        response = requests.get(
-            url,
-            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"},
-            timeout=15
-        )
+        response = requests.get(url, headers=headers, timeout=15)
         if not response.ok:
             return "", ""
 
@@ -339,10 +337,50 @@ def extract_article_data(url):
         article_text = ""
         image_url = ""
 
+        # 1. Шукаємо OpenGraph картинку (og:image) — найвища якість
         m_img = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', page, flags=re.IGNORECASE)
+        if not m_img:
+            # 2. Шукаємо Twitter Card картинку
+            m_img = re.search(r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']', page, flags=re.IGNORECASE)
+        
         if m_img:
             image_url = m_img.group(1).strip()
 
+        # 3. Якщо в метатегах пусто, шукаємо першу велику картинку всередині статті або Schema.org JSON-LD
+        if not image_url:
+            json_blocks = re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', page, flags=re.DOTALL)
+            for block in json_blocks:
+                try:
+                    data = json.loads(html.unescape(block.strip()))
+                    objects = data if isinstance(data, list) else [data]
+                    for item in objects:
+                        if isinstance(item, dict):
+                            img_field = item.get("image")
+                            if isinstance(img_field, str) and img_field.startswith("http"):
+                                image_url = img_field
+                                break
+                            elif isinstance(img_field, dict) and img_field.get("url"):
+                                image_url = img_field.get("url")
+                                break
+                            elif isinstance(img_field, list) and len(img_field) > 0:
+                                first_img = img_field[0]
+                                if isinstance(first_img, str) and first_img.startswith("http"):
+                                    image_url = first_img
+                                    break
+                except Exception:
+                    continue
+                if image_url:
+                    break
+
+        # Виправляємо можливі відносні лінки картинок (наприклад, починаються з //)
+        if image_url:
+            if image_url.startswith("//"):
+                image_url = "https:" + image_url
+            # Відсіюємо маленькі іконки або логотипи за назвою файлу
+            if any(bad in image_url.lower() for bad in ["logo", "icon", "avatar", "placeholder", "pixel", "banner-small"]):
+                image_url = ""
+
+        # Витягуємо текст статті через JSON-LD або description
         json_blocks = re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', page, flags=re.DOTALL)
         for block in json_blocks:
             try:
@@ -366,8 +404,8 @@ def extract_article_data(url):
             article_text = article_text[:650].rsplit(" ", 1)[0] + "…"
 
         return article_text, image_url
-    except Exception:
-        pass
+    except Exception as e:
+        print("Помилка завантаження сторінки новини:", e)
 
     return "", ""
 
@@ -454,7 +492,7 @@ def check_news():
             except Exception:
                 item_date = now
 
-            if (now - item_date).total_seconds() / 3600 > 4:
+            if (now - item_date).total_seconds() / 3600 > 6: # Збільшено до 6 годин для кращого захоплення свіжих фото
                 continue
 
             category = source["category"]
@@ -511,13 +549,11 @@ def check_news():
 
 
 # =========================================================
-# ПОВІТРЯНІ ТРИВОГИ (НАДІЙНИЙ МОНІТОРИНГ ОБЛАСТІ)
+# ПОВІТРЯНІ ТРИВОГИ ТА МОНІТОРИНГ
 # =========================================================
 
 def check_alerts():
-    """Перевіряє статус повітряної тривоги по Чернігівській області"""
     try:
-        # Використовуємо стабільний відкритий інструмент мапи тривог
         response = requests.get("https://map.ukrainealarm.com/api/v3/alerts/states", headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
         if response.ok:
             data = response.json()
@@ -665,7 +701,7 @@ def update_live_dashboard():
 # =========================================================
 
 if __name__ == "__main__":
-    print("=== Повний автономний запуск бота ===")
+    print("=== Повний автономний запуск бота з фотозвітом ===")
     check_news()
     check_alerts()
     check_mapa()

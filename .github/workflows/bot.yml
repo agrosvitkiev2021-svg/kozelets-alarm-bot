@@ -4,8 +4,10 @@ on:
   schedule:
     - cron: "*/5 * * * *"
   workflow_dispatch:
+
 permissions:
   contents: write
+
 jobs:
   run-bot:
     runs-on: ubuntu-latest
@@ -19,9 +21,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Встановити requests
-        - name: Встановити бібліотеки
-  run: pip install requests googlenewsdecoder
+      - name: Встановити бібліотеки
+        run: pip install requests googlenewsdecoder
 
       - name: Запустити бота
         env:

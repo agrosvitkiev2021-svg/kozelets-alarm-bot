@@ -274,7 +274,7 @@ def check_and_send_history_post():
 
 
 # =========================================================
-# ПОКРАЩЕНИЙ ПАРСИНГ НОВИН ТА ОРИГІНАЛЬНИХ ЗОБРАЖЕНЬ
+# ПАРСИНГ НОВИН ТА ЗАХИСТ ВІД GOOGLE-ЛОГОТИПІВ
 # =========================================================
 
 def clean_text(text):
@@ -318,8 +318,12 @@ def resolve_news_link(link):
 
 
 def extract_article_data(url):
-    """Якісно витягує текст та оригінальну повнорозмірну обкладинку зі сторінки новини"""
+    """Витягує текст та оригінальну картинку, повністю блокуючи іконки та логотипи Google"""
     if not url:
+        return "", ""
+
+    # Якщо посилання веде на сервіси Google — одразу відкидаємо фото
+    if "google.com" in url or "gstatic.com" in url:
         return "", ""
 
     headers = {
@@ -337,50 +341,24 @@ def extract_article_data(url):
         article_text = ""
         image_url = ""
 
-        # 1. Шукаємо OpenGraph картинку (og:image) — найвища якість
+        # Шукаємо OpenGraph картинку (og:image) або Twitter Image
         m_img = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', page, flags=re.IGNORECASE)
         if not m_img:
-            # 2. Шукаємо Twitter Card картинку
             m_img = re.search(r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']', page, flags=re.IGNORECASE)
         
         if m_img:
             image_url = m_img.group(1).strip()
 
-        # 3. Якщо в метатегах пусто, шукаємо першу велику картинку всередині статті або Schema.org JSON-LD
-        if not image_url:
-            json_blocks = re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', page, flags=re.DOTALL)
-            for block in json_blocks:
-                try:
-                    data = json.loads(html.unescape(block.strip()))
-                    objects = data if isinstance(data, list) else [data]
-                    for item in objects:
-                        if isinstance(item, dict):
-                            img_field = item.get("image")
-                            if isinstance(img_field, str) and img_field.startswith("http"):
-                                image_url = img_field
-                                break
-                            elif isinstance(img_field, dict) and img_field.get("url"):
-                                image_url = img_field.get("url")
-                                break
-                            elif isinstance(img_field, list) and len(img_field) > 0:
-                                first_img = img_field[0]
-                                if isinstance(first_img, str) and first_img.startswith("http"):
-                                    image_url = first_img
-                                    break
-                except Exception:
-                    continue
-                if image_url:
-                    break
-
-        # Виправляємо можливі відносні лінки картинок (наприклад, починаються з //)
         if image_url:
             if image_url.startswith("//"):
                 image_url = "https:" + image_url
-            # Відсіюємо маленькі іконки або логотипи за назвою файлу
-            if any(bad in image_url.lower() for bad in ["logo", "icon", "avatar", "placeholder", "pixel", "banner-small"]):
+            
+            # Сувора перевірка: відсіюємо будь-які іконки, аватарки та лого Google
+            bad_words = ["logo", "icon", "avatar", "placeholder", "pixel", "banner", "gstatic", "google"]
+            if any(bad in image_url.lower() for bad in bad_words):
                 image_url = ""
 
-        # Витягуємо текст статті через JSON-LD або description
+        # Витягуємо текст новини
         json_blocks = re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', page, flags=re.DOTALL)
         for block in json_blocks:
             try:
@@ -492,7 +470,7 @@ def check_news():
             except Exception:
                 item_date = now
 
-            if (now - item_date).total_seconds() / 3600 > 6: # Збільшено до 6 годин для кращого захоплення свіжих фото
+            if (now - item_date).total_seconds() / 3600 > 6:
                 continue
 
             category = source["category"]
@@ -701,7 +679,7 @@ def update_live_dashboard():
 # =========================================================
 
 if __name__ == "__main__":
-    print("=== Повний автономний запуск бота з фотозвітом ===")
+    print("=== Повний автономний запуск бота ===")
     check_news()
     check_alerts()
     check_mapa()

@@ -1,5 +1,12 @@
 274723|drone_piston
-274731|drone_piston
+274731_u0|drone_jet
+274731_u1|drone_jet
+274731_u2|drone_jet
+274731_u3|drone_jet
+274731_u4|drone_jet
+274731_u5|drone_jet
+274758_u0|drone_piston
+274758_u1|drone_piston
 274777|drone_piston
 274785|drone_piston
 274787_u0|drone_piston
@@ -7,13 +14,9 @@
 274787_u2|drone_piston
 274794|drone_piston
 274795|drone_piston
-274797|drone_jet
-274804|drone_jet
 274805|drone_piston
 274813|drone_piston
 274814|drone_piston
-274822|drone_jet
-274824|drone_jet
 274839|drone_piston
 274843|drone_piston
 274863_u0|drone_piston
@@ -25,3 +28,7 @@
 274925|drone_jet
 274940|drone_piston
 274948|drone_piston
+275086_u0|drone_piston
+275086_u1|drone_piston
+275086_u2|drone_piston
+275086_u3|drone_piston

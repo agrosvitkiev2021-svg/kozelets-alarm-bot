@@ -28,7 +28,7 @@ TIMEZONE = ZoneInfo("Europe/Kyiv")
 
 KOZELETS_LAT = 50.913
 KOZELETS_LON = 31.115
-MAPA_RADIUS_KM = 100
+MAPA_RADIUS_KM = 50
 
 # Файли стану
 NEWS_STATE_FILE = "news_seen.txt"
@@ -73,7 +73,7 @@ KOZELETS_HISTORY_FACTS = [
     (
         "👥 ВИДАТНІ ЛЮДИ: Павло Чубинський\n\n"
         "Видатний етнограф і поет, автор слів державного гімну України «Ще не вмерла Україна», Павло Чубинський активно досліджував побут, "
-        "традиції та говірки корінних мешканців Чернігівщини."
+        "традиції та говірки корінних мешканців краю."
     ),
     (
         "🏛️ ВИДАТНІ БУДІВЛІ: Миколаївська церква (Козелець)\n\n"
@@ -87,7 +87,7 @@ KOZELETS_HISTORY_FACTS = [
 
 
 # =========================================================
-# ДЖЕРЕЛА НОВИН
+# ДЖЕРЕЛА НОВИН (ТІЛЬКИ КОЗЕЛЕЦЬ, ОСТЕР, БОБРОВИЦЯ)
 # =========================================================
 
 NEWS_SOURCES = [
@@ -117,39 +117,29 @@ NEWS_SOURCES = [
         "priority": 2
     },
     {
-        "query": "site:suspilne.media/chernihiv Чернігів",
-        "category": "🏙️ ЧЕРНІГІВ",
-        "priority": 2
-    },
-    {
         "query": "site:cntime.cn.ua Козелець",
         "category": "📍 КОЗЕЛЕЦЬ",
         "priority": 3
     },
     {
-        "query": "\"Чернігівобленерго\" світло відключення",
-        "category": "⚡ СВІТЛО / ЕНЕРГЕТИКА",
+        "query": "\"Козелець\" світло вода новини",
+        "category": "🚰 КОМУНАЛКА / СВІТЛО",
         "priority": 1
     },
     {
-        "query": "\"Козелець\" світло вода",
-        "category": "🚰 КОМУНАЛКА",
-        "priority": 2
-    },
-    {
-        "query": "\"Остер\" новини",
+        "query": "\"Остер\" новини міста",
         "category": "📍 ОСТЕР",
         "priority": 2
     },
     {
-        "query": "\"Бобровиця\" новини",
+        "query": "\"Бобровиця\" новини громади",
         "category": "📍 БОБРОВИЦЯ",
         "priority": 2
     },
     {
-        "query": "\"Чернігівщина\" головні новини",
-        "category": "🏙️ ЧЕРНІГІВЩИНА",
-        "priority": 4
+        "query": "\"Козелеччина\" новини",
+        "category": "📍 КОЗЕЛЕЧЧИНА",
+        "priority": 2
     }
 ]
 
@@ -274,7 +264,7 @@ def check_and_send_history_post():
 
 
 # =========================================================
-# ПАРСИНГ НОВИН ТА ЗАХИСТ ВІД GOOGLE-ЛОГОТИПІВ
+# ПАРСИНГ НОВИН ТА ФІЛЬТРАЦІЯ РЕГІОНУ
 # =========================================================
 
 def clean_text(text):
@@ -318,11 +308,9 @@ def resolve_news_link(link):
 
 
 def extract_article_data(url):
-    """Витягує текст та оригінальну картинку, повністю блокуючи іконки та логотипи Google"""
     if not url:
         return "", ""
 
-    # Якщо посилання веде на сервіси Google — одразу відкидаємо фото
     if "google.com" in url or "gstatic.com" in url:
         return "", ""
 
@@ -341,7 +329,6 @@ def extract_article_data(url):
         article_text = ""
         image_url = ""
 
-        # Шукаємо OpenGraph картинку (og:image) або Twitter Image
         m_img = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', page, flags=re.IGNORECASE)
         if not m_img:
             m_img = re.search(r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']', page, flags=re.IGNORECASE)
@@ -353,12 +340,10 @@ def extract_article_data(url):
             if image_url.startswith("//"):
                 image_url = "https:" + image_url
             
-            # Сувора перевірка: відсіюємо будь-які іконки, аватарки та лого Google
             bad_words = ["logo", "icon", "avatar", "placeholder", "pixel", "banner", "gstatic", "google"]
             if any(bad in image_url.lower() for bad in bad_words):
                 image_url = ""
 
-        # Витягуємо текст новини
         json_blocks = re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', page, flags=re.DOTALL)
         for block in json_blocks:
             try:
@@ -444,7 +429,7 @@ def load_seen_items(filename):
 
 
 def save_seen_items(filename, seen):
-    items = list(seen)[-800:]
+    items = list(seen)[-2000:]
     try:
         with open(filename, "w", encoding="utf-8") as file:
             for item in items:
@@ -473,14 +458,17 @@ def check_news():
             if (now - item_date).total_seconds() / 3600 > 6:
                 continue
 
-            category = source["category"]
             title_lower = title.lower()
-
-            if "козелець" in category and not ("козелець" in title_lower or "козелеч" in title_lower):
-                continue
-            if "остер" in category and not "остер" in title_lower:
-                continue
-            if "бобровиця" in category and not "бобровиц" in title_lower:
+            
+            # Жорсткий фільтр: новина обов'язково повинна стосуватися однієї з цільових громад
+            is_relevant = (
+                "козелець" in title_lower or 
+                "козелеч" in title_lower or 
+                "остер" in title_lower or 
+                "бобровиц" in title_lower
+            )
+            
+            if not is_relevant:
                 continue
 
             news_id = hashlib.sha256(normalize_title(title).encode("utf-8")).hexdigest()
@@ -492,7 +480,7 @@ def check_news():
                 "link": item["link"],
                 "description": item["description"],
                 "date": item_date,
-                "category": category,
+                "category": source["category"],
                 "priority": source["priority"],
                 "id": news_id
             })
@@ -570,8 +558,8 @@ def check_mapa():
         threats = data.get("threats", [])
         active_threats = [t for t in threats if isinstance(t, dict) and str(t.get("status", "")).lower() == "active"]
 
-        signatures = sorted([f"{t.get('id','')}|{t.get('kind','')}" for t in active_threats])
-        new_state = "\n".join(signatures)
+        signatures = sorted([str(t.get('id', '')) for t in active_threats])
+        new_state = ",".join(signatures)
         old_state = read_state(MAPA_STATE_FILE)
 
         if active_threats and new_state != old_state:
@@ -584,7 +572,7 @@ def check_mapa():
 
             threat_text = (
                 "⚠️ ДОДАТКОВЕ ПОПЕРЕДЖЕННЯ\n\n"
-                "MAPA.UA фіксує повітряну загрозу поблизу регіону (радіус 100 км).\n\n"
+                f"MAPA.UA фіксує повітряну загрозу поблизу регіону (радіус {MAPA_RADIUS_KM} км).\n\n"
                 "‼️ Стежте за сигналами тривоги та перебувайте в безпеці."
             )
 

@@ -1,3 +1,2 @@
 274500|drone_piston
 274503|drone_piston
-274567|drone_jet

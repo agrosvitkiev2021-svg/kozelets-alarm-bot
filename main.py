@@ -160,7 +160,7 @@ def send_message(text):
 
 
 def send_photo(photo_url, caption):
-    if not BOT_TOKEN or not CHANNEL:
+    if not BOT_TOKEN or not CHANNEL or not photo_url:
         return None
 
     caption = re.sub(r"https?://\S+", "", caption).strip()
@@ -302,9 +302,9 @@ def resolve_news_link(link):
     return link
 
 
-def extract_article_data(url):
+def extract_article_text(url):
     if not url:
-        return "", ""
+        return ""
 
     try:
         response = requests.get(
@@ -313,20 +313,9 @@ def extract_article_data(url):
             timeout=15
         )
         if not response.ok:
-            return "", ""
+            return ""
 
         page = response.text
-        image_url = ""
-        patterns_img = [
-            r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
-            r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']'
-        ]
-        for pat in patterns_img:
-            m = re.search(pat, page, flags=re.IGNORECASE)
-            if m:
-                image_url = html.unescape(m.group(1))
-                break
-
         article_text = ""
         json_blocks = re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', page, flags=re.DOTALL)
         for block in json_blocks:
@@ -350,15 +339,15 @@ def extract_article_data(url):
         if len(article_text) > 700:
             article_text = article_text[:700].rsplit(" ", 1)[0] + "…"
 
-        return article_text, image_url
+        return article_text
     except Exception:
         pass
 
-    return "", ""
+    return ""
 
 
 # =========================================================
-# RSS GOOGLE NEWS ТА ДЕДУПЛІКАЦІЯ
+# RSS GOOGLE NEWS ТА ДЕДУПЛІКАЦІЯ (БЕЗ ФОТО)
 # =========================================================
 
 def get_google_news(query):
@@ -475,18 +464,13 @@ def check_news():
     published = 0
     for item in unique_news:
         original_url = resolve_news_link(item["link"])
-        article_text, image_url = extract_article_data(original_url)
+        article_text = extract_article_text(original_url)
         if not article_text:
             article_text = item["description"] or "Подробиці новини уточнюються."
 
+        # Тільки текстові повідомлення для новин (без фото)
         caption = f"{item['category']}\n\n📰 {item['title']}\n\n{clean_text(article_text)}"
-        caption = re.sub(r"https?://\S+", "", caption).strip()
-
-        msg_id = None
-        if image_url:
-            msg_id = send_photo(image_url, caption)
-        if not msg_id:
-            msg_id = send_message(caption)
+        msg_id = send_message(caption)
 
         if msg_id:
             seen.add(item["id"])
@@ -497,7 +481,7 @@ def check_news():
 
 
 # =========================================================
-# ПОВІТРЯНІ ТРИВОГИ (NEPTUN) ТА ЗАГРОЗИ (MAPA.UA)
+# ПОВІТРЯНІ ТРИВОГИ (NEPTUN) ТА ЗАГРОЗИ З ФОТО МАПИ (MAPA.UA)
 # =========================================================
 
 def region_is_active(region):
@@ -552,7 +536,8 @@ def check_mapa():
         if not response.ok:
             return False
 
-        threats = response.json().get("threats", [])
+        data = response.json()
+        threats = data.get("threats", [])
         active_threats = [t for t in threats if isinstance(t, dict) and str(t.get("status", "")).lower() == "active"]
 
         signatures = sorted([f"{t.get('id','')}|{t.get('kind','')}" for t in active_threats])
@@ -560,7 +545,25 @@ def check_mapa():
         old_state = read_state(MAPA_STATE_FILE)
 
         if active_threats and new_state != old_state:
-            send_message("⚠️ ДОДАТКОВЕ ПОПЕРЕДЖЕННЯ\n\nMAPA.UA фіксує повітряну загрозу поблизу Козельця (радіус 100 км).\n\n‼️ Стежте за офіційними сигналами тривоги.")
+            # Шукаємо посилання на мапу або зображення загрози в API відповідей mapa.ua
+            map_image_url = ""
+            for t in active_threats:
+                if isinstance(t, dict):
+                    map_image_url = t.get("image_url") or t.get("map_image") or t.get("icon") or ""
+                    if map_image_url:
+                        break
+
+            threat_text = (
+                "⚠️ ДОДАТКОВЕ ПОПЕРЕДЖЕННЯ\n\n"
+                "MAPA.UA фіксує повітряну загрозу поблизу Козельця (радіус 100 км).\n\n"
+                "‼️ Стежте за офіційними сигналами тривоги та перебувайте в безпечних місцях."
+            )
+
+            if map_image_url and map_image_url.startswith("http"):
+                send_photo(map_image_url, threat_text)
+            else:
+                send_message(threat_text)
+
             write_state(MAPA_STATE_FILE, new_state)
         elif not active_threats and old_state:
             write_state(MAPA_STATE_FILE, "")

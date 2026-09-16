@@ -306,18 +306,16 @@ def write_state(filename, value):
 
 
 def check_and_send_history_post():
-    """Публікує історичний факт 2 рази на добу (приблизно кожні 11-12 годин)."""
+    """Публікує історичний факт 2 рази на добу (приблизно кожні 12 годин)."""
     now = datetime.now(TIMEZONE)
     current_timestamp = now.timestamp()
     
     last_time_str = read_state(HISTORY_LAST_TIME_FILE)
     last_timestamp = float(last_time_str) if last_time_str else 0.0
 
-    # 12 годин у секундах = 43200 (тобто 2 рази на добу)
-    tw ১২_hours = 12 * 3600
+    twelve_hours = 12 * 3600
 
     if current_timestamp - last_timestamp >= twelve_hours or last_timestamp == 0.0:
-        # Отримуємо поточний індекс циклу фактів
         index_str = read_state(HISTORY_INDEX_FILE)
         index = int(index_str) if index_str else 0
 
@@ -330,7 +328,6 @@ def check_and_send_history_post():
 
         msg_id = send_message(full_post)
         if msg_id:
-            # Зберігаємо новий індекс та час публікації
             write_state(HISTORY_INDEX_FILE, str(index + 1))
             write_state(HISTORY_LAST_TIME_FILE, str(current_timestamp))
             print("📜 Історичний пост успішно опубліковано!")

@@ -35,6 +35,7 @@ NEWS_STATE_FILE = "news_seen.txt"
 ALERT_STATE_FILE = "alert_state.txt"
 MAPA_STATE_FILE = "mapa_state.txt"
 RAD_STATE_FILE = "rad_state.txt"
+NEPTUN_RAION_STATE_FILE = "neptun_raion_alert_state.txt"
 PINNED_MSG_ID_FILE = "pinned_msg_id.txt"
 HISTORY_INDEX_FILE = "history_index.txt"
 HISTORY_LAST_TIME_FILE = "history_last_time.txt"
@@ -562,6 +563,72 @@ def check_alerts():
     return False
 
 
+def check_neptun_raion_alert():
+    """Перевірка офіційної тривоги Чернігівського району через NEPTUN."""
+    try:
+        response = requests.get(
+            "https://neptun.in.ua/api/v1/alerts",
+            headers={
+                "User-Agent": "Kozelets-Alarm-Bot/1.0",
+                "Accept": "application/json"
+            },
+            timeout=15
+        )
+
+        print("NEPTUN API:", response.status_code)
+
+        if not response.ok:
+            print("NEPTUN error:", response.text[:300])
+            return None
+
+        data = response.json()
+        raions = data.get("raions", [])
+
+        is_alarm = False
+        for raion in raions:
+            if not isinstance(raion, dict):
+                continue
+            name = str(raion.get("name", "")).strip().lower()
+            if name == "чернігівський район":
+                is_alarm = True
+                break
+
+        old_state = read_state(NEPTUN_RAION_STATE_FILE) == "1"
+
+        print(
+            "NEPTUN: Чернігівський район —",
+            "ТРИВОГА" if is_alarm else "спокій"
+        )
+
+        if is_alarm and not old_state:
+            message = (
+                "🚨 ПОВІТРЯНА ТРИВОГА\n\n"
+                "Чернігівський район!\n\n"
+                "⚠️ Негайно прямуйте до укриття.\n\n"
+                "Дані: https://neptun.in.ua/"
+            )
+            if send_message(message):
+                write_state(NEPTUN_RAION_STATE_FILE, "1")
+                print("🔴 NEPTUN: початок тривоги у Чернігівському районі")
+
+        elif not is_alarm and old_state:
+            message = (
+                "🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\n"
+                "Чернігівський район — тривогу скасовано.\n\n"
+                "Можна залишати укриття лише після офіційного сигналу відбою.\n\n"
+                "Дані: https://neptun.in.ua/"
+            )
+            if send_message(message):
+                write_state(NEPTUN_RAION_STATE_FILE, "0")
+                print("🟢 NEPTUN: відбій тривоги у Чернігівському районі")
+
+        return is_alarm
+
+    except Exception as error:
+        print("Помилка перевірки NEPTUN:", error)
+        return None
+
+
 def check_mapa():
     url = f"https://mapa.ua/api/v1/nearby?lat={KOZELETS_LAT}&lon={KOZELETS_LON}&radius_km={MAPA_RADIUS_KM}"
     try:
@@ -685,6 +752,7 @@ if __name__ == "__main__":
     print("=== Повний автономний запуск бота ===")
     check_news()
     check_alerts()
+    check_neptun_raion_alert()
     check_mapa()
     check_and_send_history_post()
     update_live_dashboard()

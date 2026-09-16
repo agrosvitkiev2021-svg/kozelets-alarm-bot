@@ -20,7 +20,8 @@ jobs:
           python-version: "3.12"
 
       - name: Встановити requests
-        run: pip install requests
+        - name: Встановити бібліотеки
+  run: pip install requests googlenewsdecoder
 
       - name: Запустити бота
         env:

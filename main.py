@@ -460,7 +460,6 @@ def check_news():
 
             title_lower = title.lower()
             
-            # Жорсткий фільтр: новина обов'язково повинна стосуватися однієї з цільових громад
             is_relevant = (
                 "козелець" in title_lower or 
                 "козелеч" in title_lower or 
@@ -520,28 +519,44 @@ def check_news():
 
 def check_alerts():
     try:
-        response = requests.get("https://map.ukrainealarm.com/api/v3/alerts/states", headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+            "Accept": "application/json"
+        }
+        
+        response = requests.get("https://api.ukrainealarm.com/api/v3/alerts", headers=headers, timeout=10)
+        
+        is_alarm = False
         if response.ok:
             data = response.json()
-            regions = data.get("states", data.get("regions", []))
-            is_alarm = False
-            
-            for region in regions:
-                name = str(region.get("regionName", region.get("name", ""))).lower()
+            for region in data:
+                name = str(region.get("regionName", region.get("title", ""))).lower()
                 if "чернігівська" in name:
-                    if region.get("alerted", region.get("active", False)):
+                    state = str(region.get("alertType", "")).lower()
+                    if region.get("activeAlerts") or region.get("is_active") or "air" in state:
                         is_alarm = True
                     break
+        else:
+            resp_states = requests.get("https://map.ukrainealarm.com/api/v3/alerts/states", headers=headers, timeout=10)
+            if resp_states.ok:
+                states_data = resp_states.json()
+                regions = states_data.get("states", states_data.get("regions", []))
+                for region in regions:
+                    name = str(region.get("regionName", region.get("name", ""))).lower()
+                    if "чернігівська" in name:
+                        if region.get("alerted", region.get("active", False)):
+                            is_alarm = True
+                        break
 
-            old_state = read_state(ALERT_STATE_FILE) == "1"
+        old_state = read_state(ALERT_STATE_FILE) == "1"
 
-            if is_alarm and not old_state:
-                send_message("🚨 ПОВІТРЯНА ТРИВОГА\n\nЧернігівська область!\n\n⚠️ Перейдіть в укриття!")
-                write_state(ALERT_STATE_FILE, "1")
-            elif not is_alarm and old_state:
-                send_message("🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\nЗагроза для регіону минула.")
-                write_state(ALERT_STATE_FILE, "0")
-            return is_alarm
+        if is_alarm and not old_state:
+            send_message("🚨 ПОВІТРЯНА ТРИВОГА\n\nЧернігівська область!\n\n⚠️ Перейдіть в укриття!")
+            write_state(ALERT_STATE_FILE, "1")
+        elif not is_alarm and old_state:
+            send_message("🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\nЗагроза для регіону минула.")
+            write_state(ALERT_STATE_FILE, "0")
+        return is_alarm
     except Exception as error:
         print("Помилка перевірки тривоги:", error)
     return False

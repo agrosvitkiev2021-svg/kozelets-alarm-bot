@@ -1,0 +1,11 @@
+{
+  "alert": {
+    "active": false,
+    "last_change": null,
+    "last_type": null
+  },
+  "news_seen": [],
+  "history_index": 0,
+  "history_last": null,
+  "pinned_message_id": null
+}

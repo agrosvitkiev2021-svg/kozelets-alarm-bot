@@ -28,14 +28,11 @@ TIMEZONE = ZoneInfo("Europe/Kyiv")
 
 KOZELETS_LAT = 50.913
 KOZELETS_LON = 31.115
-MAPA_RADIUS_KM = 50
 
 # Файли стану
 NEWS_STATE_FILE = "news_seen.txt"
 ALERT_STATE_FILE = "alert_state.txt"
-MAPA_STATE_FILE = "mapa_state.txt"
 RAD_STATE_FILE = "rad_state.txt"
-NEPTUN_RAION_STATE_FILE = "neptun_raion_alert_state.txt"
 PINNED_MSG_ID_FILE = "pinned_msg_id.txt"
 HISTORY_INDEX_FILE = "history_index.txt"
 HISTORY_LAST_TIME_FILE = "history_last_time.txt"
@@ -153,14 +150,13 @@ def telegram_url(method):
     return f"https://api.telegram.org/bot{BOT_TOKEN}/{method}"
 
 
-def send_message(text):
+def send_message(text, disable_preview=True):
     if not BOT_TOKEN or not CHANNEL:
         return None
-    text = re.sub(r"https?://\S+", "", text).strip()
     try:
         response = requests.post(
             telegram_url("sendMessage"),
-            data={"chat_id": CHANNEL, "text": text, "disable_web_page_preview": True},
+            data={"chat_id": CHANNEL, "text": text, "disable_web_page_preview": disable_preview},
             timeout=30
         )
         if response.ok:
@@ -188,14 +184,13 @@ def send_photo(photo_url, caption):
     return None
 
 
-def edit_message(message_id, text):
+def edit_message(message_id, text, disable_preview=True):
     if not BOT_TOKEN or not CHANNEL or not message_id:
         return False
-    text = re.sub(r"https?://\S+", "", text).strip()
     try:
         response = requests.post(
             telegram_url("editMessageText"),
-            data={"chat_id": CHANNEL, "message_id": message_id, "text": text, "disable_web_page_preview": True},
+            data={"chat_id": CHANNEL, "message_id": message_id, "text": text, "disable_web_page_preview": disable_preview},
             timeout=30
         )
         return response.ok
@@ -257,7 +252,7 @@ def check_and_send_history_post():
         post_header = "📚 ІСТОРІЯ ТА КРАЄЗНАВСТВО КРАЮ\n━━━━━━━━━━━━━━━━━━━\n\n"
         full_post = post_header + fact_text + "\n\n#Козелець #Остер #Бобровиця #Історія"
 
-        msg_id = send_message(full_post)
+        msg_id = send_message(full_post, disable_preview=True)
         if msg_id:
             write_state(HISTORY_INDEX_FILE, str(index + 1))
             write_state(HISTORY_LAST_TIME_FILE, str(current_timestamp))
@@ -504,7 +499,7 @@ def check_news():
         if image_url and image_url.startswith("http"):
             msg_id = send_photo(image_url, caption)
         else:
-            msg_id = send_message(caption)
+            msg_id = send_message(caption, disable_preview=True)
 
         if msg_id:
             seen.add(item["id"])
@@ -515,7 +510,7 @@ def check_news():
 
 
 # =========================================================
-# ПОВІТРЯНІ ТРИВОГИ ТА МОНІТОРИНГ
+# ПОВІТРЯНІ ТРИВОГИ
 # =========================================================
 
 def check_alerts():
@@ -552,123 +547,14 @@ def check_alerts():
         old_state = read_state(ALERT_STATE_FILE) == "1"
 
         if is_alarm and not old_state:
-            send_message("🚨 ПОВІТРЯНА ТРИВОГА\n\nЧернігівська область!\n\n⚠️ Перейдіть в укриття!")
+            send_message("🚨 ПОВІТРЯНА ТРИВОГА\n\nЧернігівська область!\n\n⚠️ Перейдіть в укриття!", disable_preview=True)
             write_state(ALERT_STATE_FILE, "1")
         elif not is_alarm and old_state:
-            send_message("🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\nЗагроза для регіону минула.")
+            send_message("🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\nЗагроза для регіону минула.", disable_preview=True)
             write_state(ALERT_STATE_FILE, "0")
         return is_alarm
     except Exception as error:
         print("Помилка перевірки тривоги:", error)
-    return False
-
-
-def check_neptun_raion_alert():
-    """Перевірка офіційної тривоги Чернігівського району через NEPTUN."""
-    try:
-        response = requests.get(
-            "https://neptun.in.ua/api/v1/alerts",
-            headers={
-                "User-Agent": "Kozelets-Alarm-Bot/1.0",
-                "Accept": "application/json"
-            },
-            timeout=15
-        )
-
-        print("NEPTUN API:", response.status_code)
-
-        if not response.ok:
-            print("NEPTUN error:", response.text[:300])
-            return None
-
-        data = response.json()
-        raions = data.get("raions", [])
-
-        is_alarm = False
-        for raion in raions:
-            if not isinstance(raion, dict):
-                continue
-            name = str(raion.get("name", "")).strip().lower()
-            if name == "чернігівський район":
-                is_alarm = True
-                break
-
-        old_state = read_state(NEPTUN_RAION_STATE_FILE) == "1"
-
-        print(
-            "NEPTUN: Чернігівський район —",
-            "ТРИВОГА" if is_alarm else "спокій"
-        )
-
-        if is_alarm and not old_state:
-            message = (
-                "🚨 ПОВІТРЯНА ТРИВОГА\n\n"
-                "Чернігівський район!\n\n"
-                "⚠️ Негайно прямуйте до укриття.\n\n"
-                "Дані: https://neptun.in.ua/"
-            )
-            if send_message(message):
-                write_state(NEPTUN_RAION_STATE_FILE, "1")
-                print("🔴 NEPTUN: початок тривоги у Чернігівському районі")
-
-        elif not is_alarm and old_state:
-            message = (
-                "🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\n"
-                "Чернігівський район — тривогу скасовано.\n\n"
-                "Можна залишати укриття лише після офіційного сигналу відбою.\n\n"
-                "Дані: https://neptun.in.ua/"
-            )
-            if send_message(message):
-                write_state(NEPTUN_RAION_STATE_FILE, "0")
-                print("🟢 NEPTUN: відбій тривоги у Чернігівському районі")
-
-        return is_alarm
-
-    except Exception as error:
-        print("Помилка перевірки NEPTUN:", error)
-        return None
-
-
-def check_mapa():
-    url = f"https://mapa.ua/api/v1/nearby?lat={KOZELETS_LAT}&lon={KOZELETS_LON}&radius_km={MAPA_RADIUS_KM}"
-    try:
-        response = requests.get(url, timeout=15)
-        if not response.ok:
-            return False
-
-        data = response.json()
-        threats = data.get("threats", [])
-        active_threats = [t for t in threats if isinstance(t, dict) and str(t.get("status", "")).lower() == "active"]
-
-        signatures = sorted([str(t.get('id', '')) for t in active_threats])
-        new_state = ",".join(signatures)
-        old_state = read_state(MAPA_STATE_FILE)
-
-        if active_threats and new_state != old_state:
-            map_image_url = ""
-            for t in active_threats:
-                if isinstance(t, dict):
-                    map_image_url = t.get("image_url") or t.get("map_image") or t.get("icon") or ""
-                    if map_image_url:
-                        break
-
-            threat_text = (
-                "⚠️ ДОДАТКОВЕ ПОПЕРЕДЖЕННЯ\n\n"
-                f"MAPA.UA фіксує повітряну загрозу поблизу регіону (радіус {MAPA_RADIUS_KM} км).\n\n"
-                "‼️ Стежте за сигналами тривоги та перебувайте в безпеці."
-            )
-
-            if map_image_url and map_image_url.startswith("http"):
-                send_photo(map_image_url, threat_text)
-            else:
-                send_message(threat_text)
-
-            write_state(MAPA_STATE_FILE, new_state)
-        elif not active_threats and old_state:
-            write_state(MAPA_STATE_FILE, "")
-        return len(active_threats) > 0
-    except Exception:
-        pass
     return False
 
 
@@ -724,6 +610,8 @@ def update_live_dashboard():
         f"🌤️ Погода: {weather}\n"
         f"☢️ Радіаційний фон: {rad}\n"
         "━━━━━━━━━━━━━━━━━━━\n"
+        "🌊 Мапа моніторингу: [Нептун](https://neptun.in.ua/)\n"
+        "━━━━━━━━━━━━━━━━━━━\n"
         f"🕒 Оновлено: {now_time}\n"
         "💡 Автоматичний збір новин, тривог та історії краю."
     )
@@ -732,13 +620,13 @@ def update_live_dashboard():
     if msg_id_str:
         try:
             msg_id = int(msg_id_str)
-            success = edit_message(msg_id, dashboard_text)
+            success = edit_message(msg_id, dashboard_text, disable_preview=True)
             if success:
                 return
         except Exception:
             pass
 
-    new_id = send_message(dashboard_text)
+    new_id = send_message(dashboard_text, disable_preview=True)
     if new_id:
         write_state(PINNED_MSG_ID_FILE, str(new_id))
         pin_message(new_id)
@@ -752,8 +640,6 @@ if __name__ == "__main__":
     print("=== Повний автономний запуск бота ===")
     check_news()
     check_alerts()
-    check_neptun_raion_alert()
-    check_mapa()
     check_and_send_history_post()
     update_live_dashboard()
     print("=== Завершено успішно ===")

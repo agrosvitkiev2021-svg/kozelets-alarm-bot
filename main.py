@@ -5,7 +5,6 @@ import html
 import time
 import hashlib
 import requests
-import threading
 import xml.etree.ElementTree as ET
 
 from datetime import datetime
@@ -574,42 +573,16 @@ def update_live_dashboard():
 
 
 # =========================================================
-# ПОТОКИ ДЛЯ РІЗНОЇ ПЕРИОДИЧНОСТІ
+# ГОЛОВНИЙ ОДНОРАЗОВИЙ ЗАПУСК
 # =========================================================
 
-def alerts_loop():
-    print("🚀 Потік тривог запущен (кожні 2 хвилини)")
-    while True:
-        try:
-            check_alerts()
-            update_live_dashboard()
-        except Exception as e:
-            print("Помилка в потоці тривог:", e)
-        time.sleep(120)  # 2 хвилини
-
-
-def news_loop():
-    print("🚀 Потік новин запущен (кожні 5 хвилин)")
-    while True:
-        try:
-            check_news()
-            check_and_send_history_post()
-        except Exception as e:
-            print("Помилка в потоці новин:", e)
-        time.sleep(300)  # 5 хвилин
-
-
 if __name__ == "__main__":
-    print("=== Запуск автономного бота з миттєвим стартом ===")
-    
-    # 1. Запускаємо перевірку тривог та панелі (кожну 2 хв)
-    t_alerts = threading.Thread(target=alerts_loop, daemon=True)
-    t_alerts.start()
-
-    # 2. Запускаємо новини та історію (кожні 5 хв у фоні, без зависання старту)
-    t_news = threading.Thread(target=news_loop, daemon=True)
-    t_news.start()
-
-    # Основний потік просто тримає програму живою
-    while True:
-        time.sleep(3600)
+    print("=== Старт одноразової перевірки (GitHub Actions) ===")
+    try:
+        check_alerts()
+        update_live_dashboard()
+        check_news()
+        check_and_send_history_post()
+        print("=== Виконання успішно завершено ===")
+    except Exception as e:
+        print("Помилка під час виконання:", e)

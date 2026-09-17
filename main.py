@@ -153,6 +153,7 @@ def telegram_url(method):
 
 def send_message(text, disable_preview=True):
     if not BOT_TOKEN or not CHANNEL:
+        print("Помилка: BOT_TOKEN або CHANNEL не задані!")
         return None
     try:
         response = requests.post(
@@ -162,6 +163,8 @@ def send_message(text, disable_preview=True):
         )
         if response.ok:
             return response.json().get("result", {}).get("message_id")
+        else:
+            print("Telegram error response:", response.text)
     except Exception as error:
         print("Telegram exception:", error)
     return None

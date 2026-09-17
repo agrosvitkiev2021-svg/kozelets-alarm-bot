@@ -1,0 +1,17 @@
+{
+  "alert": {
+    "active": false,
+    "last_change": null,
+    "last_type": null
+  },
+  "news_seen": [
+    "ab60c186f93b4075f3965459",
+    "2e066fdb545e71fe4146e1af",
+    "3931ddc51fb3e07cf679a9d8",
+    "ac560ed9dfd944eb9217528e",
+    "582f77424434222117dccb31"
+  ],
+  "history_index": 1,
+  "history_last": "2026-09-17 20:46:55",
+  "pinned_message_id": 210
+}

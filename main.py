@@ -2,9 +2,12 @@ import os
 import re
 import json
 import hashlib
+import math
+
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote
+from zoneinfo import ZoneInfo
 
 import requests
 import feedparser
@@ -14,7 +17,10 @@ import feedparser
 # КОНФІГУРАЦІЯ
 # ============================================================
 
-BOT_TOKEN = os.getenv("BOT_TOKEN", "").strip()
+BOT_TOKEN = os.getenv(
+    "BOT_TOKEN",
+    ""
+).strip()
 
 CHANNEL = os.getenv(
     "CHANNEL",
@@ -26,40 +32,72 @@ UKRAINE_ALARM_API_KEY = os.getenv(
     ""
 ).strip()
 
-UA_API = "https://api.ukrainealarm.com/api/v3"
+
+# ============================================================
+# API
+# ============================================================
+
+UA_API = (
+    "https://api.ukrainealarm.com/api/v3"
+)
+
+NEPTUN_API = (
+    "https://neptun.in.ua/api/v1"
+)
 
 TELEGRAM_API = (
     f"https://api.telegram.org/bot{BOT_TOKEN}"
 )
 
+
+# ============================================================
+# ЗАГАЛЬНІ НАЛАШТУВАННЯ
+# ============================================================
+
 TIMEOUT = 25
 
-STATE_FILE = Path("bot_state.json")
+STATE_FILE = Path(
+    "bot_state.json"
+)
 
-# Чернігівська область
+KYIV_TZ = ZoneInfo(
+    "Europe/Kyiv"
+)
+
+
+# ============================================================
+# ЧЕРНІГІВСЬКА ОБЛАСТЬ
+# ============================================================
+
 CHERNIHIV_REGION_ID = "25"
 
-# Координати Козельця
+
+# ============================================================
+# КООРДИНАТИ
+# ============================================================
+
+# Козелець
 KOZELETS_LAT = 50.913
 KOZELETS_LON = 31.121
 
-# ------------------------------------------------------------
-# НОВИНИ
-# ------------------------------------------------------------
+# Остер
+OSTER_LAT = 50.949
+OSTER_LON = 30.886
 
-# Максимальний вік новини.
-#
-# Бот запускається приблизно кожні 5 хвилин.
-# Тому залишаємо невеликий запас у 2 хвилини.
-#
-# Фактично новина повинна бути приблизно не старшою 7 хвилин.
-#
-# Якщо хочеш абсолютно жорстко 5 хвилин:
-# NEWS_MAX_AGE_MINUTES = 5
-#
+# Радіус
+THREAT_RADIUS_KM = 50
+
+
+# ============================================================
+# НОВИНИ
+# ============================================================
+
+# Публікуємо тільки новини,
+# яким не більше 5 хвилин.
+
 NEWS_MAX_AGE_MINUTES = 5
 
-# Невеликий допуск для різниці часу між RSS та GitHub.
+# Допуск для неправильної дати RSS
 NEWS_FUTURE_TOLERANCE_MINUTES = 2
 
 
@@ -68,17 +106,25 @@ NEWS_FUTURE_TOLERANCE_MINUTES = 2
 # ============================================================
 
 def log(text):
-    print(text, flush=True)
+
+    print(
+        text,
+        flush=True
+    )
 
 
 # ============================================================
-# СТАН БОТА
+# DEFAULT STATE
 # ============================================================
 
 DEFAULT_STATE = {
+
     "alert": {
+
         "active": False,
+
         "last_change": None,
+
         "last_type": None
     },
 
@@ -88,15 +134,24 @@ DEFAULT_STATE = {
 
     "history_last": None,
 
-    "pinned_message_id": None
+    "pinned_message_id": None,
+
+    "threats_seen": []
 }
 
+
+# ============================================================
+# LOAD STATE
+# ============================================================
 
 def load_state():
 
     if not STATE_FILE.exists():
+
         return json.loads(
-            json.dumps(DEFAULT_STATE)
+            json.dumps(
+                DEFAULT_STATE
+            )
         )
 
     try:
@@ -108,14 +163,20 @@ def load_state():
         )
 
         state = json.loads(
-            json.dumps(DEFAULT_STATE)
+            json.dumps(
+                DEFAULT_STATE
+            )
         )
 
-        if isinstance(data, dict):
+        if isinstance(
+            data,
+            dict
+        ):
 
             for key in state:
 
                 if key in data:
+
                     state[key] = data[key]
 
         return state
@@ -123,19 +184,28 @@ def load_state():
     except Exception as e:
 
         log(
-            f"⚠️ Помилка читання bot_state.json: {e}"
+            "⚠️ Помилка читання "
+            f"bot_state.json: {e}"
         )
 
         return json.loads(
-            json.dumps(DEFAULT_STATE)
+            json.dumps(
+                DEFAULT_STATE
+            )
         )
 
+
+# ============================================================
+# SAVE STATE
+# ============================================================
 
 def save_state(state):
 
     try:
 
-        temp = STATE_FILE.with_suffix(".tmp")
+        temp = STATE_FILE.with_suffix(
+            ".tmp"
+        )
 
         temp.write_text(
             json.dumps(
@@ -146,24 +216,32 @@ def save_state(state):
             encoding="utf-8"
         )
 
-        temp.replace(STATE_FILE)
+        temp.replace(
+            STATE_FILE
+        )
 
     except Exception as e:
 
         log(
-            f"⚠️ Помилка збереження state: {e}"
+            "⚠️ Помилка збереження "
+            f"state: {e}"
         )
 
 
 # ============================================================
-# TELEGRAM
+# TELEGRAM API
 # ============================================================
 
-def telegram(method, payload=None):
+def telegram(
+    method,
+    payload=None
+):
 
     if not BOT_TOKEN:
 
-        log("❌ BOT_TOKEN не заданий.")
+        log(
+            "❌ BOT_TOKEN не заданий."
+        )
 
         return None
 
@@ -190,12 +268,15 @@ def telegram(method, payload=None):
         if not data.get("ok"):
 
             log(
-                f"❌ Telegram API error: {data}"
+                f"❌ Telegram API error: "
+                f"{data}"
             )
 
             return None
 
-        return data.get("result")
+        return data.get(
+            "result"
+        )
 
     except Exception as e:
 
@@ -205,6 +286,10 @@ def telegram(method, payload=None):
 
         return None
 
+
+# ============================================================
+# SEND MESSAGE
+# ============================================================
 
 def send_message(text):
 
@@ -225,7 +310,14 @@ def send_message(text):
     )
 
 
-def edit_message(message_id, text):
+# ============================================================
+# EDIT MESSAGE
+# ============================================================
+
+def edit_message(
+    message_id,
+    text
+):
 
     if len(text) > 4090:
 
@@ -245,7 +337,13 @@ def edit_message(message_id, text):
     )
 
 
-def pin_message(message_id):
+# ============================================================
+# PIN MESSAGE
+# ============================================================
+
+def pin_message(
+    message_id
+):
 
     return telegram(
         "pinChatMessage",
@@ -264,10 +362,18 @@ def pin_message(message_id):
 def alarm_headers():
 
     return {
-        "Authorization": UKRAINE_ALARM_API_KEY,
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-        "User-Agent": "KozeletsAlarmBot/1.0"
+
+        "Authorization":
+            UKRAINE_ALARM_API_KEY,
+
+        "Accept":
+            "application/json",
+
+        "Content-Type":
+            "application/json",
+
+        "User-Agent":
+            "KozeletsAlarmBot/1.0"
     }
 
 
@@ -276,7 +382,8 @@ def get_chernihiv_alert():
     if not UKRAINE_ALARM_API_KEY:
 
         log(
-            "⚠️ UKRAINE_ALARM_API_KEY не заданий."
+            "⚠️ UKRAINE_ALARM_API_KEY "
+            "не заданий."
         )
 
         return None
@@ -345,7 +452,8 @@ def get_chernihiv_alert():
     except requests.RequestException as e:
 
         log(
-            f"❌ UkraineAlarm network error: {e}"
+            f"❌ UkraineAlarm network error: "
+            f"{e}"
         )
 
         return None
@@ -353,26 +461,41 @@ def get_chernihiv_alert():
     except Exception as e:
 
         log(
-            f"❌ UkraineAlarm error: {e}"
+            f"❌ UkraineAlarm error: "
+            f"{e}"
         )
 
         return None
 
 
-def extract_active_alerts(data):
+def extract_active_alerts(
+    data
+):
 
     if data is None:
         return []
 
-    if isinstance(data, list):
+    if isinstance(
+        data,
+        list
+    ):
         return data
 
-    if not isinstance(data, dict):
+    if not isinstance(
+        data,
+        dict
+    ):
         return []
 
-    active = data.get("activeAlerts")
+    active = data.get(
+        "activeAlerts"
+    )
 
-    if isinstance(active, list):
+    if isinstance(
+        active,
+        list
+    ):
+
         return active
 
     for key in (
@@ -382,25 +505,40 @@ def extract_active_alerts(data):
         "data"
     ):
 
-        value = data.get(key)
+        value = data.get(
+            key
+        )
 
-        if isinstance(value, list):
+        if isinstance(
+            value,
+            list
+        ):
+
             return value
 
     return []
 
 
-def alert_is_active(data):
+def alert_is_active(
+    data
+):
 
     if data is None:
         return False
 
-    active_alerts = extract_active_alerts(data)
+    active_alerts = (
+        extract_active_alerts(
+            data
+        )
+    )
 
     if len(active_alerts) > 0:
         return True
 
-    if isinstance(data, dict):
+    if isinstance(
+        data,
+        dict
+    ):
 
         for key in (
             "active",
@@ -409,14 +547,21 @@ def alert_is_active(data):
             "alert"
         ):
 
-            value = data.get(key)
+            value = data.get(
+                key
+            )
 
-            if isinstance(value, bool):
+            if isinstance(
+                value,
+                bool
+            ):
 
                 if value:
                     return True
 
-            if str(value).lower() in (
+            if str(
+                value
+            ).lower() in (
                 "true",
                 "1",
                 "active"
@@ -427,17 +572,28 @@ def alert_is_active(data):
     return False
 
 
-def get_alert_type(data):
+def get_alert_type(
+    data
+):
 
-    alerts = extract_active_alerts(data)
+    alerts = (
+        extract_active_alerts(
+            data
+        )
+    )
 
     if not alerts:
 
-        return "Повітряна тривога"
+        return (
+            "Повітряна тривога"
+        )
 
     first = alerts[0]
 
-    if isinstance(first, dict):
+    if isinstance(
+        first,
+        dict
+    ):
 
         for key in (
             "type",
@@ -446,18 +602,32 @@ def get_alert_type(data):
             "name"
         ):
 
-            value = first.get(key)
+            value = first.get(
+                key
+            )
 
             if value:
-                return str(value)
 
-    return "Повітряна тривога"
+                return str(
+                    value
+                )
+
+    return (
+        "Повітряна тривога"
+    )
 
 
-def process_alarm(state):
+# ============================================================
+# ОБРОБКА ПОВІТРЯНОЇ ТРИВОГИ
+# ============================================================
+
+def process_alarm(
+    state
+):
 
     log(
-        "🚨 Перевіряю повітряну тривогу..."
+        "🚨 Перевіряю "
+        "повітряну тривогу..."
     )
 
     if not UKRAINE_ALARM_API_KEY:
@@ -474,54 +644,69 @@ def process_alarm(state):
     if data is None:
 
         log(
-            "⚠️ Стан Чернігівської області "
-            "не отримано."
+            "⚠️ Стан Чернігівської "
+            "області не отримано."
         )
 
         return
 
-    active = alert_is_active(data)
-
-    old_active = bool(
-        state["alert"].get("active", False)
+    active = alert_is_active(
+        data
     )
 
-    alert_type = get_alert_type(data)
+    old_active = bool(
+        state["alert"].get(
+            "active",
+            False
+        )
+    )
 
-    now = datetime.now().strftime(
+    alert_type = get_alert_type(
+        data
+    )
+
+    now = datetime.now(
+        KYIV_TZ
+    ).strftime(
         "%d.%m.%Y %H:%M:%S"
     )
 
     if active:
 
         log(
-            "🚨 Стан Чернігівської області: "
-            "🔴 ТРИВОГА"
+            "🚨 Стан Чернігівської "
+            "області: 🔴 ТРИВОГА"
         )
 
     else:
 
         log(
-            "🚨 Стан Чернігівської області: "
-            "🟢 НЕМАЄ ТРИВОГИ"
+            "🚨 Стан Чернігівської "
+            "області: 🟢 НЕМАЄ ТРИВОГИ"
         )
 
     # --------------------------------------------------------
-    # ПОЧАТОК ТРИВОГИ
+    # ПОЧАТОК
     # --------------------------------------------------------
 
     if active and not old_active:
 
         message = (
+
             "🚨 ПОВІТРЯНА ТРИВОГА\n\n"
+
             "📍 Чернігівська область\n"
+
             f"⚠️ Тип: {alert_type}\n\n"
+
             "Негайно прямуйте до укриття "
             "та стежте за офіційними "
             "повідомленнями."
         )
 
-        result = send_message(message)
+        result = send_message(
+            message
+        )
 
         if result:
 
@@ -529,13 +714,17 @@ def process_alarm(state):
 
             state["alert"]["last_change"] = now
 
-            state["alert"]["last_type"] = alert_type
+            state["alert"]["last_type"] = (
+                alert_type
+            )
 
-            save_state(state)
+            save_state(
+                state
+            )
 
             log(
-                "🚨 Повідомлення про початок "
-                "тривоги НАДІСЛАНО."
+                "🚨 Повідомлення про "
+                "початок тривоги НАДІСЛАНО."
             )
 
     # --------------------------------------------------------
@@ -545,13 +734,19 @@ def process_alarm(state):
     elif not active and old_active:
 
         message = (
-            "🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\n"
+
+            "🟢 ВІДБІЙ "
+            "ПОВІТРЯНОЇ ТРИВОГИ\n\n"
+
             "📍 Чернігівська область\n\n"
+
             "Офіційно отримано відбій "
             "повітряної тривоги."
         )
 
-        result = send_message(message)
+        result = send_message(
+            message
+        )
 
         if result:
 
@@ -559,24 +754,30 @@ def process_alarm(state):
 
             state["alert"]["last_change"] = now
 
-            state["alert"]["last_type"] = "end"
+            state["alert"]["last_type"] = (
+                "end"
+            )
 
-            save_state(state)
+            save_state(
+                state
+            )
 
             log(
-                "🟢 Повідомлення про відбій "
-                "НАДІСЛАНО."
+                "🟢 Повідомлення про "
+                "відбій НАДІСЛАНО."
             )
 
     # --------------------------------------------------------
-    # СТАН НЕ ЗМІНИВСЯ
+    # БЕЗ ЗМІНИ
     # --------------------------------------------------------
 
     else:
 
         state["alert"]["active"] = active
 
-        save_state(state)
+        save_state(
+            state
+        )
 
         if active:
 
@@ -592,15 +793,771 @@ def process_alarm(state):
 
 
 # ============================================================
+# ВІДСТАНЬ МІЖ ДВОМА ТОЧКАМИ
+# ============================================================
+
+def distance_km(
+    lat1,
+    lon1,
+    lat2,
+    lon2
+):
+
+    earth_radius = 6371.0
+
+    lat1_rad = math.radians(
+        lat1
+    )
+
+    lat2_rad = math.radians(
+        lat2
+    )
+
+    delta_lat = math.radians(
+        lat2 - lat1
+    )
+
+    delta_lon = math.radians(
+        lon2 - lon1
+    )
+
+    a = (
+        math.sin(
+            delta_lat / 2
+        ) ** 2
+
+        +
+
+        math.cos(
+            lat1_rad
+        )
+
+        *
+
+        math.cos(
+            lat2_rad
+        )
+
+        *
+
+        math.sin(
+            delta_lon / 2
+        ) ** 2
+    )
+
+    c = (
+        2
+        * math.atan2(
+            math.sqrt(a),
+            math.sqrt(1 - a)
+        )
+    )
+
+    return earth_radius * c
+
+
+# ============================================================
+# НАЗВА ТИПУ ЗАГРОЗИ
+# ============================================================
+
+def threat_type_name(
+    threat
+):
+
+    threat_type = str(
+        threat.get(
+            "type",
+            "unknown"
+        )
+    ).lower()
+
+    title = str(
+        threat.get(
+            "title",
+            ""
+        )
+    ).strip()
+
+    if (
+        "shahed" in title.lower()
+        or "шахед" in title.lower()
+    ):
+
+        return "ШАХЕД / БпЛА"
+
+    if threat_type == "uav":
+
+        return "БпЛА"
+
+    if threat_type == "missile":
+
+        return "РАКЕТА"
+
+    if threat_type == "ballistic":
+
+        return "БАЛІСТИЧНА РАКЕТА"
+
+    if threat_type == "kab":
+
+        return "КАБ"
+
+    if threat_type == "recon":
+
+        return "РОЗВІДУВАЛЬНИЙ БпЛА"
+
+    if threat_type == "mig31k":
+
+        return "МіГ-31К"
+
+    return (
+        title
+        if title
+        else "ПОВІТРЯНА ЗАГРОЗА"
+    )
+
+
+# ============================================================
+# ПЕРЕВІРКА — ЦІКАВИТЬ ЛИШЕ БПЛА/РАКЕТИ
+# ============================================================
+
+def is_relevant_threat(
+    threat
+):
+
+    threat_type = str(
+        threat.get(
+            "type",
+            ""
+        )
+    ).lower()
+
+    # Шахеди / БпЛА
+    if threat_type == "uav":
+        return True
+
+    # Крилаті ракети
+    if threat_type == "missile":
+        return True
+
+    # Балістика
+    if threat_type == "ballistic":
+        return True
+
+    return False
+
+
+# ============================================================
+# ПЕРЕВІРКА ЗАГРОЗ NEPTUN
+# ============================================================
+
+def check_neptun_threats(
+    state
+):
+
+    log(
+        "🛰 Перевіряю "
+        "повітряні загрози NEPTUN..."
+    )
+
+    url = (
+        f"{NEPTUN_API}/threats"
+    )
+
+    try:
+
+        response = requests.get(
+            url,
+            timeout=TIMEOUT,
+            headers={
+                "Accept":
+                    "application/json",
+                "User-Agent":
+                    "KozeletsAlarmBot/1.0"
+            }
+        )
+
+        if not response.ok:
+
+            log(
+                "⚠️ NEPTUN HTTP "
+                f"{response.status_code}: "
+                f"{response.text[:300]}"
+            )
+
+            return
+
+        data = response.json()
+
+        threats = data.get(
+            "threats",
+            []
+        )
+
+        if not isinstance(
+            threats,
+            list
+        ):
+
+            log(
+                "⚠️ NEPTUN: "
+                "некоректний формат threats."
+            )
+
+            return
+
+        log(
+            f"🛰 NEPTUN: "
+            f"активних об'єктів: "
+            f"{len(threats)}"
+        )
+
+        seen_threats = set(
+            state.get(
+                "threats_seen",
+                []
+            )
+        )
+
+        relevant_ids = set()
+
+        for threat in threats:
+
+            if not isinstance(
+                threat,
+                dict
+            ):
+
+                continue
+
+            # ------------------------------------------------
+            # ТІЛЬКИ БПЛА / РАКЕТИ
+            # ------------------------------------------------
+
+            if not is_relevant_threat(
+                threat
+            ):
+
+                continue
+
+            # ------------------------------------------------
+            # ТІЛЬКИ ACTIVE
+            # ------------------------------------------------
+
+            status = str(
+                threat.get(
+                    "status",
+                    ""
+                )
+            ).lower()
+
+            if status != "active":
+
+                continue
+
+            # ------------------------------------------------
+            # AREA ONLY
+            # ------------------------------------------------
+            #
+            # Якщо NEPTUN каже, що координата
+            # є лише центроїдом області,
+            # не використовуємо її як точку
+            # реальної загрози.
+            # ------------------------------------------------
+
+            if threat.get(
+                "areaOnly",
+                False
+            ):
+
+                log(
+                    "⏭️ NEPTUN: "
+                    "areaOnly — пропускаю."
+                )
+
+                continue
+
+            # ------------------------------------------------
+            # КООРДИНАТИ
+            # ------------------------------------------------
+
+            lat = threat.get(
+                "lat"
+            )
+
+            lon = threat.get(
+                "lon"
+            )
+
+            if lat is None or lon is None:
+
+                continue
+
+            try:
+
+                lat = float(lat)
+
+                lon = float(lon)
+
+            except (
+                TypeError,
+                ValueError
+            ):
+
+                continue
+
+            # ------------------------------------------------
+            # ДАНІ ПРО ОБ'ЄКТ
+            # ------------------------------------------------
+
+            threat_id = str(
+                threat.get(
+                    "id",
+                    ""
+                )
+            ).strip()
+
+            if not threat_id:
+
+                # Запасний ID
+                raw = (
+                    f"{threat.get('type')}|"
+                    f"{lat}|"
+                    f"{lon}|"
+                    f"{threat.get('updatedAt')}"
+                )
+
+                threat_id = hashlib.sha256(
+                    raw.encode("utf-8")
+                ).hexdigest()[:24]
+
+            relevant_ids.add(
+                threat_id
+            )
+
+            # ------------------------------------------------
+            # ВІДСТАНЬ ДО КОЗЕЛЬЦЯ
+            # ------------------------------------------------
+
+            kozelets_distance = (
+                distance_km(
+                    lat,
+                    lon,
+                    KOZELETS_LAT,
+                    KOZELETS_LON
+                )
+            )
+
+            # ------------------------------------------------
+            # ВІДСТАНЬ ДО ОСТРА
+            # ------------------------------------------------
+
+            oster_distance = (
+                distance_km(
+                    lat,
+                    lon,
+                    OSTER_LAT,
+                    OSTER_LON
+                )
+            )
+
+            # ------------------------------------------------
+            # ВИБИРАЄМО НАЙБЛИЖЧЕ МІСЦЕ
+            # ------------------------------------------------
+
+            if (
+                kozelets_distance
+                <= THREAT_RADIUS_KM
+                and
+                (
+                    kozelets_distance
+                    <= oster_distance
+                )
+            ):
+
+                nearest_place = (
+                    "Козельця"
+                )
+
+                nearest_distance = (
+                    kozelets_distance
+                )
+
+            elif (
+                oster_distance
+                <= THREAT_RADIUS_KM
+            ):
+
+                nearest_place = (
+                    "Остра"
+                )
+
+                nearest_distance = (
+                    oster_distance
+                )
+
+            else:
+
+                continue
+
+            # ------------------------------------------------
+            # ВЖЕ ПОВІДОМЛЯЛИ
+            # ------------------------------------------------
+
+            if threat_id in seen_threats:
+
+                log(
+                    "ℹ️ NEPTUN: "
+                    f"об'єкт {threat_id} "
+                    "вже повідомлявся."
+                )
+
+                continue
+
+            # ------------------------------------------------
+            # ТИП
+            # ------------------------------------------------
+
+            type_name = (
+                threat_type_name(
+                    threat
+                )
+            )
+
+            # ------------------------------------------------
+            # НАЗВА
+            # ------------------------------------------------
+
+            title = str(
+                threat.get(
+                    "title",
+                    ""
+                )
+            ).strip()
+
+            # ------------------------------------------------
+            # НАПРЯМОК
+            # ------------------------------------------------
+
+            heading = threat.get(
+                "heading"
+            )
+
+            direction_text = ""
+
+            if heading is not None:
+
+                try:
+
+                    heading_value = (
+                        float(heading)
+                    )
+
+                    direction_text = (
+                        f"\n🧭 Курс: "
+                        f"{heading_value:.0f}°"
+                    )
+
+                except (
+                    TypeError,
+                    ValueError
+                ):
+
+                    pass
+
+            # ------------------------------------------------
+            # РАЙОН / ОБЛАСТЬ
+            # ------------------------------------------------
+
+            location_parts = []
+
+            region = str(
+                threat.get(
+                    "region",
+                    ""
+                )
+            ).strip()
+
+            district = str(
+                threat.get(
+                    "district",
+                    ""
+                )
+            ).strip()
+
+            locality = str(
+                threat.get(
+                    "locality",
+                    ""
+                )
+            ).strip()
+
+            if locality:
+
+                location_parts.append(
+                    locality
+                )
+
+            elif district:
+
+                location_parts.append(
+                    district
+                )
+
+            elif region:
+
+                location_parts.append(
+                    region
+                )
+
+            location_text = ""
+
+            if location_parts:
+
+                location_text = (
+                    "\n📍 Район: "
+                    + ", ".join(
+                        location_parts
+                    )
+                )
+
+            # ------------------------------------------------
+            # ГРУПА
+            # ------------------------------------------------
+
+            count = threat.get(
+                "count"
+            )
+
+            count_text = ""
+
+            if count:
+
+                try:
+
+                    count_value = int(
+                        count
+                    )
+
+                    if count_value > 1:
+
+                        count_text = (
+                            f"\n🔢 Група: "
+                            f"{count_value} об'єктів"
+                        )
+
+                except (
+                    TypeError,
+                    ValueError
+                ):
+
+                    pass
+
+            # ------------------------------------------------
+            # CONFIDENCE
+            # ------------------------------------------------
+
+            confidence = str(
+                threat.get(
+                    "confidenceLevel",
+                    ""
+                )
+            ).lower()
+
+            confidence_text = ""
+
+            if confidence == "high":
+
+                confidence_text = (
+                    "\n📊 Достовірність: "
+                    "висока"
+                )
+
+            elif confidence == "medium":
+
+                confidence_text = (
+                    "\n📊 Достовірність: "
+                    "середня"
+                )
+
+            elif confidence == "low":
+
+                confidence_text = (
+                    "\n📊 Достовірність: "
+                    "низька"
+                )
+
+            # ------------------------------------------------
+            # ЧАС
+            # ------------------------------------------------
+
+            updated_at = str(
+                threat.get(
+                    "updatedAt",
+                    ""
+                )
+            ).strip()
+
+            time_text = ""
+
+            if updated_at:
+
+                try:
+
+                    dt = datetime.fromisoformat(
+                        updated_at.replace(
+                            "Z",
+                            "+00:00"
+                        )
+                    )
+
+                    dt = dt.astimezone(
+                        KYIV_TZ
+                    )
+
+                    time_text = (
+                        "\n🕐 Оновлено: "
+                        + dt.strftime(
+                            "%d.%m.%Y %H:%M:%S"
+                        )
+                    )
+
+                except Exception:
+
+                    pass
+
+            # ------------------------------------------------
+            # ФОРМУЄМО ПОВІДОМЛЕННЯ
+            # ------------------------------------------------
+
+            if (
+                threat.get(
+                    "advisory",
+                    False
+                )
+            ):
+
+                prefix = (
+                    "ℹ️ ІНФОРМАЦІЯ "
+                    "ПРО ПОВІТРЯНУ ЗАГРОЗУ"
+                )
+
+            else:
+
+                prefix = (
+                    "🚨 ПОВІТРЯНА ЗАГРОЗА "
+                    "ПОБЛИЗУ"
+                )
+
+            message = (
+
+                f"{prefix}\n\n"
+
+                f"📍 Поблизу {nearest_place}\n"
+
+                f"⚠️ Тип: {type_name}\n"
+
+                f"📏 Відстань: "
+                f"≈ {nearest_distance:.0f} км"
+
+                f"{direction_text}"
+
+                f"{location_text}"
+
+                f"{count_text}"
+
+                f"{confidence_text}"
+
+                f"{time_text}"
+
+                "\n\n"
+
+                "⚠️ Це інформаційні дані "
+                "NEPTUN, а не офіційний "
+                "сигнал повітряної тривоги."
+
+                "\n\n"
+
+                "🔗 Дані: "
+                "https://neptun.in.ua/"
+            )
+
+            result = send_message(
+                message
+            )
+
+            if result:
+
+                seen_threats.add(
+                    threat_id
+                )
+
+                log(
+                    "🚨 NEPTUN: "
+                    f"повідомлення надіслано — "
+                    f"{type_name}, "
+                    f"≈{nearest_distance:.0f} км "
+                    f"від {nearest_place}"
+                )
+
+        # ----------------------------------------------------
+        # ОЧИЩЕННЯ СТАРИХ ID
+        # ----------------------------------------------------
+        #
+        # Зберігаємо тільки актуальні об'єкти
+        # плюс невелику історію.
+        # ----------------------------------------------------
+
+        current_seen = (
+            seen_threats
+            & relevant_ids
+        )
+
+        # Зберігаємо максимум 500 ID.
+        #
+        # Якщо загроза зникла з активних —
+        # її ID очищається.
+        #
+        state["threats_seen"] = list(
+            current_seen
+        )[-500:]
+
+        save_state(
+            state
+        )
+
+        log(
+            "🛰 Перевірка NEPTUN завершена."
+        )
+
+    except requests.RequestException as e:
+
+        log(
+            f"⚠️ NEPTUN network error: "
+            f"{e}"
+        )
+
+    except Exception as e:
+
+        log(
+            f"⚠️ NEPTUN error: "
+            f"{e}"
+        )
+
+
+# ============================================================
 # WEATHER
 # ============================================================
 
 def get_weather():
 
     url = (
+
         "https://api.open-meteo.com/v1/forecast"
+
         f"?latitude={KOZELETS_LAT}"
+
         f"&longitude={KOZELETS_LON}"
+
         "&current="
         "temperature_2m,"
         "relative_humidity_2m,"
@@ -610,7 +1567,9 @@ def get_weather():
         "weather_code,"
         "wind_speed_10m,"
         "wind_direction_10m"
+
         "&timezone=Europe%2FKyiv"
+
         "&forecast_days=1"
     )
 
@@ -628,13 +1587,16 @@ def get_weather():
     except Exception as e:
 
         log(
-            f"⚠️ Weather error: {e}"
+            f"⚠️ Weather error: "
+            f"{e}"
         )
 
         return None
 
 
-def weather_description(code):
+def weather_description(
+    code
+):
 
     descriptions = {
 
@@ -688,7 +1650,7 @@ def weather_description(code):
 
 
 # ============================================================
-# НОВИНИ
+# NEWS FEEDS
 # ============================================================
 
 NEWS_FEEDS = [
@@ -697,7 +1659,9 @@ NEWS_FEEDS = [
         "Козелець",
 
         "https://news.google.com/rss/search?q="
-        + quote("Козелець Україна")
+        + quote(
+            "Козелець Україна"
+        )
         + "&hl=uk&gl=UA&ceid=UA:uk"
     ),
 
@@ -705,7 +1669,9 @@ NEWS_FEEDS = [
         "Остер",
 
         "https://news.google.com/rss/search?q="
-        + quote("Остер Чернігівська область")
+        + quote(
+            "Остер Чернігівська область"
+        )
         + "&hl=uk&gl=UA&ceid=UA:uk"
     ),
 
@@ -713,7 +1679,9 @@ NEWS_FEEDS = [
         "Бобровиця",
 
         "https://news.google.com/rss/search?q="
-        + quote("Бобровиця Чернігівська область")
+        + quote(
+            "Бобровиця Чернігівська область"
+        )
         + "&hl=uk&gl=UA&ceid=UA:uk"
     ),
 
@@ -721,7 +1689,9 @@ NEWS_FEEDS = [
         "Козелеччина",
 
         "https://news.google.com/rss/search?q="
-        + quote("Козелеччина")
+        + quote(
+            "Козелеччина"
+        )
         + "&hl=uk&gl=UA&ceid=UA:uk"
     ),
 
@@ -729,7 +1699,9 @@ NEWS_FEEDS = [
         "ДСНС Чернігів",
 
         "https://news.google.com/rss/search?q="
-        + quote("ДСНС Чернігівська область")
+        + quote(
+            "ДСНС Чернігівська область"
+        )
         + "&hl=uk&gl=UA&ceid=UA:uk"
     ),
 
@@ -737,13 +1709,21 @@ NEWS_FEEDS = [
         "Поліція Чернігів",
 
         "https://news.google.com/rss/search?q="
-        + quote("поліція Чернігівська область")
+        + quote(
+            "поліція Чернігівська область"
+        )
         + "&hl=uk&gl=UA&ceid=UA:uk"
     )
 ]
 
 
-def clean_text(text):
+# ============================================================
+# CLEAN NEWS
+# ============================================================
+
+def clean_text(
+    text
+):
 
     text = text or ""
 
@@ -762,49 +1742,57 @@ def clean_text(text):
     return text.strip()
 
 
-def make_news_id(title, link):
+# ============================================================
+# NEWS ID
+# ============================================================
+
+def make_news_id(
+    title,
+    link
+):
 
     value = (
         f"{title}|{link}"
     )
 
     return hashlib.sha256(
-        value.encode("utf-8")
+        value.encode(
+            "utf-8"
+        )
     ).hexdigest()[:24]
 
 
-def parse_news_date(entry):
+# ============================================================
+# PARSE NEWS DATE
+# ============================================================
 
-    """
-    Отримуємо дату новини з RSS.
-
-    Google News зазвичай передає
-    published_parsed / updated_parsed.
-    """
+def parse_news_date(
+    entry
+):
 
     parsed = None
 
-    if entry.get("published_parsed"):
+    if entry.get(
+        "published_parsed"
+    ):
 
         parsed = entry.get(
             "published_parsed"
         )
 
-    elif entry.get("updated_parsed"):
+    elif entry.get(
+        "updated_parsed"
+    ):
 
         parsed = entry.get(
             "updated_parsed"
         )
 
     if not parsed:
+
         return None
 
     try:
-
-        # RSS час зазвичай UTC.
-        #
-        # Перетворюємо його у datetime
-        # з UTC.
 
         return datetime(
             parsed.tm_year,
@@ -821,10 +1809,17 @@ def parse_news_date(entry):
         return None
 
 
-def get_news(state):
+# ============================================================
+# NEWS
+# ============================================================
+
+def get_news(
+    state
+):
 
     log(
-        "📰 Перевіряю ТІЛЬКИ свіжі новини..."
+        "📰 Перевіряю "
+        "ТІЛЬКИ свіжі новини..."
     )
 
     seen = set(
@@ -836,12 +1831,10 @@ def get_news(state):
 
     collected = []
 
-    # Поточний час UTC
     now_utc = datetime.now(
         timezone.utc
     )
 
-    # Тільки останні 5 хвилин
     cutoff = (
         now_utc
         - timedelta(
@@ -853,7 +1846,9 @@ def get_news(state):
 
         try:
 
-            feed = feedparser.parse(url)
+            feed = feedparser.parse(
+                url
+            )
 
             for entry in feed.entries[:20]:
 
@@ -870,52 +1865,47 @@ def get_news(state):
                 )
 
                 if not title or not link:
+
                     continue
 
-                # ---------------------------------------------
-                # ДАТА ПУБЛІКАЦІЇ
-                # ---------------------------------------------
-
-                published_dt = parse_news_date(
-                    entry
+                published_dt = (
+                    parse_news_date(
+                        entry
+                    )
                 )
 
-                # Якщо RSS не дав дату —
-                # НЕ публікуємо.
                 if published_dt is None:
 
                     log(
                         "⏭️ Пропущено — "
-                        f"немає дати: {title}"
+                        f"немає дати: "
+                        f"{title}"
                     )
 
                     continue
 
-                # ---------------------------------------------
-                # МАЙБУТНЯ ДАТА
-                # ---------------------------------------------
-
                 if published_dt > (
                     now_utc
                     + timedelta(
-                        minutes=NEWS_FUTURE_TOLERANCE_MINUTES
+                        minutes=
+                        NEWS_FUTURE_TOLERANCE_MINUTES
                     )
                 ):
 
                     log(
                         "⏭️ Пропущено — "
-                        f"майбутня дата: {title}"
+                        f"майбутня дата: "
+                        f"{title}"
                     )
 
                     continue
 
-                # ---------------------------------------------
-                # СТАРА НОВИНА
-                # ---------------------------------------------
-
                 if published_dt < cutoff:
 
-                    age = now_utc - published_dt
+                    age = (
+                        now_utc
+                        - published_dt
+                    )
 
                     age_minutes = (
                         age.total_seconds()
@@ -930,28 +1920,19 @@ def get_news(state):
 
                     continue
 
-                # ---------------------------------------------
-                # ID НОВИНИ
-                # ---------------------------------------------
-
                 news_id = make_news_id(
                     title,
                     link
                 )
 
-                # Вже публікували
                 if news_id in seen:
 
                     log(
-                        f"⏭️ Вже публікували: "
+                        "⏭️ Вже публікували: "
                         f"{title}"
                     )
 
                     continue
-
-                # ---------------------------------------------
-                # ДОДАЄМО
-                # ---------------------------------------------
 
                 collected.append(
                     (
@@ -970,27 +1951,16 @@ def get_news(state):
                 f"{category}: {e}"
             )
 
-    # --------------------------------------------------------
-    # СОРТУВАННЯ
     # Найновіші першими
-    # --------------------------------------------------------
-
     collected.sort(
         key=lambda item: item[4],
         reverse=True
     )
 
-    # --------------------------------------------------------
-    # МАКСИМУМ 5 НОВИН
-    # --------------------------------------------------------
-
+    # Максимум 5
     collected = collected[:5]
 
     published = 0
-
-    # --------------------------------------------------------
-    # ПУБЛІКАЦІЯ
-    # --------------------------------------------------------
 
     for (
         category,
@@ -1000,14 +1970,15 @@ def get_news(state):
         published_dt
     ) in collected:
 
-        # Переводимо час у Київ
-        kyiv_time = published_dt.astimezone(
-            timezone(
-                timedelta(hours=3)
+        kyiv_time = (
+            published_dt
+            .astimezone(
+                KYIV_TZ
             )
         )
 
         message = (
+
             f"📰 {category}\n\n"
 
             f"🔹 {title}\n\n"
@@ -1031,19 +2002,17 @@ def get_news(state):
             published += 1
 
             log(
-                f"📰 Опубліковано: "
+                "📰 Опубліковано: "
                 f"{title}"
             )
-
-    # --------------------------------------------------------
-    # ЗБЕРІГАЄМО ID
-    # --------------------------------------------------------
 
     state["news_seen"] = list(
         seen
     )[-500:]
 
-    save_state(state)
+    save_state(
+        state
+    )
 
     log(
         f"📰 Опубліковано новин: "
@@ -1052,7 +2021,7 @@ def get_news(state):
 
 
 # ============================================================
-# ІСТОРІЯ
+# HISTORY
 # ============================================================
 
 HISTORY = [
@@ -1061,9 +2030,9 @@ HISTORY = [
         "📚 КОЗЕЛЕЦЬ",
 
         "Козелець — історичне містечко "
-        "Чернігівщини, відоме архітектурною "
-        "спадщиною та пам'ятками "
-        "козацької доби."
+        "Чернігівщини, відоме "
+        "архітектурною спадщиною "
+        "та пам'ятками козацької доби."
     ),
 
     (
@@ -1077,8 +2046,9 @@ HISTORY = [
     (
         "📚 БОБРОВИЦЯ",
 
-        "Бобровиця — місто Чернігівської "
-        "області з давньою історією "
+        "Бобровиця — місто "
+        "Чернігівської області "
+        "з давньою історією "
         "та залізничним сполученням."
     ),
 
@@ -1086,20 +2056,24 @@ HISTORY = [
         "📚 КОЗЕЛЕЧЧИНА",
 
         "Козелеччина поєднує історичні "
-        "населені пункти, природні території "
-        "та культурну спадщину "
-        "Чернігівщини."
+        "населені пункти, природні "
+        "території та культурну "
+        "спадщину Чернігівщини."
     )
 ]
 
 
-def history_post(state):
+def history_post(
+    state
+):
 
     last = state.get(
         "history_last"
     )
 
-    now = datetime.now()
+    now = datetime.now(
+        KYIV_TZ
+    )
 
     if last:
 
@@ -1108,6 +2082,8 @@ def history_post(state):
             last_dt = datetime.strptime(
                 last,
                 "%Y-%m-%d %H:%M:%S"
+            ).replace(
+                tzinfo=KYIV_TZ
             )
 
             if (
@@ -1154,7 +2130,9 @@ def history_post(state):
             )
         )
 
-        save_state(state)
+        save_state(
+            state
+        )
 
         log(
             "📚 Історичний пост "
@@ -1163,12 +2141,13 @@ def history_post(state):
 
 
 # ============================================================
-# РАДІАЦІЯ
+# RADIATION
 # ============================================================
 
 def radiation_info():
 
     return (
+
         "☢️ РАДІАЦІЙНИЙ ФОН\n\n"
 
         "ℹ️ Для коректного локального "
@@ -1182,12 +2161,13 @@ def radiation_info():
 
 
 # ============================================================
-# ЕЛЕКТРОПОСТАЧАННЯ
+# POWER
 # ============================================================
 
 def power_info():
 
     return (
+
         "⚡ ЕЛЕКТРОПОСТАЧАННЯ\n\n"
 
         "ℹ️ Графік та аварійні "
@@ -1203,11 +2183,15 @@ def power_info():
 # DASHBOARD
 # ============================================================
 
-def dashboard_text(state):
+def dashboard_text(
+    state
+):
 
     weather = get_weather()
 
-    now = datetime.now().strftime(
+    now = datetime.now(
+        KYIV_TZ
+    ).strftime(
         "%d.%m.%Y %H:%M"
     )
 
@@ -1220,7 +2204,8 @@ def dashboard_text(state):
 
     lines = [
 
-        "📍 КОЗЕЛЕЦЬ | ОПЕРАТИВНА ПАНЕЛЬ",
+        "📍 КОЗЕЛЕЦЬ | "
+        "ОПЕРАТИВНА ПАНЕЛЬ",
 
         "",
 
@@ -1242,6 +2227,23 @@ def dashboard_text(state):
         )
 
     lines.append("")
+
+    lines.append(
+        "🛰 ПОВІТРЯНІ ЗАГРОЗИ"
+    )
+
+    lines.extend([
+
+        "📍 Козелець / Остер",
+
+        "📏 Радіус: 50 км",
+
+        "🚁 БпЛА / Шахеди",
+
+        "🚀 Ракети / балістика",
+
+        ""
+    ])
 
     lines.append(
         "🌤 ПОГОДА"
@@ -1338,10 +2340,18 @@ def dashboard_text(state):
         "кожні 5 хвилин"
     ])
 
-    return "\n".join(lines)
+    return "\n".join(
+        lines
+    )
 
 
-def update_dashboard(state):
+# ============================================================
+# UPDATE DASHBOARD
+# ============================================================
+
+def update_dashboard(
+    state
+):
 
     text = dashboard_text(
         state
@@ -1350,10 +2360,6 @@ def update_dashboard(state):
     message_id = state.get(
         "pinned_message_id"
     )
-
-    # --------------------------------------------------------
-    # ОНОВЛЮЄМО СТАРУ ПАНЕЛЬ
-    # --------------------------------------------------------
 
     if message_id:
 
@@ -1375,10 +2381,6 @@ def update_dashboard(state):
             "не вдалося оновити."
         )
 
-    # --------------------------------------------------------
-    # СТВОРЮЄМО НОВУ
-    # --------------------------------------------------------
-
     result = send_message(
         text
     )
@@ -1397,6 +2399,7 @@ def update_dashboard(state):
     )
 
     if not new_id:
+
         return
 
     state[
@@ -1418,7 +2421,7 @@ def update_dashboard(state):
 
 
 # ============================================================
-# ПЕРЕВІРКА КОНФІГУРАЦІЇ
+# CONFIG VALIDATION
 # ============================================================
 
 def validate_config():
@@ -1461,21 +2464,29 @@ def main():
 
     print()
 
-    print("=" * 60)
+    print(
+        "=" * 60
+    )
 
     print(
         "🤖 KOZELETS ALARM BOT"
     )
 
-    print("=" * 60)
+    print(
+        "=" * 60
+    )
 
     print(
-        datetime.now().strftime(
+        datetime.now(
+            KYIV_TZ
+        ).strftime(
             "%d.%m.%Y %H:%M:%S"
         )
     )
 
-    print("=" * 60)
+    print(
+        "=" * 60
+    )
 
     if not validate_config():
 
@@ -1488,7 +2499,7 @@ def main():
     state = load_state()
 
     # --------------------------------------------------------
-    # 1. ПОВІТРЯНА ТРИВОГА
+    # 1. ОФІЦІЙНА ТРИВОГА
     # --------------------------------------------------------
 
     process_alarm(
@@ -1496,7 +2507,15 @@ def main():
     )
 
     # --------------------------------------------------------
-    # 2. ОПЕРАТИВНА ПАНЕЛЬ
+    # 2. NEPTUN
+    # --------------------------------------------------------
+
+    check_neptun_threats(
+        state
+    )
+
+    # --------------------------------------------------------
+    # 3. DASHBOARD
     # --------------------------------------------------------
 
     update_dashboard(
@@ -1504,7 +2523,7 @@ def main():
     )
 
     # --------------------------------------------------------
-    # 3. НОВИНИ
+    # 4. NEWS
     # --------------------------------------------------------
 
     get_news(
@@ -1512,7 +2531,7 @@ def main():
     )
 
     # --------------------------------------------------------
-    # 4. ІСТОРІЯ
+    # 5. HISTORY
     # --------------------------------------------------------
 
     history_post(
@@ -1520,21 +2539,29 @@ def main():
     )
 
     # --------------------------------------------------------
-    # 5. ЗБЕРЕЖЕННЯ
+    # 6. SAVE
     # --------------------------------------------------------
 
     save_state(
         state
     )
 
-    print("=" * 60)
+    print(
+        "=" * 60
+    )
 
     print(
         "✅ ЦИКЛ ЗАВЕРШЕНО"
     )
 
-    print("=" * 60)
+    print(
+        "=" * 60
+    )
 
+
+# ============================================================
+# START
+# ============================================================
 
 if __name__ == "__main__":
 

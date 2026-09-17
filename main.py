@@ -1,8 +1,6 @@
 import os
 import re
 import json
-import time
-import html
 import hashlib
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -18,36 +16,31 @@ import feedparser
 
 BOT_TOKEN = os.getenv("BOT_TOKEN", "").strip()
 CHANNEL = os.getenv("CHANNEL", "@Kozelets_Alarm").strip()
-
-# API KEY НЕ ЗАПИСУЄМО В КОД.
-# Він передається через GitHub Secret:
-# UKRAINE_ALARM_API_KEY
-UKRAINE_ALARM_API_KEY = os.getenv("UKRAINE_ALARM_API_KEY", "").strip()
-
-TZ_NAME = "Europe/Kyiv"
-
-# Координати Козельця
-KOZELETS_LAT = 50.913
-KOZELETS_LON = 31.121
-
-STATE_FILE = Path("bot_state.json")
+UKRAINE_ALARM_API_KEY = os.getenv(
+    "UKRAINE_ALARM_API_KEY",
+    ""
+).strip()
 
 UA_API = "https://api.ukrainealarm.com/api/v3"
 
-TELEGRAM_API = f"https://api.telegram.org/bot{BOT_TOKEN}"
-
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 Chrome/140 Safari/537.36"
-    )
-}
+TELEGRAM_API = (
+    f"https://api.telegram.org/bot{BOT_TOKEN}"
+)
 
 TIMEOUT = 25
 
+STATE_FILE = Path("bot_state.json")
+
+# Чернігівська область
+CHERNIHIV_REGION_ID = "25"
+
+# Козелець
+KOZELETS_LAT = 50.913
+KOZELETS_LON = 31.121
+
 
 # ============================================================
-# CONSOLE
+# LOG
 # ============================================================
 
 def log(text):
@@ -73,14 +66,20 @@ DEFAULT_STATE = {
 
 def load_state():
     if not STATE_FILE.exists():
-        return DEFAULT_STATE.copy()
+        return json.loads(
+            json.dumps(DEFAULT_STATE)
+        )
 
     try:
         data = json.loads(
-            STATE_FILE.read_text(encoding="utf-8")
+            STATE_FILE.read_text(
+                encoding="utf-8"
+            )
         )
 
-        state = DEFAULT_STATE.copy()
+        state = json.loads(
+            json.dumps(DEFAULT_STATE)
+        )
 
         if isinstance(data, dict):
             for key in state:
@@ -90,15 +89,20 @@ def load_state():
         return state
 
     except Exception as e:
-        log(f"⚠️ Не вдалося прочитати state: {e}")
-        return DEFAULT_STATE.copy()
+        log(
+            f"⚠️ Помилка читання bot_state.json: {e}"
+        )
+
+        return json.loads(
+            json.dumps(DEFAULT_STATE)
+        )
 
 
 def save_state(state):
     try:
-        tmp = STATE_FILE.with_suffix(".tmp")
+        temp = STATE_FILE.with_suffix(".tmp")
 
-        tmp.write_text(
+        temp.write_text(
             json.dumps(
                 state,
                 ensure_ascii=False,
@@ -107,10 +111,12 @@ def save_state(state):
             encoding="utf-8"
         )
 
-        tmp.replace(STATE_FILE)
+        temp.replace(STATE_FILE)
 
     except Exception as e:
-        log(f"⚠️ Не вдалося зберегти state: {e}")
+        log(
+            f"⚠️ Помилка збереження state: {e}"
+        )
 
 
 # ============================================================
@@ -131,7 +137,8 @@ def telegram(method, payload=None):
 
         if not response.ok:
             log(
-                f"Telegram HTTP {response.status_code}: "
+                f"❌ Telegram HTTP "
+                f"{response.status_code}: "
                 f"{response.text[:500]}"
             )
             return None
@@ -139,17 +146,21 @@ def telegram(method, payload=None):
         data = response.json()
 
         if not data.get("ok"):
-            log(f"Telegram error: {data}")
+            log(
+                f"❌ Telegram API error: {data}"
+            )
             return None
 
         return data.get("result")
 
     except Exception as e:
-        log(f"Telegram error: {e}")
+        log(
+            f"❌ Telegram error: {e}"
+        )
         return None
 
 
-def send_message(text, disable_preview=True):
+def send_message(text):
     if len(text) > 4090:
         text = text[:4080] + "\n…"
 
@@ -158,7 +169,7 @@ def send_message(text, disable_preview=True):
         {
             "chat_id": CHANNEL,
             "text": text,
-            "disable_web_page_preview": disable_preview
+            "disable_web_page_preview": True
         }
     )
 
@@ -190,80 +201,101 @@ def pin_message(message_id):
 
 
 # ============================================================
-# UKRAINE ALARM
+# UKRAINE ALARM API
 # ============================================================
 
 def alarm_headers():
     return {
         "Authorization": UKRAINE_ALARM_API_KEY,
+        "Accept": "application/json",
         "Content-Type": "application/json",
-        "User-Agent": "KozeletsAlarmBot/2.0"
+        "User-Agent": "KozeletsAlarmBot/1.0"
     }
 
 
-def get_alarm_regions():
-    if not UKRAINE_ALARM_API_KEY:
-        log("⚠️ UKRAINE_ALARM_API_KEY не заданий.")
-        return None
-
-    try:
-        r = requests.get(
-            f"{UA_API}/regions",
-            headers=alarm_headers(),
-            timeout=TIMEOUT
-        )
-
-        if r.status_code == 401:
-            log("❌ UkraineAlarm API: неправильний або недійсний API KEY.")
-            return None
-
-        if not r.ok:
-            log(
-                f"❌ UkraineAlarm regions HTTP "
-                f"{r.status_code}: {r.text[:300]}"
-            )
-            return None
-
-        return r.json()
-
-    except Exception as e:
-        log(f"❌ UkraineAlarm regions error: {e}")
-        return None
-
-
-def get_all_alerts():
-    if not UKRAINE_ALARM_API_KEY:
-        return None
-
-    try:
-        r = requests.get(
-            f"{UA_API}/alerts",
-            headers=alarm_headers(),
-            timeout=TIMEOUT
-        )
-
-        if r.status_code == 401:
-            log("❌ UkraineAlarm API: неправильний API KEY.")
-            return None
-
-        if not r.ok:
-            log(
-                f"❌ UkraineAlarm HTTP {r.status_code}: "
-                f"{r.text[:500]}"
-            )
-            return None
-
-        return r.json()
-
-    except Exception as e:
-        log(f"❌ UkraineAlarm error: {e}")
-        return None
-
-
-def normalize_alerts(data):
+def get_chernihiv_alert():
     """
-    API може повертати різні структури.
-    Витягуємо тільки те, що реально можемо визначити.
+    Отримуємо статус саме Чернігівської області.
+
+    UkraineAlarm API:
+    GET /api/v3/alerts/{regionId}
+
+    Чернігівська область = 25.
+    """
+
+    if not UKRAINE_ALARM_API_KEY:
+        log(
+            "⚠️ UKRAINE_ALARM_API_KEY не заданий."
+        )
+        return None
+
+    url = (
+        f"{UA_API}/alerts/"
+        f"{CHERNIHIV_REGION_ID}"
+    )
+
+    try:
+        response = requests.get(
+            url,
+            headers=alarm_headers(),
+            timeout=TIMEOUT
+        )
+
+        if response.status_code == 401:
+            log(
+                "❌ UkraineAlarm: "
+                "API KEY недійсний або неправильний."
+            )
+            return None
+
+        if response.status_code == 403:
+            log(
+                "❌ UkraineAlarm: "
+                "доступ заборонений."
+            )
+            return None
+
+        if response.status_code == 404:
+            log(
+                "❌ UkraineAlarm: "
+                "Чернігівську область не знайдено."
+            )
+            return None
+
+        if not response.ok:
+            log(
+                f"❌ UkraineAlarm HTTP "
+                f"{response.status_code}: "
+                f"{response.text[:500]}"
+            )
+            return None
+
+        data = response.json()
+
+        log(
+            "✅ UkraineAlarm: "
+            "отримано статус Чернігівської області."
+        )
+
+        return data
+
+    except requests.RequestException as e:
+        log(
+            f"❌ UkraineAlarm network error: {e}"
+        )
+        return None
+
+    except Exception as e:
+        log(
+            f"❌ UkraineAlarm error: {e}"
+        )
+        return None
+
+
+def extract_active_alerts(data):
+    """
+    Нормалізація різних можливих форматів
+    відповіді API.
     """
 
     if data is None:
@@ -272,79 +304,59 @@ def normalize_alerts(data):
     if isinstance(data, list):
         return data
 
-    if isinstance(data, dict):
-        for key in (
-            "alerts",
-            "data",
-            "regions",
-            "items",
-            "result"
-        ):
-            value = data.get(key)
+    if not isinstance(data, dict):
+        return []
 
-            if isinstance(value, list):
-                return value
+    # Основний формат API
+    active = data.get("activeAlerts")
+
+    if isinstance(active, list):
+        return active
+
+    # Додаткові варіанти
+    for key in (
+        "alerts",
+        "active_alerts",
+        "items",
+        "data"
+    ):
+        value = data.get(key)
+
+        if isinstance(value, list):
+            return value
 
     return []
 
 
-def is_chernihiv_alert(item):
-    if not isinstance(item, dict):
-        return False
-
-    raw = json.dumps(
-        item,
-        ensure_ascii=False
-    ).lower()
-
-    keywords = [
-        "чернігів",
-        "чернигов",
-        "chernihiv",
-        "chernigiv"
-    ]
-
-    return any(x in raw for x in keywords)
-
-
-def get_chernihiv_alert():
-    data = get_all_alerts()
+def alert_is_active(data):
+    """
+    Перевіряє, чи є активна тривога
+    у відповіді Чернігівської області.
+    """
 
     if data is None:
-        return None
-
-    alerts = normalize_alerts(data)
-
-    for item in alerts:
-        if is_chernihiv_alert(item):
-            return item
-
-    return None
-
-
-def alert_is_active(alert):
-    if not alert:
         return False
 
-    if isinstance(alert, bool):
-        return alert
+    active_alerts = extract_active_alerts(data)
 
-    if not isinstance(alert, dict):
-        return False
+    if len(active_alerts) > 0:
+        return True
 
-    # Найбільш типові поля
-    for key in (
-        "active",
-        "isActive",
-        "alert",
-        "is_alert",
-        "enabled"
-    ):
-        if key in alert:
-            value = alert[key]
+    # Додаткова сумісність із можливими
+    # варіантами відповіді API
+    if isinstance(data, dict):
+
+        for key in (
+            "active",
+            "isActive",
+            "is_active",
+            "alert"
+        ):
+            value = data.get(key)
 
             if isinstance(value, bool):
-                return value
+                if value:
+                    return True
 
             if str(value).lower() in (
                 "true",
@@ -353,80 +365,164 @@ def alert_is_active(alert):
             ):
                 return True
 
-    status = str(
-        alert.get("status", "")
-    ).lower()
-
-    if status in (
-        "active",
-        "started",
-        "start",
-        "alert"
-    ):
-        return True
-
     return False
 
 
+def get_alert_type(data):
+    """
+    Витягує тип першої активної тривоги,
+    якщо він присутній.
+    """
+
+    alerts = extract_active_alerts(data)
+
+    if not alerts:
+        return "Повітряна тривога"
+
+    first = alerts[0]
+
+    if isinstance(first, dict):
+
+        for key in (
+            "type",
+            "alertType",
+            "alarmType",
+            "name"
+        ):
+            value = first.get(key)
+
+            if value:
+                return str(value)
+
+    return "Повітряна тривога"
+
+
+# ============================================================
+# ALERT PROCESSING
+# ============================================================
+
 def process_alarm(state):
-    log("🚨 Перевіряю повітряну тривогу...")
+    log(
+        "🚨 Перевіряю повітряну тривогу..."
+    )
 
     if not UKRAINE_ALARM_API_KEY:
-        log("⚠️ UKRAINE_ALARM_API_KEY не заданий.")
+        log(
+            "⚠️ UKRAINE_ALARM_API_KEY не заданий."
+        )
         return
 
-    alert = get_chernihiv_alert()
+    data = get_chernihiv_alert()
 
-    if alert is None:
-        log("⚠️ Стан тривоги не отримано.")
+    if data is None:
+        log(
+            "⚠️ Стан Чернігівської області "
+            "не отримано."
+        )
         return
 
-    active = alert_is_active(alert)
+    active = alert_is_active(data)
+
     old_active = bool(
-        state["alert"].get("active", False)
+        state["alert"].get(
+            "active",
+            False
+        )
     )
+
+    alert_type = get_alert_type(data)
 
     now = datetime.now().strftime(
-        "%d.%m.%Y %H:%M"
+        "%d.%m.%Y %H:%M:%S"
     )
 
-    if active and not old_active:
-        send_message(
-            "🚨 ПОВІТРЯНА ТРИВОГА\n\n"
-            "📍 Чернігівська область\n"
-            "⚠️ Перейдіть у безпечне місце та стежте "
-            "за офіційними повідомленнями."
+    if active:
+        log(
+            "🚨 Стан Чернігівської області: "
+            "🔴 ТРИВОГА"
         )
-
-        state["alert"]["active"] = True
-        state["alert"]["last_change"] = now
-        state["alert"]["last_type"] = "start"
-
-        save_state(state)
-
-        log("🚨 Надіслано початок тривоги.")
-
-    elif not active and old_active:
-        send_message(
-            "🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\n"
-            "📍 Чернігівська область\n"
-            "Можна залишати укриття лише після "
-            "отримання офіційного відбою."
-        )
-
-        state["alert"]["active"] = False
-        state["alert"]["last_change"] = now
-        state["alert"]["last_type"] = "end"
-
-        save_state(state)
-
-        log("🟢 Надіслано відбій.")
-
     else:
         log(
-            "🚨 Стан тривоги: "
-            + ("АКТИВНА" if active else "немає")
+            "🚨 Стан Чернігівської області: "
+            "🟢 НЕМАЄ ТРИВОГИ"
         )
+
+    # --------------------------------------------------------
+    # НОВА ТРИВОГА
+    # --------------------------------------------------------
+
+    if active and not old_active:
+
+        message = (
+            "🚨 ПОВІТРЯНА ТРИВОГА\n\n"
+            "📍 Чернігівська область\n"
+            f"⚠️ Тип: {alert_type}\n\n"
+            "Негайно прямуйте до укриття "
+            "та стежте за офіційними "
+            "повідомленнями."
+        )
+
+        result = send_message(message)
+
+        if result:
+            state["alert"]["active"] = True
+            state["alert"]["last_change"] = now
+            state["alert"]["last_type"] = (
+                alert_type
+            )
+
+            save_state(state)
+
+            log(
+                "🚨 Повідомлення про початок "
+                "тривоги НАДІСЛАНО."
+            )
+
+    # --------------------------------------------------------
+    # ВІДБІЙ
+    # --------------------------------------------------------
+
+    elif not active and old_active:
+
+        message = (
+            "🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\n"
+            "📍 Чернігівська область\n\n"
+            "Офіційно отримано відбій "
+            "повітряної тривоги."
+        )
+
+        result = send_message(message)
+
+        if result:
+            state["alert"]["active"] = False
+            state["alert"]["last_change"] = now
+            state["alert"]["last_type"] = "end"
+
+            save_state(state)
+
+            log(
+                "🟢 Повідомлення про відбій "
+                "НАДІСЛАНО."
+            )
+
+    # --------------------------------------------------------
+    # СТАН НЕ ЗМІНИВСЯ
+    # --------------------------------------------------------
+
+    else:
+
+        state["alert"]["active"] = active
+
+        save_state(state)
+
+        if active:
+            log(
+                "ℹ️ Тривога продовжується."
+            )
+        else:
+            log(
+                "ℹ️ Тривоги немає."
+            )
 
 
 # ============================================================
@@ -438,31 +534,38 @@ def get_weather():
         "https://api.open-meteo.com/v1/forecast"
         f"?latitude={KOZELETS_LAT}"
         f"&longitude={KOZELETS_LON}"
-        "&current=temperature_2m,relative_humidity_2m,"
-        "apparent_temperature,precipitation,rain,weather_code,"
-        "wind_speed_10m,wind_direction_10m"
-        "&hourly=temperature_2m,precipitation_probability,"
-        "precipitation,weather_code"
+        "&current="
+        "temperature_2m,"
+        "relative_humidity_2m,"
+        "apparent_temperature,"
+        "precipitation,"
+        "rain,"
+        "weather_code,"
+        "wind_speed_10m,"
+        "wind_direction_10m"
         "&timezone=Europe%2FKyiv"
         "&forecast_days=1"
     )
 
     try:
-        r = requests.get(
+        response = requests.get(
             url,
             timeout=TIMEOUT
         )
 
-        r.raise_for_status()
-        return r.json()
+        response.raise_for_status()
+
+        return response.json()
 
     except Exception as e:
-        log(f"⚠️ Weather error: {e}")
+        log(
+            f"⚠️ Weather error: {e}"
+        )
         return None
 
 
 def weather_description(code):
-    codes = {
+    descriptions = {
         0: "ясно",
         1: "переважно ясно",
         2: "мінлива хмарність",
@@ -486,7 +589,10 @@ def weather_description(code):
         99: "гроза з градом"
     }
 
-    return codes.get(code, "невідомо")
+    return descriptions.get(
+        code,
+        "невідомо"
+    )
 
 
 # ============================================================
@@ -534,33 +640,61 @@ NEWS_FEEDS = [
 
 
 def clean_text(text):
-    text = html.unescape(text or "")
-    text = re.sub(r"<[^>]+>", "", text)
-    return re.sub(r"\s+", " ", text).strip()
+    text = text or ""
+
+    text = re.sub(
+        r"<[^>]+>",
+        "",
+        text
+    )
+
+    text = re.sub(
+        r"\s+",
+        " ",
+        text
+    )
+
+    return text.strip()
 
 
-def news_id(title, link):
+def make_news_id(title, link):
+    value = (
+        f"{title}|{link}"
+    )
+
     return hashlib.sha256(
-        f"{title}|{link}".encode("utf-8")
+        value.encode("utf-8")
     ).hexdigest()[:24]
 
 
 def get_news(state):
-    log("📰 Перевіряю новини...")
+    log(
+        "📰 Перевіряю новини..."
+    )
 
     seen = set(
-        state.get("news_seen", [])
+        state.get(
+            "news_seen",
+            []
+        )
     )
 
     collected = []
 
     for category, url in NEWS_FEEDS:
+
         try:
-            feed = feedparser.parse(url)
+            feed = feedparser.parse(
+                url
+            )
 
             for entry in feed.entries[:10]:
+
                 title = clean_text(
-                    entry.get("title", "")
+                    entry.get(
+                        "title",
+                        ""
+                    )
                 )
 
                 link = entry.get(
@@ -571,12 +705,12 @@ def get_news(state):
                 if not title or not link:
                     continue
 
-                nid = news_id(
+                news_id = make_news_id(
                     title,
                     link
                 )
 
-                if nid in seen:
+                if news_id in seen:
                     continue
 
                 collected.append(
@@ -584,7 +718,7 @@ def get_news(state):
                         category,
                         title,
                         link,
-                        nid
+                        news_id
                     )
                 )
 
@@ -594,75 +728,97 @@ def get_news(state):
                 f"{category}: {e}"
             )
 
-    # Максимум 5 новин за один запуск
+    # максимум 5 нових повідомлень
     collected = collected[:5]
 
-    count = 0
+    published = 0
 
-    for category, title, link, nid in collected:
+    for (
+        category,
+        title,
+        link,
+        news_id
+    ) in collected:
+
         message = (
             f"📰 {category}\n\n"
             f"🔹 {title}\n\n"
             f"🔗 {link}"
         )
 
-        if send_message(message):
-            seen.add(nid)
-            count += 1
+        result = send_message(
+            message
+        )
 
-    # Не даємо state нескінченно рости
-    state["news_seen"] = list(seen)[-500:]
+        if result:
+            seen.add(news_id)
+            published += 1
+
+    state["news_seen"] = list(
+        seen
+    )[-500:]
 
     save_state(state)
 
     log(
-        f"📰 Опубліковано новин: {count}"
+        f"📰 Опубліковано новин: "
+        f"{published}"
     )
 
 
 # ============================================================
-# HISTORICAL POSTS
+# HISTORY
 # ============================================================
 
 HISTORY = [
     (
         "📚 КОЗЕЛЕЦЬ",
-        "Козелець — історичне містечко Чернігівщини, "
-        "відоме архітектурною спадщиною та пам'ятками "
+        "Козелець — історичне містечко "
+        "Чернігівщини, відоме архітектурною "
+        "спадщиною та пам'ятками "
         "козацької доби."
     ),
     (
         "📚 ОСТЕР",
-        "Остер — одне з давніх міст Чернігівщини, "
-        "розташоване на річці Остер."
+        "Остер — одне з давніх міст "
+        "Чернігівщини, розташоване "
+        "на річці Остер."
     ),
     (
         "📚 БОБРОВИЦЯ",
-        "Бобровиця — місто Чернігівської області "
-        "з давньою історією та залізничним сполученням."
+        "Бобровиця — місто Чернігівської "
+        "області з давньою історією "
+        "та залізничним сполученням."
     ),
     (
         "📚 КОЗЕЛЕЧЧИНА",
-        "Козелеччина поєднує історичні населені пункти, "
-        "природні території та культурну спадщину "
+        "Козелеччина поєднує історичні "
+        "населені пункти, природні території "
+        "та культурну спадщину "
         "Чернігівщини."
     )
 ]
 
 
 def history_post(state):
-    last = state.get("history_last")
+    last = state.get(
+        "history_last"
+    )
 
     now = datetime.now()
 
     if last:
+
         try:
             last_dt = datetime.strptime(
                 last,
                 "%Y-%m-%d %H:%M:%S"
             )
 
-            if now - last_dt < timedelta(hours=12):
+            if (
+                now - last_dt
+                < timedelta(hours=12)
+            ):
                 return
 
         except Exception:
@@ -685,7 +841,12 @@ def history_post(state):
         "📍 Чернігівщина"
     )
 
-    if send_message(message):
+    result = send_message(
+        message
+    )
+
+    if result:
+
         state["history_index"] = (
             index + 1
         )
@@ -699,7 +860,8 @@ def history_post(state):
         save_state(state)
 
         log(
-            "📚 Історичний пост опубліковано."
+            "📚 Історичний пост "
+            "опубліковано."
         )
 
 
@@ -708,16 +870,12 @@ def history_post(state):
 # ============================================================
 
 def radiation_info():
-    """
-    Не вигадуємо локальне значення радіації.
-    Показуємо офіційне джерело.
-    """
-
     return (
         "☢️ РАДІАЦІЙНИЙ ФОН\n\n"
-        "ℹ️ Для коректного значення використовуються "
-        "офіційні вимірювання.\n"
-        "Публічне джерело:\n"
+        "ℹ️ Для коректного локального "
+        "значення необхідні офіційні "
+        "вимірювання.\n"
+        "Джерело:\n"
         "https://www.cgmch.pp.ua/"
     )
 
@@ -727,16 +885,11 @@ def radiation_info():
 # ============================================================
 
 def power_info():
-    """
-    Сайт Чернігівобленерго може бути недоступним
-    або вимагати адресу/особовий рахунок.
-    Не вигадуємо стан конкретного будинку.
-    """
-
     return (
         "⚡ ЕЛЕКТРОПОСТАЧАННЯ\n\n"
-        "ℹ️ Графік та аварійні відключення "
-        "потрібно перевіряти на офіційному ресурсі "
+        "ℹ️ Графік та аварійні "
+        "відключення перевіряйте "
+        "на офіційному ресурсі "
         "Чернігівобленерго.\n\n"
         "https://chernihivoblenergo.com.ua/blackouts"
     )
@@ -753,9 +906,11 @@ def dashboard_text(state):
         "%d.%m.%Y %H:%M"
     )
 
-    active = state["alert"].get(
-        "active",
-        False
+    active = bool(
+        state["alert"].get(
+            "active",
+            False
+        )
     )
 
     lines = [
@@ -763,20 +918,35 @@ def dashboard_text(state):
         "",
         f"🕐 Оновлено: {now}",
         "",
-        (
-            "🚨 ТРИВОГА: 🔴 АКТИВНА"
-            if active
-            else
-            "🚨 ТРИВОГА: 🟢 НЕ АКТИВНА"
-        ),
-        ""
     ]
 
-    if weather:
-        try:
-            current = weather["current"]
+    if active:
+        lines.append(
+            "🚨 ТРИВОГА: 🔴 АКТИВНА"
+        )
+    else:
+        lines.append(
+            "🚨 ТРИВОГА: 🟢 НЕ АКТИВНА"
+        )
 
-            temp = current.get(
+    lines.append("")
+
+    # --------------------------------------------------------
+    # WEATHER
+    # --------------------------------------------------------
+
+    lines.append(
+        "🌤 ПОГОДА"
+    )
+
+    if weather:
+
+        try:
+            current = weather[
+                "current"
+            ]
+
+            temperature = current.get(
                 "temperature_2m"
             )
 
@@ -797,93 +967,160 @@ def dashboard_text(state):
             )
 
             lines.extend([
-                "🌤 ПОГОДА",
-                f"🌡 Температура: {temp} °C",
-                f"🌡 Відчувається: {feels} °C",
-                f"💧 Вологість: {humidity}%",
-                f"💨 Вітер: {wind} км/год",
-                f"☁️ Стан: {weather_description(code)}",
+                f"🌡 Температура: "
+                f"{temperature} °C",
+
+                f"🌡 Відчувається: "
+                f"{feels} °C",
+
+                f"💧 Вологість: "
+                f"{humidity}%",
+
+                f"💨 Вітер: "
+                f"{wind} км/год",
+
+                f"☁️ Стан: "
+                f"{weather_description(code)}",
+
                 ""
             ])
 
         except Exception:
             lines.extend([
-                "🌤 ПОГОДА",
-                "⚠️ Дані тимчасово недоступні.",
+                "⚠️ Дані погоди "
+                "тимчасово недоступні.",
                 ""
             ])
 
+    else:
+        lines.extend([
+            "⚠️ Дані погоди "
+            "тимчасово недоступні.",
+            ""
+        ])
+
+    # --------------------------------------------------------
+    # RADIATION
+    # --------------------------------------------------------
+
+    lines.append(
+        radiation_info()
+    )
+
+    lines.append("")
+
+    # --------------------------------------------------------
+    # POWER
+    # --------------------------------------------------------
+
+    lines.append(
+        power_info()
+    )
+
     lines.extend([
-        radiation_info(),
         "",
-        power_info(),
-        "",
-        "🔄 Автоматичне оновлення: кожні 5 хвилин"
+        "🔄 Автоматичне оновлення: "
+        "кожні 5 хвилин"
     ])
 
     return "\n".join(lines)
 
 
 def update_dashboard(state):
-    text = dashboard_text(state)
+    text = dashboard_text(
+        state
+    )
 
     message_id = state.get(
         "pinned_message_id"
     )
 
+    # --------------------------------------------------------
+    # EDIT EXISTING PANEL
+    # --------------------------------------------------------
+
     if message_id:
+
         result = edit_message(
             message_id,
             text
         )
 
         if result:
-            log("📌 Панель оновлено.")
+            log(
+                "📌 Панель оновлено."
+            )
             return
 
         log(
-            "⚠️ Не вдалося оновити стару панель. "
-            "Створюю нову."
+            "⚠️ Стару панель "
+            "не вдалося оновити."
         )
 
-    result = send_message(text)
+    # --------------------------------------------------------
+    # CREATE NEW PANEL
+    # --------------------------------------------------------
 
-    if result:
-        new_id = result.get("message_id")
+    result = send_message(
+        text
+    )
 
-        if new_id:
-            state["pinned_message_id"] = new_id
-            save_state(state)
+    if not result:
+        log(
+            "❌ Не вдалося створити панель."
+        )
+        return
 
-            pin_message(new_id)
+    new_id = result.get(
+        "message_id"
+    )
 
-            log("📌 Панель створена та закріплена.")
+    if not new_id:
+        return
+
+    state["pinned_message_id"] = (
+        new_id
+    )
+
+    save_state(state)
+
+    pin_message(
+        new_id
+    )
+
+    log(
+        "📌 Панель створена "
+        "та закріплена."
+    )
 
 
 # ============================================================
-# VALIDATION
+# CONFIG
 # ============================================================
 
 def validate_config():
-    ok = True
+    valid = True
 
     if not BOT_TOKEN:
-        log("❌ BOT_TOKEN не заданий.")
-        ok = False
+        log(
+            "❌ BOT_TOKEN не заданий."
+        )
+        valid = False
 
     if not CHANNEL:
-        log("❌ CHANNEL не заданий.")
-        ok = False
+        log(
+            "❌ CHANNEL не заданий."
+        )
+        valid = False
 
     if not UKRAINE_ALARM_API_KEY:
         log(
-            "⚠️ UKRAINE_ALARM_API_KEY не заданий."
+            "❌ UKRAINE_ALARM_API_KEY "
+            "не заданий."
         )
-        log(
-            "⚠️ Тривоги не працюватимуть."
-        )
+        valid = False
 
-    return ok
+    return valid
 
 
 # ============================================================
@@ -891,36 +1128,65 @@ def validate_config():
 # ============================================================
 
 def main():
+
     print()
     print("=" * 60)
     print("🤖 KOZELETS ALARM BOT")
     print("=" * 60)
+
     print(
         datetime.now().strftime(
             "%d.%m.%Y %H:%M:%S"
         )
     )
+
     print("=" * 60)
 
     if not validate_config():
+
+        log(
+            "❌ Конфігурація неповна."
+        )
+
         return
 
     state = load_state()
 
-    process_alarm(state)
+    # 1. Тривога
+    process_alarm(
+        state
+    )
 
-    update_dashboard(state)
+    # 2. Панель
+    update_dashboard(
+        state
+    )
 
-    get_news(state)
+    # 3. Новини
+    get_news(
+        state
+    )
 
-    history_post(state)
+    # 4. Історія
+    history_post(
+        state
+    )
 
-    save_state(state)
+    # 5. Зберігаємо стан
+    save_state(
+        state
+    )
 
     print("=" * 60)
-    print("✅ ЦИКЛ ЗАВЕРШЕНО")
+    print(
+        "✅ ЦИКЛ ЗАВЕРШЕНО"
+    )
     print("=" * 60)
 
+
+# ============================================================
+# START
+# ============================================================
 
 if __name__ == "__main__":
     main()

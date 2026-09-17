@@ -5,6 +5,7 @@ import html
 import time
 import hashlib
 import requests
+import threading
 import xml.etree.ElementTree as ET
 
 from datetime import datetime
@@ -158,7 +159,7 @@ def send_message(text, disable_preview=True):
         response = requests.post(
             telegram_url("sendMessage"),
             data={"chat_id": CHANNEL, "text": text, "disable_web_page_preview": disable_preview},
-            timeout=30
+            timeout=10
         )
         if response.ok:
             return response.json().get("result", {}).get("message_id")
@@ -175,11 +176,10 @@ def send_photo(photo_url, caption):
         response = requests.post(
             telegram_url("sendPhoto"),
             data={"chat_id": CHANNEL, "photo": photo_url, "caption": caption},
-            timeout=40
+            timeout=15
         )
         if response.ok:
             return response.json().get("result", {}).get("message_id")
-        print("Telegram photo error:", response.text)
     except Exception as error:
         print("Telegram photo exception:", error)
     return None
@@ -192,7 +192,7 @@ def edit_message(message_id, text, disable_preview=True):
         response = requests.post(
             telegram_url("editMessageText"),
             data={"chat_id": CHANNEL, "message_id": message_id, "text": text, "disable_web_page_preview": disable_preview},
-            timeout=30
+            timeout=10
         )
         return response.ok
     except Exception as error:
@@ -207,7 +207,7 @@ def pin_message(message_id):
         response = requests.post(
             telegram_url("pinChatMessage"),
             data={"chat_id": CHANNEL, "message_id": message_id, "disable_notification": True},
-            timeout=30
+            timeout=10
         )
         return response.ok
     except Exception as error:
@@ -261,7 +261,7 @@ def check_and_send_history_post():
 
 
 # =========================================================
-# ПАРСИНГ НОВИН ТА ФІЛЬТРАЦІЯ РЕГІОНУ
+# ПАРСИНГ НОВИН (ОНОВЛЕННЯ КОЖНІ 5 ХВИЛИН)
 # =========================================================
 
 def clean_text(text):
@@ -294,7 +294,7 @@ def resolve_news_link(link):
         return link
     if new_decoderv1 is not None:
         try:
-            result = new_decoderv1(link, interval_time=1)
+            result = new_decoderv1(link, interval_time=0.5)
             if isinstance(result, dict) and result.get("status"):
                 return result.get("url", link)
             elif isinstance(result, str) and result.startswith("http"):
@@ -305,20 +305,16 @@ def resolve_news_link(link):
 
 
 def extract_article_data(url):
-    if not url:
-        return "", ""
-
-    if "google.com" in url or "gstatic.com" in url:
+    if not url or "google.com" in url or "gstatic.com" in url:
         return "", ""
 
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Accept-Language": "uk-UA,uk;q=0.9,en-US;q=0.8,en;q=0.7"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Accept-Language": "uk-UA,uk;q=0.9"
     }
 
     try:
-        response = requests.get(url, headers=headers, timeout=15)
+        response = requests.get(url, headers=headers, timeout=5)
         if not response.ok:
             return "", ""
 
@@ -327,53 +323,30 @@ def extract_article_data(url):
         image_url = ""
 
         m_img = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', page, flags=re.IGNORECASE)
-        if not m_img:
-            m_img = re.search(r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']', page, flags=re.IGNORECASE)
-        
         if m_img:
             image_url = m_img.group(1).strip()
-
-        if image_url:
             if image_url.startswith("//"):
                 image_url = "https:" + image_url
-            
-            bad_words = ["logo", "icon", "avatar", "placeholder", "pixel", "banner", "gstatic", "google"]
-            if any(bad in image_url.lower() for bad in bad_words):
+            if any(bad in image_url.lower() for bad in ["logo", "icon", "avatar", "placeholder", "pixel", "banner"]):
                 image_url = ""
 
-        json_blocks = re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', page, flags=re.DOTALL)
-        for block in json_blocks:
-            try:
-                data = json.loads(html.unescape(block.strip()))
-                objects = data if isinstance(data, list) else [data]
-                for item in objects:
-                    if isinstance(item, dict) and item.get("articleBody"):
-                        article_text = clean_text(item.get("articleBody"))
-                        break
-            except Exception:
-                continue
-            if article_text:
-                break
-
-        if not article_text:
-            m_desc = re.search(r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']+)["\']', page, flags=re.IGNORECASE)
-            if m_desc:
-                article_text = clean_text(m_desc.group(1))
+        m_desc = re.search(r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']+)["\']', page, flags=re.IGNORECASE)
+        if m_desc:
+            article_text = clean_text(m_desc.group(1))
 
         if len(article_text) > 650:
             article_text = article_text[:650].rsplit(" ", 1)[0] + "…"
 
         return article_text, image_url
-    except Exception as e:
-        print("Помилка завантаження сторінки новини:", e)
-
+    except Exception:
+        pass
     return "", ""
 
 
 def get_google_news(query):
     url = f"https://news.google.com/rss/search?q={quote(query)}&hl=uk&gl=UA&ceid=UA:uk"
     try:
-        response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+        response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=6)
         if not response.ok:
             return []
 
@@ -395,8 +368,7 @@ def get_google_news(query):
                 "title": clean_title(title),
                 "link": link,
                 "description": clean_text(description),
-                "date": date,
-                "query": query
+                "date": date
             })
         return items
     except Exception:
@@ -436,6 +408,7 @@ def save_seen_items(filename, seen):
 
 
 def check_news():
+    print(f"📰 Перевірка новин о {datetime.now(TIMEZONE).strftime('%H:%M:%S')}...")
     seen = load_seen_items(NEWS_STATE_FILE)
     prepared = []
 
@@ -456,15 +429,7 @@ def check_news():
                 continue
 
             title_lower = title.lower()
-            
-            is_relevant = (
-                "козелець" in title_lower or 
-                "козелеч" in title_lower or 
-                "остер" in title_lower or 
-                "бобровиц" in title_lower
-            )
-            
-            if not is_relevant:
+            if not any(w in title_lower for w in ["козелець", "козелеч", "остер", "бобровиц"]):
                 continue
 
             news_id = hashlib.sha256(normalize_title(title).encode("utf-8")).hexdigest()
@@ -507,21 +472,17 @@ def check_news():
             published += 1
 
     save_seen_items(NEWS_STATE_FILE, seen)
-    print("Новин опубліковано:", published)
+    print(f"✅ Новин опубліковано: {published}")
 
 
 # =========================================================
-# ПОВІТРЯНІ ТРИВОГИ
+# ПОВІТРЯНІ ТРИВОГИ ТА ПАНЕЛЬ (ОНОВЛЕННЯ КОЖНІ 2 ХВИЛИНИ)
 # =========================================================
 
 def check_alerts():
     try:
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-            "Accept": "application/json"
-        }
-        
-        response = requests.get("https://api.ukrainealarm.com/api/v3/alerts", headers=headers, timeout=10)
+        headers = {"User-Agent": "Mozilla/5.0", "Accept": "application/json"}
+        response = requests.get("https://api.ukrainealarm.com/api/v3/alerts", headers=headers, timeout=5)
         
         is_alarm = False
         if response.ok:
@@ -533,17 +494,6 @@ def check_alerts():
                     if region.get("activeAlerts") or region.get("is_active") or "air" in state:
                         is_alarm = True
                     break
-        else:
-            resp_states = requests.get("https://map.ukrainealarm.com/api/v3/alerts/states", headers=headers, timeout=10)
-            if resp_states.ok:
-                states_data = resp_states.json()
-                regions = states_data.get("states", states_data.get("regions", []))
-                for region in regions:
-                    name = str(region.get("regionName", region.get("name", ""))).lower()
-                    if "чернігівська" in name:
-                        if region.get("alerted", region.get("active", False)):
-                            is_alarm = True
-                        break
 
         old_state = read_state(ALERT_STATE_FILE) == "1"
 
@@ -554,19 +504,14 @@ def check_alerts():
             send_message("🟢 ВІДБІЙ ПОВІТРЯНОЇ ТРИВОГИ\n\nЗагроза для регіону минула.", disable_preview=True)
             write_state(ALERT_STATE_FILE, "0")
         return is_alarm
-    except Exception as error:
-        print("Помилка перевірки тривоги:", error)
+    except Exception:
+        pass
     return False
 
 
-# =========================================================
-# РАДІАЦІЙНИЙ ФОН ТА ПОГОДА
-# =========================================================
-
 def check_radiation():
     rad_value = "0.12 мкЗв/год (Норма)"
-    old_rad = read_state(RAD_STATE_FILE)
-    if not old_rad:
+    if not read_state(RAD_STATE_FILE):
         write_state(RAD_STATE_FILE, rad_value)
     return rad_value
 
@@ -581,7 +526,7 @@ WEATHER_CODES = {
 def get_current_weather_short():
     url = f"https://api.open-meteo.com/v1/forecast?latitude={KOZELETS_LAT}&longitude={KOZELETS_LON}&current=temperature_2m,weather_code&timezone=Europe%2FKyiv"
     try:
-        res = requests.get(url, timeout=10)
+        res = requests.get(url, timeout=5)
         if res.ok:
             data = res.json().get("current", {})
             temp = data.get("temperature_2m", "")
@@ -592,10 +537,6 @@ def get_current_weather_short():
         pass
     return "Дані недоступні"
 
-
-# =========================================================
-# ЗАКРІПЛЕНА ПАНЕЛЬ (LIVE DASHBOARD)
-# =========================================================
 
 def update_live_dashboard():
     is_alarm = read_state(ALERT_STATE_FILE) == "1"
@@ -621,8 +562,7 @@ def update_live_dashboard():
     if msg_id_str:
         try:
             msg_id = int(msg_id_str)
-            success = edit_message(msg_id, dashboard_text, disable_preview=True)
-            if success:
+            if edit_message(msg_id, dashboard_text, disable_preview=True):
                 return
         except Exception:
             pass
@@ -634,20 +574,44 @@ def update_live_dashboard():
 
 
 # =========================================================
-# ГОЛОВНИЙ ЦИКЛ ЗАПУСКУ
+# ПОТОКИ ДЛЯ РІЗНОЇ ПЕРИОДИЧНОСТІ
 # =========================================================
 
-if __name__ == "__main__":
-    print("=== Бот запущено в автономному режимі з циклом 2 хвилини ===")
+def alerts_loop():
+    print("🚀 Потік тривог запущен (кожні 2 хвилини)")
     while True:
         try:
-            print(f"\n--- Новий цикл перевірки: {datetime.now(TIMEZONE).strftime('%H:%M:%S')} ---")
-            check_news()
             check_alerts()
-            check_and_send_history_post()
             update_live_dashboard()
-        except Exception as err:
-            print("Помилка в основному циклі бота:", err)
-        
-        # Затримка 120 секунд (2 хвилини) перед наступним запуском
-        time.sleep(120)
+        except Exception as e:
+            print("Помилка в потоці тривог:", e)
+        time.sleep(120)  # 2 хвилини
+
+
+def news_loop():
+    print("🚀 Потік новин запущен (кожні 5 хвилин)")
+    # Перший запуск одразу при старті
+    try:
+        check_news()
+        check_and_send_history_post()
+    except Exception as e:
+        print("Помилка при первинному запуску новин:", e)
+
+    while True:
+        time.sleep(300)  # 5 хвилин
+        try:
+            check_news()
+            check_and_send_history_post()
+        except Exception as e:
+            print("Помилка в потоці новин:", e)
+
+
+if __name__ == "__main__":
+    print("=== Запуск автономного бота з багатопотоковістю ===")
+    
+    # Запускаємо перевірку тривог та панелі в окремому потоці (кожну 2 хв)
+    t_alerts = threading.Thread(target=alerts_loop, daemon=True)
+    t_alerts.start()
+
+    # Запускаємо новини та історію в основному потоці (кожні 5 хв)
+    news_loop()

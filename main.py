@@ -87,7 +87,7 @@ KOZELETS_HISTORY_FACTS = [
 
 
 # =========================================================
-# ДЖЕРЕЛА НОВИН (ТІЛЬКИ КОЗЕЛЕЦЬ, ОСТЕР, БОБРОВИЦЯ)
+# ДЖЕРЕЛА НОВИН
 # =========================================================
 
 NEWS_SOURCES = [
@@ -159,7 +159,7 @@ def send_message(text, disable_preview=True):
         response = requests.post(
             telegram_url("sendMessage"),
             data={"chat_id": CHANNEL, "text": text, "disable_web_page_preview": disable_preview},
-            timeout=10
+            timeout=5
         )
         if response.ok:
             return response.json().get("result", {}).get("message_id")
@@ -176,7 +176,7 @@ def send_photo(photo_url, caption):
         response = requests.post(
             telegram_url("sendPhoto"),
             data={"chat_id": CHANNEL, "photo": photo_url, "caption": caption},
-            timeout=15
+            timeout=8
         )
         if response.ok:
             return response.json().get("result", {}).get("message_id")
@@ -192,7 +192,7 @@ def edit_message(message_id, text, disable_preview=True):
         response = requests.post(
             telegram_url("editMessageText"),
             data={"chat_id": CHANNEL, "message_id": message_id, "text": text, "disable_web_page_preview": disable_preview},
-            timeout=10
+            timeout=5
         )
         return response.ok
     except Exception as error:
@@ -207,7 +207,7 @@ def pin_message(message_id):
         response = requests.post(
             telegram_url("pinChatMessage"),
             data={"chat_id": CHANNEL, "message_id": message_id, "disable_notification": True},
-            timeout=10
+            timeout=5
         )
         return response.ok
     except Exception as error:
@@ -261,7 +261,7 @@ def check_and_send_history_post():
 
 
 # =========================================================
-# ПАРСИНГ НОВИН (ОНОВЛЕННЯ КОЖНІ 5 ХВИЛИН)
+# ПАРСИНГ НОВИН
 # =========================================================
 
 def clean_text(text):
@@ -294,7 +294,7 @@ def resolve_news_link(link):
         return link
     if new_decoderv1 is not None:
         try:
-            result = new_decoderv1(link, interval_time=0.5)
+            result = new_decoderv1(link, interval_time=0.3)
             if isinstance(result, dict) and result.get("status"):
                 return result.get("url", link)
             elif isinstance(result, str) and result.startswith("http"):
@@ -314,7 +314,7 @@ def extract_article_data(url):
     }
 
     try:
-        response = requests.get(url, headers=headers, timeout=5)
+        response = requests.get(url, headers=headers, timeout=4)
         if not response.ok:
             return "", ""
 
@@ -346,7 +346,7 @@ def extract_article_data(url):
 def get_google_news(query):
     url = f"https://news.google.com/rss/search?q={quote(query)}&hl=uk&gl=UA&ceid=UA:uk"
     try:
-        response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=6)
+        response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=4)
         if not response.ok:
             return []
 
@@ -476,13 +476,13 @@ def check_news():
 
 
 # =========================================================
-# ПОВІТРЯНІ ТРИВОГИ ТА ПАНЕЛЬ (ОНОВЛЕННЯ КОЖНІ 2 ХВИЛИНИ)
+# ПОВІТРЯНІ ТРИВОГИ ТА ПАНЕЛЬ
 # =========================================================
 
 def check_alerts():
     try:
         headers = {"User-Agent": "Mozilla/5.0", "Accept": "application/json"}
-        response = requests.get("https://api.ukrainealarm.com/api/v3/alerts", headers=headers, timeout=5)
+        response = requests.get("https://api.ukrainealarm.com/api/v3/alerts", headers=headers, timeout=4)
         
         is_alarm = False
         if response.ok:
@@ -526,7 +526,7 @@ WEATHER_CODES = {
 def get_current_weather_short():
     url = f"https://api.open-meteo.com/v1/forecast?latitude={KOZELETS_LAT}&longitude={KOZELETS_LON}&current=temperature_2m,weather_code&timezone=Europe%2FKyiv"
     try:
-        res = requests.get(url, timeout=5)
+        res = requests.get(url, timeout=4)
         if res.ok:
             data = res.json().get("current", {})
             temp = data.get("temperature_2m", "")
@@ -590,28 +590,26 @@ def alerts_loop():
 
 def news_loop():
     print("🚀 Потік новин запущен (кожні 5 хвилин)")
-    # Перший запуск одразу при старті
-    try:
-        check_news()
-        check_and_send_history_post()
-    except Exception as e:
-        print("Помилка при первинному запуску новин:", e)
-
     while True:
-        time.sleep(300)  # 5 хвилин
         try:
             check_news()
             check_and_send_history_post()
         except Exception as e:
             print("Помилка в потоці новин:", e)
+        time.sleep(300)  # 5 хвилин
 
 
 if __name__ == "__main__":
-    print("=== Запуск автономного бота з багатопотоковістю ===")
+    print("=== Запуск автономного бота з миттєвим стартом ===")
     
-    # Запускаємо перевірку тривог та панелі в окремому потоці (кожну 2 хв)
+    # 1. Запускаємо перевірку тривог та панелі (кожну 2 хв)
     t_alerts = threading.Thread(target=alerts_loop, daemon=True)
     t_alerts.start()
 
-    # Запускаємо новини та історію в основному потоці (кожні 5 хв)
-    news_loop()
+    # 2. Запускаємо новини та історію (кожні 5 хв у фоні, без зависання старту)
+    t_news = threading.Thread(target=news_loop, daemon=True)
+    t_news.start()
+
+    # Основний потік просто тримає програму живою
+    while True:
+        time.sleep(3600)

@@ -2,6 +2,7 @@ import os
 import re
 import json
 import html
+import time
 import hashlib
 import requests
 import xml.etree.ElementTree as ET
@@ -633,13 +634,20 @@ def update_live_dashboard():
 
 
 # =========================================================
-# ГОЛОВНИЙ ЗАПУСК
+# ГОЛОВНИЙ ЦИКЛ ЗАПУСКУ
 # =========================================================
 
 if __name__ == "__main__":
-    print("=== Повний автономний запуск бота ===")
-    check_news()
-    check_alerts()
-    check_and_send_history_post()
-    update_live_dashboard()
-    print("=== Завершено успішно ===")
+    print("=== Бот запущено в автономному режимі з циклом 2 хвилини ===")
+    while True:
+        try:
+            print(f"\n--- Новий цикл перевірки: {datetime.now(TIMEZONE).strftime('%H:%M:%S')} ---")
+            check_news()
+            check_alerts()
+            check_and_send_history_post()
+            update_live_dashboard()
+        except Exception as err:
+            print("Помилка в основному циклі бота:", err)
+        
+        # Затримка 120 секунд (2 хвилини) перед наступним запуском
+        time.sleep(120)

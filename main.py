@@ -44,8 +44,8 @@ KOZELETS_LON = 31.121
 OSTER_LAT = 50.950
 OSTER_LON = 30.883
 
-# Радіус перевірки загроз
-THREAT_RADIUS_KM = 50
+# Радіус перевірки загроз (змінено на 30 км)
+THREAT_RADIUS_KM = 30
 
 # Новини тільки за останні 10 хвилин
 NEWS_MAX_AGE_MINUTES = 10
@@ -549,7 +549,7 @@ def threat_type_name(threat):
 
 
 def process_neptun(state):
-    log("🛰 Перевіряю повітряні загрози NEPTUN...")
+    log("🛰 Перевіряю повітряні загрози NEPTUN (радіус 30 км)...")
     threats = get_neptun_threats()
     seen = set(state.get("threat_seen", []))
     new_seen = []
@@ -990,7 +990,7 @@ def main():
             # 1. Перевірка тривог
             process_alarm(state)
 
-            # 2. Перевірка загроз Neptun
+            # 2. Перевірка загроз Neptun (радіус 30 км)
             process_neptun(state)
 
             # 3. Перевірка новин

@@ -13,10 +13,10 @@
       "confidenceLevel": "medium",
       "sourceCount": 4,
       "count": 4,
-      "updatedAt": "2026-09-18T19:37:15Z",
+      "updatedAt": "2026-09-18T19:42:16Z",
       "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 4.",
       "status": "active",
-      "confirmedAt": "2026-09-18T19:37:15Z",
+      "confirmedAt": "2026-09-18T19:42:16Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -24,25 +24,37 @@
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00198245": {
-      "id": "trk_00198245",
+    "trk_00198240": {
+      "id": "trk_00198240",
       "type": "uav",
       "title": "Група БпЛА (3+)",
       "region": "Київська область",
       "district": "",
-      "locality": "Калита",
-      "lat": 50.73881653814481,
-      "lon": 31.002011496571317,
-      "heading": 209,
+      "locality": "Велика Димерка",
+      "lat": 50.59188419177543,
+      "lon": 30.903442046238958,
+      "heading": 220,
       "confidenceLevel": "high",
-      "sourceCount": 4,
+      "sourceCount": 7,
       "count": 3,
-      "updatedAt": "2026-09-18T19:32:08Z",
-      "explanationShort": "БпЛА — Калита, Київська область. Підтверджень: 4.",
+      "updatedAt": "2026-09-18T19:43:38Z",
+      "explanationShort": "БпЛА — Велика Димерка, Київська область. Підтверджень: 7.",
       "status": "active",
-      "confirmedAt": "2026-09-18T19:38:42Z",
+      "confirmedAt": "2026-09-18T19:43:38Z",
       "uncertaintyKm": 4,
       "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 50.353,
+          "lon": 30.955,
+          "t": "2026-09-18T19:30:05Z"
+        },
+        {
+          "lat": 50.59188419177543,
+          "lon": 30.903442046238958,
+          "t": "2026-09-18T19:40:20Z"
+        }
+      ],
       "lifecycle": "confirmed",
       "displayConfidence": "high",
       "presumptiveCourse": true
@@ -50,8 +62,8 @@
   },
   "last_threat_update": 1789759665.913565,
   "last_news_check": 1789759664.872578,
-  "last_weather_check": 1789760346.527814,
-  "last_dashboard_check": 1789760346.527814,
+  "last_weather_check": 1789760972.393673,
+  "last_dashboard_check": 1789760972.393673,
   "last_promo_check": 1789753563,
   "last_history_check": 1789753564,
   "published_news": [

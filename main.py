@@ -25,9 +25,11 @@ STATE_FILE = Path("bot_state.json")
 # НАЛАШТУВАННЯ
 # ============================================================
 
-# NEPTUN перевіряємо кожні 30 секунд,
-# але повідомлення надсилаємо ТІЛЬКИ при зміні стану
-NEPTUN_CHECK_SECONDS = 30
+# Звичайна перевірка NEPTUN
+NEPTUN_CHECK_SECONDS = 5 * 60
+
+# Якщо є активна загроза — перевіряти частіше
+THREAT_CHECK_SECONDS = 2 * 60
 
 # Новини
 NEWS_CHECK_SECONDS = 30 * 60
@@ -63,7 +65,7 @@ KIPTI_LAT = 51.050
 KIPTI_LON = 31.150
 
 
-# Радіус пошуку NEPTUN
+# Радіус, у якому враховуємо загрозу
 THREAT_RADIUS_KM = 50
 
 
@@ -98,11 +100,6 @@ def load_state():
         return {
             "active_threats": {},
             "threat_status": False,
-            "last_news_check": 0,
-            "last_weather_check": 0,
-            "last_dashboard_check": 0,
-            "last_promo_check": 0,
-            "last_history_check": 0,
             "published_news": [],
             "history": []
         }
@@ -128,31 +125,6 @@ def load_state():
         )
 
         state.setdefault(
-            "last_news_check",
-            0
-        )
-
-        state.setdefault(
-            "last_weather_check",
-            0
-        )
-
-        state.setdefault(
-            "last_dashboard_check",
-            0
-        )
-
-        state.setdefault(
-            "last_promo_check",
-            0
-        )
-
-        state.setdefault(
-            "last_history_check",
-            0
-        )
-
-        state.setdefault(
             "published_news",
             []
         )
@@ -169,11 +141,6 @@ def load_state():
         return {
             "active_threats": {},
             "threat_status": False,
-            "last_news_check": 0,
-            "last_weather_check": 0,
-            "last_dashboard_check": 0,
-            "last_promo_check": 0,
-            "last_history_check": 0,
             "published_news": [],
             "history": []
         }
@@ -233,7 +200,7 @@ def telegram_request(
         response = requests.post(
             url,
             data=data,
-            timeout=20
+            timeout=15
         )
 
         if response.status_code != 200:
@@ -291,7 +258,7 @@ def distance_km(
     lon2
 ):
 
-    r = 6371
+    radius = 6371
 
     p1 = math.radians(lat1)
     p2 = math.radians(lat2)
@@ -317,7 +284,7 @@ def distance_km(
     return (
         2
         *
-        r
+        radius
         *
         math.asin(
             math.sqrt(a)
@@ -406,10 +373,14 @@ def get_neptun_threats():
 
         response = requests.get(
             NEPTUN_API,
-            timeout=15
+            timeout=10
         )
 
         if response.status_code != 200:
+
+            print(
+                f"⚠️ NEPTUN HTTP {response.status_code}"
+            )
 
             return []
 
@@ -443,7 +414,11 @@ def get_neptun_threats():
 
         return []
 
-    except Exception:
+    except Exception as e:
+
+        print(
+            f"⚠️ NEPTUN помилка: {e}"
+        )
 
         return []
 
@@ -656,11 +631,7 @@ def get_threat_description(
         KOZELETS_LON
     )
 
-    if (
-        distance
-        >
-        THREAT_RADIUS_KM
-    ):
+    if distance > THREAT_RADIUS_KM:
 
         return None
 
@@ -680,7 +651,7 @@ def get_threat_description(
 
 
 # ============================================================
-# NEPTUN — ПОЧАТОК / ВІДБІЙ
+# NEPTUN — ТРИВОГА / ВІДБІЙ
 # ============================================================
 
 def process_neptun():
@@ -724,7 +695,8 @@ def process_neptun():
 
     old_active = bool(
         state.get(
-            "active_threats"
+            "active_threats",
+            {}
         )
     )
 
@@ -780,8 +752,7 @@ def process_neptun():
         if result:
 
             print(
-                "🚨 NEPTUN: початок небезпеки — "
-                "повідомлення надіслано."
+                "🚨 NEPTUN: початок небезпеки."
             )
 
     # ========================================================
@@ -799,8 +770,8 @@ def process_neptun():
             "За даними NEPTUN "
             "активної загрози "
             "в районі Козельця не зафіксовано.\n\n"
-            "⚠️ Якщо у вашому районі "
-            "ще оголошена офіційна тривога, "
+            "⚠️ Якщо офіційна повітряна "
+            "тривога ще триває, "
             "залишайтеся в безпечному місці."
         )
 
@@ -811,13 +782,8 @@ def process_neptun():
         if result:
 
             print(
-                "🟢 NEPTUN: відбій — "
-                "повідомлення надіслано."
+                "🟢 NEPTUN: відбій."
             )
-
-    # ========================================================
-    # ЗБЕРІГАЄМО СТАН
-    # ========================================================
 
     state["active_threats"] = current
     state["threat_status"] = new_active
@@ -998,7 +964,7 @@ def get_weather():
 
         response = requests.get(
             url,
-            timeout=15
+            timeout=10
         )
 
         if response.status_code != 200:
@@ -1165,16 +1131,21 @@ def main():
     )
 
     print(
-        "🚀 Бот запускається..."
+        "🚀 БОТ ЗАПУЩЕНО"
     )
 
     print(
-        "🛰 NEPTUN: перевірка кожні 30 секунд"
+        "🛰 NEPTUN: кожні 5 хвилин"
     )
 
     print(
-        "🚨 Повідомлення NEPTUN: "
-        "тільки початок та відбій"
+        "⚠️ При активній загрозі: "
+        "повторна перевірка кожні 2 хвилини"
+    )
+
+    print(
+        "🚨 Повідомлення: "
+        "тільки ПОЧАТОК та ВІДБІЙ"
     )
 
     print(
@@ -1200,43 +1171,59 @@ def main():
     print("=" * 60)
 
     # ========================================================
-    # ПЕРША ПЕРЕВІРКА ВІДРАЗУ
+    # ПЕРША ПЕРЕВІРКА NEPTUN ВІДРАЗУ
     # ========================================================
 
     print(
-        "🚀 Виконую першу перевірку NEPTUN..."
+        "🚀 Перша перевірка NEPTUN..."
     )
 
-    process_neptun()
+    try:
+
+        process_neptun()
+
+    except Exception as e:
+
+        print(
+            f"⚠️ Помилка першої перевірки NEPTUN: {e}"
+        )
 
     print(
-        "✅ Перша перевірка NEPTUN завершена."
+        "✅ Бот продовжує роботу."
     )
 
-    print(
-        "📰 Виконую першу перевірку новин..."
-    )
-
-    process_news()
-
-    print(
-        "🌤 Отримую погоду..."
-    )
-
-    process_weather()
-
-    print(
-        "📊 Оновлюю панель..."
-    )
-
-    process_dashboard()
+    # ========================================================
+    # ТАЙМЕРИ
+    # ========================================================
 
     now = time.monotonic()
 
+    # NEPTUN перевіряємо знову через 5 хв,
+    # якщо зараз спокійно.
     last_neptun = now
-    last_news = now
-    last_weather = now
-    last_dashboard = now
+
+    # Якщо вже є активна загроза,
+    # наступна перевірка буде через 2 хв.
+    if state.get(
+        "threat_status",
+        False
+    ):
+
+        last_neptun = (
+            now
+            -
+            NEPTUN_CHECK_SECONDS
+            +
+            THREAT_CHECK_SECONDS
+        )
+
+    # Інші сервіси запускаємо одразу
+    last_news = 0
+    last_weather = 0
+    last_dashboard = 0
+
+    # Промо та історія не повинні запускатися
+    # кожного разу після перезапуску.
     last_promo = now
     last_history = now
 
@@ -1252,12 +1239,35 @@ def main():
         # NEPTUN
         # ----------------------------------------------------
 
-        if (
-            now - last_neptun
-            >= NEPTUN_CHECK_SECONDS
+        if state.get(
+            "threat_status",
+            False
         ):
 
-            process_neptun()
+            required_interval = (
+                THREAT_CHECK_SECONDS
+            )
+
+        else:
+
+            required_interval = (
+                NEPTUN_CHECK_SECONDS
+            )
+
+        if (
+            now - last_neptun
+            >= required_interval
+        ):
+
+            try:
+
+                process_neptun()
+
+            except Exception as e:
+
+                print(
+                    f"⚠️ Помилка NEPTUN: {e}"
+                )
 
             last_neptun = now
 
@@ -1270,7 +1280,15 @@ def main():
             >= NEWS_CHECK_SECONDS
         ):
 
-            process_news()
+            try:
+
+                process_news()
+
+            except Exception as e:
+
+                print(
+                    f"⚠️ Помилка новин: {e}"
+                )
 
             last_news = now
 
@@ -1283,7 +1301,15 @@ def main():
             >= WEATHER_CHECK_SECONDS
         ):
 
-            process_weather()
+            try:
+
+                process_weather()
+
+            except Exception as e:
+
+                print(
+                    f"⚠️ Помилка погоди: {e}"
+                )
 
             last_weather = now
 
@@ -1296,7 +1322,15 @@ def main():
             >= DASHBOARD_CHECK_SECONDS
         ):
 
-            process_dashboard()
+            try:
+
+                process_dashboard()
+
+            except Exception as e:
+
+                print(
+                    f"⚠️ Помилка панелі: {e}"
+                )
 
             last_dashboard = now
 
@@ -1309,7 +1343,15 @@ def main():
             >= PROMO_CHECK_SECONDS
         ):
 
-            process_promo()
+            try:
+
+                process_promo()
+
+            except Exception as e:
+
+                print(
+                    f"⚠️ Помилка промо: {e}"
+                )
 
             last_promo = now
 
@@ -1322,7 +1364,15 @@ def main():
             >= HISTORY_CHECK_SECONDS
         ):
 
-            process_history()
+            try:
+
+                process_history()
+
+            except Exception as e:
+
+                print(
+                    f"⚠️ Помилка історії: {e}"
+                )
 
             last_history = now
 

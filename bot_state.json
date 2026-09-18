@@ -1,6 +1,69 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1789767969.045201,
+  "active_threats": {
+    "trk_00198487": {
+      "id": "trk_00198487",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Козелець",
+      "lat": 51.23305255359842,
+      "lon": 31.38084554848053,
+      "heading": 206,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-18T21:47:54Z",
+      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-09-18T21:47:54Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00198395": {
+      "id": "trk_00198395",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Євминка",
+      "lat": 50.85821811868094,
+      "lon": 30.789768956584354,
+      "heading": 107,
+      "confidenceLevel": "high",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-18T21:53:38Z",
+      "explanationShort": "БпЛА — Євминка, Чернігівська область. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-09-18T21:53:38Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 50.91,
+          "lon": 31.129,
+          "t": "2026-09-18T20:46:35Z"
+        },
+        {
+          "lat": 50.90812318535814,
+          "lon": 30.80055743767509,
+          "t": "2026-09-18T21:34:03Z"
+        },
+        {
+          "lat": 50.85821811868094,
+          "lon": 30.789768956584354,
+          "t": "2026-09-18T21:53:38Z"
+        }
+      ],
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1789768557.925775,
   "last_news_check": 1789767968.890859,
   "last_weather_check": 1789767326.565122,
   "last_dashboard_check": 1789767326.565122,

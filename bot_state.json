@@ -1,67 +1,7 @@
 {
-  "active_threats": {
-    "trk_00198239": {
-      "id": "trk_00198239",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Бровари",
-      "lat": 50.83405637500026,
-      "lon": 31.03968646124768,
-      "heading": 206,
-      "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "count": 4,
-      "updatedAt": "2026-09-18T19:42:16Z",
-      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 4.",
-      "status": "active",
-      "confirmedAt": "2026-09-18T19:42:16Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00198240": {
-      "id": "trk_00198240",
-      "type": "uav",
-      "title": "Група БпЛА (3+)",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Велика Димерка",
-      "lat": 50.59188419177543,
-      "lon": 30.903442046238958,
-      "heading": 220,
-      "confidenceLevel": "high",
-      "sourceCount": 7,
-      "count": 3,
-      "updatedAt": "2026-09-18T19:43:38Z",
-      "explanationShort": "БпЛА — Велика Димерка, Київська область. Підтверджень: 7.",
-      "status": "active",
-      "confirmedAt": "2026-09-18T19:43:38Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "confirmed",
-      "trail": [
-        {
-          "lat": 50.353,
-          "lon": 30.955,
-          "t": "2026-09-18T19:30:05Z"
-        },
-        {
-          "lat": 50.59188419177543,
-          "lon": 30.903442046238958,
-          "t": "2026-09-18T19:40:20Z"
-        }
-      ],
-      "lifecycle": "confirmed",
-      "displayConfidence": "high",
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1789759665.913565,
-  "last_news_check": 1789759664.872578,
+  "active_threats": {},
+  "last_threat_update": 1789761568.150358,
+  "last_news_check": 1789761567.896619,
   "last_weather_check": 1789760972.393673,
   "last_dashboard_check": 1789760972.393673,
   "last_promo_check": 1789753563,

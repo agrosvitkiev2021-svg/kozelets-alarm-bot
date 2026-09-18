@@ -11,20 +11,27 @@
       "lon": 31.129,
       "heading": 136,
       "confidenceLevel": "high",
-      "sourceCount": 5,
-      "updatedAt": "2026-09-18T20:51:29Z",
-      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 5.",
+      "sourceCount": 6,
+      "updatedAt": "2026-09-18T21:06:45Z",
+      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 6.",
       "status": "active",
-      "confirmedAt": "2026-09-18T20:51:29Z",
+      "confirmedAt": "2026-09-18T21:06:45Z",
       "uncertaintyKm": 4,
       "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 50.91,
+          "lon": 31.129,
+          "t": "2026-09-18T21:06:45Z"
+        }
+      ],
       "lifecycle": "confirmed",
       "displayConfidence": "high",
       "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1789764863.842572,
-  "last_news_check": 1789763513.133926,
+  "last_threat_update": 1789765669.402613,
+  "last_news_check": 1789765668.687013,
   "last_weather_check": 1789763513.133926,
   "last_dashboard_check": 1789763513.133926,
   "last_promo_check": 1789753563,

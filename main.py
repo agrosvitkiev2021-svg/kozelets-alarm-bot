@@ -44,8 +44,9 @@ THREAT_UPDATE_SECONDS = 5 * 60
 NEWS_CHECK_SECONDS = 30 * 60
 NEWS_MAX_AGE_MINUTES = 30
 
-WEATHER_CHECK_SECONDS = 10 * 60
-DASHBOARD_CHECK_SECONDS = 10 * 60
+# Погода та стан каналу публікуються раз на годину (3600 сек)
+WEATHER_CHECK_SECONDS = 60 * 60
+DASHBOARD_CHECK_SECONDS = 60 * 60
 
 PROMO_CHECK_SECONDS = 6 * 60 * 60
 HISTORY_CHECK_SECONDS = 12 * 60 * 60
@@ -54,7 +55,6 @@ HISTORY_CHECK_SECONDS = 12 * 60 * 60
 # НАСЕЛЕНІ ПУНКТИ ТА ЗОНА РЕАГУВАННЯ
 # ============================================================
 
-# Тільки безпосередні сусіди Козельця
 PLACES = {
     "Козелець": (50.913, 31.121),
     "Остер": (50.950, 30.883),
@@ -64,7 +64,6 @@ PLACES = {
     "Калита": (50.751, 31.025),
 }
 
-# Зменшено радіус з 50 км до 25 км
 THREAT_RADIUS_KM = 25
 
 NEPTUN_API = "https://neptun.in.ua/api/v1/threats"
@@ -328,7 +327,6 @@ def process_threats(state):
 
         area_only = bool(threat.get("areaOnly", False))
         if area_only:
-            # Ігноруємо размиті загрози без точних координат
             continue
 
         lat, lon = extract_coordinates(threat)
@@ -336,7 +334,6 @@ def process_threats(state):
             continue
 
         place, distance = nearest_place(lat, lon)
-        # Суворий фільтр за відстаню 25 км
         if place is None or distance is None or distance > THREAT_RADIUS_KM:
             continue
 
@@ -449,13 +446,13 @@ def main():
     state = load_state()
     now = now_timestamp()
 
-    # 1. Перевірка загрози (кожен запуск)
+    # 1. Перевірка загроз (кожні 5 хвилин)
     try:
         process_threats(state)
     except Exception as e:
         print(f"Помилка обробки загроз: {e}")
 
-    # 2. Новини (раз на 30 хв)
+    # 2. Новини (раз на 30 хвилин)
     if now - state.get("last_news_check", 0) >= NEWS_CHECK_SECONDS:
         try:
             process_news(state)
@@ -463,7 +460,7 @@ def main():
         except Exception as e:
             print(f"Помилка обробки новин: {e}")
 
-    # 3. Погода (раз на 10 хв)
+    # 3. Погода (раз на 60 хвилин)
     if now - state.get("last_weather_check", 0) >= WEATHER_CHECK_SECONDS:
         try:
             process_weather()
@@ -471,7 +468,7 @@ def main():
         except Exception as e:
             print(f"Помилка погоди: {e}")
 
-    # 4. Панель стану (раз на 10 хв)
+    # 4. Панель стану (раз на 60 хвилин)
     if now - state.get("last_dashboard_check", 0) >= DASHBOARD_CHECK_SECONDS:
         try:
             process_dashboard(state)

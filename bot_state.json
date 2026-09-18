@@ -1,4 +1,14 @@
 {
+  "active_threats": {},
+  "last_threat_update": 0,
+  "last_news_check": 1789755393.009643,
+  "last_weather_check": 1789755393.009643,
+  "last_dashboard_check": 1789755393.009643,
+  "last_promo_check": 1789753563,
+  "last_history_check": 1789753564,
+  "published_news": [
+    "87ba0f17717e998555f3f8fa0bbe969f"
+  ],
   "alert": {
     "active": true,
     "last_change": "17.09.2026 20:54:00",
@@ -50,13 +60,5 @@
     "last_sent": "2026-09-18T16:23:40.566762+00:00",
     "index": 1
   },
-  "active_threats": {},
-  "threat_status": false,
-  "last_threat_update": 0,
-  "last_news_check": 1789753561,
-  "last_weather_check": 1789753562,
-  "last_dashboard_check": 1789753563,
-  "last_promo_check": 1789753563,
-  "last_history_check": 1789753564,
-  "published_news": []
+  "threat_status": false
 }

@@ -5,35 +5,35 @@
     "last_type": "Повітряна тривога"
   },
   "news_seen": [
-    "3931ddc51fb3e07cf679a9d8",
-    "ab60c186f93b4075f3965459",
-    "e515f103d8786233aaa50b40",
     "08c6a56dc157e664b57556d1",
-    "2e066fdb545e71fe4146e1af",
-    "8d4ad7cbf63d91abc95ee3f4",
-    "ef2e2f1c1d56e25c9293b7ae",
     "a5dba11f473bbb198ee60c1c",
-    "065a28d2ff1bc5593e9e2a2e",
+    "8d4ad7cbf63d91abc95ee3f4",
     "01b223c06b4c6e6299ca4c8c",
-    "582f77424434222117dccb31",
-    "fbaebddcded8ef91f1205f75",
-    "5577190f536ece2e435487d2",
-    "9753e1eb0ac1175031a3ee1f",
     "e6c35a5dace96a5c50a46cfc",
-    "d637a46346eec2bfe06a9695",
-    "89be0e2370965dfce597bdd0",
+    "ab60c186f93b4075f3965459",
+    "9753e1eb0ac1175031a3ee1f",
     "ac560ed9dfd944eb9217528e",
+    "28f7d1d9daa177efb76e2562",
     "ebc3447a3f2663e71acbd3a0",
-    "28f7d1d9daa177efb76e2562"
+    "d637a46346eec2bfe06a9695",
+    "e515f103d8786233aaa50b40",
+    "582f77424434222117dccb31",
+    "89be0e2370965dfce597bdd0",
+    "2e066fdb545e71fe4146e1af",
+    "fbaebddcded8ef91f1205f75",
+    "ef2e2f1c1d56e25c9293b7ae",
+    "065a28d2ff1bc5593e9e2a2e",
+    "5577190f536ece2e435487d2",
+    "3931ddc51fb3e07cf679a9d8"
   ],
   "history_index": 1,
   "history_last": "2026-09-17 20:46:55",
   "pinned_message_id": 210,
   "threat_seen": [
-    "trk_00196516",
-    "trk_00196372",
     "trk_00196396",
-    "trk_00196493",
-    "trk_00196585"
+    "trk_00196516",
+    "trk_00196585",
+    "trk_00196372",
+    "trk_00196493"
   ]
 }

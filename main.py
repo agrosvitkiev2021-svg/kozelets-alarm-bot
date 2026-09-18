@@ -50,6 +50,56 @@ THREAT_RADIUS_KM = 50
 # Новини тільки за останні 10 хвилин
 NEWS_MAX_AGE_MINUTES = 10
 
+# ============================================================
+# ПРОСУВАННЯ КАНАЛУ
+# ============================================================
+
+# Рекламний пост не частіше одного разу на 8 годин.
+PROMO_INTERVAL_HOURS = 8
+PROMO_STATE_KEY = "promotion"
+
+PROMO_MESSAGES = [
+    (
+        "📢 КОРИСНИЙ МІСЦЕВИЙ КАНАЛ\n\n"
+        "🚨 Повітряні тривоги та відбої\n"
+        "📰 Свіжі новини Козельця, Остра та Чернігівщини\n"
+        "🌤 Погода та важлива місцева інформація\n\n"
+        "Щоб нічого важливого не пропустити — підписуйтесь 👇\n"
+        "👉 https://t.me/Kozelets_Alarm\n\n"
+        "📲 Перешліть цей допис рідним та друзям."
+    ),
+    (
+        "📍 КОЗЕЛЕЦЬ | ЧЕРНІГІВЩИНА\n\n"
+        "Хочете першими бачити важливі місцеві повідомлення?\n\n"
+        "🚨 Тривоги та відбої\n"
+        "📰 Місцеві новини\n"
+        "⚡ Важливі події та комунальна інформація\n\n"
+        "Підписуйтесь на канал:\n"
+        "👉 https://t.me/Kozelets_Alarm\n\n"
+        "👥 Запросіть до каналу тих, кому це може бути корисно."
+    ),
+    (
+        "🔔 НЕ ПРОПУСКАЙТЕ ВАЖЛИВЕ\n\n"
+        "Канал «Козелець Повітряна Тривога!» автоматично стежить за важливими подіями та новинами регіону.\n\n"
+        "📍 Козелець\n"
+        "📍 Остер\n"
+        "📍 Чернігівщина\n\n"
+        "👉 Підписатися: https://t.me/Kozelets_Alarm\n\n"
+        "💙 Якщо маєте друзів або родичів у нашому районі — перешліть їм цей допис."
+    ),
+    (
+        "📣 ЗАПРОШУЄМО ПІДПИСАТИСЯ\n\n"
+        "Один канал — важливі події вашого регіону:\n\n"
+        "🚨 Повітряні тривоги\n"
+        "🟢 Відбої\n"
+        "📰 Новини\n"
+        "🌤 Погода\n"
+        "📍 Козелець та Чернігівщина\n\n"
+        "👉 https://t.me/Kozelets_Alarm\n\n"
+        "Підписуйтесь та поділіться каналом із близькими."
+    ),
+]
+
 
 # ============================================================
 # ЛОГ
@@ -1588,6 +1638,73 @@ def validate_config():
 
 
 # ============================================================
+# ПРОСУВАННЯ КАНАЛУ
+# ============================================================
+
+def get_subscriber_count():
+    """Отримує поточну кількість підписників каналу."""
+    result = telegram(
+        "getChatMemberCount",
+        {"chat_id": CHANNEL}
+    )
+
+    if isinstance(result, int):
+        return result
+
+    return None
+
+
+def promotion_post(state):
+    """
+    Автоматичний пост для залучення реальних підписників.
+    Не частіше одного разу на PROMO_INTERVAL_HOURS.
+    """
+    promotion = state.get(PROMO_STATE_KEY)
+
+    if not isinstance(promotion, dict):
+        promotion = {
+            "last_sent": None,
+            "index": 0
+        }
+        state[PROMO_STATE_KEY] = promotion
+
+    now = datetime.now(timezone.utc)
+    last_sent = promotion.get("last_sent")
+
+    if last_sent:
+        try:
+            last_dt = datetime.fromisoformat(last_sent)
+            if now - last_dt < timedelta(hours=PROMO_INTERVAL_HOURS):
+                return
+        except Exception:
+            pass
+
+    index = int(promotion.get("index", 0))
+    message = PROMO_MESSAGES[index % len(PROMO_MESSAGES)]
+
+    subscribers = get_subscriber_count()
+
+    if subscribers is not None:
+        message += (
+            f"\n\n👥 Нас уже читають: {subscribers:,} підписників."
+            .replace(",", " ")
+        )
+
+    result = send_message(message)
+
+    if result:
+        promotion["last_sent"] = now.isoformat()
+        promotion["index"] = index + 1
+        state[PROMO_STATE_KEY] = promotion
+        save_state(state)
+
+        log(
+            "📣 Рекламний пост опубліковано. "
+            f"Підписників: {subscribers if subscribers is not None else 'невідомо'}"
+        )
+
+
+# ============================================================
 # MAIN
 # ============================================================
 
@@ -1635,6 +1752,9 @@ def main():
 
     # 5. Історія
     history_post(state)
+
+    # 6. Автоматичне просування каналу
+    promotion_post(state)
 
     save_state(state)
 

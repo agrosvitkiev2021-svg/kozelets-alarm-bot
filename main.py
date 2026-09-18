@@ -54,8 +54,8 @@ NEWS_MAX_AGE_MINUTES = 10
 # ПРОСУВАННЯ КАНАЛУ
 # ============================================================
 
-# Рекламний пост не частіше одного разу на 8 годин.
-PROMO_INTERVAL_HOURS = 8
+# Рекламний пост тепер кожні 4 години.
+PROMO_INTERVAL_HOURS = 4
 PROMO_STATE_KEY = "promotion"
 
 PROMO_MESSAGES = [
@@ -127,7 +127,12 @@ DEFAULT_STATE = {
 
     "pinned_message_id": None,
 
-    "threat_seen": []
+    "threat_seen": [],
+    
+    "promotion": {
+        "last_time": None,
+        "index": 0
+    }
 }
 
 
@@ -1246,6 +1251,43 @@ def get_news(state):
 
 
 # ============================================================
+# ПРОМО (РЕКЛАМА КАНАЛУ)
+# ============================================================
+
+def process_promotion(state):
+    log("📢 Перевіряю необхідність публікації промо-посту...")
+    
+    promo_state = state.get(PROMO_STATE_KEY, {})
+    last_time_str = promo_state.get("last_time")
+    index = promo_state.get("index", 0)
+
+    now = datetime.now()
+
+    if last_time_str:
+        try:
+            last_dt = datetime.strptime(last_time_str, "%Y-%m-%d %H:%M:%S")
+            if now - last_dt < timedelta(hours=PROMO_INTERVAL_HOURS):
+                log(f"ℹ️ Промо-пост ще не потрібен. Останній був: {last_time_str}")
+                return
+        except Exception as e:
+            log(f"⚠️ Помилка парсингу часу промо: {e}")
+
+    # Обираємо текст реклами згідно з індексом та робимо циклювання
+    message = PROMO_MESSAGES[index % len(PROMO_MESSAGES)]
+
+    result = send_message(message)
+
+    if result:
+        promo_state["last_time"] = now.strftime("%Y-%m-%d %H:%M:%S")
+        promo_state["index"] = (index + 1) % len(PROMO_MESSAGES)
+        state[PROMO_STATE_KEY] = promo_state
+        save_state(state)
+        log("📢 Рекламний пост успішно опубліковано.")
+    else:
+        log("❌ Не вдалося опублікувати рекламний пост.")
+
+
+# ============================================================
 # ІСТОРІЯ
 # ============================================================
 
@@ -1599,173 +1641,3 @@ def update_dashboard(state):
         "📌 Панель створена "
         "та закріплена."
     )
-
-
-# ============================================================
-# ПЕРЕВІРКА КОНФІГУРАЦІЇ
-# ============================================================
-
-def validate_config():
-
-    valid = True
-
-    if not BOT_TOKEN:
-
-        log(
-            "❌ BOT_TOKEN не заданий."
-        )
-
-        valid = False
-
-    if not CHANNEL:
-
-        log(
-            "❌ CHANNEL не заданий."
-        )
-
-        valid = False
-
-    if not UKRAINE_ALARM_API_KEY:
-
-        log(
-            "❌ UKRAINE_ALARM_API_KEY "
-            "не заданий."
-        )
-
-        valid = False
-
-    return valid
-
-
-# ============================================================
-# ПРОСУВАННЯ КАНАЛУ
-# ============================================================
-
-def get_subscriber_count():
-    """Отримує поточну кількість підписників каналу."""
-    result = telegram(
-        "getChatMemberCount",
-        {"chat_id": CHANNEL}
-    )
-
-    if isinstance(result, int):
-        return result
-
-    return None
-
-
-def promotion_post(state):
-    """
-    Автоматичний пост для залучення реальних підписників.
-    Не частіше одного разу на PROMO_INTERVAL_HOURS.
-    """
-    promotion = state.get(PROMO_STATE_KEY)
-
-    if not isinstance(promotion, dict):
-        promotion = {
-            "last_sent": None,
-            "index": 0
-        }
-        state[PROMO_STATE_KEY] = promotion
-
-    now = datetime.now(timezone.utc)
-    last_sent = promotion.get("last_sent")
-
-    if last_sent:
-        try:
-            last_dt = datetime.fromisoformat(last_sent)
-            if now - last_dt < timedelta(hours=PROMO_INTERVAL_HOURS):
-                return
-        except Exception:
-            pass
-
-    index = int(promotion.get("index", 0))
-    message = PROMO_MESSAGES[index % len(PROMO_MESSAGES)]
-
-    subscribers = get_subscriber_count()
-
-    if subscribers is not None:
-        message += (
-            f"\n\n👥 Нас уже читають: {subscribers:,} підписників."
-            .replace(",", " ")
-        )
-
-    result = send_message(message)
-
-    if result:
-        promotion["last_sent"] = now.isoformat()
-        promotion["index"] = index + 1
-        state[PROMO_STATE_KEY] = promotion
-        save_state(state)
-
-        log(
-            "📣 Рекламний пост опубліковано. "
-            f"Підписників: {subscribers if subscribers is not None else 'невідомо'}"
-        )
-
-
-# ============================================================
-# MAIN
-# ============================================================
-
-def main():
-
-    print()
-
-    print("=" * 60)
-
-    print(
-        "🤖 KOZELETS ALARM BOT"
-    )
-
-    print("=" * 60)
-
-    print(
-        datetime.now().strftime(
-            "%d.%m.%Y %H:%M:%S"
-        )
-    )
-
-    print("=" * 60)
-
-    if not validate_config():
-
-        log(
-            "❌ Конфігурація неповна."
-        )
-
-        return
-
-    state = load_state()
-
-    # 1. Повітряна тривога
-    process_alarm(state)
-
-    # 2. NEPTUN
-    process_neptun(state)
-
-    # 3. Панель
-    update_dashboard(state)
-
-    # 4. Свіжі новини
-    get_news(state)
-
-    # 5. Історія
-    history_post(state)
-
-    # 6. Автоматичне просування каналу
-    promotion_post(state)
-
-    save_state(state)
-
-    print("=" * 60)
-
-    print(
-        "✅ ЦИКЛ ЗАВЕРШЕНО"
-    )
-
-    print("=" * 60)
-
-
-if __name__ == "__main__":
-    main()

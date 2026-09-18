@@ -51,18 +51,21 @@ PROMO_CHECK_SECONDS = 6 * 60 * 60
 HISTORY_CHECK_SECONDS = 12 * 60 * 60
 
 # ============================================================
-# НАСЕЛЕНІ ПУНКТИ ТА КООРДИНАТИ
+# НАСЕЛЕНІ ПУНКТИ ТА ЗОНА РЕАГУВАННЯ
 # ============================================================
 
+# Тільки безпосередні сусіди Козельця
 PLACES = {
     "Козелець": (50.913, 31.121),
     "Остер": (50.950, 30.883),
-    "Бобровиця": (50.750, 31.383),
     "Кіпті": (51.050, 31.150),
-    "Чернігів": (51.498, 31.289),
+    "Чемер": (51.108, 31.216),
+    "Десна": (50.927, 30.760),
+    "Калита": (50.751, 31.025),
 }
 
-THREAT_RADIUS_KM = 50
+# Зменшено радіус з 50 км до 25 км
+THREAT_RADIUS_KM = 25
 
 NEPTUN_API = "https://neptun.in.ua/api/v1/threats"
 NEPTUN_URL = "https://neptun.in.ua/"
@@ -70,8 +73,6 @@ NEPTUN_URL = "https://neptun.in.ua/"
 NEWS_FEEDS = [
     ("Козелець", "https://news.google.com/rss/search?q=%D0%9A%D0%BE%D0%B7%D0%B5%D0%BB%D0%B5%D1%86%D1%8C&hl=uk&gl=UA&ceid=UA:uk"),
     ("Остер", "https://news.google.com/rss/search?q=%D0%9E%D1%81%D1%82%D0%B5%D1%80+%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B3%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0&hl=uk&gl=UA&ceid=UA:uk"),
-    ("Бобровиця", "https://news.google.com/rss/search?q=%D0%91%D0%BE%D0%B1%D1%80%D0%BE%D0%B2%D0%B8%D1%86%D1%8F&hl=uk&gl=UA&ceid=UA:uk"),
-    ("Чернігів", "https://news.google.com/rss/search?q=%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B3%D1%96%D0%B2&hl=uk&gl=UA&ceid=UA:uk"),
     ("Чернігівська область", "https://news.google.com/rss/search?q=%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B3%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C&hl=uk&gl=UA&ceid=UA:uk"),
 ]
 
@@ -287,29 +288,26 @@ def is_active_threat(threat):
 
 def build_threat_message(threat):
     lat, lon = extract_coordinates(threat)
-    locality = get_value(threat, "locality", "settlement", "city", "town", "village")
-    district = get_value(threat, "district", "raion")
-    region = get_value(threat, "region", "oblast")
     area_only = bool(threat.get("areaOnly", False))
 
     place, distance = None, None
     if lat is not None and lon is not None and not area_only:
         place, distance = nearest_place(lat, lon)
 
-    display_place = locality or place or district or region or "Чернігівщина"
+    display_place = place or "Козелеччина / поблизу"
     threat_type = threat_type_name(threat)
     confidence = get_value(threat, "confidenceLevel", "confidence", "certainty") or "high"
     source_count = get_value(threat, "sourceCount") or 1
     heading = extract_heading(threat)
 
     message = [
-        "🛰 <b>ПОВІТРЯНА ЗАГРОЗА</b>\n",
+        "🛰 <b>ПОВІТРЯНА ЗАГРОЗА ПОБЛИЗУ</b>\n",
         f"⚠️ <b>Тип:</b> {html.escape(str(threat_type))}",
-        f"📍 <b>Район:</b> {html.escape(str(display_place))}"
+        f"📍 <b>Напрямок/Район:</b> {html.escape(str(display_place))}"
     ]
 
     if distance is not None and not area_only:
-        message.append(f"📏 <b>Відстань:</b> приблизно {distance:.1f} км")
+        message.append(f"📏 <b>Відстань до населеного пункту:</b> ~{distance:.1f} км")
 
     message.append(f"🎯 <b>Достовірність:</b> {html.escape(str(confidence))}")
     message.append(f"📡 <b>Джерел:</b> {html.escape(str(source_count))}")
@@ -317,7 +315,7 @@ def build_threat_message(threat):
     if heading is not None and not area_only:
         message.append(f"🧭 <b>Курс:</b> {html.escape(str(heading))}°")
 
-    message.append(f'\n🔗 <a href="{NEPTUN_URL}">Дані про загрозу</a>')
+    message.append(f'\n🔗 <a href="{NEPTUN_URL}">Карта Neptun</a>')
     return "\n".join(message)
 
 def process_threats(state):
@@ -329,12 +327,18 @@ def process_threats(state):
             continue
 
         area_only = bool(threat.get("areaOnly", False))
-        lat, lon = extract_coordinates(threat)
+        if area_only:
+            # Ігноруємо размиті загрози без точних координат
+            continue
 
-        if lat is not None and lon is not None and not area_only:
-            place, distance = nearest_place(lat, lon)
-            if place is None or (distance is not None and distance > THREAT_RADIUS_KM):
-                continue
+        lat, lon = extract_coordinates(threat)
+        if lat is None or lon is None:
+            continue
+
+        place, distance = nearest_place(lat, lon)
+        # Суворий фільтр за відстаню 25 км
+        if place is None or distance is None or distance > THREAT_RADIUS_KM:
+            continue
 
         threat_id = make_threat_id(threat)
         current[threat_id] = threat
@@ -357,7 +361,7 @@ def process_threats(state):
         state["last_threat_update"] = now
 
     if previous and not current:
-        telegram_send("🟢 <b>ВІДБІЙ НЕБЕЗПЕКИ</b>\n\nАктивних загроз поблизу не виявлено.")
+        telegram_send("🟢 <b>ВІДБІЙ ПОБЛИЗУ</b>\n\nУ радіусі 25 км активних цілей не виявлено.")
         state["last_threat_update"] = now
 
     if not previous and current:
@@ -425,12 +429,12 @@ def process_weather():
 
 def process_dashboard(state):
     active_count = len(state.get("active_threats", {}))
-    status = "🔴 Є активна загроза" if active_count else "🟢 Активної загрози немає"
-    msg = f"📊 <b>СТАН КАНАЛУ</b>\n\n🕐 Оновлено: {current_time_string()}\n🚨 Активних загроз: {active_count}\n{status}"
+    status = "🔴 Є загроза поруч (<25км)" if active_count else "🟢 Активних цілей поруч немає"
+    msg = f"📊 <b>СТАН КАНАЛУ</b>\n\n🕐 Оновлено: {current_time_string()}\n🚨 Загроз поблизу: {active_count}\n{status}"
     telegram_send(msg)
 
 def process_promo():
-    msg = "📢 <b>КОЗЕЛЕЦЬ — ПОВІТРЯНА ТРИВОГА ТА НОВИНИ</b>\n\n🚨 загрози | 📰 новини | 🌤 погода\n👉 <b>Підписуйтесь та діліться з близькими.</b>"
+    msg = "📢 <b>КОЗЕЛЕЦЬ — ПОВІТРЯНА ТРИВОГА ТА НОВИНИ</b>\n\n🚨 загрози поруч | 📰 новини | 🌤 погода\n👉 <b>Підписуйтесь та діліться з близькими.</b>"
     telegram_send(msg)
 
 def process_history():

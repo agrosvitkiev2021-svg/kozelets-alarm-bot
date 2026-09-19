@@ -1,31 +1,6 @@
 {
-  "active_threats": {
-    "trk_00200224": {
-      "id": "trk_00200224",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Бобровиця",
-      "lat": 51.084377795237096,
-      "lon": 31.538213605913636,
-      "heading": 195,
-      "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "count": 1,
-      "updatedAt": "2026-09-19T16:24:43Z",
-      "explanationShort": "БпЛА курсом на Бобровиця. Підтверджень: 6.",
-      "status": "active",
-      "confirmedAt": "2026-09-19T16:24:43Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1789834250.984413,
+  "active_threats": {},
+  "last_threat_update": 1789835970.841252,
   "last_news_check": 1789835160.36481,
   "last_weather_check": 1789833334.616868,
   "last_dashboard_check": 1789830458.055208,

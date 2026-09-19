@@ -1,30 +1,6 @@
 {
-  "active_threats": {
-    "trk_00200293": {
-      "id": "trk_00200293",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Бориспіль",
-      "lat": 50.68865906776992,
-      "lon": 31.158484948866786,
-      "heading": 201,
-      "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "updatedAt": "2026-09-19T17:32:21Z",
-      "explanationShort": "БпЛА курсом на Бориспіль. Підтверджень: 6.",
-      "status": "active",
-      "confirmedAt": "2026-09-19T17:32:21Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1789839602.148411,
+  "active_threats": {},
+  "last_threat_update": 1789840235.254868,
   "last_news_check": 1789839601.605068,
   "last_weather_check": 1789838918.849108,
   "last_dashboard_check": 1789838202.358162,

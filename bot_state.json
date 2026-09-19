@@ -1,35 +1,23 @@
 {
   "active_threats": {
-    "trk_00200839": {
-      "id": "trk_00200839",
+    "trk_00200847": {
+      "id": "trk_00200847",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Горенка",
-      "lat": 50.85203132810501,
-      "lon": 30.641876470265558,
-      "heading": 216,
+      "locality": "Бровари",
+      "lat": 50.83405637500026,
+      "lon": 31.03968646124768,
+      "heading": 206,
       "confidenceLevel": "medium",
       "sourceCount": 6,
-      "updatedAt": "2026-09-19T21:49:47Z",
-      "explanationShort": "БпЛА курсом на Горенка. Підтверджень: 6.",
+      "updatedAt": "2026-09-19T21:55:29Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 6.",
       "status": "active",
-      "confirmedAt": "2026-09-19T21:49:47Z",
+      "confirmedAt": "2026-09-19T21:55:29Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.56841,
-          "lon": 30.2651,
-          "t": "2026-09-19T21:46:40Z"
-        },
-        {
-          "lat": 50.561482685570525,
-          "lon": 30.306957205295927,
-          "t": "2026-09-19T21:47:35Z"
-        }
-      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -37,7 +25,7 @@
     }
   },
   "last_threat_update": 1789854662.261387,
-  "last_news_check": 1789853396.071847,
+  "last_news_check": 1789855310.865027,
   "last_weather_check": 1789850957.598928,
   "last_dashboard_check": 1789853396.071847,
   "last_promo_check": 1789840866.556919,

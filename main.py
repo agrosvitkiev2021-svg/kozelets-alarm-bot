@@ -125,7 +125,7 @@ def default_state():
 
 def load_state():
     if not STATE_FILE.exists():
-        print("Файл bot_state.json не знайдено. Створюю новий.")
+        print("Файл bot_state.json не знайдено. Створюю новий стан.")
         return default_state()
 
     try:
@@ -374,6 +374,7 @@ def process_threats(state):
 # ============================================================
 
 def process_news(state):
+    print("Обробка новин...")
     now = now_timestamp()
     published = state.get("published_news", [])
     published_set = set(str(x) for x in published)
@@ -412,6 +413,7 @@ def process_news(state):
     state["published_news"] = published[-500:]
 
 def process_weather():
+    print("Публікація погоди...")
     lat, lon = PLACES["Козелець"]
     url = (
         f"https://api.open-meteo.com/v1/forecast?"
@@ -430,7 +432,6 @@ def process_weather():
         humidity = res.get('relative_humidity_2m')
         wind = round(float(res.get('wind_speed_10m', 0)), 1)
 
-        # Схід, Захід та тривалість дня
         sunrise_str = daily.get("sunrise", [""])[0]
         sunset_str = daily.get("sunset", [""])[0]
 
@@ -448,7 +449,6 @@ def process_weather():
         else:
             sunrise, sunset, day_len_str = "06:42", "19:15", "12 год 33 хв"
 
-        # Радіаційний фон (нормований показник ~0.11 мкЗв/год з природними коливаннями)
         rad_val = round(0.10 + random.uniform(0.01, 0.02), 2)
 
         msg = (
@@ -466,6 +466,7 @@ def process_weather():
         print(f"Помилка погоди: {e}")
 
 def process_dashboard(state):
+    print("Публікація стану каналу...")
     active_count = len(state.get("active_threats", {}))
     status = "🔴 Є загроза поруч (<25км)" if active_count else "🟢 Активних цілей поруч немає"
     msg = (
@@ -477,10 +478,12 @@ def process_dashboard(state):
     telegram_send(msg)
 
 def process_promo():
+    print("Публікація промо...")
     msg = "📢 <b>КОЗЕЛЕЦЬ — ПОВІТРЯНА ТРИВОГА ТА НОВИНИ</b>\n\n🚨 загрози поруч | 📰 новини | 🌤 погода\n👉 <b>Підписуйтесь та діліться з близькими.</b>"
     telegram_send(msg)
 
 def process_history():
+    print("Публікація історії...")
     msg = "📜 <b>ІСТОРІЯ КОЗЕЛЬЦЯ</b>\n\nКозелець — один із відомих історичних населених пунктів Чернігівщини.\n📍 <b>Козелець — історія поруч.</b>"
     telegram_send(msg)
 
@@ -513,6 +516,9 @@ def main():
             state["last_weather_check"] = now
         except Exception as e:
             print(f"Помилка погоди: {e}")
+    else:
+        passed = int(now - state.get("last_weather_check", 0))
+        print(f"Погода пропущена (минуло {passed}/{WEATHER_CHECK_SECONDS} сек).")
 
     # 4. Панель стану (раз на 2 години / 7200 сек)
     if now - state.get("last_dashboard_check", 0) >= DASHBOARD_CHECK_SECONDS:
@@ -521,6 +527,9 @@ def main():
             state["last_dashboard_check"] = now
         except Exception as e:
             print(f"Помилка панелі: {e}")
+    else:
+        passed = int(now - state.get("last_dashboard_check", 0))
+        print(f"Панель стану пропущена (минуло {passed}/{DASHBOARD_CHECK_SECONDS} сек).")
 
     # 5. Промо (раз на 6 годин)
     if now - state.get("last_promo_check", 0) >= PROMO_CHECK_SECONDS:

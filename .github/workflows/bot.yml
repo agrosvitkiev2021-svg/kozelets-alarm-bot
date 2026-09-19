@@ -5,6 +5,10 @@ on:
     - cron: '*/5 * * * *'  # Запуск кожні 5 хвилин
   workflow_dispatch:       # Можливість ручного запуску
 
+# Явно надаємо права на запис у репозиторій для збереження bot_state.json
+permissions:
+  contents: write
+
 jobs:
   run-bot:
     runs-on: ubuntu-latest
@@ -28,7 +32,7 @@ jobs:
           CHANNEL: ${{ secrets.CHANNEL }}
         run: python main.py
 
-      # ВАЖЛИВО: Зберігаємо оновлений bot_state.json у Git
+      # Зберігаємо оновлений bot_state.json у Git
       - name: Commit and push updated bot state
         run: |
           git config --global user.name 'github-actions[bot]'

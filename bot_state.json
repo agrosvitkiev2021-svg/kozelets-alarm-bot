@@ -1,6 +1,42 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1789840235.254868,
+  "active_threats": {
+    "trk_00200839": {
+      "id": "trk_00200839",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Горенка",
+      "lat": 50.85203132810501,
+      "lon": 30.641876470265558,
+      "heading": 216,
+      "confidenceLevel": "medium",
+      "sourceCount": 6,
+      "updatedAt": "2026-09-19T21:49:47Z",
+      "explanationShort": "БпЛА курсом на Горенка. Підтверджень: 6.",
+      "status": "active",
+      "confirmedAt": "2026-09-19T21:49:47Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.56841,
+          "lon": 30.2651,
+          "t": "2026-09-19T21:46:40Z"
+        },
+        {
+          "lat": 50.561482685570525,
+          "lon": 30.306957205295927,
+          "t": "2026-09-19T21:47:35Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1789854662.261387,
   "last_news_check": 1789853396.071847,
   "last_weather_check": 1789850957.598928,
   "last_dashboard_check": 1789853396.071847,

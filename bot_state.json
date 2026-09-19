@@ -1,68 +1,7 @@
 {
-  "active_threats": {
-    "trk_00199310": {
-      "id": "trk_00199310",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Мікрорайон Дарницького вагоноремонтного заводу",
-      "lat": 50.7719778868707,
-      "lon": 30.932527690103626,
-      "heading": 208,
-      "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "count": 1,
-      "updatedAt": "2026-09-19T07:50:28Z",
-      "explanationShort": "БпЛА курсом на Мікрорайон Дарницького вагоноремонтного заводу. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-09-19T07:50:28Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.48481,
-          "lon": 30.6032,
-          "t": "2026-09-19T07:47:45Z"
-        },
-        {
-          "lat": 50.45466029789017,
-          "lon": 30.66548203769174,
-          "t": "2026-09-19T07:49:31Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00199251": {
-      "id": "trk_00199251",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Бровари",
-      "lat": 50.83405637500026,
-      "lon": 31.03968646124768,
-      "heading": 206,
-      "confidenceLevel": "medium",
-      "sourceCount": 8,
-      "count": 1,
-      "updatedAt": "2026-09-19T07:46:30Z",
-      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 8.",
-      "status": "active",
-      "confirmedAt": "2026-09-19T07:46:30Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1789802894.453278,
-  "last_news_check": 1789802892.572345,
+  "active_threats": {},
+  "last_threat_update": 1789805043.919349,
+  "last_news_check": 1789805043.616986,
   "last_weather_check": 1789803696.760396,
   "last_dashboard_check": 1789803696.760396,
   "last_promo_check": 1789797231.074159,

@@ -45,8 +45,8 @@ THREAT_UPDATE_SECONDS = 5 * 60
 NEWS_CHECK_SECONDS = 30 * 60
 NEWS_MAX_AGE_MINUTES = 30
 
-# Погода — раз на годину (3600 сек)
-WEATHER_CHECK_SECONDS = 60 * 60
+# Погода — раз на півтора години (90 хв * 60 сек = 5400 сек)
+WEATHER_CHECK_SECONDS = 90 * 60
 
 # Стан каналу — раз на дві години (7200 сек)
 DASHBOARD_CHECK_SECONDS = 2 * 60 * 60
@@ -509,7 +509,7 @@ def main():
         except Exception as e:
             print(f"Помилка обробки новин: {e}")
 
-    # 3. Погода (раз на 60 хвилин)
+    # 3. Погода (раз на 90 хвилин)
     if now - state.get("last_weather_check", 0) >= WEATHER_CHECK_SECONDS:
         try:
             process_weather()

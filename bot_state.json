@@ -1,6 +1,67 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1789786842.858298,
+  "active_threats": {
+    "trk_00198868": {
+      "id": "trk_00198868",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Кіпті",
+      "lat": 51.0513847413124,
+      "lon": 31.157212049413758,
+      "heading": 334.891257536343,
+      "confidenceLevel": "high",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-19T03:16:44Z",
+      "explanationShort": "БпЛА — Кіпті, Чернігівська область. Підтверджень: 2.",
+      "status": "active",
+      "velocity": {
+        "bearingDeg": 334.9,
+        "speedKmh": 101.5
+      },
+      "confirmedAt": "2026-09-19T03:13:33Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 50.737,
+          "lon": 31.39,
+          "t": "2026-09-19T02:40:46Z"
+        },
+        {
+          "lat": 51.0513847413124,
+          "lon": 31.157212049413758,
+          "t": "2026-09-19T03:10:39Z"
+        }
+      ],
+      "lifecycle": "tracking",
+      "displayConfidence": "high"
+    },
+    "trk_00198873": {
+      "id": "trk_00198873",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Козелець",
+      "lat": 51.23305255359842,
+      "lon": 31.38084554848053,
+      "heading": 206,
+      "confidenceLevel": "medium",
+      "sourceCount": 6,
+      "updatedAt": "2026-09-19T03:15:30Z",
+      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 6.",
+      "status": "active",
+      "confirmedAt": "2026-09-19T03:15:30Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1789787876.771904,
   "last_news_check": 1789786842.335609,
   "last_weather_check": 1789786842.335609,
   "last_dashboard_check": 1789786842.335609,

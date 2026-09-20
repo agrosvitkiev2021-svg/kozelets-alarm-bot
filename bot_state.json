@@ -1,110 +1,23 @@
 {
   "active_threats": {
-    "trk_00202552": {
-      "id": "trk_00202552",
+    "trk_00202658": {
+      "id": "trk_00202658",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Чернігівська область",
       "district": "",
-      "locality": "Гостомель",
-      "lat": 50.83503467727126,
-      "lon": 30.58090819625995,
-      "heading": 217,
-      "confidenceLevel": "medium",
-      "sourceCount": 10,
-      "count": 1,
-      "updatedAt": "2026-09-20T15:50:41Z",
-      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 10.",
-      "status": "active",
-      "confirmedAt": "2026-09-20T15:50:41Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.5556782752684,
-          "lon": 30.23801958068908,
-          "t": "2026-09-20T15:42:10Z"
-        },
-        {
-          "lat": 50.55827485838528,
-          "lon": 30.243542521301066,
-          "t": "2026-09-20T15:42:26Z"
-        },
-        {
-          "lat": 50.5556782752684,
-          "lon": 30.23801958068908,
-          "t": "2026-09-20T15:42:26Z"
-        },
-        {
-          "lat": 50.55286817520044,
-          "lon": 30.242973474257415,
-          "t": "2026-09-20T15:42:43Z"
-        },
-        {
-          "lat": 50.55057427535854,
-          "lon": 30.239706752950752,
-          "t": "2026-09-20T15:42:43Z"
-        },
-        {
-          "lat": 50.55182673058233,
-          "lon": 30.244541045214024,
-          "t": "2026-09-20T15:42:43Z"
-        },
-        {
-          "lat": 50.551484922014616,
-          "lon": 30.23892952272199,
-          "t": "2026-09-20T15:43:08Z"
-        },
-        {
-          "lat": 50.54829656687028,
-          "lon": 30.240153576119848,
-          "t": "2026-09-20T15:43:08Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00202624": {
-      "id": "trk_00202624",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Гнідин",
-      "lat": 50.65476961026248,
-      "lon": 30.950383947201704,
-      "heading": 205,
-      "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-09-20T15:51:40Z",
-      "explanationShort": "БпЛА курсом на Гнідин. Підтверджень: 4.",
-      "status": "active",
-      "confirmedAt": "2026-09-20T15:51:40Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00202626": {
-      "id": "trk_00202626",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "",
-      "district": "",
-      "locality": "Проліски",
-      "lat": 50.716959064885714,
-      "lon": 31.02011199367309,
-      "heading": 205,
+      "locality": "Бобровиця",
+      "lat": 51.084377795237096,
+      "lon": 31.538213605913636,
+      "heading": 195,
       "confidenceLevel": "medium",
       "sourceCount": 2,
-      "updatedAt": "2026-09-20T15:50:55Z",
-      "explanationShort": "БпЛА курсом на Проліски. Підтверджень: 2.",
+      "count": 1,
+      "updatedAt": "2026-09-20T16:09:12Z",
+      "explanationShort": "БпЛА курсом на Бобровиця. Підтверджень: 2.",
       "status": "active",
-      "uncertaintyKm": 25,
+      "confirmedAt": "2026-09-20T16:09:12Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
@@ -114,7 +27,7 @@
   },
   "last_threat_update": 1789919089.050226,
   "last_news_check": 1789919087.815786,
-  "last_weather_check": 1789914555.485969,
+  "last_weather_check": 1789920655.225899,
   "last_dashboard_check": 1789914555.485969,
   "last_promo_check": 1789907133.651434,
   "last_history_check": 1789885379.037411,

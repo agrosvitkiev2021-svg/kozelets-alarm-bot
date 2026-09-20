@@ -1,23 +1,57 @@
 {
   "active_threats": {
-    "trk_00202131": {
-      "id": "trk_00202131",
+    "trk_00202134": {
+      "id": "trk_00202134",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Димер",
-      "lat": 51.05736072931494,
-      "lon": 30.678077444929382,
-      "heading": 221,
+      "locality": "Київ",
+      "lat": 50.761289488779006,
+      "lon": 30.80774606165047,
+      "heading": 210,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "count": 1,
-      "updatedAt": "2026-09-20T11:28:04Z",
-      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 4.",
+      "sourceCount": 7,
+      "updatedAt": "2026-09-20T11:39:26Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 7.",
       "status": "active",
-      "confirmedAt": "2026-09-20T11:28:04Z",
+      "confirmedAt": "2026-09-20T11:39:26Z",
       "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.31196936332766,
+          "lon": 30.41056337011886,
+          "t": "2026-09-20T11:23:32Z"
+        },
+        {
+          "lat": 50.4501,
+          "lon": 30.5234,
+          "t": "2026-09-20T11:31:54Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00202151": {
+      "id": "trk_00202151",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Теличка",
+      "lat": 50.714302282669486,
+      "lon": 30.842100865820694,
+      "heading": 209,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-20T11:38:13Z",
+      "explanationShort": "БпЛА курсом на Теличка. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-09-20T11:38:13Z",
+      "uncertaintyKm": 10,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",

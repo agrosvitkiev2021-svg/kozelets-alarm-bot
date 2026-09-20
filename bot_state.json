@@ -1,6 +1,41 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1789887254.820117,
+  "active_threats": {
+    "trk_00201897": {
+      "id": "trk_00201897",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Підлісне",
+      "lat": 51.150294506237806,
+      "lon": 31.133066046695234,
+      "heading": 13,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-20T09:53:50Z",
+      "explanationShort": "БпЛА — Підлісне, Чернігівська область. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-09-20T09:53:50Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 51.46366,
+          "lon": 30.85221,
+          "t": "2026-09-20T09:27:47Z"
+        },
+        {
+          "lat": 51.150294506237806,
+          "lon": 31.133066046695234,
+          "t": "2026-09-20T09:53:50Z"
+        }
+      ],
+      "lifecycle": "confirmed",
+      "displayConfidence": "medium",
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1789898167.388477,
   "last_news_check": 1789896916.173295,
   "last_weather_check": 1789897543.183835,
   "last_dashboard_check": 1789891003.489245,

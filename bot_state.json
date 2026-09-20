@@ -1,7 +1,7 @@
 {
   "active_threats": {},
   "last_threat_update": 1789887254.820117,
-  "last_news_check": 1789894431.347395,
+  "last_news_check": 1789896916.173295,
   "last_weather_check": 1789892035.354337,
   "last_dashboard_check": 1789891003.489245,
   "last_promo_check": 1789885379.037411,
@@ -11,7 +11,8 @@
     "23c0e2ef0704371ad5ed0309d3918541",
     "55c8de4f8dd31b76ec0eb792d315627a",
     "6c09f7c7f1568c27fadee256f4f47f2e",
-    "ad3572c4369740f9db22bf7fb3c0b32c"
+    "ad3572c4369740f9db22bf7fb3c0b32c",
+    "b5f294d588c639a8a136388613a5d858"
   ],
   "alert": {
     "active": true,

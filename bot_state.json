@@ -1,6 +1,75 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790019919.628107,
+  "active_threats": {
+    "trk_00206121": {
+      "id": "trk_00206121",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Виноградар",
+      "lat": 50.81557405033081,
+      "lon": 30.7346120407375,
+      "heading": 213,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-21T21:51:38Z",
+      "explanationShort": "БпЛА курсом на Виноградар. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T21:51:38Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00206127": {
+      "id": "trk_00206127",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Верхньолибідська слобідка",
+      "lat": 50.71124449580938,
+      "lon": 30.808751774573174,
+      "heading": 209,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "updatedAt": "2026-09-21T21:53:40Z",
+      "explanationShort": "БпЛА курсом на Верхньолибідська слобідка. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T21:53:40Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.40206,
+          "lon": 30.51564,
+          "t": "2026-09-21T21:52:03Z"
+        },
+        {
+          "lat": 50.400754688783636,
+          "lon": 30.54797496668497,
+          "t": "2026-09-21T21:52:44Z"
+        },
+        {
+          "lat": 50.394175048045135,
+          "lon": 30.544833048094475,
+          "t": "2026-09-21T21:53:02Z"
+        },
+        {
+          "lat": 50.39694217781075,
+          "lon": 30.53333887553293,
+          "t": "2026-09-21T21:53:40Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790027693.861397,
   "last_news_check": 1790026313.517799,
   "last_weather_check": 1790026313.517799,
   "last_dashboard_check": 1790019262.68373,

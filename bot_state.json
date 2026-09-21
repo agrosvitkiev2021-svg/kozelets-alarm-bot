@@ -1,76 +1,33 @@
 {
   "active_threats": {
-    "trk_00204171": {
-      "id": "trk_00204171",
+    "trk_00204204": {
+      "id": "trk_00204204",
       "type": "uav",
       "title": "БпЛА",
       "region": "Чернігівська область",
       "district": "",
-      "locality": "Десна",
-      "lat": 51.202211613968394,
-      "lon": 31.108301475213516,
-      "heading": 215,
+      "locality": "Бобровиця",
+      "lat": 51.084377795237096,
+      "lon": 31.538213605913636,
+      "heading": 195,
       "confidenceLevel": "medium",
       "sourceCount": 1,
-      "updatedAt": "2026-09-21T06:56:09Z",
-      "explanationShort": "БпЛА курсом на Десна. Підтверджень: 1.",
+      "updatedAt": "2026-09-21T07:12:58Z",
+      "explanationShort": "БпЛА курсом на Бобровиця. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-09-21T06:56:09Z",
+      "confirmedAt": "2026-09-21T07:12:58Z",
       "uncertaintyKm": 10,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
-    },
-    "trk_00204087": {
-      "id": "trk_00204087",
-      "type": "uav",
-      "title": "Група БпЛА (2+)",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Жукин",
-      "lat": 50.84159715588503,
-      "lon": 30.7063012862923,
-      "heading": 125.89504498317469,
-      "confidenceLevel": "high",
-      "sourceCount": 2,
-      "count": 2,
-      "updatedAt": "2026-09-21T06:55:44Z",
-      "explanationShort": "БпЛА — Жукин, Київська область. Підтверджень: 2.",
-      "status": "active",
-      "velocity": {
-        "bearingDeg": 125.9,
-        "speedKmh": 121.8
-      },
-      "confirmedAt": "2026-09-21T06:55:44Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "confirmed",
-      "trail": [
-        {
-          "lat": 51.07636,
-          "lon": 29.64899,
-          "t": "2026-09-21T06:12:28Z"
-        },
-        {
-          "lat": 51.11032937520493,
-          "lon": 30.14550770367834,
-          "t": "2026-09-21T06:29:59Z"
-        },
-        {
-          "lat": 50.84159715588503,
-          "lon": 30.7063012862923,
-          "t": "2026-09-21T06:55:37Z"
-        }
-      ],
-      "lifecycle": "tracking",
-      "displayConfidence": "high"
     }
   },
   "last_threat_update": 1789973997.75529,
   "last_news_check": 1789973996.806282,
   "last_weather_check": 1789973996.806282,
-  "last_dashboard_check": 1789967935.191043,
+  "last_dashboard_check": 1789975206.956836,
   "last_promo_check": 1789973073.747199,
   "last_history_check": 1789973073.747199,
   "published_news": [

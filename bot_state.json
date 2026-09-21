@@ -1,75 +1,113 @@
 {
   "active_threats": {
-    "trk_00205513": {
-      "id": "trk_00205513",
+    "trk_00205596": {
+      "id": "trk_00205596",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Ворзел",
-      "lat": 50.827311994412106,
-      "lon": 30.520291342580258,
-      "heading": 218,
+      "locality": "Бровари",
+      "lat": 50.83405637500026,
+      "lon": 31.03968646124768,
+      "heading": 206,
       "confidenceLevel": "medium",
-      "sourceCount": 12,
-      "count": 3,
-      "updatedAt": "2026-09-21T17:57:03Z",
-      "explanationShort": "БпЛА курсом на Ворзел. Підтверджень: 12.",
+      "sourceCount": 7,
+      "count": 2,
+      "updatedAt": "2026-09-21T18:16:31Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 7.",
       "status": "active",
-      "confirmedAt": "2026-09-21T17:57:03Z",
+      "confirmedAt": "2026-09-21T18:16:31Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.5369732990484,
-          "lon": 30.235297186911357,
-          "t": "2026-09-21T17:42:24Z"
-        },
-        {
-          "lat": 50.53126265210196,
-          "lon": 30.2298853124886,
-          "t": "2026-09-21T17:42:24Z"
-        },
-        {
-          "lat": 50.528712822974576,
-          "lon": 30.234080088978114,
-          "t": "2026-09-21T17:42:24Z"
-        },
-        {
-          "lat": 50.5388892980842,
-          "lon": 30.237103533801573,
-          "t": "2026-09-21T17:42:30Z"
-        },
-        {
-          "lat": 50.53510081685013,
-          "lon": 30.233513009985007,
-          "t": "2026-09-21T17:42:30Z"
-        },
-        {
-          "lat": 50.546558470637805,
-          "lon": 30.244187058957202,
-          "t": "2026-09-21T17:45:39Z"
-        },
-        {
-          "lat": 50.54471045646881,
-          "lon": 30.2210877662353,
-          "t": "2026-09-21T17:50:11Z"
-        },
-        {
-          "lat": 50.54436588234389,
-          "lon": 30.169673835468856,
-          "t": "2026-09-21T17:56:17Z"
-        }
-      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
+    },
+    "trk_00205574": {
+      "id": "trk_00205574",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Козелець",
+      "lat": 51.23305255359842,
+      "lon": 31.38084554848053,
+      "heading": 206,
+      "confidenceLevel": "medium",
+      "sourceCount": 4,
+      "count": 2,
+      "updatedAt": "2026-09-21T18:10:45Z",
+      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 4.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T18:10:45Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00205535": {
+      "id": "trk_00205535",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Велика Димерка",
+      "lat": 50.59333,
+      "lon": 30.90313,
+      "heading": 219,
+      "confidenceLevel": "high",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-21T18:16:22Z",
+      "explanationShort": "БпЛА — Велика Димерка, Київська область. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T18:16:22Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 50.31196936332766,
+          "lon": 30.41056337011886,
+          "t": "2026-09-21T17:49:43Z"
+        },
+        {
+          "lat": 50.59333,
+          "lon": 30.90313,
+          "t": "2026-09-21T18:16:22Z"
+        }
+      ],
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
+      "presumptiveCourse": true
+    },
+    "trk_00205589": {
+      "id": "trk_00205589",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Десна",
+      "lat": 50.908,
+      "lon": 30.779,
+      "heading": 114,
+      "confidenceLevel": "high",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-21T18:10:31Z",
+      "explanationShort": "БпЛА — Десна, Чернігівська область. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T18:10:31Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
+      "presumptiveCourse": true
     }
   },
   "last_threat_update": 1790013478.626108,
-  "last_news_check": 1790012866.974142,
-  "last_weather_check": 1790002695.907933,
+  "last_news_check": 1790014707.435126,
+  "last_weather_check": 1790014707.435126,
   "last_dashboard_check": 1790004582.898049,
   "last_promo_check": 1789994839.401732,
   "last_history_check": 1789973073.747199,

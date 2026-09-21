@@ -1,6 +1,30 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1789966164.648756,
+  "active_threats": {
+    "trk_00203950": {
+      "id": "trk_00203950",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Калита",
+      "lat": 51.0647759877491,
+      "lon": 31.244911736642162,
+      "heading": 205,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-21T05:00:14Z",
+      "explanationShort": "БпЛА курсом на Калита. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T05:00:14Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1789966853.12721,
   "last_news_check": 1789966164.150326,
   "last_weather_check": 1789961477.369989,
   "last_dashboard_check": 1789960436.440676,

@@ -1,58 +1,26 @@
 {
   "active_threats": {
-    "trk_00203982": {
-      "id": "trk_00203982",
+    "trk_00203963": {
+      "id": "trk_00203963",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Чернігівська область",
       "district": "",
-      "locality": "Буча",
-      "lat": 50.82084097744652,
-      "lon": 30.57139020835509,
-      "heading": 217,
-      "confidenceLevel": "medium",
+      "locality": "Козелець",
+      "lat": 50.91,
+      "lon": 31.129,
+      "heading": 136,
+      "confidenceLevel": "high",
       "sourceCount": 2,
-      "updatedAt": "2026-09-21T05:39:57Z",
-      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 2.",
+      "count": 1,
+      "updatedAt": "2026-09-21T05:55:47Z",
+      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-09-21T05:39:57Z",
+      "confirmedAt": "2026-09-21T05:55:47Z",
       "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.52175,
-          "lon": 30.25055,
-          "t": "2026-09-21T05:19:43Z"
-        },
-        {
-          "lat": 50.54326961682715,
-          "lon": 30.21233036716504,
-          "t": "2026-09-21T05:29:16Z"
-        },
-        {
-          "lat": 50.53531475219547,
-          "lon": 30.226458500017813,
-          "t": "2026-09-21T05:39:30Z"
-        },
-        {
-          "lat": 50.528318689308854,
-          "lon": 30.238883765623807,
-          "t": "2026-09-21T05:39:30Z"
-        },
-        {
-          "lat": 50.53404940025886,
-          "lon": 30.22870581170616,
-          "t": "2026-09-21T05:39:57Z"
-        },
-        {
-          "lat": 50.53094850769138,
-          "lon": 30.234213111224623,
-          "t": "2026-09-21T05:39:57Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
       "presumptiveCourse": true
     }
   },

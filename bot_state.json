@@ -1,46 +1,141 @@
 {
   "active_threats": {
-    "trk_00205468": {
-      "id": "trk_00205468",
+    "trk_00205519": {
+      "id": "trk_00205519",
       "type": "uav",
       "title": "БпЛА",
       "region": "Чернігівська область",
       "district": "",
-      "locality": "Остер",
-      "lat": 51.25093761398577,
-      "lon": 31.19036900580171,
-      "heading": 213,
+      "locality": "Козелець",
+      "lat": 50.91,
+      "lon": 31.129,
+      "heading": 225,
       "confidenceLevel": "medium",
-      "sourceCount": 9,
-      "count": 2,
-      "updatedAt": "2026-09-21T17:34:13Z",
-      "explanationShort": "БпЛА курсом на Остер. Підтверджень: 9.",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-21T17:45:32Z",
+      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T17:45:32Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "medium"
+    },
+    "trk_00205524": {
+      "id": "trk_00205524",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "",
+      "district": "",
+      "locality": "Надинівка",
+      "lat": 51.21479,
+      "lon": 31.06486,
+      "heading": null,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "count": 1,
+      "updatedAt": "2026-09-21T17:45:41Z",
+      "explanationShort": "БпЛА — Надинівка. Підтверджень: 1.",
       "status": "active",
       "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium"
+    },
+    "trk_00205308": {
+      "id": "trk_00205308",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Київ",
+      "lat": 50.761289488779006,
+      "lon": 30.80774606165047,
+      "heading": 210,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-21T17:43:06Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T17:43:06Z",
+      "uncertaintyKm": 10,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00205498": {
-      "id": "trk_00205498",
+    "trk_00205513": {
+      "id": "trk_00205513",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Димер",
-      "lat": 51.05736072931494,
-      "lon": 30.678077444929382,
-      "heading": 221,
+      "locality": "Гостомель",
+      "lat": 50.83334982402885,
+      "lon": 30.58696328993967,
+      "heading": 217,
       "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-09-21T17:34:24Z",
-      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 3.",
+      "sourceCount": 9,
+      "count": 3,
+      "updatedAt": "2026-09-21T17:45:39Z",
+      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 9.",
       "status": "active",
-      "confirmedAt": "2026-09-21T17:34:24Z",
-      "uncertaintyKm": 4,
+      "confirmedAt": "2026-09-21T17:45:39Z",
+      "uncertaintyKm": 28,
       "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.5306301463162,
+          "lon": 30.247286248290198,
+          "t": "2026-09-21T17:41:47Z"
+        },
+        {
+          "lat": 50.53380900313623,
+          "lon": 30.232320220214856,
+          "t": "2026-09-21T17:41:49Z"
+        },
+        {
+          "lat": 50.53126424295775,
+          "lon": 30.238274428107108,
+          "t": "2026-09-21T17:41:49Z"
+        },
+        {
+          "lat": 50.528712822974576,
+          "lon": 30.234080088978114,
+          "t": "2026-09-21T17:42:05Z"
+        },
+        {
+          "lat": 50.5369732990484,
+          "lon": 30.235297186911357,
+          "t": "2026-09-21T17:42:24Z"
+        },
+        {
+          "lat": 50.53126265210196,
+          "lon": 30.2298853124886,
+          "t": "2026-09-21T17:42:24Z"
+        },
+        {
+          "lat": 50.528712822974576,
+          "lon": 30.234080088978114,
+          "t": "2026-09-21T17:42:24Z"
+        },
+        {
+          "lat": 50.5388892980842,
+          "lon": 30.237103533801573,
+          "t": "2026-09-21T17:42:30Z"
+        },
+        {
+          "lat": 50.53510081685013,
+          "lon": 30.233513009985007,
+          "t": "2026-09-21T17:42:30Z"
+        },
+        {
+          "lat": 50.546558470637805,
+          "lon": 30.244187058957202,
+          "t": "2026-09-21T17:45:39Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -48,7 +143,7 @@
     }
   },
   "last_threat_update": 1790010610.610754,
-  "last_news_check": 1790010608.247368,
+  "last_news_check": 1790012866.974142,
   "last_weather_check": 1790002695.907933,
   "last_dashboard_check": 1790004582.898049,
   "last_promo_check": 1789994839.401732,

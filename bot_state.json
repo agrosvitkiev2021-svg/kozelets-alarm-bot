@@ -1,8 +1,75 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1789973074.505037,
-  "last_news_check": 1789971802.836404,
-  "last_weather_check": 1789967935.191043,
+  "active_threats": {
+    "trk_00204171": {
+      "id": "trk_00204171",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Десна",
+      "lat": 51.202211613968394,
+      "lon": 31.108301475213516,
+      "heading": 215,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-21T06:56:09Z",
+      "explanationShort": "БпЛА курсом на Десна. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T06:56:09Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00204087": {
+      "id": "trk_00204087",
+      "type": "uav",
+      "title": "Група БпЛА (2+)",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Жукин",
+      "lat": 50.84159715588503,
+      "lon": 30.7063012862923,
+      "heading": 125.89504498317469,
+      "confidenceLevel": "high",
+      "sourceCount": 2,
+      "count": 2,
+      "updatedAt": "2026-09-21T06:55:44Z",
+      "explanationShort": "БпЛА — Жукин, Київська область. Підтверджень: 2.",
+      "status": "active",
+      "velocity": {
+        "bearingDeg": 125.9,
+        "speedKmh": 121.8
+      },
+      "confirmedAt": "2026-09-21T06:55:44Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 51.07636,
+          "lon": 29.64899,
+          "t": "2026-09-21T06:12:28Z"
+        },
+        {
+          "lat": 51.11032937520493,
+          "lon": 30.14550770367834,
+          "t": "2026-09-21T06:29:59Z"
+        },
+        {
+          "lat": 50.84159715588503,
+          "lon": 30.7063012862923,
+          "t": "2026-09-21T06:55:37Z"
+        }
+      ],
+      "lifecycle": "tracking",
+      "displayConfidence": "high"
+    }
+  },
+  "last_threat_update": 1789973997.75529,
+  "last_news_check": 1789973996.806282,
+  "last_weather_check": 1789973996.806282,
   "last_dashboard_check": 1789967935.191043,
   "last_promo_check": 1789973073.747199,
   "last_history_check": 1789973073.747199,
@@ -12,7 +79,8 @@
     "55c8de4f8dd31b76ec0eb792d315627a",
     "6c09f7c7f1568c27fadee256f4f47f2e",
     "ad3572c4369740f9db22bf7fb3c0b32c",
-    "b5f294d588c639a8a136388613a5d858"
+    "b5f294d588c639a8a136388613a5d858",
+    "156752e99f97a83c4746cb81f25ebece"
   ],
   "alert": {
     "active": true,

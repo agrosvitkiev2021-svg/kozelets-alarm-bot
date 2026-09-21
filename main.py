@@ -9,9 +9,10 @@ from datetime import datetime, timezone, timedelta
 
 import requests
 import feedparser
+from PIL import Image, ImageDraw, ImageFont
 
 # ============================================================
-# KOZELETS ALARM BOT (GITHUB ACTIONS VERSION)
+# KOZELETS ALARM BOT (GITHUB ACTIONS VERSION + PRO INFOGRAPHIC)
 # ============================================================
 
 print("=" * 60)
@@ -45,14 +46,17 @@ THREAT_UPDATE_SECONDS = 5 * 60
 NEWS_CHECK_SECONDS = 30 * 60
 NEWS_MAX_AGE_MINUTES = 30
 
-# Погода — раз на три години (3 год * 3600 сек = 10800 сек)
+# Погода — раз на три години (10800 сек)
 WEATHER_CHECK_SECONDS = 3 * 60 * 60
 
-# Стан каналу — раз на чотири години (4 год * 3600 сек = 14400 сек)
+# Стан каналу — раз на чотири години (14400 сек)
 DASHBOARD_CHECK_SECONDS = 4 * 60 * 60
 
 PROMO_CHECK_SECONDS = 6 * 60 * 60
 HISTORY_CHECK_SECONDS = 12 * 60 * 60
+
+# Звіт-інфографіка (наприклад, раз на добу орієнтовно або кожні 24 години)
+INFOGRAPHIC_CHECK_SECONDS = 24 * 60 * 60
 
 # ============================================================
 # НАСЕЛЕНІ ПУНКТИ ТА ЗОНА РЕАГУВАННЯ
@@ -74,8 +78,8 @@ NEPTUN_URL = "https://neptun.in.ua/"
 
 NEWS_FEEDS = [
     ("Козелець", "https://news.google.com/rss/search?q=%D0%9A%D0%BE%D0%B7%D0%B5%D0%BB%D0%B5%D1%86%D1%8C&hl=uk&gl=UA&ceid=UA:uk"),
-    ("Остер", "https://news.google.com/rss/search?q=%D0%9E%D1%81%D1%82%D0%B5%D1%80+%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B3%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0&hl=uk&gl=UA&ceid=UA:uk"),
-    ("Чернігівська область", "https://news.google.com/rss/search?q=%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B3%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C&hl=uk&gl=UA&ceid=UA:uk"),
+    ("Остер", "https://news.google.com/rss/search?q=%D0%9E%D1%81%D1%82%D0%B5%D1%80+%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B3%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%Bа&hl=uk&gl=UA&ceid=UA:uk"),
+    ("Чернігівська область", "https://news.google.com/rss/search?q=%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B3%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%Bа+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C&hl=uk&gl=UA&ceid=UA:uk"),
 ]
 
 # ============================================================
@@ -98,12 +102,36 @@ def telegram_send(text):
         )
 
         if response.status_code == 200:
-            print("Telegram: повідомлення успішно опубліковано.")
+            print("Telegram: текстове повідомлення успішно опубліковано.")
             return True
 
         print(f"Telegram помилка {response.status_code}: {response.text[:500]}")
     except Exception as e:
         print(f"Помилка відправки в Telegram: {e}")
+
+    return False
+
+def telegram_send_photo(photo_path, caption):
+    try:
+        with open(photo_path, "rb") as photo_file:
+            response = requests.post(
+                f"{TELEGRAM_URL}/sendPhoto",
+                data={
+                    "chat_id": CHANNEL,
+                    "caption": caption,
+                    "parse_mode": "HTML",
+                },
+                files={"photo": photo_file},
+                timeout=45,
+            )
+
+        if response.status_code == 200:
+            print("Telegram: інфографіка (фото) успішно опублікована.")
+            return True
+
+        print(f"Telegram фото-помилка {response.status_code}: {response.text[:500]}")
+    except Exception as e:
+        print(f"Помилка відправки фото в Telegram: {e}")
 
     return False
 
@@ -120,7 +148,12 @@ def default_state():
         "last_dashboard_check": 0,
         "last_promo_check": 0,
         "last_history_check": 0,
+        "last_infographic_check": 0,
         "published_news": [],
+        "daily_stats": {
+            "threats_total": 0,
+            "news_processed": 0
+        }
     }
 
 def load_state():
@@ -184,6 +217,91 @@ def nearest_place(lat, lon):
             best_name = name
             best_distance = distance
     return best_name, best_distance
+
+# ============================================================
+# ГЕНЕРАЦІЯ ПРОФЕСІЙНОЇ ІНФОГРАФІКИ (ЛИСТІВКИ)
+# ============================================================
+
+def generate_daily_infographic(stats_data):
+    print("Генерація професійної інфографіки...")
+    width, height = 1080, 1080
+    image = Image.new("RGB", (width, height), color="#1A1F2C") # Стильний темно-синій фон
+    draw = ImageDraw.Draw(image)
+
+    # Декоративні елементи (шапка)
+    draw.rectangle([(0, 0), (width, 160)], fill="#0F172A")
+    draw.rectangle([(0, 155), (width, 165)], fill="#3B82F6") # Блакитна смужка
+
+    # Спроба завантажити стандартний системний шрифт, або використовуємо базовий
+    try:
+        # Для Linux середовища GitHub Actions зазвичай є стандартні шрифти DejaVuSans
+        font_title = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 46)
+        font_subtitle = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 26)
+        font_num = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 64)
+        font_label = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 28)
+    except Exception:
+        font_title = ImageFont.load_default()
+        font_subtitle = ImageFont.load_default()
+        font_num = ImageFont.load_default()
+        font_label = ImageFont.load_default()
+
+    # Заголовок листівки
+    draw.text((50, 45), "КОЗЕЛЕЦЬ — ЩОДЕННИЙ ЗВІТ", fill="#FFFFFF", font=font_title)
+    current_date_str = kyiv_time().strftime("%d.%m.%Y")
+    draw.text((50, 105), f"Офіційне зведення станом на {current_date_str}", fill="#94A3B8", font=font_subtitle)
+
+    # Блоки статистики (Картки всередині зображення)
+    cards = [
+        {"title": "ЗАГРОЗИ ПОБЛИЗУ (<25КМ)", "val": str(stats_data.get("threats_total", 0)), "color": "#EF4444"},
+        {"title": "ОПУБЛІКОВАНО НОВИН", "val": str(stats_data.get("news_processed", 0)), "color": "#3B82F6"},
+        {"title": "СТАТУС БЕЗПЕКИ ГРОМАДИ", "val": "СТАБІЛЬНО", "color": "#10B981"}
+    ]
+
+    y_start = 220
+    card_height = 230
+    gap = 35
+
+    for i, card in enumerate(cards):
+        box_y = y_start + i * (card_height + gap)
+        # Фон блоку
+        draw.rounded_rectangle([(50, box_y), (width - 50, box_y + card_height)], radius=20, fill="#1E293B")
+        # Кольорова бокова риска
+        draw.rounded_rectangle([(50, box_y), (75, box_y + card_height)], radius=10, fill=card["color"])
+
+        # Написи всередині картки
+        draw.text((110, box_y + 40), card["title"], fill="#94A3B8", font=font_label)
+        draw.text((110, box_y + 100), card["val"], fill="#FFFFFF", font=font_num)
+
+    # Підвал листівки
+    draw.text((50, height - 70), "📍 Оперативний моніторинг громади | Підписуйтесь на канал", fill="#64748B", font=font_subtitle)
+
+    output_path = "infographic.jpg"
+    image.save(output_path, "JPEG", quality=95)
+    return output_path
+
+def process_infographic(state):
+    print("Перевірка необхідності публікації інфографіки...")
+    now = now_timestamp()
+    last_infographic = state.get("last_infographic_check", 0)
+
+    # Публікуємо раз на добу (24 години)
+    if now - last_infographic >= INFOGRAPHIC_CHECK_SECONDS:
+        stats = {
+            "threats_total": len(state.get("active_threats", {})),
+            "news_processed": len(state.get("published_news", []))
+        }
+        
+        photo_path = generate_daily_infographic(stats)
+        caption = (
+            "📊 <b>ЩОДЕННИЙ ПІДСУМКОВИЙ ЗВІТ — КОЗЕЛЕЦЬ</b>\n\n"
+            f"🕐 Сформовано: {current_time_string()}\n"
+            "Бот продовжує працювати у штатному режимі. Слідкуйте за офіційними сповіщеннями та бережіть себе!"
+        )
+        
+        if telegram_send_photo(photo_path, caption):
+            state["last_infographic_check"] = now
+            # Скидаємо лічильники для наступного дня
+            state["daily_stats"] = {"threats_total": 0, "news_processed": 0}
 
 # ============================================================
 # ОБРОБКА ЗАГРОЗ (NEPTUN API)
@@ -546,6 +664,12 @@ def main():
             state["last_history_check"] = now
         except Exception as e:
             print(f"Помилка історії: {e}")
+
+    # 7. Щоденна брендована інфографіка (раз на добу)
+    try:
+        process_infographic(state)
+    except Exception as e:
+        print(f"Помилка інфографіки: {e}")
 
     # Збереження оновленого стану
     save_state(state)

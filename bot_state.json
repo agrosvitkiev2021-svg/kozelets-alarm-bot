@@ -1,22 +1,79 @@
 {
   "active_threats": {
-    "trk_00204204": {
-      "id": "trk_00204204",
+    "trk_00204231": {
+      "id": "trk_00204231",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Позняки",
+      "lat": 50.71990815392009,
+      "lon": 30.890268822998895,
+      "heading": 208,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-21T07:27:55Z",
+      "explanationShort": "БпЛА курсом на Позняки. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T07:27:55Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.38076,
+          "lon": 30.6015,
+          "t": "2026-09-21T07:27:55Z"
+        },
+        {
+          "lat": 50.40259,
+          "lon": 30.62352,
+          "t": "2026-09-21T07:27:55Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00204248": {
+      "id": "trk_00204248",
       "type": "uav",
       "title": "БпЛА",
       "region": "Чернігівська область",
       "district": "",
-      "locality": "Бобровиця",
-      "lat": 51.084377795237096,
-      "lon": 31.538213605913636,
-      "heading": 195,
+      "locality": "Остер",
+      "lat": 51.25093761398577,
+      "lon": 31.19036900580171,
+      "heading": 213,
       "confidenceLevel": "medium",
       "sourceCount": 1,
-      "updatedAt": "2026-09-21T07:12:58Z",
-      "explanationShort": "БпЛА курсом на Бобровиця. Підтверджень: 1.",
+      "updatedAt": "2026-09-21T07:33:57Z",
+      "explanationShort": "БпЛА курсом на Остер. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-09-21T07:12:58Z",
-      "uncertaintyKm": 10,
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00204185": {
+      "id": "trk_00204185",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Козелець",
+      "lat": 51.23305255359842,
+      "lon": 31.38084554848053,
+      "heading": 206,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-21T07:33:57Z",
+      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T07:33:57Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
@@ -25,7 +82,7 @@
     }
   },
   "last_threat_update": 1789973997.75529,
-  "last_news_check": 1789973996.806282,
+  "last_news_check": 1789976137.921501,
   "last_weather_check": 1789973996.806282,
   "last_dashboard_check": 1789975206.956836,
   "last_promo_check": 1789973073.747199,
@@ -37,7 +94,8 @@
     "6c09f7c7f1568c27fadee256f4f47f2e",
     "ad3572c4369740f9db22bf7fb3c0b32c",
     "b5f294d588c639a8a136388613a5d858",
-    "156752e99f97a83c4746cb81f25ebece"
+    "156752e99f97a83c4746cb81f25ebece",
+    "7a52bd55cef9456a48663ee1d17a78ce"
   ],
   "alert": {
     "active": true,

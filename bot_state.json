@@ -1,75 +1,5 @@
 {
   "active_threats": {
-    "trk_00203996": {
-      "id": "trk_00203996",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Печерськ",
-      "lat": 50.75790812604592,
-      "lon": 30.82166336917426,
-      "heading": 210,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-21T05:27:16Z",
-      "explanationShort": "БпЛА курсом на Печерськ. Підтверджень: 2.",
-      "status": "active",
-      "confirmedAt": "2026-09-21T05:27:16Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.45544,
-          "lon": 30.58969,
-          "t": "2026-09-21T05:25:56Z"
-        },
-        {
-          "lat": 50.44671859562947,
-          "lon": 30.537337852822056,
-          "t": "2026-09-21T05:27:16Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00204004": {
-      "id": "trk_00204004",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Теремки",
-      "lat": 50.681720466984416,
-      "lon": 30.742673644640096,
-      "heading": 210,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-21T05:32:41Z",
-      "explanationShort": "БпЛА курсом на Теремки. Підтверджень: 2.",
-      "status": "active",
-      "confirmedAt": "2026-09-21T05:32:41Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.35111,
-          "lon": 30.51331,
-          "t": "2026-09-21T05:30:37Z"
-        },
-        {
-          "lat": 50.37053,
-          "lon": 30.45881,
-          "t": "2026-09-21T05:32:41Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
     "trk_00203982": {
       "id": "trk_00203982",
       "type": "uav",
@@ -77,16 +7,15 @@
       "region": "Київська область",
       "district": "",
       "locality": "Буча",
-      "lat": 50.83006102906987,
-      "lon": 30.555082446939984,
+      "lat": 50.82084097744652,
+      "lon": 30.57139020835509,
       "heading": 217,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "count": 1,
-      "updatedAt": "2026-09-21T05:29:22Z",
-      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 4.",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-21T05:39:57Z",
+      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-09-21T05:29:22Z",
+      "confirmedAt": "2026-09-21T05:39:57Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
@@ -99,6 +28,26 @@
           "lat": 50.54326961682715,
           "lon": 30.21233036716504,
           "t": "2026-09-21T05:29:16Z"
+        },
+        {
+          "lat": 50.53531475219547,
+          "lon": 30.226458500017813,
+          "t": "2026-09-21T05:39:30Z"
+        },
+        {
+          "lat": 50.528318689308854,
+          "lon": 30.238883765623807,
+          "t": "2026-09-21T05:39:30Z"
+        },
+        {
+          "lat": 50.53404940025886,
+          "lon": 30.22870581170616,
+          "t": "2026-09-21T05:39:57Z"
+        },
+        {
+          "lat": 50.53094850769138,
+          "lon": 30.234213111224623,
+          "t": "2026-09-21T05:39:57Z"
         }
       ],
       "lifecycle": "uncertain",
@@ -107,7 +56,7 @@
       "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1789966853.12721,
+  "last_threat_update": 1789969636.404823,
   "last_news_check": 1789968813.380968,
   "last_weather_check": 1789967935.191043,
   "last_dashboard_check": 1789967935.191043,

@@ -45,11 +45,11 @@ THREAT_UPDATE_SECONDS = 5 * 60
 NEWS_CHECK_SECONDS = 30 * 60
 NEWS_MAX_AGE_MINUTES = 30
 
-# Погода — раз на півтора години (90 хв * 60 сек = 5400 сек)
-WEATHER_CHECK_SECONDS = 90 * 60
+# Погода — раз на три години (3 год * 3600 сек = 10800 сек)
+WEATHER_CHECK_SECONDS = 3 * 60 * 60
 
-# Стан каналу — раз на дві години (7200 сек)
-DASHBOARD_CHECK_SECONDS = 2 * 60 * 60
+# Стан каналу — раз на чотири години (4 год * 3600 сек = 14400 сек)
+DASHBOARD_CHECK_SECONDS = 4 * 60 * 60
 
 PROMO_CHECK_SECONDS = 6 * 60 * 60
 HISTORY_CHECK_SECONDS = 12 * 60 * 60
@@ -509,7 +509,7 @@ def main():
         except Exception as e:
             print(f"Помилка обробки новин: {e}")
 
-    # 3. Погода (раз на 90 хвилин)
+    # 3. Погода (раз на 3 години)
     if now - state.get("last_weather_check", 0) >= WEATHER_CHECK_SECONDS:
         try:
             process_weather()
@@ -520,7 +520,7 @@ def main():
         passed = int(now - state.get("last_weather_check", 0))
         print(f"Погода пропущена (минуло {passed}/{WEATHER_CHECK_SECONDS} сек).")
 
-    # 4. Панель стану (раз на 2 години / 7200 сек)
+    # 4. Панель стану (раз на 4 години)
     if now - state.get("last_dashboard_check", 0) >= DASHBOARD_CHECK_SECONDS:
         try:
             process_dashboard(state)

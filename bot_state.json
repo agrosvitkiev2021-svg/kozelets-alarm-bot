@@ -1,5 +1,29 @@
 {
   "active_threats": {
+    "trk_00203905": {
+      "id": "trk_00203905",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Козелець",
+      "lat": 51.23305255359842,
+      "lon": 31.38084554848053,
+      "heading": 206,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "count": 3,
+      "updatedAt": "2026-09-21T04:10:15Z",
+      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T04:10:15Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
     "trk_00203896": {
       "id": "trk_00203896",
       "type": "uav",
@@ -10,28 +34,21 @@
       "lat": 50.908,
       "lon": 30.779,
       "heading": 114,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-21T03:56:47Z",
-      "explanationShort": "БпЛА — Десна, Чернігівська область. Підтверджень: 1.",
+      "confidenceLevel": "high",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-21T04:10:15Z",
+      "explanationShort": "БпЛА — Десна, Чернігівська область. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-09-21T03:56:47Z",
+      "confirmedAt": "2026-09-21T04:10:15Z",
       "uncertaintyKm": 4,
       "positionQuality": "confirmed",
-      "trail": [
-        {
-          "lat": 50.908,
-          "lon": 30.779,
-          "t": "2026-09-21T03:56:47Z"
-        }
-      ],
-      "lifecycle": "created",
-      "displayConfidence": "medium",
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
       "presumptiveCourse": true
     }
   },
   "last_threat_update": 1789963128.706461,
-  "last_news_check": 1789962434.119413,
+  "last_news_check": 1789964281.470214,
   "last_weather_check": 1789961477.369989,
   "last_dashboard_check": 1789960436.440676,
   "last_promo_check": 1789951375.757207,

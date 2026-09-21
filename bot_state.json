@@ -1,6 +1,75 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1789977011.682456,
+  "active_threats": {
+    "trk_00204391": {
+      "id": "trk_00204391",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Димер",
+      "lat": 51.05736072931494,
+      "lon": 30.678077444929382,
+      "heading": 221,
+      "confidenceLevel": "medium",
+      "sourceCount": 4,
+      "updatedAt": "2026-09-21T08:41:31Z",
+      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 4.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T08:41:31Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00204396": {
+      "id": "trk_00204396",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Гостомель",
+      "lat": 50.846869119452904,
+      "lon": 30.590253383783477,
+      "heading": 217,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-21T08:41:45Z",
+      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-09-21T08:41:45Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.56841,
+          "lon": 30.2651,
+          "t": "2026-09-21T08:39:24Z"
+        },
+        {
+          "lat": 50.560078008071415,
+          "lon": 30.247377826462795,
+          "t": "2026-09-21T08:39:27Z"
+        },
+        {
+          "lat": 50.55590567251439,
+          "lon": 30.238503255360136,
+          "t": "2026-09-21T08:39:27Z"
+        },
+        {
+          "lat": 50.560078008071415,
+          "lon": 30.247377826462795,
+          "t": "2026-09-21T08:41:45Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1789980599.889925,
   "last_news_check": 1789978851.574224,
   "last_weather_check": 1789979764.292181,
   "last_dashboard_check": 1789975206.956836,

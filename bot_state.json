@@ -1,68 +1,25 @@
 {
   "active_threats": {
-    "trk_00207480": {
-      "id": "trk_00207480",
+    "trk_00207592": {
+      "id": "trk_00207592",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київ",
+      "region": "Чернігівська область",
       "district": "",
-      "locality": "Нивки",
-      "lat": 50.76552702093601,
-      "lon": 30.736450474648557,
-      "heading": 212,
-      "confidenceLevel": "medium",
+      "locality": "Олишівка",
+      "lat": 51.21862,
+      "lon": 31.33582,
+      "heading": 350,
+      "confidenceLevel": "high",
       "sourceCount": 3,
-      "updatedAt": "2026-09-22T11:10:48Z",
-      "explanationShort": "БпЛА курсом на Нивки. Підтверджень: 3.",
+      "updatedAt": "2026-09-22T11:21:59Z",
+      "explanationShort": "БпЛА — Олишівка, Чернігівська область. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-09-22T11:10:48Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.43430338839362,
-          "lon": 30.501114318454693,
-          "t": "2026-09-22T10:44:10Z"
-        },
-        {
-          "lat": 50.44749281618013,
-          "lon": 30.49072204474572,
-          "t": "2026-09-22T10:44:12Z"
-        },
-        {
-          "lat": 50.45349267496984,
-          "lon": 30.498692937492283,
-          "t": "2026-09-22T10:44:26Z"
-        },
-        {
-          "lat": 50.44953901217648,
-          "lon": 30.50619007916258,
-          "t": "2026-09-22T10:45:05Z"
-        },
-        {
-          "lat": 50.442696497439066,
-          "lon": 30.46790844675665,
-          "t": "2026-09-22T11:10:00Z"
-        },
-        {
-          "lat": 50.46000852681153,
-          "lon": 30.45699374975603,
-          "t": "2026-09-22T11:10:16Z"
-        },
-        {
-          "lat": 50.461681822997,
-          "lon": 30.439905603362103,
-          "t": "2026-09-22T11:10:32Z"
-        },
-        {
-          "lat": 50.46084704889539,
-          "lon": 30.43506211654358,
-          "t": "2026-09-22T11:10:48Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
+      "confirmedAt": "2026-09-22T11:20:57Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
       "presumptiveCourse": true
     }
   },

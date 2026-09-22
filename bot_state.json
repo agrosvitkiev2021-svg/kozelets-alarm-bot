@@ -1,66 +1,30 @@
 {
   "active_threats": {
-    "trk_00208416": {
-      "id": "trk_00208416",
+    "trk_00208469": {
+      "id": "trk_00208469",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київ",
+      "region": "Чернігівська область",
       "district": "",
-      "locality": "Пріорка",
-      "lat": 50.81844417387582,
-      "lon": 30.761676514785133,
-      "heading": 212,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-09-22T16:51:52Z",
-      "explanationShort": "БпЛА курсом на Пріорка. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-09-22T16:51:52Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.51815,
-          "lon": 30.46238,
-          "t": "2026-09-22T16:50:28Z"
-        },
-        {
-          "lat": 50.51376493477915,
-          "lon": 30.45994675975215,
-          "t": "2026-09-22T16:51:52Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00208412": {
-      "id": "trk_00208412",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Вишгород",
-      "lat": 50.88604301670057,
-      "lon": 30.80036087376846,
-      "heading": 213,
+      "locality": "Топчіївка",
+      "lat": 51.23307,
+      "lon": 31.23965,
+      "heading": 2,
       "confidenceLevel": "medium",
       "sourceCount": 1,
-      "updatedAt": "2026-09-22T16:49:17Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 1.",
+      "updatedAt": "2026-09-22T17:11:11Z",
+      "explanationShort": "БпЛА — Топчіївка, Чернігівська область. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-09-22T16:49:17Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
+      "confirmedAt": "2026-09-22T17:11:11Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "lifecycle": "created",
       "displayConfidence": "medium",
-      "destination": true,
       "presumptiveCourse": true
     }
   },
   "last_threat_update": 1790096198.790738,
-  "last_news_check": 1790094613.05285,
+  "last_news_check": 1790097139.332582,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

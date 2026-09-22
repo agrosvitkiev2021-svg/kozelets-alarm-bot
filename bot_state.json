@@ -1,57 +1,68 @@
 {
   "active_threats": {
-    "trk_00206352": {
-      "id": "trk_00206352",
+    "trk_00206502": {
+      "id": "trk_00206502",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Велика Димерка",
-      "lat": 50.919107282077555,
-      "lon": 31.14428363358611,
-      "heading": 205,
+      "locality": "Бориспіль",
+      "lat": 50.68865906776992,
+      "lon": 31.158484948866786,
+      "heading": 201,
       "confidenceLevel": "medium",
-      "sourceCount": 6,
+      "sourceCount": 10,
       "count": 1,
-      "updatedAt": "2026-09-21T23:47:00Z",
-      "explanationShort": "БпЛА курсом на Велика Димерка. Підтверджень: 6.",
+      "updatedAt": "2026-09-22T00:04:32Z",
+      "explanationShort": "БпЛА курсом на Бориспіль. Підтверджень: 10.",
       "status": "active",
-      "confirmedAt": "2026-09-21T23:47:00Z",
-      "uncertaintyKm": 10,
+      "confirmedAt": "2026-09-22T00:04:32Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00206499": {
-      "id": "trk_00206499",
+    "trk_00206281": {
+      "id": "trk_00206281",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київ",
+      "region": "Київська область",
       "district": "",
-      "locality": "Позняки",
-      "lat": 50.71990815392009,
-      "lon": 30.890268822998895,
-      "heading": 208,
+      "locality": "Бровари",
+      "lat": 50.838563677186706,
+      "lon": 31.05944223872465,
+      "heading": 206,
       "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-21T23:53:21Z",
-      "explanationShort": "БпЛА курсом на Позняки. Підтверджень: 2.",
+      "sourceCount": 12,
+      "count": 1,
+      "updatedAt": "2026-09-22T00:09:43Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 12.",
       "status": "active",
-      "confirmedAt": "2026-09-21T23:52:31Z",
+      "confirmedAt": "2026-09-22T00:09:43Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
         {
-          "lat": 50.38076,
-          "lon": 30.6015,
-          "t": "2026-09-21T23:52:15Z"
+          "lat": 50.4501,
+          "lon": 30.5234,
+          "t": "2026-09-21T23:10:23Z"
         },
         {
-          "lat": 50.40259,
-          "lon": 30.62352,
-          "t": "2026-09-21T23:52:31Z"
+          "lat": 50.5089794359567,
+          "lon": 30.781154640821914,
+          "t": "2026-09-21T23:46:18Z"
+        },
+        {
+          "lat": 50.51718926709985,
+          "lon": 30.8170945584371,
+          "t": "2026-09-22T00:05:35Z"
+        },
+        {
+          "lat": 50.51550734498971,
+          "lon": 30.809731661317823,
+          "t": "2026-09-22T00:08:44Z"
         }
       ],
       "lifecycle": "uncertain",
@@ -61,7 +72,7 @@
     }
   },
   "last_threat_update": 1790034876.028452,
-  "last_news_check": 1790033524.703646,
+  "last_news_check": 1790035869.072329,
   "last_weather_check": 1790026313.517799,
   "last_dashboard_check": 1790034247.538043,
   "last_promo_check": 1790016740.644919,

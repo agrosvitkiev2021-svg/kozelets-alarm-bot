@@ -1,72 +1,6 @@
 {
-  "active_threats": {
-    "trk_00209015": {
-      "id": "trk_00209015",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Гостомель",
-      "lat": 50.8432109428258,
-      "lon": 30.61084834597781,
-      "heading": 217,
-      "confidenceLevel": "medium",
-      "sourceCount": 9,
-      "updatedAt": "2026-09-22T21:02:12Z",
-      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 9.",
-      "status": "active",
-      "confirmedAt": "2026-09-22T21:02:12Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.55592729225428,
-          "lon": 30.23854924061618,
-          "t": "2026-09-22T20:54:08Z"
-        },
-        {
-          "lat": 50.560356592401185,
-          "lon": 30.247970376225112,
-          "t": "2026-09-22T20:54:19Z"
-        },
-        {
-          "lat": 50.5558637525433,
-          "lon": 30.238414091447268,
-          "t": "2026-09-22T20:54:19Z"
-        },
-        {
-          "lat": 50.558588496925275,
-          "lon": 30.244209631480885,
-          "t": "2026-09-22T20:54:21Z"
-        },
-        {
-          "lat": 50.53314734823339,
-          "lon": 30.249679806454687,
-          "t": "2026-09-22T20:58:09Z"
-        },
-        {
-          "lat": 50.54807612154048,
-          "lon": 30.257230751376547,
-          "t": "2026-09-22T20:58:18Z"
-        },
-        {
-          "lat": 50.53810214717819,
-          "lon": 30.25563807724477,
-          "t": "2026-09-22T20:58:26Z"
-        },
-        {
-          "lat": 50.55641976594526,
-          "lon": 30.26799967286514,
-          "t": "2026-09-22T21:02:12Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790111145.77549,
+  "active_threats": {},
+  "last_threat_update": 1790112030.013131,
   "last_news_check": 1790110392.346165,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -85,7 +19,7 @@
   "last_weather_check": 1790100080.684092,
   "last_promo_check": 1790104896.364474,
   "last_history_check": 1790104036.235589,
-  "district_alert_active": false,
+  "district_alert_active": true,
   "district_alert_initialized": true,
   "last_dashboard_check": 1790063919.831967,
   "alert": {

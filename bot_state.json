@@ -1,25 +1,90 @@
 {
   "active_threats": {
-    "trk_00208941": {
-      "id": "trk_00208941",
+    "trk_00208950": {
+      "id": "trk_00208950",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Чернігівська область",
+      "region": "Київ",
       "district": "",
-      "locality": "Переходівка",
-      "lat": 51.20083,
-      "lon": 31.54037,
-      "heading": 125,
+      "locality": "Петрівка",
+      "lat": 50.79364845817028,
+      "lon": 30.790970938960758,
+      "heading": 211,
       "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-22T20:09:00Z",
-      "explanationShort": "БпЛА — Переходівка, Чернігівська область. Підтверджень: 1.",
+      "sourceCount": 4,
+      "count": 1,
+      "updatedAt": "2026-09-22T20:20:13Z",
+      "explanationShort": "БпЛА курсом на Петрівка. Підтверджень: 4.",
       "status": "active",
-      "confirmedAt": "2026-09-22T20:09:00Z",
+      "confirmedAt": "2026-09-22T20:20:13Z",
       "uncertaintyKm": 10,
-      "positionQuality": "confirmed",
-      "lifecycle": "confirmed",
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.34071,
+          "lon": 30.42356,
+          "t": "2026-09-22T20:11:08Z"
+        },
+        {
+          "lat": 50.39428,
+          "lon": 30.44057,
+          "t": "2026-09-22T20:12:18Z"
+        },
+        {
+          "lat": 50.485666960750706,
+          "lon": 30.497870034723427,
+          "t": "2026-09-22T20:17:27Z"
+        }
+      ],
+      "lifecycle": "uncertain",
       "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00208951": {
+      "id": "trk_00208951",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Гостомель",
+      "lat": 50.8338143209018,
+      "lon": 30.591124155894814,
+      "heading": 217,
+      "confidenceLevel": "medium",
+      "sourceCount": 7,
+      "count": 2,
+      "updatedAt": "2026-09-22T20:23:00Z",
+      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 7.",
+      "status": "active",
+      "confirmedAt": "2026-09-22T20:23:00Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.56841,
+          "lon": 30.2651,
+          "t": "2026-09-22T20:15:26Z"
+        },
+        {
+          "lat": 50.555515439270565,
+          "lon": 30.237673227999775,
+          "t": "2026-09-22T20:17:30Z"
+        },
+        {
+          "lat": 50.53710441662446,
+          "lon": 30.239783729217038,
+          "t": "2026-09-22T20:18:56Z"
+        },
+        {
+          "lat": 50.54702297582341,
+          "lon": 30.24834451352247,
+          "t": "2026-09-22T20:20:13Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
       "presumptiveCourse": true
     }
   },

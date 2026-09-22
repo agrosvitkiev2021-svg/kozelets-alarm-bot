@@ -1,6 +1,41 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790046246.395502,
+  "active_threats": {
+    "trk_00207192": {
+      "id": "trk_00207192",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Олишівка",
+      "lat": 51.21862,
+      "lon": 31.33582,
+      "heading": 350,
+      "confidenceLevel": "medium",
+      "sourceCount": 4,
+      "count": 3,
+      "updatedAt": "2026-09-22T09:27:02Z",
+      "explanationShort": "БпЛА — Олишівка, Чернігівська область. Підтверджень: 4.",
+      "status": "active",
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 51.3645049148264,
+          "lon": 32.04995756466877,
+          "t": "2026-09-22T08:50:11Z"
+        },
+        {
+          "lat": 51.21862,
+          "lon": 31.33582,
+          "t": "2026-09-22T09:27:02Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790069524.342534,
   "last_news_check": 1790068692.878264,
   "last_weather_check": 1790059882.54029,
   "last_dashboard_check": 1790063919.831967,

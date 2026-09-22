@@ -6,24 +6,36 @@
       "title": "БпЛА",
       "region": "Чернігівська область",
       "district": "",
-      "locality": "Козелець",
-      "lat": 50.91,
-      "lon": 31.129,
-      "heading": 136,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-22T23:35:19Z",
-      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 1.",
+      "locality": "Кіпті",
+      "lat": 51.05611488834324,
+      "lon": 31.153305956453384,
+      "heading": 155,
+      "confidenceLevel": "high",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-22T23:49:54Z",
+      "explanationShort": "БпЛА — Кіпті, Чернігівська область. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-09-22T23:35:19Z",
+      "confirmedAt": "2026-09-22T23:49:54Z",
       "uncertaintyKm": 4,
       "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 50.91,
+          "lon": 31.129,
+          "t": "2026-09-22T23:35:19Z"
+        },
+        {
+          "lat": 51.05611488834324,
+          "lon": 31.153305956453384,
+          "t": "2026-09-22T23:49:47Z"
+        }
+      ],
       "lifecycle": "confirmed",
-      "displayConfidence": "medium",
+      "displayConfidence": "high",
       "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1790119806.648992,
+  "last_threat_update": 1790121129.726446,
   "last_news_check": 1790119805.070235,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

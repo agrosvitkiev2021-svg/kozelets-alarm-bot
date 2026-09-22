@@ -1,88 +1,68 @@
 {
   "active_threats": {
-    "trk_00209060": {
-      "id": "trk_00209060",
+    "trk_00209100": {
+      "id": "trk_00209100",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Буча",
-      "lat": 50.81871922952825,
-      "lon": 30.571473436346952,
-      "heading": 217,
+      "locality": "Вишгород",
+      "lat": 50.81072226252543,
+      "lon": 30.722720655326345,
+      "heading": 213,
       "confidenceLevel": "medium",
-      "sourceCount": 8,
-      "count": 1,
-      "updatedAt": "2026-09-22T21:50:37Z",
-      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 8.",
+      "sourceCount": 7,
+      "updatedAt": "2026-09-22T22:03:10Z",
+      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 7.",
       "status": "active",
-      "confirmedAt": "2026-09-22T21:50:37Z",
-      "uncertaintyKm": 10,
+      "confirmedAt": "2026-09-22T22:03:10Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.56841,
-          "lon": 30.2651,
-          "t": "2026-09-22T21:31:46Z"
-        },
-        {
-          "lat": 50.55580176884284,
-          "lon": 30.238282251917727,
-          "t": "2026-09-22T21:32:21Z"
-        },
-        {
-          "lat": 50.562218948439835,
-          "lon": 30.25193161348842,
-          "t": "2026-09-22T21:32:21Z"
-        },
-        {
-          "lat": 50.55580176884284,
-          "lon": 30.238282251917727,
-          "t": "2026-09-22T21:33:42Z"
-        },
-        {
-          "lat": 50.55910400864799,
-          "lon": 30.24530612656739,
-          "t": "2026-09-22T21:33:42Z"
-        },
-        {
-          "lat": 50.55118379295119,
-          "lon": 30.246495551929552,
-          "t": "2026-09-22T21:35:50Z"
-        },
-        {
-          "lat": 50.52153667652536,
-          "lon": 30.251211029639606,
-          "t": "2026-09-22T21:45:58Z"
-        },
-        {
-          "lat": 50.53192761439215,
-          "lon": 30.228804610117386,
-          "t": "2026-09-22T21:50:37Z"
-        }
-      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00209091": {
-      "id": "trk_00209091",
+    "trk_00209122": {
+      "id": "trk_00209122",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київ",
+      "region": "Київська область",
       "district": "",
-      "locality": "Борщагівка",
-      "lat": 50.7362803764185,
-      "lon": 30.691100113751823,
-      "heading": 212,
+      "locality": "Бориспіль",
+      "lat": 50.68865906776992,
+      "lon": 31.158484948866786,
+      "heading": 201,
       "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-22T21:50:13Z",
-      "explanationShort": "БпЛА курсом на Борщагівка. Підтверджень: 1.",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-22T22:08:58Z",
+      "explanationShort": "БпЛА курсом на Бориспіль. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-09-22T21:50:13Z",
-      "uncertaintyKm": 10,
+      "confirmedAt": "2026-09-22T22:08:58Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00209104": {
+      "id": "trk_00209104",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Димер",
+      "lat": 50.9896380469862,
+      "lon": 30.584208083697035,
+      "heading": 221,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-22T22:03:10Z",
+      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-09-22T22:03:10Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
@@ -91,7 +71,7 @@
     }
   },
   "last_threat_update": 1790114159.211017,
-  "last_news_check": 1790112788.329328,
+  "last_news_check": 1790115080.430392,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -106,7 +86,7 @@
     "db0aa7e056794b90796b97eea8410824",
     "ec7aba673733c030e1ec0d13c05ce27d"
   ],
-  "last_weather_check": 1790100080.684092,
+  "last_weather_check": 1790115080.430392,
   "last_promo_check": 1790104896.364474,
   "last_history_check": 1790104036.235589,
   "district_alert_active": false,

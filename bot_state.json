@@ -1,23 +1,70 @@
 {
   "active_threats": {
-    "trk_00207395": {
-      "id": "trk_00207395",
+    "trk_00207480": {
+      "id": "trk_00207480",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Київ",
       "district": "",
-      "locality": "Бровари",
-      "lat": 50.83405637500026,
-      "lon": 31.03968646124768,
-      "heading": 206,
+      "locality": "Шулявка",
+      "lat": 50.764455005631824,
+      "lon": 30.744205115404444,
+      "heading": 212,
       "confidenceLevel": "medium",
       "sourceCount": 3,
-      "updatedAt": "2026-09-22T10:51:04Z",
-      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 3.",
+      "updatedAt": "2026-09-22T11:10:40Z",
+      "explanationShort": "БпЛА курсом на Шулявка. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-09-22T10:51:04Z",
+      "confirmedAt": "2026-09-22T11:10:40Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.456801294112594,
+          "lon": 30.470489024051254,
+          "t": "2026-09-22T10:38:43Z"
+        },
+        {
+          "lat": 50.45862082967643,
+          "lon": 30.47953737342822,
+          "t": "2026-09-22T10:38:43Z"
+        },
+        {
+          "lat": 50.456801294112594,
+          "lon": 30.470489024051254,
+          "t": "2026-09-22T10:38:53Z"
+        },
+        {
+          "lat": 50.43430338839362,
+          "lon": 30.501114318454693,
+          "t": "2026-09-22T10:44:10Z"
+        },
+        {
+          "lat": 50.44749281618013,
+          "lon": 30.49072204474572,
+          "t": "2026-09-22T10:44:12Z"
+        },
+        {
+          "lat": 50.45349267496984,
+          "lon": 30.498692937492283,
+          "t": "2026-09-22T10:44:26Z"
+        },
+        {
+          "lat": 50.44953901217648,
+          "lon": 30.50619007916258,
+          "t": "2026-09-22T10:45:05Z"
+        },
+        {
+          "lat": 50.442696497439066,
+          "lon": 30.46790844675665,
+          "t": "2026-09-22T11:10:00Z"
+        },
+        {
+          "lat": 50.46000852681153,
+          "lon": 30.45699374975603,
+          "t": "2026-09-22T11:10:16Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -25,11 +72,7 @@
     }
   },
   "last_threat_update": 1790071015.036366,
-  "last_news_check": 1790073088.860769,
-  "last_weather_check": 1790071013.733358,
-  "last_dashboard_check": 1790063919.831967,
-  "last_promo_check": 1790060597.966107,
-  "last_history_check": 1790060597.966107,
+  "last_news_check": 1790075480.504129,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -42,6 +85,12 @@
     "74dc83d486b6cccf2de6f8cbf35c5379",
     "cdc2e10eef003e404eecb55475e24b96"
   ],
+  "last_weather_check": 1790071013.733358,
+  "last_promo_check": 1790060597.966107,
+  "last_history_check": 1790060597.966107,
+  "district_alert_active": true,
+  "district_alert_initialized": true,
+  "last_dashboard_check": 1790063919.831967,
   "alert": {
     "active": true,
     "last_change": "17.09.2026 20:54:00",

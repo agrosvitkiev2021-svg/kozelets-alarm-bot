@@ -6,16 +6,17 @@
       "title": "БпЛА",
       "region": "Київ",
       "district": "",
-      "locality": "Печерськ",
-      "lat": 50.76997246580667,
-      "lon": 30.804731120848828,
+      "locality": "Петрівка",
+      "lat": 50.77643851456523,
+      "lon": 30.808272706021363,
       "heading": 211,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-09-22T14:50:05Z",
-      "explanationShort": "БпЛА курсом на Печерськ. Підтверджень: 4.",
+      "sourceCount": 6,
+      "count": 2,
+      "updatedAt": "2026-09-22T14:59:57Z",
+      "explanationShort": "БпЛА курсом на Петрівка. Підтверджень: 6.",
       "status": "active",
-      "confirmedAt": "2026-09-22T14:50:05Z",
+      "confirmedAt": "2026-09-22T14:59:57Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
@@ -43,6 +44,16 @@
           "lat": 50.46968612008866,
           "lon": 30.505660667000587,
           "t": "2026-09-22T14:49:29Z"
+        },
+        {
+          "lat": 50.46199065875065,
+          "lon": 30.51177858742362,
+          "t": "2026-09-22T14:50:05Z"
+        },
+        {
+          "lat": 50.457783939154766,
+          "lon": 30.52171831981898,
+          "t": "2026-09-22T14:57:55Z"
         }
       ],
       "lifecycle": "uncertain",
@@ -62,10 +73,10 @@
       "heading": 213,
       "confidenceLevel": "medium",
       "sourceCount": 4,
-      "updatedAt": "2026-09-22T14:49:43Z",
+      "updatedAt": "2026-09-22T14:58:53Z",
       "explanationShort": "БпЛА курсом на Виноградар. Підтверджень: 4.",
       "status": "active",
-      "confirmedAt": "2026-09-22T14:49:43Z",
+      "confirmedAt": "2026-09-22T14:58:53Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -74,7 +85,7 @@
       "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1790087728.176273,
+  "last_threat_update": 1790089274.837822,
   "last_news_check": 1790087724.058521,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

@@ -1,7 +1,30 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790098832.628453,
-  "last_news_check": 1790105607.63298,
+  "active_threats": {
+    "trk_00208941": {
+      "id": "trk_00208941",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Переходівка",
+      "lat": 51.20083,
+      "lon": 31.54037,
+      "heading": 125,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-22T20:09:00Z",
+      "explanationShort": "БпЛА — Переходівка, Чернігівська область. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-09-22T20:09:00Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "medium",
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790107891.36085,
+  "last_news_check": 1790107890.300437,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

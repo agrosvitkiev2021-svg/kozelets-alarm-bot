@@ -1,30 +1,6 @@
 {
-  "active_threats": {
-    "trk_00208476": {
-      "id": "trk_00208476",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Катюжанка",
-      "lat": 51.064044293386196,
-      "lon": 30.53525646671517,
-      "heading": 224,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-09-22T17:24:04Z",
-      "explanationShort": "БпЛА курсом на Катюжанка. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-09-22T17:19:54Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790096198.790738,
+  "active_threats": {},
+  "last_threat_update": 1790098832.628453,
   "last_news_check": 1790097139.332582,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -43,7 +19,7 @@
   "last_weather_check": 1790085614.226751,
   "last_promo_check": 1790083242.165725,
   "last_history_check": 1790060597.966107,
-  "district_alert_active": true,
+  "district_alert_active": false,
   "district_alert_initialized": true,
   "last_dashboard_check": 1790063919.831967,
   "alert": {

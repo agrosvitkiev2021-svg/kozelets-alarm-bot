@@ -1,92 +1,48 @@
 {
   "active_threats": {
-    "trk_00208090": {
-      "id": "trk_00208090",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Петрівка",
-      "lat": 50.77643851456523,
-      "lon": 30.808272706021363,
-      "heading": 211,
-      "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "count": 2,
-      "updatedAt": "2026-09-22T14:59:57Z",
-      "explanationShort": "БпЛА курсом на Петрівка. Підтверджень: 6.",
-      "status": "active",
-      "confirmedAt": "2026-09-22T14:59:57Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.39428,
-          "lon": 30.44057,
-          "t": "2026-09-22T14:21:25Z"
-        },
-        {
-          "lat": 50.48467934031271,
-          "lon": 30.49725079227433,
-          "t": "2026-09-22T14:26:26Z"
-        },
-        {
-          "lat": 50.459533394491295,
-          "lon": 30.52966615869214,
-          "t": "2026-09-22T14:36:51Z"
-        },
-        {
-          "lat": 50.47234967174343,
-          "lon": 30.530292337968856,
-          "t": "2026-09-22T14:49:27Z"
-        },
-        {
-          "lat": 50.46968612008866,
-          "lon": 30.505660667000587,
-          "t": "2026-09-22T14:49:29Z"
-        },
-        {
-          "lat": 50.46199065875065,
-          "lon": 30.51177858742362,
-          "t": "2026-09-22T14:50:05Z"
-        },
-        {
-          "lat": 50.457783939154766,
-          "lon": 30.52171831981898,
-          "t": "2026-09-22T14:57:55Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
     "trk_00208159": {
       "id": "trk_00208159",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київ",
       "district": "",
-      "locality": "Виноградар",
-      "lat": 50.81557405033081,
-      "lon": 30.7346120407375,
+      "locality": "Нивки",
+      "lat": 50.78028371179265,
+      "lon": 30.730850650811963,
       "heading": 213,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-09-22T14:58:53Z",
-      "explanationShort": "БпЛА курсом на Виноградар. Підтверджень: 4.",
+      "sourceCount": 5,
+      "updatedAt": "2026-09-22T15:08:55Z",
+      "explanationShort": "БпЛА курсом на Нивки. Підтверджень: 5.",
       "status": "active",
-      "confirmedAt": "2026-09-22T14:58:53Z",
+      "confirmedAt": "2026-09-22T15:15:08Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.51429,
+          "lon": 30.42452,
+          "t": "2026-09-22T14:48:28Z"
+        },
+        {
+          "lat": 50.4881797999991,
+          "lon": 30.439844898618833,
+          "t": "2026-09-22T15:05:54Z"
+        },
+        {
+          "lat": 50.4992948468413,
+          "lon": 30.43332112760236,
+          "t": "2026-09-22T15:07:32Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1790089274.837822,
-  "last_news_check": 1790087724.058521,
+  "last_threat_update": 1790090379.035003,
+  "last_news_check": 1790090378.006872,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

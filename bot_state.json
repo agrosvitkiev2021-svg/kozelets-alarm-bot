@@ -1,47 +1,6 @@
 {
-  "active_threats": {
-    "trk_00208159": {
-      "id": "trk_00208159",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Нивки",
-      "lat": 50.78028371179265,
-      "lon": 30.730850650811963,
-      "heading": 213,
-      "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "updatedAt": "2026-09-22T15:08:55Z",
-      "explanationShort": "БпЛА курсом на Нивки. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-09-22T15:15:08Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.51429,
-          "lon": 30.42452,
-          "t": "2026-09-22T14:48:28Z"
-        },
-        {
-          "lat": 50.4881797999991,
-          "lon": 30.439844898618833,
-          "t": "2026-09-22T15:05:54Z"
-        },
-        {
-          "lat": 50.4992948468413,
-          "lon": 30.43332112760236,
-          "t": "2026-09-22T15:07:32Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790090379.035003,
+  "active_threats": {},
+  "last_threat_update": 1790091182.703258,
   "last_news_check": 1790090378.006872,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

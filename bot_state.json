@@ -1,6 +1,30 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790126098.548873,
+  "active_threats": {
+    "trk_00209534": {
+      "id": "trk_00209534",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Козин",
+      "lat": 50.545090568593636,
+      "lon": 30.893175765675778,
+      "heading": 205,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "count": 1,
+      "updatedAt": "2026-09-23T01:49:53Z",
+      "explanationShort": "БпЛА курсом на Козин. Підтверджень: 5.",
+      "status": "active",
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790128411.652643,
   "last_news_check": 1790126994.479619,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

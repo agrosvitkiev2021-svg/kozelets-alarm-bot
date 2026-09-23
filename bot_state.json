@@ -1,67 +1,6 @@
 {
-  "active_threats": {
-    "trk_00210799": {
-      "id": "trk_00210799",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Буча",
-      "lat": 50.819921423831076,
-      "lon": 30.57301665032367,
-      "heading": 217,
-      "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "updatedAt": "2026-09-23T17:43:16Z",
-      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 6.",
-      "status": "active",
-      "confirmedAt": "2026-09-23T17:43:16Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.53259764591017,
-          "lon": 30.23128418095032,
-          "t": "2026-09-23T17:41:03Z"
-        },
-        {
-          "lat": 50.53039550668175,
-          "lon": 30.235195261404858,
-          "t": "2026-09-23T17:41:30Z"
-        },
-        {
-          "lat": 50.53416473822579,
-          "lon": 30.228500967224797,
-          "t": "2026-09-23T17:41:30Z"
-        },
-        {
-          "lat": 50.53054349982764,
-          "lon": 30.23493242012179,
-          "t": "2026-09-23T17:41:44Z"
-        },
-        {
-          "lat": 50.53335763142535,
-          "lon": 30.229934418657454,
-          "t": "2026-09-23T17:41:44Z"
-        },
-        {
-          "lat": 50.53112832337369,
-          "lon": 30.23389375194368,
-          "t": "2026-09-23T17:42:09Z"
-        },
-        {
-          "lat": 50.53312983019635,
-          "lon": 30.230339002038363,
-          "t": "2026-09-23T17:43:05Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790185481.515904,
+  "active_threats": {},
+  "last_threat_update": 1790186079.2656,
   "last_news_check": 1790184714.213861,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

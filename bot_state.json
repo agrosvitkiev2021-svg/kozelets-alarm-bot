@@ -1,86 +1,58 @@
 {
   "active_threats": {
-    "trk_00209906": {
-      "id": "trk_00209906",
+    "trk_00209865": {
+      "id": "trk_00209865",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Вишенки",
-      "lat": 50.627801519036,
-      "lon": 30.95017025439543,
-      "heading": 204,
+      "locality": "Гостомель",
+      "lat": 50.83535127119355,
+      "lon": 30.58991372337833,
+      "heading": 217,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "count": 1,
-      "updatedAt": "2026-09-23T07:48:55Z",
-      "explanationShort": "БпЛА курсом на Вишенки. Підтверджень: 4.",
+      "sourceCount": 5,
+      "updatedAt": "2026-09-23T08:07:36Z",
+      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 5.",
       "status": "active",
-      "confirmedAt": "2026-09-23T07:48:22Z",
+      "confirmedAt": "2026-09-23T08:07:36Z",
       "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00209918": {
-      "id": "trk_00209918",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Жуляни",
-      "lat": 50.70226269084258,
-      "lon": 30.733099318493423,
-      "heading": 211,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-23T07:52:36Z",
-      "explanationShort": "БпЛА курсом на Жуляни. Підтверджень: 2.",
-      "status": "active",
-      "confirmedAt": "2026-09-23T07:52:36Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00209871": {
-      "id": "trk_00209871",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Поділ",
-      "lat": 50.77557315095691,
-      "lon": 30.792803541880065,
-      "heading": 211,
-      "confidenceLevel": "medium",
-      "sourceCount": 9,
-      "count": 1,
-      "updatedAt": "2026-09-23T07:53:48Z",
-      "explanationShort": "БпЛА курсом на Поділ. Підтверджень: 9.",
-      "status": "active",
-      "confirmedAt": "2026-09-23T07:52:53Z",
-      "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
         {
-          "lat": 50.44441,
-          "lon": 30.52348,
-          "t": "2026-09-23T07:31:38Z"
+          "lat": 50.54345,
+          "lon": 30.21201,
+          "t": "2026-09-23T07:34:39Z"
         },
         {
-          "lat": 50.45990834013812,
-          "lon": 30.51900132134686,
-          "t": "2026-09-23T07:37:47Z"
+          "lat": 50.56052887070918,
+          "lon": 30.248336812738398,
+          "t": "2026-09-23T07:37:18Z"
         },
         {
-          "lat": 50.46759141711876,
-          "lon": 30.499815928612783,
-          "t": "2026-09-23T07:52:42Z"
+          "lat": 50.55411224111542,
+          "lon": 30.20387714223205,
+          "t": "2026-09-23T07:38:42Z"
+        },
+        {
+          "lat": 50.56887301504566,
+          "lon": 30.255316499293475,
+          "t": "2026-09-23T07:55:49Z"
+        },
+        {
+          "lat": 50.55358283133249,
+          "lon": 30.231693913787613,
+          "t": "2026-09-23T08:06:02Z"
+        },
+        {
+          "lat": 50.540264492136934,
+          "lon": 30.23958832923931,
+          "t": "2026-09-23T08:06:31Z"
+        },
+        {
+          "lat": 50.54855995362166,
+          "lon": 30.247122792585266,
+          "t": "2026-09-23T08:06:31Z"
         }
       ],
       "lifecycle": "uncertain",

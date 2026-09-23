@@ -1,7 +1,83 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790140555.659736,
-  "last_news_check": 1790147321.068167,
+  "active_threats": {
+    "trk_00209871": {
+      "id": "trk_00209871",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Поділ",
+      "lat": 50.77109770810658,
+      "lon": 30.803407000545086,
+      "heading": 210,
+      "confidenceLevel": "medium",
+      "sourceCount": 12,
+      "updatedAt": "2026-09-23T07:41:14Z",
+      "explanationShort": "БпЛА курсом на Поділ. Підтверджень: 12.",
+      "status": "active",
+      "confirmedAt": "2026-09-23T07:41:14Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.44441,
+          "lon": 30.52348,
+          "t": "2026-09-23T07:31:38Z"
+        },
+        {
+          "lat": 50.45990834013812,
+          "lon": 30.51900132134686,
+          "t": "2026-09-23T07:37:47Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00209865": {
+      "id": "trk_00209865",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Ворзел",
+      "lat": 50.837058170658096,
+      "lon": 30.554567868972143,
+      "heading": 218,
+      "confidenceLevel": "medium",
+      "sourceCount": 6,
+      "updatedAt": "2026-09-23T07:39:27Z",
+      "explanationShort": "БпЛА курсом на Ворзел. Підтверджень: 6.",
+      "status": "active",
+      "confirmedAt": "2026-09-23T07:39:27Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.54345,
+          "lon": 30.21201,
+          "t": "2026-09-23T07:29:00Z"
+        },
+        {
+          "lat": 50.56052887070918,
+          "lon": 30.248336812738398,
+          "t": "2026-09-23T07:37:18Z"
+        },
+        {
+          "lat": 50.55411224111542,
+          "lon": 30.20387714223205,
+          "t": "2026-09-23T07:38:42Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790149329.229518,
+  "last_news_check": 1790149326.67275,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -19,7 +95,7 @@
     "f6617dedc30099763856c2874ddec8dd"
   ],
   "last_weather_check": 1790145485.141813,
-  "last_promo_check": 1790126994.479619,
+  "last_promo_check": 1790149326.67275,
   "last_history_check": 1790147321.068167,
   "district_alert_active": true,
   "district_alert_initialized": true,

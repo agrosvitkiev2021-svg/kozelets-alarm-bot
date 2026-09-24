@@ -1,50 +1,5 @@
 {
   "active_threats": {
-    "trk_00211755": {
-      "id": "trk_00211755",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Остер",
-      "lat": 51.25093761398577,
-      "lon": 31.19036900580171,
-      "heading": 213,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-24T00:24:10Z",
-      "explanationShort": "БпЛА курсом на Остер. Підтверджень: 2.",
-      "status": "active",
-      "uncertaintyKm": 25,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00211770": {
-      "id": "trk_00211770",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Калита",
-      "lat": 51.0647759877491,
-      "lon": 31.244911736642162,
-      "heading": 205,
-      "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "updatedAt": "2026-09-24T00:27:27Z",
-      "explanationShort": "БпЛА курсом на Калита. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-09-24T00:27:27Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
     "trk_00211769": {
       "id": "trk_00211769",
       "type": "uav",
@@ -56,37 +11,105 @@
       "lon": 30.80036087376846,
       "heading": 213,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "count": 2,
-      "updatedAt": "2026-09-24T00:27:27Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 4.",
+      "sourceCount": 10,
+      "count": 4,
+      "updatedAt": "2026-09-24T00:46:03Z",
+      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 10.",
       "status": "active",
-      "confirmedAt": "2026-09-24T00:27:27Z",
-      "uncertaintyKm": 4,
+      "confirmedAt": "2026-09-24T00:46:03Z",
+      "uncertaintyKm": 10,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00211600": {
-      "id": "trk_00211600",
+    "trk_00211698": {
+      "id": "trk_00211698",
+      "type": "uav",
+      "title": "Група БпЛА (4+)",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Десна",
+      "lat": 50.88530559014576,
+      "lon": 30.72180874285656,
+      "heading": 237.7350905862321,
+      "confidenceLevel": "high",
+      "sourceCount": 8,
+      "count": 4,
+      "updatedAt": "2026-09-24T00:45:02Z",
+      "explanationShort": "БпЛА — Десна, Чернігівська область. Підтверджень: 8.",
+      "status": "active",
+      "confirmedAt": "2026-09-24T00:45:02Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 50.909042021404474,
+          "lon": 30.78162595566375,
+          "t": "2026-09-24T00:15:49Z"
+        },
+        {
+          "lat": 50.8850063249702,
+          "lon": 30.721054576887063,
+          "t": "2026-09-24T00:28:58Z"
+        }
+      ],
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
+      "presumptiveCourse": true
+    },
+    "trk_00211775": {
+      "id": "trk_00211775",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Димер",
-      "lat": 51.05736072931494,
-      "lon": 30.678077444929382,
-      "heading": 221,
+      "locality": "Буча",
+      "lat": 50.822100868671754,
+      "lon": 30.569161801655078,
+      "heading": 217,
       "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-24T00:20:18Z",
-      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 2.",
+      "sourceCount": 10,
+      "count": 1,
+      "updatedAt": "2026-09-24T00:43:54Z",
+      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 10.",
       "status": "active",
-      "confirmedAt": "2026-09-24T00:20:18Z",
-      "uncertaintyKm": 4,
+      "confirmedAt": "2026-09-24T00:43:54Z",
+      "uncertaintyKm": 10,
       "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.52175,
+          "lon": 30.25055,
+          "t": "2026-09-24T00:37:51Z"
+        },
+        {
+          "lat": 50.535950992468486,
+          "lon": 30.225328513837077,
+          "t": "2026-09-24T00:40:14Z"
+        },
+        {
+          "lat": 50.53033741751069,
+          "lon": 30.235298429914202,
+          "t": "2026-09-24T00:42:36Z"
+        },
+        {
+          "lat": 50.53442626988174,
+          "lon": 30.2280364773621,
+          "t": "2026-09-24T00:42:51Z"
+        },
+        {
+          "lat": 50.53153246978809,
+          "lon": 30.233175973012305,
+          "t": "2026-09-24T00:42:51Z"
+        },
+        {
+          "lat": 50.53530931401947,
+          "lon": 30.22646815841887,
+          "t": "2026-09-24T00:43:54Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,

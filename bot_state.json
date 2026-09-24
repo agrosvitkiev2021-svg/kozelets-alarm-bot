@@ -1,86 +1,76 @@
 {
   "active_threats": {
-    "trk_00212071": {
-      "id": "trk_00212071",
+    "trk_00212234": {
+      "id": "trk_00212234",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Буча",
-      "lat": 50.84444671915738,
-      "lon": 30.584515869443518,
-      "heading": 217,
+      "locality": "Бориспіль",
+      "lat": 50.68865906776992,
+      "lon": 31.158484948866786,
+      "heading": 201,
       "confidenceLevel": "medium",
-      "sourceCount": 7,
-      "updatedAt": "2026-09-24T02:28:07Z",
-      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 7.",
+      "sourceCount": 10,
+      "count": 1,
+      "updatedAt": "2026-09-24T02:44:24Z",
+      "explanationShort": "БпЛА курсом на Бориспіль. Підтверджень: 10.",
       "status": "active",
-      "confirmedAt": "2026-09-24T02:28:07Z",
+      "confirmedAt": "2026-09-24T02:44:24Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.56031042054622,
-          "lon": 30.247872168541633,
-          "t": "2026-09-24T01:47:56Z"
-        },
-        {
-          "lat": 50.566119109139606,
-          "lon": 30.263337272170027,
-          "t": "2026-09-24T01:50:53Z"
-        },
-        {
-          "lat": 50.56983496428306,
-          "lon": 30.26700850854602,
-          "t": "2026-09-24T02:15:56Z"
-        },
-        {
-          "lat": 50.559203608596334,
-          "lon": 30.24454723280301,
-          "t": "2026-09-24T02:27:48Z"
-        },
-        {
-          "lat": 50.561906757003385,
-          "lon": 30.25053442182186,
-          "t": "2026-09-24T02:28:07Z"
-        },
-        {
-          "lat": 50.557655564402076,
-          "lon": 30.24165811514793,
-          "t": "2026-09-24T02:28:07Z"
-        }
-      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00212198": {
-      "id": "trk_00212198",
+    "trk_00211698": {
+      "id": "trk_00211698",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Чернігівська область",
       "district": "",
-      "locality": "Димер",
-      "lat": 51.05736072931494,
-      "lon": 30.678077444929382,
-      "heading": 221,
+      "locality": "Десна",
+      "lat": 50.907147399019856,
+      "lon": 30.77685139502593,
+      "heading": 113,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-09-24T02:28:07Z",
-      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 4.",
+      "sourceCount": 7,
+      "updatedAt": "2026-09-24T01:54:52Z",
+      "explanationShort": "БпЛА — Десна, Чернігівська область. Підтверджень: 7.",
       "status": "active",
-      "confirmedAt": "2026-09-24T02:28:07Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
+      "confirmedAt": "2026-09-24T02:43:25Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
       "displayConfidence": "medium",
-      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00212269": {
+      "id": "trk_00212269",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Морівськ",
+      "lat": 51.08463,
+      "lon": 30.87838,
+      "heading": 30,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-24T02:43:25Z",
+      "explanationShort": "БпЛА — Морівськ, Чернігівська область. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-09-24T02:43:25Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "medium",
       "presumptiveCourse": true
     }
   },
   "last_threat_update": 1790214358.643327,
-  "last_news_check": 1790216100.623575,
+  "last_news_check": 1790217960.789964,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

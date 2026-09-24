@@ -12,10 +12,10 @@
       "heading": 210,
       "confidenceLevel": "medium",
       "sourceCount": 5,
-      "updatedAt": "2026-09-24T10:46:09Z",
+      "updatedAt": "2026-09-24T10:55:40Z",
       "explanationShort": "БпЛА курсом на Київ. Підтверджень: 5.",
       "status": "active",
-      "confirmedAt": "2026-09-24T10:46:09Z",
+      "confirmedAt": "2026-09-24T10:55:40Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -24,7 +24,7 @@
       "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1790246890.0733,
+  "last_threat_update": 1790247506.248966,
   "last_news_check": 1790246020.812397,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

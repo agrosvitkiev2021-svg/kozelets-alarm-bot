@@ -1,97 +1,5 @@
 {
   "active_threats": {
-    "trk_00211998": {
-      "id": "trk_00211998",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Козелець",
-      "lat": 50.91,
-      "lon": 31.129,
-      "heading": 136,
-      "confidenceLevel": "high",
-      "sourceCount": 6,
-      "count": 1,
-      "updatedAt": "2026-09-24T01:31:10Z",
-      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 6.",
-      "status": "active",
-      "confirmedAt": "2026-09-24T01:31:10Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "confirmed",
-      "trail": [
-        {
-          "lat": 50.91,
-          "lon": 31.129,
-          "t": "2026-09-24T01:31:10Z"
-        }
-      ],
-      "lifecycle": "confirmed",
-      "displayConfidence": "high",
-      "presumptiveCourse": true
-    },
-    "trk_00211698": {
-      "id": "trk_00211698",
-      "type": "uav",
-      "title": "Група БпЛА (2+)",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Десна",
-      "lat": 50.911388666112586,
-      "lon": 30.787539639332454,
-      "heading": 114,
-      "confidenceLevel": "medium",
-      "sourceCount": 11,
-      "count": 2,
-      "updatedAt": "2026-09-24T01:31:10Z",
-      "explanationShort": "БпЛА — Десна, Чернігівська область. Підтверджень: 11.",
-      "status": "active",
-      "confirmedAt": "2026-09-24T01:31:10Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "confirmed",
-      "trail": [
-        {
-          "lat": 50.89805720810031,
-          "lon": 30.753943575448265,
-          "t": "2026-09-24T01:12:34Z"
-        },
-        {
-          "lat": 50.90631285555822,
-          "lon": 30.774748296068168,
-          "t": "2026-09-24T01:20:16Z"
-        },
-        {
-          "lat": 50.911388666112586,
-          "lon": 30.787539639332454,
-          "t": "2026-09-24T01:28:11Z"
-        }
-      ],
-      "lifecycle": "confirmed",
-      "displayConfidence": "medium",
-      "presumptiveCourse": true
-    },
-    "trk_00212008": {
-      "id": "trk_00212008",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Остер",
-      "lat": 51.25093761398577,
-      "lon": 31.19036900580171,
-      "heading": 213,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-24T01:31:10Z",
-      "explanationShort": "БпЛА курсом на Остер. Підтверджень: 1.",
-      "status": "active",
-      "uncertaintyKm": 25,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
     "trk_00211977": {
       "id": "trk_00211977",
       "type": "uav",
@@ -103,11 +11,12 @@
       "lon": 31.015268525255998,
       "heading": 214,
       "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "updatedAt": "2026-09-24T01:26:32Z",
-      "explanationShort": "БпЛА курсом на Жукин. Підтверджень: 6.",
+      "sourceCount": 8,
+      "count": 2,
+      "updatedAt": "2026-09-24T01:43:10Z",
+      "explanationShort": "БпЛА курсом на Жукин. Підтверджень: 8.",
       "status": "active",
-      "confirmedAt": "2026-09-24T01:26:32Z",
+      "confirmedAt": "2026-09-24T01:43:10Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -126,21 +35,61 @@
       "lon": 30.678077444929382,
       "heading": 221,
       "confidenceLevel": "medium",
-      "sourceCount": 5,
+      "sourceCount": 9,
       "count": 4,
-      "updatedAt": "2026-09-24T01:28:52Z",
-      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 5.",
+      "updatedAt": "2026-09-24T01:43:10Z",
+      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 9.",
       "status": "active",
-      "confirmedAt": "2026-09-24T01:28:52Z",
+      "confirmedAt": "2026-09-24T01:43:10Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
+    },
+    "trk_00211698": {
+      "id": "trk_00211698",
+      "type": "uav",
+      "title": "Група БпЛА (2+)",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Десна",
+      "lat": 50.91269932705782,
+      "lon": 30.79084258255187,
+      "heading": 115,
+      "confidenceLevel": "medium",
+      "sourceCount": 9,
+      "count": 2,
+      "updatedAt": "2026-09-24T01:45:30Z",
+      "explanationShort": "БпЛА — Десна, Чернігівська область. Підтверджень: 9.",
+      "status": "active",
+      "confirmedAt": "2026-09-24T01:45:30Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 50.89805720810031,
+          "lon": 30.753943575448265,
+          "t": "2026-09-24T01:13:04Z"
+        },
+        {
+          "lat": 50.90631285555822,
+          "lon": 30.774748296068168,
+          "t": "2026-09-24T01:20:16Z"
+        },
+        {
+          "lat": 50.911388666112586,
+          "lon": 30.787539639332454,
+          "t": "2026-09-24T01:28:11Z"
+        }
+      ],
+      "lifecycle": "confirmed",
+      "displayConfidence": "medium",
+      "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1790212645.323241,
+  "last_threat_update": 1790214358.643327,
   "last_news_check": 1790213502.384433,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -160,7 +109,7 @@
     "7c01546e2e060c1d121eda2564702b0c"
   ],
   "last_weather_check": 1790203902.686573,
-  "last_promo_check": 1790192639.349223,
+  "last_promo_check": 1790214357.62179,
   "last_history_check": 1790190933.173397,
   "district_alert_active": true,
   "district_alert_initialized": true,

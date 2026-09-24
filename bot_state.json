@@ -1,56 +1,5 @@
 {
   "active_threats": {
-    "trk_00212357": {
-      "id": "trk_00212357",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Гостомель",
-      "lat": 50.83720607977231,
-      "lon": 30.586147464281023,
-      "heading": 217,
-      "confidenceLevel": "medium",
-      "sourceCount": 10,
-      "count": 3,
-      "updatedAt": "2026-09-24T03:31:06Z",
-      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 10.",
-      "status": "active",
-      "confirmedAt": "2026-09-24T03:31:06Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.56841,
-          "lon": 30.2651,
-          "t": "2026-09-24T03:20:43Z"
-        },
-        {
-          "lat": 50.55602836737331,
-          "lon": 30.238764227718306,
-          "t": "2026-09-24T03:29:09Z"
-        },
-        {
-          "lat": 50.55996047492337,
-          "lon": 30.247127833080196,
-          "t": "2026-09-24T03:29:39Z"
-        },
-        {
-          "lat": 50.54947323231813,
-          "lon": 30.248032490069438,
-          "t": "2026-09-24T03:29:39Z"
-        },
-        {
-          "lat": 50.548127392359554,
-          "lon": 30.24021074725121,
-          "t": "2026-09-24T03:29:39Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
     "trk_00212308": {
       "id": "trk_00212308",
       "type": "uav",
@@ -62,12 +11,12 @@
       "lon": 30.80036087376846,
       "heading": 213,
       "confidenceLevel": "medium",
-      "sourceCount": 9,
+      "sourceCount": 8,
       "count": 1,
-      "updatedAt": "2026-09-24T03:31:06Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 9.",
+      "updatedAt": "2026-09-24T03:44:24Z",
+      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 8.",
       "status": "active",
-      "confirmedAt": "2026-09-24T03:31:06Z",
+      "confirmedAt": "2026-09-24T03:44:24Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -75,23 +24,23 @@
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00212198": {
-      "id": "trk_00212198",
+    "trk_00212424": {
+      "id": "trk_00212424",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Димер",
-      "lat": 51.05736072931494,
-      "lon": 30.678077444929382,
-      "heading": 221,
+      "locality": "Жукин",
+      "lat": 51.109422013333294,
+      "lon": 31.015268525255998,
+      "heading": 214,
       "confidenceLevel": "medium",
-      "sourceCount": 9,
-      "count": 1,
-      "updatedAt": "2026-09-24T03:31:06Z",
-      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 9.",
+      "sourceCount": 5,
+      "count": 3,
+      "updatedAt": "2026-09-24T03:44:24Z",
+      "explanationShort": "БпЛА курсом на Жукин. Підтверджень: 5.",
       "status": "active",
-      "confirmedAt": "2026-09-24T03:31:06Z",
+      "confirmedAt": "2026-09-24T03:44:24Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",

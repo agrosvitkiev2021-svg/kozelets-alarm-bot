@@ -1,6 +1,27 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790271271.850873,
+  "active_threats": {
+    "trk_00214816": {
+      "id": "trk_00214816",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "",
+      "district": "",
+      "locality": "Десна",
+      "lat": 50.908,
+      "lon": 30.779,
+      "heading": null,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-24T23:26:46Z",
+      "explanationShort": "БпЛА — Десна. Підтверджень: 1.",
+      "status": "active",
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium"
+    }
+  },
+  "last_threat_update": 1790292457.608902,
   "last_news_check": 1790291623.176705,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

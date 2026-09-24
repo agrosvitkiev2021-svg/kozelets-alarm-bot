@@ -1,34 +1,53 @@
 {
   "active_threats": {
-    "trk_00212085": {
-      "id": "trk_00212085",
+    "trk_00212071": {
+      "id": "trk_00212071",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Ворзел",
-      "lat": 50.82695345832747,
-      "lon": 30.50384065935079,
-      "heading": 218,
+      "locality": "Буча",
+      "lat": 50.84444671915738,
+      "lon": 30.584515869443518,
+      "heading": 217,
       "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "count": 1,
-      "updatedAt": "2026-09-24T02:14:26Z",
-      "explanationShort": "БпЛА курсом на Ворзел. Підтверджень: 3.",
+      "sourceCount": 7,
+      "updatedAt": "2026-09-24T02:28:07Z",
+      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 7.",
       "status": "active",
-      "confirmedAt": "2026-09-24T02:14:26Z",
+      "confirmedAt": "2026-09-24T02:28:07Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
         {
-          "lat": 50.185,
-          "lon": 30.314,
-          "t": "2026-09-24T01:49:45Z"
+          "lat": 50.56031042054622,
+          "lon": 30.247872168541633,
+          "t": "2026-09-24T01:47:56Z"
         },
         {
-          "lat": 50.54400733954608,
-          "lon": 30.15322584501964,
-          "t": "2026-09-24T02:13:54Z"
+          "lat": 50.566119109139606,
+          "lon": 30.263337272170027,
+          "t": "2026-09-24T01:50:53Z"
+        },
+        {
+          "lat": 50.56983496428306,
+          "lon": 30.26700850854602,
+          "t": "2026-09-24T02:15:56Z"
+        },
+        {
+          "lat": 50.559203608596334,
+          "lon": 30.24454723280301,
+          "t": "2026-09-24T02:27:48Z"
+        },
+        {
+          "lat": 50.561906757003385,
+          "lon": 30.25053442182186,
+          "t": "2026-09-24T02:28:07Z"
+        },
+        {
+          "lat": 50.557655564402076,
+          "lon": 30.24165811514793,
+          "t": "2026-09-24T02:28:07Z"
         }
       ],
       "lifecycle": "uncertain",
@@ -36,23 +55,22 @@
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00212104": {
-      "id": "trk_00212104",
+    "trk_00212198": {
+      "id": "trk_00212198",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Вишгород",
-      "lat": 50.88604301670057,
-      "lon": 30.80036087376846,
-      "heading": 213,
+      "locality": "Димер",
+      "lat": 51.05736072931494,
+      "lon": 30.678077444929382,
+      "heading": 221,
       "confidenceLevel": "medium",
-      "sourceCount": 7,
-      "count": 3,
-      "updatedAt": "2026-09-24T02:11:01Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 7.",
+      "sourceCount": 4,
+      "updatedAt": "2026-09-24T02:28:07Z",
+      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 4.",
       "status": "active",
-      "confirmedAt": "2026-09-24T02:11:01Z",
+      "confirmedAt": "2026-09-24T02:28:07Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",

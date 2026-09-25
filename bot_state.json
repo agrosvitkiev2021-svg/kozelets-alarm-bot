@@ -1,42 +1,7 @@
 {
-  "active_threats": {
-    "trk_00216473": {
-      "id": "trk_00216473",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Косачівка",
-      "lat": 51.100405726663055,
-      "lon": 30.647556382662284,
-      "heading": 44,
-      "confidenceLevel": "high",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-25T13:59:04Z",
-      "explanationShort": "БпЛА — Косачівка, Чернігівська область. Підтверджень: 1.",
-      "status": "active",
-      "confirmedAt": "2026-09-25T13:59:04Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "confirmed",
-      "trail": [
-        {
-          "lat": 50.908,
-          "lon": 30.779,
-          "t": "2026-09-25T13:34:50Z"
-        },
-        {
-          "lat": 51.100405726663055,
-          "lon": 30.647556382662284,
-          "t": "2026-09-25T13:59:04Z"
-        }
-      ],
-      "lifecycle": "confirmed",
-      "displayConfidence": "high",
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790344859.151745,
-  "last_news_check": 1790343268.904726,
+  "active_threats": {},
+  "last_threat_update": 1790346060.353172,
+  "last_news_check": 1790346058.886742,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

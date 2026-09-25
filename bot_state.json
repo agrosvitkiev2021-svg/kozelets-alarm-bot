@@ -1,6 +1,85 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790326824.597878,
+  "active_threats": {
+    "trk_00215810": {
+      "id": "trk_00215810",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Ворзел",
+      "lat": 50.82734611142942,
+      "lon": 30.50366776334965,
+      "heading": 218,
+      "confidenceLevel": "medium",
+      "sourceCount": 8,
+      "updatedAt": "2026-09-25T09:17:51Z",
+      "explanationShort": "БпЛА курсом на Ворзел. Підтверджень: 8.",
+      "status": "active",
+      "confirmedAt": "2026-09-25T09:17:51Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00215757": {
+      "id": "trk_00215757",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Буча",
+      "lat": 50.82159695357633,
+      "lon": 30.570053091039618,
+      "heading": 217,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-25T09:11:37Z",
+      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-09-25T09:11:37Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.52175,
+          "lon": 30.25055,
+          "t": "2026-09-25T08:45:38Z"
+        },
+        {
+          "lat": 50.53259430148165,
+          "lon": 30.231290120778667,
+          "t": "2026-09-25T09:11:29Z"
+        },
+        {
+          "lat": 50.54342724391925,
+          "lon": 30.21205041563835,
+          "t": "2026-09-25T09:11:29Z"
+        },
+        {
+          "lat": 50.53626230119902,
+          "lon": 30.224775618054835,
+          "t": "2026-09-25T09:11:35Z"
+        },
+        {
+          "lat": 50.53262260152885,
+          "lon": 30.231239858851524,
+          "t": "2026-09-25T09:11:35Z"
+        },
+        {
+          "lat": 50.53480538991048,
+          "lon": 30.227363146214284,
+          "t": "2026-09-25T09:11:37Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790327974.288602,
   "last_news_check": 1790326177.025037,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

@@ -1,33 +1,74 @@
 {
   "active_threats": {
+    "trk_00214948": {
+      "id": "trk_00214948",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Стоянка",
+      "lat": 50.74726905469457,
+      "lon": 30.55272112926737,
+      "heading": 215,
+      "confidenceLevel": "medium",
+      "sourceCount": 6,
+      "updatedAt": "2026-09-25T00:44:10Z",
+      "explanationShort": "БпЛА курсом на Стоянка. Підтверджень: 6.",
+      "status": "active",
+      "confirmedAt": "2026-09-25T00:44:10Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00214956": {
+      "id": "trk_00214956",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Димер",
+      "lat": 51.05736072931494,
+      "lon": 30.678077444929382,
+      "heading": 221,
+      "confidenceLevel": "medium",
+      "sourceCount": 6,
+      "updatedAt": "2026-09-25T00:47:28Z",
+      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 6.",
+      "status": "active",
+      "confirmedAt": "2026-09-25T00:47:28Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
     "trk_00214913": {
       "id": "trk_00214913",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Буча",
-      "lat": 50.81944527074716,
-      "lon": 30.573858836655916,
+      "locality": "Гостомель",
+      "lat": 50.85870899412149,
+      "lon": 30.611312804926364,
       "heading": 217,
       "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "updatedAt": "2026-09-25T00:28:03Z",
-      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 6.",
+      "sourceCount": 8,
+      "updatedAt": "2026-09-25T00:44:26Z",
+      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 8.",
       "status": "active",
-      "confirmedAt": "2026-09-25T00:28:03Z",
+      "confirmedAt": "2026-09-25T00:44:26Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
         {
-          "lat": 50.52175,
-          "lon": 30.25055,
-          "t": "2026-09-25T00:26:09Z"
-        },
-        {
-          "lat": 50.532602354089825,
-          "lon": 30.23127581904968,
-          "t": "2026-09-25T00:27:53Z"
+          "lat": 50.532653668596254,
+          "lon": 30.23118468259449,
+          "t": "2026-09-25T00:28:03Z"
         },
         {
           "lat": 50.528791701688576,
@@ -35,9 +76,14 @@
           "t": "2026-09-25T00:28:03Z"
         },
         {
-          "lat": 50.532653668596254,
-          "lon": 30.23118468259449,
-          "t": "2026-09-25T00:28:03Z"
+          "lat": 50.56430326202565,
+          "lon": 30.260840552717198,
+          "t": "2026-09-25T00:30:09Z"
+        },
+        {
+          "lat": 50.57191809480139,
+          "lon": 30.26835019699891,
+          "t": "2026-09-25T00:44:04Z"
         }
       ],
       "lifecycle": "uncertain",

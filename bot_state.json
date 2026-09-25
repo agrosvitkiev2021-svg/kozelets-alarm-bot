@@ -6,42 +6,32 @@
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Гостомель",
-      "lat": 50.83222825013314,
-      "lon": 30.58664956924017,
+      "locality": "Ірпінь",
+      "lat": 50.819949194976225,
+      "lon": 30.574558409534475,
       "heading": 217,
       "confidenceLevel": "medium",
       "sourceCount": 8,
-      "updatedAt": "2026-09-25T23:19:18Z",
-      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 8.",
+      "updatedAt": "2026-09-25T23:30:15Z",
+      "explanationShort": "БпЛА курсом на Ірпінь. Підтверджень: 8.",
       "status": "active",
-      "confirmedAt": "2026-09-25T23:18:42Z",
+      "confirmedAt": "2026-09-25T23:30:15Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
-        {
-          "lat": 50.56841,
-          "lon": 30.2651,
-          "t": "2026-09-25T23:13:31Z"
-        },
         {
           "lat": 50.55176999328923,
           "lon": 30.229706652392824,
           "t": "2026-09-25T23:16:40Z"
         },
         {
-          "lat": 50.53950693480388,
-          "lon": 30.237930141130555,
-          "t": "2026-09-25T23:16:40Z"
+          "lat": 50.533116524793165,
+          "lon": 30.232002884285823,
+          "t": "2026-09-25T23:16:57Z"
         },
         {
           "lat": 50.53786984499448,
           "lon": 30.225050778821956,
-          "t": "2026-09-25T23:16:57Z"
-        },
-        {
-          "lat": 50.533116524793165,
-          "lon": 30.232002884285823,
           "t": "2026-09-25T23:16:57Z"
         },
         {
@@ -55,14 +45,19 @@
           "t": "2026-09-25T23:17:14Z"
         },
         {
-          "lat": 50.52986070189513,
-          "lon": 30.229028350914504,
-          "t": "2026-09-25T23:17:14Z"
-        },
-        {
           "lat": 50.54543687667105,
           "lon": 30.243881575025068,
           "t": "2026-09-25T23:18:30Z"
+        },
+        {
+          "lat": 50.5442874840941,
+          "lon": 30.213693162060256,
+          "t": "2026-09-25T23:30:15Z"
+        },
+        {
+          "lat": 50.533157601838205,
+          "lon": 30.23188055744917,
+          "t": "2026-09-25T23:30:15Z"
         }
       ],
       "lifecycle": "uncertain",
@@ -81,11 +76,94 @@
       "lon": 30.80774606165047,
       "heading": 210,
       "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "updatedAt": "2026-09-25T23:19:45Z",
-      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 5.",
+      "sourceCount": 9,
+      "updatedAt": "2026-09-25T23:30:15Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 9.",
       "status": "active",
-      "confirmedAt": "2026-09-25T23:19:45Z",
+      "confirmedAt": "2026-09-25T23:30:15Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00217517": {
+      "id": "trk_00217517",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Бровари",
+      "lat": 50.83405637500026,
+      "lon": 31.03968646124768,
+      "heading": 206,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "count": 1,
+      "updatedAt": "2026-09-25T23:30:11Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-09-25T23:30:11Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.31196936332766,
+          "lon": 30.41056337011886,
+          "t": "2026-09-25T23:16:11Z"
+        },
+        {
+          "lat": 50.511,
+          "lon": 30.79,
+          "t": "2026-09-25T23:28:59Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00217528": {
+      "id": "trk_00217528",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Виноградар",
+      "lat": 50.81557405033081,
+      "lon": 30.7346120407375,
+      "heading": 213,
+      "confidenceLevel": "medium",
+      "sourceCount": 4,
+      "count": 1,
+      "updatedAt": "2026-09-25T23:24:53Z",
+      "explanationShort": "БпЛА курсом на Виноградар. Підтверджень: 4.",
+      "status": "active",
+      "confirmedAt": "2026-09-25T23:24:53Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00217538": {
+      "id": "trk_00217538",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Мікрорайон Дарницького вагоноремонтного заводу",
+      "lat": 50.76976636319283,
+      "lon": 30.934307417211485,
+      "heading": 207,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-25T23:28:59Z",
+      "explanationShort": "БпЛА курсом на Мікрорайон Дарницького вагоноремонтного заводу. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-09-25T23:28:59Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",

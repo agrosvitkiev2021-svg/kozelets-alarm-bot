@@ -1,7 +1,31 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790361619.733579,
-  "last_news_check": 1790368143.595394,
+  "active_threats": {
+    "trk_00217390": {
+      "id": "trk_00217390",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Чайки",
+      "lat": 50.72813792620076,
+      "lon": 30.601633840523537,
+      "heading": 214,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-25T21:05:20Z",
+      "explanationShort": "БпЛА курсом на Чайки. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-09-25T21:05:20Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790370752.984194,
+  "last_news_check": 1790370751.58529,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

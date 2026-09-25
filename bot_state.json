@@ -1,6 +1,100 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790372633.714454,
+  "active_threats": {
+    "trk_00217514": {
+      "id": "trk_00217514",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Гостомель",
+      "lat": 50.83222825013314,
+      "lon": 30.58664956924017,
+      "heading": 217,
+      "confidenceLevel": "medium",
+      "sourceCount": 8,
+      "updatedAt": "2026-09-25T23:19:18Z",
+      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 8.",
+      "status": "active",
+      "confirmedAt": "2026-09-25T23:18:42Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.56841,
+          "lon": 30.2651,
+          "t": "2026-09-25T23:13:31Z"
+        },
+        {
+          "lat": 50.55176999328923,
+          "lon": 30.229706652392824,
+          "t": "2026-09-25T23:16:40Z"
+        },
+        {
+          "lat": 50.53950693480388,
+          "lon": 30.237930141130555,
+          "t": "2026-09-25T23:16:40Z"
+        },
+        {
+          "lat": 50.53786984499448,
+          "lon": 30.225050778821956,
+          "t": "2026-09-25T23:16:57Z"
+        },
+        {
+          "lat": 50.533116524793165,
+          "lon": 30.232002884285823,
+          "t": "2026-09-25T23:16:57Z"
+        },
+        {
+          "lat": 50.52986070189513,
+          "lon": 30.229028350914504,
+          "t": "2026-09-25T23:17:12Z"
+        },
+        {
+          "lat": 50.53278832623442,
+          "lon": 30.22225730199072,
+          "t": "2026-09-25T23:17:14Z"
+        },
+        {
+          "lat": 50.52986070189513,
+          "lon": 30.229028350914504,
+          "t": "2026-09-25T23:17:14Z"
+        },
+        {
+          "lat": 50.54543687667105,
+          "lon": 30.243881575025068,
+          "t": "2026-09-25T23:18:30Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00217515": {
+      "id": "trk_00217515",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Київ",
+      "lat": 50.761289488779006,
+      "lon": 30.80774606165047,
+      "heading": 210,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "updatedAt": "2026-09-25T23:19:45Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-09-25T23:19:45Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790378424.839179,
   "last_news_check": 1790377548.702947,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

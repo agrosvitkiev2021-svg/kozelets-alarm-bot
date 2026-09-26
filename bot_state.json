@@ -1,63 +1,7 @@
 {
-  "active_threats": {
-    "trk_00219055": {
-      "id": "trk_00219055",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Шулявка",
-      "lat": 50.76797354300155,
-      "lon": 30.75744804863446,
-      "heading": 211,
-      "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "updatedAt": "2026-09-26T15:36:42Z",
-      "explanationShort": "БпЛА курсом на Шулявка. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-09-26T15:36:42Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.45356,
-          "lon": 30.4531,
-          "t": "2026-09-26T15:31:41Z"
-        },
-        {
-          "lat": 50.460457142446394,
-          "lon": 30.465333578476066,
-          "t": "2026-09-26T15:32:00Z"
-        },
-        {
-          "lat": 50.45805781607645,
-          "lon": 30.46107785262082,
-          "t": "2026-09-26T15:32:00Z"
-        },
-        {
-          "lat": 50.46091972223805,
-          "lon": 30.466154064094088,
-          "t": "2026-09-26T15:32:11Z"
-        },
-        {
-          "lat": 50.46643098604273,
-          "lon": 30.475929486130227,
-          "t": "2026-09-26T15:35:17Z"
-        },
-        {
-          "lat": 50.45999170981783,
-          "lon": 30.464508032732862,
-          "t": "2026-09-26T15:36:42Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790436643.826693,
-  "last_news_check": 1790435737.139106,
+  "active_threats": {},
+  "last_threat_update": 1790438158.101906,
+  "last_news_check": 1790438156.595148,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

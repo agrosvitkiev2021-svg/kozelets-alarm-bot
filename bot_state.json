@@ -1,7 +1,60 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790406994.193228,
-  "last_news_check": 1790416602.737118,
+  "active_threats": {
+    "trk_00218431": {
+      "id": "trk_00218431",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Козелець",
+      "lat": 51.23305255359842,
+      "lon": 31.38084554848053,
+      "heading": 206,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-26T10:26:44Z",
+      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-09-26T10:26:44Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00218437": {
+      "id": "trk_00218437",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Кіпті",
+      "lat": 51.05656,
+      "lon": 31.15338,
+      "heading": 155,
+      "confidenceLevel": "high",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-26T10:26:54Z",
+      "explanationShort": "БпЛА — Кіпті, Чернігівська область. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-09-26T10:26:54Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 51.05656,
+          "lon": 31.15338,
+          "t": "2026-09-26T10:26:41Z"
+        }
+      ],
+      "lifecycle": "created",
+      "displayConfidence": "high",
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790418456.203233,
+  "last_news_check": 1790418454.142996,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

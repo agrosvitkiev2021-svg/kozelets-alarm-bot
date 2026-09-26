@@ -1,60 +1,58 @@
 {
   "active_threats": {
-    "trk_00219010": {
-      "id": "trk_00219010",
+    "trk_00219055": {
+      "id": "trk_00219055",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Київ",
       "district": "",
-      "locality": "Димер",
-      "lat": 51.05736072931494,
-      "lon": 30.678077444929382,
-      "heading": 221,
+      "locality": "Шулявка",
+      "lat": 50.76797354300155,
+      "lon": 30.75744804863446,
+      "heading": 211,
       "confidenceLevel": "medium",
-      "sourceCount": 8,
-      "updatedAt": "2026-09-26T15:29:24Z",
-      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 8.",
+      "sourceCount": 5,
+      "updatedAt": "2026-09-26T15:36:42Z",
+      "explanationShort": "БпЛА курсом на Шулявка. Підтверджень: 5.",
       "status": "active",
-      "confirmedAt": "2026-09-26T15:29:24Z",
+      "confirmedAt": "2026-09-26T15:36:42Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.45356,
+          "lon": 30.4531,
+          "t": "2026-09-26T15:31:41Z"
+        },
+        {
+          "lat": 50.460457142446394,
+          "lon": 30.465333578476066,
+          "t": "2026-09-26T15:32:00Z"
+        },
+        {
+          "lat": 50.45805781607645,
+          "lon": 30.46107785262082,
+          "t": "2026-09-26T15:32:00Z"
+        },
+        {
+          "lat": 50.46091972223805,
+          "lon": 30.466154064094088,
+          "t": "2026-09-26T15:32:11Z"
+        },
+        {
+          "lat": 50.46643098604273,
+          "lon": 30.475929486130227,
+          "t": "2026-09-26T15:35:17Z"
+        },
+        {
+          "lat": 50.45999170981783,
+          "lon": 30.464508032732862,
+          "t": "2026-09-26T15:36:42Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00219004": {
-      "id": "trk_00219004",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Хрещате",
-      "lat": 51.14132392899939,
-      "lon": 31.362638113740296,
-      "heading": 106,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-26T15:26:35Z",
-      "explanationShort": "БпЛА — Хрещате, Чернігівська область. Підтверджень: 1.",
-      "status": "active",
-      "confirmedAt": "2026-09-26T15:26:35Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "confirmed",
-      "trail": [
-        {
-          "lat": 51.4081,
-          "lon": 30.80279,
-          "t": "2026-09-26T15:13:14Z"
-        },
-        {
-          "lat": 51.14132392899939,
-          "lon": 31.362638113740296,
-          "t": "2026-09-26T15:26:35Z"
-        }
-      ],
-      "lifecycle": "confirmed",
-      "displayConfidence": "medium",
       "presumptiveCourse": true
     }
   },

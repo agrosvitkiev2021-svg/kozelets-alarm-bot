@@ -26,7 +26,7 @@
   "last_weather_check": 1790412787.065344,
   "last_promo_check": 1790413539.404946,
   "last_history_check": 1790409240.435544,
-  "district_alert_active": false,
+  "district_alert_active": true,
   "district_alert_initialized": true,
   "last_dashboard_check": 1790063919.831967,
   "alert": {

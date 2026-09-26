@@ -1,65 +1,6 @@
 {
-  "active_threats": {
-    "trk_00219564": {
-      "id": "trk_00219564",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Лук'янівка",
-      "lat": 50.7848743394541,
-      "lon": 30.780363338557702,
-      "heading": 211,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-26T18:47:26Z",
-      "explanationShort": "БпЛА курсом на Лук'янівка. Підтверджень: 2.",
-      "status": "active",
-      "confirmedAt": "2026-09-26T18:47:26Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.48782,
-          "lon": 30.49922,
-          "t": "2026-09-26T18:47:10Z"
-        },
-        {
-          "lat": 50.476892727249364,
-          "lon": 30.48731744262536,
-          "t": "2026-09-26T18:47:24Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00219555": {
-      "id": "trk_00219555",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Жуляни",
-      "lat": 50.70226269084258,
-      "lon": 30.733099318493423,
-      "heading": 211,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-26T18:44:02Z",
-      "explanationShort": "БпЛА курсом на Жуляни. Підтверджень: 2.",
-      "status": "active",
-      "confirmedAt": "2026-09-26T18:44:02Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790446861.867941,
+  "active_threats": {},
+  "last_threat_update": 1790449414.822091,
   "last_news_check": 1790448730.049625,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

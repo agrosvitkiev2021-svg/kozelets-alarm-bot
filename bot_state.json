@@ -23,11 +23,11 @@
     "a8285f00b00d167a3967a8d9ff0a0945",
     "f97a39e63f83fa53009c94924900b1b3"
   ],
-  "last_weather_check": 1790412787.065344,
+  "last_weather_check": 1790427230.288308,
   "last_promo_check": 1790413539.404946,
-  "last_history_check": 1790409240.435544,
   "district_alert_active": true,
   "district_alert_initialized": true,
+  "last_history_check": 1790409240.435544,
   "last_dashboard_check": 1790063919.831967,
   "alert": {
     "active": true,

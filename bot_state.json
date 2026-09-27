@@ -1,23 +1,35 @@
 {
   "active_threats": {
-    "trk_00221710": {
-      "id": "trk_00221710",
+    "trk_00221727": {
+      "id": "trk_00221727",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Київ",
       "district": "",
-      "locality": "Бровари",
-      "lat": 50.83405637500026,
-      "lon": 31.03968646124768,
-      "heading": 206,
+      "locality": "Лук'янівка",
+      "lat": 50.77026719082619,
+      "lon": 30.74513362701093,
+      "heading": 212,
       "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "updatedAt": "2026-09-27T16:55:04Z",
-      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 6.",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-27T17:03:45Z",
+      "explanationShort": "БпЛА курсом на Лук'янівка. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-09-27T16:55:04Z",
+      "confirmedAt": "2026-09-27T17:03:45Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.46461,
+          "lon": 30.40593,
+          "t": "2026-09-27T17:02:24Z"
+        },
+        {
+          "lat": 50.46558728437299,
+          "lon": 30.443714729514785,
+          "t": "2026-09-27T17:02:44Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,

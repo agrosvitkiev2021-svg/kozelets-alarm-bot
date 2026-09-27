@@ -6,105 +6,124 @@
       "title": "БпЛА",
       "region": "Київ",
       "district": "",
-      "locality": "Виноградар",
-      "lat": 50.81557405033081,
-      "lon": 30.7346120407375,
+      "locality": "Мінський масив",
+      "lat": 50.811080047750856,
+      "lon": 30.760053429791324,
       "heading": 213,
       "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-27T19:38:32Z",
-      "explanationShort": "БпЛА курсом на Виноградар. Підтверджень: 2.",
+      "sourceCount": 4,
+      "updatedAt": "2026-09-27T19:48:51Z",
+      "explanationShort": "БпЛА курсом на Мінський масив. Підтверджень: 4.",
       "status": "active",
-      "confirmedAt": "2026-09-27T19:38:32Z",
+      "confirmedAt": "2026-09-27T19:48:51Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00222036": {
-      "id": "trk_00222036",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Олишівка",
-      "lat": 51.21862,
-      "lon": 31.33582,
-      "heading": 350,
-      "confidenceLevel": "high",
-      "sourceCount": 8,
-      "updatedAt": "2026-09-27T19:37:31Z",
-      "explanationShort": "БпЛА — Олишівка, Чернігівська область. Підтверджень: 8.",
-      "status": "active",
-      "confirmedAt": "2026-09-27T19:37:31Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "confirmed",
-      "lifecycle": "confirmed",
-      "displayConfidence": "high",
-      "presumptiveCourse": true
-    },
-    "trk_00222082": {
-      "id": "trk_00222082",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Вишгород",
-      "lat": 50.88604301670057,
-      "lon": 30.80036087376846,
-      "heading": 213,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-09-27T19:36:14Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-09-27T19:36:14Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00222067": {
-      "id": "trk_00222067",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Максим",
-      "lat": 51.19591,
-      "lon": 30.94189,
-      "heading": 34,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-27T19:37:31Z",
-      "explanationShort": "БпЛА — Максим, Чернігівська область. Підтверджень: 1.",
-      "status": "active",
-      "confirmedAt": "2026-09-27T19:37:31Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "confirmed",
       "trail": [
         {
-          "lat": 51.15891,
-          "lon": 30.91242,
-          "t": "2026-09-27T19:23:41Z"
+          "lat": 50.51429,
+          "lon": 30.42452,
+          "t": "2026-09-27T19:35:42Z"
         },
         {
-          "lat": 51.19591,
-          "lon": 30.94189,
-          "t": "2026-09-27T19:37:31Z"
+          "lat": 50.49454748161127,
+          "lon": 30.436107505755505,
+          "t": "2026-09-27T19:46:01Z"
+        },
+        {
+          "lat": 50.503093865359354,
+          "lon": 30.44799898381745,
+          "t": "2026-09-27T19:46:51Z"
+        },
+        {
+          "lat": 50.50634230739275,
+          "lon": 30.44149919624784,
+          "t": "2026-09-27T19:47:39Z"
+        },
+        {
+          "lat": 50.509795931608394,
+          "lon": 30.449991223933356,
+          "t": "2026-09-27T19:48:51Z"
         }
       ],
-      "lifecycle": "confirmed",
+      "lifecycle": "uncertain",
       "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00222102": {
+      "id": "trk_00222102",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Лук'янівка",
+      "lat": 50.76603767990232,
+      "lon": 30.74188535309169,
+      "heading": 212,
+      "confidenceLevel": "medium",
+      "sourceCount": 6,
+      "count": 1,
+      "updatedAt": "2026-09-27T19:52:19Z",
+      "explanationShort": "БпЛА курсом на Лук'янівка. Підтверджень: 6.",
+      "status": "active",
+      "confirmedAt": "2026-09-27T19:52:19Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.45466,
+          "lon": 30.5238,
+          "t": "2026-09-27T19:34:07Z"
+        },
+        {
+          "lat": 50.46255747003256,
+          "lon": 30.430244744448494,
+          "t": "2026-09-27T19:35:46Z"
+        },
+        {
+          "lat": 50.44639662578819,
+          "lon": 30.399692530639147,
+          "t": "2026-09-27T19:35:50Z"
+        },
+        {
+          "lat": 50.45264794002469,
+          "lon": 30.371044647826366,
+          "t": "2026-09-27T19:36:02Z"
+        },
+        {
+          "lat": 50.44403138257656,
+          "lon": 30.36204994128119,
+          "t": "2026-09-27T19:36:26Z"
+        },
+        {
+          "lat": 50.45039332987866,
+          "lon": 30.36460728995618,
+          "t": "2026-09-27T19:36:50Z"
+        },
+        {
+          "lat": 50.463983078678815,
+          "lon": 30.39284309953826,
+          "t": "2026-09-27T19:52:14Z"
+        },
+        {
+          "lat": 50.45882480956625,
+          "lon": 30.422808174873754,
+          "t": "2026-09-27T19:52:19Z"
+        },
+        {
+          "lat": 50.461357714926784,
+          "lon": 30.4404937053717,
+          "t": "2026-09-27T19:52:19Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
       "presumptiveCourse": true
     }
   },
   "last_threat_update": 1790537550.752671,
-  "last_news_check": 1790536815.023318,
+  "last_news_check": 1790538851.650705,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

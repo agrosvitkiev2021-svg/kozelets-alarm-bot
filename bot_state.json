@@ -1,33 +1,54 @@
 {
   "active_threats": {
-    "trk_00220619": {
-      "id": "trk_00220619",
+    "trk_00220644": {
+      "id": "trk_00220644",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київ",
       "district": "",
-      "locality": "Верхньолибідська слобідка",
-      "lat": 50.72345387627274,
-      "lon": 30.807885039410184,
-      "heading": 209,
+      "locality": "Лук'янівка",
+      "lat": 50.756825493095604,
+      "lon": 30.724288292539168,
+      "heading": 212,
       "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-27T07:56:48Z",
-      "explanationShort": "БпЛА курсом на Верхньолибідська слобідка. Підтверджень: 2.",
+      "sourceCount": 5,
+      "count": 1,
+      "updatedAt": "2026-09-27T08:06:50Z",
+      "explanationShort": "БпЛА курсом на Лук'янівка. Підтверджень: 5.",
       "status": "active",
-      "confirmedAt": "2026-09-27T07:56:48Z",
+      "confirmedAt": "2026-09-27T08:06:50Z",
       "uncertaintyKm": 10,
       "positionQuality": "approx",
       "trail": [
         {
-          "lat": 50.40206,
-          "lon": 30.51564,
-          "t": "2026-09-27T07:36:37Z"
+          "lat": 50.46458893924028,
+          "lon": 30.443600285358755,
+          "t": "2026-09-27T07:55:30Z"
         },
         {
-          "lat": 50.41623685047852,
-          "lon": 30.5491452888774,
-          "t": "2026-09-27T07:56:27Z"
+          "lat": 50.4623222051417,
+          "lon": 30.435286948043952,
+          "t": "2026-09-27T07:56:11Z"
+        },
+        {
+          "lat": 50.46409068688182,
+          "lon": 30.431871595018638,
+          "t": "2026-09-27T07:56:11Z"
+        },
+        {
+          "lat": 50.452825985732815,
+          "lon": 30.41205723884554,
+          "t": "2026-09-27T07:58:05Z"
+        },
+        {
+          "lat": 50.45201886541247,
+          "lon": 30.417720561084217,
+          "t": "2026-09-27T07:58:38Z"
+        },
+        {
+          "lat": 50.452145400690746,
+          "lon": 30.422955974110238,
+          "t": "2026-09-27T08:06:50Z"
         }
       ],
       "lifecycle": "uncertain",
@@ -35,60 +56,61 @@
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00220646": {
-      "id": "trk_00220646",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Лісовий масив",
-      "lat": 50.78702954506954,
-      "lon": 30.906471574280342,
-      "heading": 209,
-      "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "count": 1,
-      "updatedAt": "2026-09-27T07:51:51Z",
-      "explanationShort": "БпЛА курсом на Лісовий масив. Підтверджень: 6.",
-      "status": "active",
-      "confirmedAt": "2026-09-27T07:51:51Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.48481,
-          "lon": 30.6032,
-          "t": "2026-09-27T07:45:03Z"
-        },
-        {
-          "lat": 50.47272810403934,
-          "lon": 30.63061245769139,
-          "t": "2026-09-27T07:50:49Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00220672": {
-      "id": "trk_00220672",
+    "trk_00220687": {
+      "id": "trk_00220687",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Сафіеўская Баршчагоўка",
-      "lat": 50.71399068426727,
-      "lon": 30.66013685789637,
-      "heading": 212,
+      "locality": "Вишгород",
+      "lat": 50.88604301670057,
+      "lon": 30.80036087376846,
+      "heading": 213,
       "confidenceLevel": "medium",
       "sourceCount": 2,
-      "updatedAt": "2026-09-27T07:53:47Z",
-      "explanationShort": "БпЛА курсом на Сафіеўская Баршчагоўка. Підтверджень: 2.",
+      "count": 1,
+      "updatedAt": "2026-09-27T08:10:35Z",
+      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-09-27T07:53:47Z",
-      "uncertaintyKm": 10,
+      "confirmedAt": "2026-09-27T08:10:35Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00220683": {
+      "id": "trk_00220683",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Гостомель",
+      "lat": 50.85441031528731,
+      "lon": 30.606349257278048,
+      "heading": 217,
+      "confidenceLevel": "medium",
+      "sourceCount": 7,
+      "count": 1,
+      "updatedAt": "2026-09-27T08:10:54Z",
+      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 7.",
+      "status": "active",
+      "confirmedAt": "2026-09-27T08:10:54Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.54345,
+          "lon": 30.21201,
+          "t": "2026-09-27T08:01:20Z"
+        },
+        {
+          "lat": 50.56761933896207,
+          "lon": 30.263418261438144,
+          "t": "2026-09-27T08:05:57Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -96,7 +118,7 @@
     }
   },
   "last_threat_update": 1790492636.56578,
-  "last_news_check": 1790494500.558205,
+  "last_news_check": 1790496916.694819,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

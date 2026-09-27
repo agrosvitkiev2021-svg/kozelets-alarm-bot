@@ -1,46 +1,23 @@
 {
   "active_threats": {
-    "trk_00221828": {
-      "id": "trk_00221828",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
+    "trk_00221858": {
+      "id": "trk_00221858",
+      "type": "recon",
+      "title": "Розвідувальний БпЛА",
+      "region": "Київська область",
       "district": "",
-      "locality": "Сирець",
-      "lat": 50.77259682052059,
-      "lon": 30.75166597918428,
-      "heading": 212,
+      "locality": "Київ",
+      "lat": 50.761289488779006,
+      "lon": 30.80774606165047,
+      "heading": 210,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "count": 1,
-      "updatedAt": "2026-09-27T17:56:51Z",
-      "explanationShort": "БпЛА курсом на Сирець. Підтверджень: 4.",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-27T18:15:15Z",
+      "explanationShort": "Розвідувальний БпЛА курсом на Київ. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-09-27T17:56:51Z",
+      "confirmedAt": "2026-09-27T18:15:15Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.46461,
-          "lon": 30.40593,
-          "t": "2026-09-27T17:51:04Z"
-        },
-        {
-          "lat": 50.458917575733025,
-          "lon": 30.43022969707451,
-          "t": "2026-09-27T17:51:16Z"
-        },
-        {
-          "lat": 50.453489285830855,
-          "lon": 30.45340186310938,
-          "t": "2026-09-27T17:56:04Z"
-        },
-        {
-          "lat": 50.467916946306225,
-          "lon": 30.450232069608088,
-          "t": "2026-09-27T17:56:51Z"
-        }
-      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,

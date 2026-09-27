@@ -1,31 +1,7 @@
 {
-  "active_threats": {
-    "trk_00221858": {
-      "id": "trk_00221858",
-      "type": "recon",
-      "title": "Розвідувальний БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Київ",
-      "lat": 50.761289488779006,
-      "lon": 30.80774606165047,
-      "heading": 210,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-09-27T18:15:15Z",
-      "explanationShort": "Розвідувальний БпЛА курсом на Київ. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-09-27T18:15:15Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790532096.505375,
-  "last_news_check": 1790532094.806189,
+  "active_threats": {},
+  "last_threat_update": 1790534340.710332,
+  "last_news_check": 1790534339.377978,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

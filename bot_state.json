@@ -1,32 +1,7 @@
 {
-  "active_threats": {
-    "trk_00221858": {
-      "id": "trk_00221858",
-      "type": "recon",
-      "title": "Розвідувальний БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Київ",
-      "lat": 50.761289488779006,
-      "lon": 30.80774606165047,
-      "heading": 210,
-      "confidenceLevel": "medium",
-      "sourceCount": 7,
-      "count": 1,
-      "updatedAt": "2026-09-27T19:04:20Z",
-      "explanationShort": "Розвідувальний БпЛА курсом на Київ. Підтверджень: 7.",
-      "status": "active",
-      "confirmedAt": "2026-09-27T19:04:20Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790535928.767909,
-  "last_news_check": 1790534339.377978,
+  "active_threats": {},
+  "last_threat_update": 1790536815.460669,
+  "last_news_check": 1790536815.023318,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -47,7 +22,8 @@
     "49f33038620ca012111462b9b38acc38",
     "a8285f00b00d167a3967a8d9ff0a0945",
     "f97a39e63f83fa53009c94924900b1b3",
-    "b6a8e92bf18267d24f09b299c47486be"
+    "b6a8e92bf18267d24f09b299c47486be",
+    "4674fca6d57ebde8bca65f1b86f42a2d"
   ],
   "last_weather_check": 1790530752.42069,
   "last_promo_check": 1790413539.404946,

@@ -1,58 +1,7 @@
 {
-  "active_threats": {
-    "trk_00220683": {
-      "id": "trk_00220683",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Гостомель",
-      "lat": 50.842325705157855,
-      "lon": 30.586088957940902,
-      "heading": 217,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-09-27T09:13:13Z",
-      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-09-27T09:13:13Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.57023993021926,
-          "lon": 30.268992267441522,
-          "t": "2026-09-27T08:34:43Z"
-        },
-        {
-          "lat": 50.55932102170139,
-          "lon": 30.245767714027515,
-          "t": "2026-09-27T08:42:51Z"
-        },
-        {
-          "lat": 50.5443320835143,
-          "lon": 30.246489868226934,
-          "t": "2026-09-27T08:46:42Z"
-        },
-        {
-          "lat": 50.53873947496312,
-          "lon": 30.21998027134587,
-          "t": "2026-09-27T09:05:48Z"
-        },
-        {
-          "lat": 50.55553451242883,
-          "lon": 30.243246789661157,
-          "t": "2026-09-27T09:13:13Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790500470.331576,
-  "last_news_check": 1790498763.678555,
+  "active_threats": {},
+  "last_threat_update": 1790501388.208398,
+  "last_news_check": 1790501387.522084,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -75,7 +24,7 @@
     "f97a39e63f83fa53009c94924900b1b3",
     "b6a8e92bf18267d24f09b299c47486be"
   ],
-  "last_weather_check": 1790486101.583197,
+  "last_weather_check": 1790501387.522084,
   "last_promo_check": 1790413539.404946,
   "district_alert_active": true,
   "district_alert_initialized": true,

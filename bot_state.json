@@ -6,16 +6,16 @@
       "title": "БпЛА",
       "region": "Київ",
       "district": "",
-      "locality": "Мінський масив",
-      "lat": 50.811080047750856,
-      "lon": 30.760053429791324,
+      "locality": "Пріорка",
+      "lat": 50.8137264532809,
+      "lon": 30.75323928430448,
       "heading": 213,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-09-27T19:48:51Z",
-      "explanationShort": "БпЛА курсом на Мінський масив. Підтверджень: 4.",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-27T20:01:01Z",
+      "explanationShort": "БпЛА курсом на Пріорка. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-09-27T19:48:51Z",
+      "confirmedAt": "2026-09-27T20:01:01Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
@@ -43,8 +43,81 @@
           "lat": 50.509795931608394,
           "lon": 30.449991223933356,
           "t": "2026-09-27T19:48:51Z"
+        },
+        {
+          "lat": 50.51209795754077,
+          "lon": 30.442910977800008,
+          "t": "2026-09-27T19:53:07Z"
+        },
+        {
+          "lat": 50.51396353378761,
+          "lon": 30.433777985402866,
+          "t": "2026-09-27T19:58:34Z"
+        },
+        {
+          "lat": 50.51244237589175,
+          "lon": 30.443159510359333,
+          "t": "2026-09-27T20:01:01Z"
         }
       ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00222200": {
+      "id": "trk_00222200",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Позняки",
+      "lat": 50.71990815392009,
+      "lon": 30.890268822998895,
+      "heading": 208,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-27T20:06:37Z",
+      "explanationShort": "БпЛА курсом на Позняки. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-09-27T20:05:38Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.38076,
+          "lon": 30.6015,
+          "t": "2026-09-27T20:05:38Z"
+        },
+        {
+          "lat": 50.40259,
+          "lon": 30.62352,
+          "t": "2026-09-27T20:05:38Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00222190": {
+      "id": "trk_00222190",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Димер",
+      "lat": 51.05736072931494,
+      "lon": 30.678077444929382,
+      "heading": 221,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-27T20:05:31Z",
+      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-09-27T20:05:31Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -56,55 +129,20 @@
       "title": "БпЛА",
       "region": "Київ",
       "district": "",
-      "locality": "Лук'янівка",
-      "lat": 50.76603767990232,
-      "lon": 30.74188535309169,
-      "heading": 212,
+      "locality": "Шулявка",
+      "lat": 50.77234228098743,
+      "lon": 30.764391431560465,
+      "heading": 211,
       "confidenceLevel": "medium",
-      "sourceCount": 6,
+      "sourceCount": 5,
       "count": 1,
-      "updatedAt": "2026-09-27T19:52:19Z",
-      "explanationShort": "БпЛА курсом на Лук'янівка. Підтверджень: 6.",
+      "updatedAt": "2026-09-27T20:03:03Z",
+      "explanationShort": "БпЛА курсом на Шулявка. Підтверджень: 5.",
       "status": "active",
-      "confirmedAt": "2026-09-27T19:52:19Z",
+      "confirmedAt": "2026-09-27T20:03:03Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
-        {
-          "lat": 50.45466,
-          "lon": 30.5238,
-          "t": "2026-09-27T19:34:07Z"
-        },
-        {
-          "lat": 50.46255747003256,
-          "lon": 30.430244744448494,
-          "t": "2026-09-27T19:35:46Z"
-        },
-        {
-          "lat": 50.44639662578819,
-          "lon": 30.399692530639147,
-          "t": "2026-09-27T19:35:50Z"
-        },
-        {
-          "lat": 50.45264794002469,
-          "lon": 30.371044647826366,
-          "t": "2026-09-27T19:36:02Z"
-        },
-        {
-          "lat": 50.44403138257656,
-          "lon": 30.36204994128119,
-          "t": "2026-09-27T19:36:26Z"
-        },
-        {
-          "lat": 50.45039332987866,
-          "lon": 30.36460728995618,
-          "t": "2026-09-27T19:36:50Z"
-        },
-        {
-          "lat": 50.463983078678815,
-          "lon": 30.39284309953826,
-          "t": "2026-09-27T19:52:14Z"
-        },
         {
           "lat": 50.45882480956625,
           "lon": 30.422808174873754,
@@ -114,6 +152,26 @@
           "lat": 50.461357714926784,
           "lon": 30.4404937053717,
           "t": "2026-09-27T19:52:19Z"
+        },
+        {
+          "lat": 50.462575552113115,
+          "lon": 30.43238427559014,
+          "t": "2026-09-27T19:53:07Z"
+        },
+        {
+          "lat": 50.46339951790231,
+          "lon": 30.441637105665006,
+          "t": "2026-09-27T19:55:47Z"
+        },
+        {
+          "lat": 50.46533214170459,
+          "lon": 30.46180383405975,
+          "t": "2026-09-27T20:01:49Z"
+        },
+        {
+          "lat": 50.466236141577404,
+          "lon": 30.473957616780623,
+          "t": "2026-09-27T20:01:49Z"
         }
       ],
       "lifecycle": "uncertain",

@@ -1,57 +1,23 @@
 {
   "active_threats": {
-    "trk_00221755": {
-      "id": "trk_00221755",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Козелець",
-      "lat": 50.91,
-      "lon": 31.129,
-      "heading": 136,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-27T17:19:15Z",
-      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 1.",
-      "status": "active",
-      "confirmedAt": "2026-09-27T17:19:15Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "confirmed",
-      "lifecycle": "confirmed",
-      "displayConfidence": "medium",
-      "presumptiveCourse": true
-    },
-    "trk_00221708": {
-      "id": "trk_00221708",
+    "trk_00221768": {
+      "id": "trk_00221768",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Берковець",
-      "lat": 50.78615703268277,
-      "lon": 30.64774804749238,
-      "heading": 214,
+      "locality": "Бровари",
+      "lat": 50.83405637500026,
+      "lon": 31.03968646124768,
+      "heading": 206,
       "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "updatedAt": "2026-09-27T17:22:47Z",
-      "explanationShort": "БпЛА курсом на Берковець. Підтверджень: 5.",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-27T17:31:28Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-09-27T17:22:47Z",
+      "confirmedAt": "2026-09-27T17:31:28Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.31196936332766,
-          "lon": 30.41056337011886,
-          "t": "2026-09-27T16:47:42Z"
-        },
-        {
-          "lat": 50.48836,
-          "lon": 30.32957,
-          "t": "2026-09-27T17:01:09Z"
-        }
-      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -82,7 +48,7 @@
     "f97a39e63f83fa53009c94924900b1b3",
     "b6a8e92bf18267d24f09b299c47486be"
   ],
-  "last_weather_check": 1790516036.886414,
+  "last_weather_check": 1790530752.42069,
   "last_promo_check": 1790413539.404946,
   "district_alert_active": true,
   "district_alert_initialized": true,

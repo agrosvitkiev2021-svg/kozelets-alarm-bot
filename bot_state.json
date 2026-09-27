@@ -1,33 +1,55 @@
 {
   "active_threats": {
-    "trk_00221727": {
-      "id": "trk_00221727",
+    "trk_00221755": {
+      "id": "trk_00221755",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київ",
+      "region": "Чернігівська область",
       "district": "",
-      "locality": "Лук'янівка",
-      "lat": 50.77026719082619,
-      "lon": 30.74513362701093,
-      "heading": 212,
+      "locality": "Козелець",
+      "lat": 50.91,
+      "lon": 31.129,
+      "heading": 136,
       "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-09-27T17:03:45Z",
-      "explanationShort": "БпЛА курсом на Лук'янівка. Підтверджень: 3.",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-27T17:19:15Z",
+      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-09-27T17:03:45Z",
+      "confirmedAt": "2026-09-27T17:19:15Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "medium",
+      "presumptiveCourse": true
+    },
+    "trk_00221708": {
+      "id": "trk_00221708",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Берковець",
+      "lat": 50.78615703268277,
+      "lon": 30.64774804749238,
+      "heading": 214,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "updatedAt": "2026-09-27T17:22:47Z",
+      "explanationShort": "БпЛА курсом на Берковець. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-09-27T17:22:47Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
         {
-          "lat": 50.46461,
-          "lon": 30.40593,
-          "t": "2026-09-27T17:02:24Z"
+          "lat": 50.31196936332766,
+          "lon": 30.41056337011886,
+          "t": "2026-09-27T16:47:42Z"
         },
         {
-          "lat": 50.46558728437299,
-          "lon": 30.443714729514785,
-          "t": "2026-09-27T17:02:44Z"
+          "lat": 50.48836,
+          "lon": 30.32957,
+          "t": "2026-09-27T17:01:09Z"
         }
       ],
       "lifecycle": "uncertain",
@@ -37,7 +59,7 @@
     }
   },
   "last_threat_update": 1790527498.16097,
-  "last_news_check": 1790527496.246579,
+  "last_news_check": 1790529930.87418,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

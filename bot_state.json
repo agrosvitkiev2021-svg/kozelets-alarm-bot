@@ -1,114 +1,45 @@
 {
   "active_threats": {
-    "trk_00220543": {
-      "id": "trk_00220543",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Чайки",
-      "lat": 50.728147818088274,
-      "lon": 30.6017142729507,
-      "heading": 214,
-      "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "count": 1,
-      "updatedAt": "2026-09-27T07:31:10Z",
-      "explanationShort": "БпЛА курсом на Чайки. Підтверджень: 4.",
-      "status": "active",
-      "confirmedAt": "2026-09-27T07:30:09Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.43694,
-          "lon": 30.33747,
-          "t": "2026-09-27T07:09:05Z"
-        },
-        {
-          "lat": 50.43034989203968,
-          "lon": 30.283930365328406,
-          "t": "2026-09-27T07:29:43Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00220535": {
-      "id": "trk_00220535",
+    "trk_00220646": {
+      "id": "trk_00220646",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київ",
       "district": "",
-      "locality": "Виноградар",
-      "lat": 50.78965540899701,
-      "lon": 30.741808697585963,
-      "heading": 212,
+      "locality": "Воскресенка",
+      "lat": 50.799111300959936,
+      "lon": 30.87913043150882,
+      "heading": 209,
       "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "count": 1,
-      "updatedAt": "2026-09-27T07:32:51Z",
-      "explanationShort": "БпЛА курсом на Виноградар. Підтверджень: 6.",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-27T07:45:03Z",
+      "explanationShort": "БпЛА курсом на Воскресенка. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-09-27T07:32:51Z",
-      "uncertaintyKm": 4,
+      "confirmedAt": "2026-09-27T07:45:03Z",
+      "uncertaintyKm": 10,
       "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.51617900594311,
-          "lon": 30.443047918395372,
-          "t": "2026-09-27T07:05:18Z"
-        },
-        {
-          "lat": 50.51728364140175,
-          "lon": 30.453882503489705,
-          "t": "2026-09-27T07:06:15Z"
-        },
-        {
-          "lat": 50.49398019020264,
-          "lon": 30.4412609364406,
-          "t": "2026-09-27T07:29:10Z"
-        },
-        {
-          "lat": 50.487050679221404,
-          "lon": 30.442105875685915,
-          "t": "2026-09-27T07:31:24Z"
-        },
-        {
-          "lat": 50.476402039408775,
-          "lon": 30.445227409529583,
-          "t": "2026-09-27T07:32:19Z"
-        },
-        {
-          "lat": 50.484975770947614,
-          "lon": 30.44026480208438,
-          "t": "2026-09-27T07:32:51Z"
-        }
-      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00220536": {
-      "id": "trk_00220536",
+    "trk_00220650": {
+      "id": "trk_00220650",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Київ",
       "district": "",
-      "locality": "Берковець",
-      "lat": 50.78615703268277,
-      "lon": 30.64774804749238,
-      "heading": 214,
+      "locality": "Мікрорайон Дарницького вагоноремонтного заводу",
+      "lat": 50.76976636319283,
+      "lon": 30.934307417211485,
+      "heading": 207,
       "confidenceLevel": "medium",
       "sourceCount": 4,
       "count": 1,
-      "updatedAt": "2026-09-27T07:31:44Z",
-      "explanationShort": "БпЛА курсом на Берковець. Підтверджень: 4.",
+      "updatedAt": "2026-09-27T07:46:42Z",
+      "explanationShort": "БпЛА курсом на Мікрорайон Дарницького вагоноремонтного заводу. Підтверджень: 4.",
       "status": "active",
-      "confirmedAt": "2026-09-27T07:31:44Z",
+      "confirmedAt": "2026-09-27T07:46:42Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -123,39 +54,19 @@
       "region": "Київ",
       "district": "",
       "locality": "Жуляни",
-      "lat": 50.718129980480185,
-      "lon": 30.72345773844818,
+      "lat": 50.709761494143535,
+      "lon": 30.72924833349246,
       "heading": 211,
       "confidenceLevel": "medium",
-      "sourceCount": 7,
+      "sourceCount": 5,
       "count": 1,
-      "updatedAt": "2026-09-27T07:33:18Z",
-      "explanationShort": "БпЛА курсом на Жуляни. Підтверджень: 7.",
+      "updatedAt": "2026-09-27T07:43:23Z",
+      "explanationShort": "БпЛА курсом на Жуляни. Підтверджень: 5.",
       "status": "active",
-      "confirmedAt": "2026-09-27T07:33:18Z",
+      "confirmedAt": "2026-09-27T07:43:23Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
-        {
-          "lat": 50.46341,
-          "lon": 30.34612,
-          "t": "2026-09-27T07:01:19Z"
-        },
-        {
-          "lat": 50.44079344339383,
-          "lon": 30.377247093625222,
-          "t": "2026-09-27T07:02:17Z"
-        },
-        {
-          "lat": 50.45068243188847,
-          "lon": 30.363636910780357,
-          "t": "2026-09-27T07:02:42Z"
-        },
-        {
-          "lat": 50.43144250450313,
-          "lon": 30.390116760542384,
-          "t": "2026-09-27T07:09:43Z"
-        },
         {
           "lat": 50.42166892320435,
           "lon": 30.44872457156519,
@@ -175,6 +86,119 @@
           "lat": 50.410147496517375,
           "lon": 30.430829389029185,
           "t": "2026-09-27T07:33:18Z"
+        },
+        {
+          "lat": 50.41335341768268,
+          "lon": 30.42426442971925,
+          "t": "2026-09-27T07:35:45Z"
+        },
+        {
+          "lat": 50.401778901053866,
+          "lon": 30.436672224620185,
+          "t": "2026-09-27T07:43:15Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00220621": {
+      "id": "trk_00220621",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Голосіїв",
+      "lat": 50.6616487845289,
+      "lon": 30.818197750596596,
+      "heading": 208,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "count": 1,
+      "updatedAt": "2026-09-27T07:43:05Z",
+      "explanationShort": "БпЛА курсом на Голосіїв. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-09-27T07:43:05Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00220644": {
+      "id": "trk_00220644",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Поділ",
+      "lat": 50.77734171071408,
+      "lon": 30.809268692952788,
+      "heading": 211,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-27T07:44:46Z",
+      "explanationShort": "БпЛА курсом на Поділ. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-09-27T07:44:46Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00220535": {
+      "id": "trk_00220535",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Сирець",
+      "lat": 50.77502945628916,
+      "lon": 30.727948241367397,
+      "heading": 212,
+      "confidenceLevel": "medium",
+      "sourceCount": 6,
+      "count": 1,
+      "updatedAt": "2026-09-27T07:44:40Z",
+      "explanationShort": "БпЛА курсом на Сирець. Підтверджень: 6.",
+      "status": "active",
+      "confirmedAt": "2026-09-27T07:44:40Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.476402039408775,
+          "lon": 30.445227409529583,
+          "t": "2026-09-27T07:32:19Z"
+        },
+        {
+          "lat": 50.484975770947614,
+          "lon": 30.44026480208438,
+          "t": "2026-09-27T07:32:51Z"
+        },
+        {
+          "lat": 50.47166263497143,
+          "lon": 30.424854405363934,
+          "t": "2026-09-27T07:40:22Z"
+        },
+        {
+          "lat": 50.4734085171594,
+          "lon": 30.43028960478314,
+          "t": "2026-09-27T07:40:56Z"
+        },
+        {
+          "lat": 50.468063167623185,
+          "lon": 30.421159597741376,
+          "t": "2026-09-27T07:43:54Z"
+        },
+        {
+          "lat": 50.47034961574249,
+          "lon": 30.42649865381439,
+          "t": "2026-09-27T07:44:25Z"
         }
       ],
       "lifecycle": "uncertain",

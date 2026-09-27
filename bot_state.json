@@ -6,24 +6,24 @@
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Буча",
-      "lat": 50.8461121466372,
-      "lon": 30.588637707838885,
+      "locality": "Ірпінь",
+      "lat": 50.831123476745844,
+      "lon": 30.589249749571945,
       "heading": 217,
       "confidenceLevel": "medium",
-      "sourceCount": 7,
+      "sourceCount": 8,
       "count": 1,
-      "updatedAt": "2026-09-27T08:43:04Z",
-      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 7.",
+      "updatedAt": "2026-09-27T08:49:06Z",
+      "explanationShort": "БпЛА курсом на Ірпінь. Підтверджень: 8.",
       "status": "active",
-      "confirmedAt": "2026-09-27T08:43:04Z",
+      "confirmedAt": "2026-09-27T08:49:06Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
         {
           "lat": 50.56761933896207,
           "lon": 30.263418261438144,
-          "t": "2026-09-27T08:05:57Z"
+          "t": "2026-09-27T08:10:54Z"
         },
         {
           "lat": 50.57023993021926,
@@ -34,6 +34,11 @@
           "lat": 50.55932102170139,
           "lon": 30.245767714027515,
           "t": "2026-09-27T08:42:51Z"
+        },
+        {
+          "lat": 50.5443320835143,
+          "lon": 30.246489868226934,
+          "t": "2026-09-27T08:46:42Z"
         }
       ],
       "lifecycle": "uncertain",
@@ -41,47 +46,56 @@
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00220687": {
-      "id": "trk_00220687",
+    "trk_00220644": {
+      "id": "trk_00220644",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Київ",
       "district": "",
-      "locality": "Вишгород",
-      "lat": 50.88604301670057,
-      "lon": 30.80036087376846,
+      "locality": "Святошин",
+      "lat": 50.76489501388253,
+      "lon": 30.660744281415514,
       "heading": 213,
       "confidenceLevel": "medium",
       "sourceCount": 3,
-      "updatedAt": "2026-09-27T08:43:04Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 3.",
+      "updatedAt": "2026-09-27T08:49:53Z",
+      "explanationShort": "БпЛА курсом на Святошин. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-09-27T08:43:04Z",
-      "uncertaintyKm": 4,
+      "confirmedAt": "2026-09-27T08:49:53Z",
+      "uncertaintyKm": 10,
       "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00220773": {
-      "id": "trk_00220773",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Лебедівка",
-      "lat": 51.00319488690064,
-      "lon": 30.873306805361533,
-      "heading": 215,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "count": 1,
-      "updatedAt": "2026-09-27T08:42:45Z",
-      "explanationShort": "БпЛА курсом на Лебедівка. Підтверджень: 3.",
-      "status": "active",
-      "uncertaintyKm": 25,
-      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.452825985732815,
+          "lon": 30.41205723884554,
+          "t": "2026-09-27T07:58:07Z"
+        },
+        {
+          "lat": 50.45201886541247,
+          "lon": 30.417720561084217,
+          "t": "2026-09-27T07:58:38Z"
+        },
+        {
+          "lat": 50.452145400690746,
+          "lon": 30.422955974110238,
+          "t": "2026-09-27T08:06:50Z"
+        },
+        {
+          "lat": 50.43193484792842,
+          "lon": 30.38546550548812,
+          "t": "2026-09-27T08:22:46Z"
+        },
+        {
+          "lat": 50.46168670220033,
+          "lon": 30.357549811377396,
+          "t": "2026-09-27T08:47:52Z"
+        },
+        {
+          "lat": 50.463610222124174,
+          "lon": 30.35098824703864,
+          "t": "2026-09-27T08:49:53Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,

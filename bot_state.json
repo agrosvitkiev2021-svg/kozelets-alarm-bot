@@ -1,7 +1,54 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790531458.526778,
-  "last_news_check": 1790529930.87418,
+  "active_threats": {
+    "trk_00221828": {
+      "id": "trk_00221828",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Сирець",
+      "lat": 50.77259682052059,
+      "lon": 30.75166597918428,
+      "heading": 212,
+      "confidenceLevel": "medium",
+      "sourceCount": 4,
+      "count": 1,
+      "updatedAt": "2026-09-27T17:56:51Z",
+      "explanationShort": "БпЛА курсом на Сирець. Підтверджень: 4.",
+      "status": "active",
+      "confirmedAt": "2026-09-27T17:56:51Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.46461,
+          "lon": 30.40593,
+          "t": "2026-09-27T17:51:04Z"
+        },
+        {
+          "lat": 50.458917575733025,
+          "lon": 30.43022969707451,
+          "t": "2026-09-27T17:51:16Z"
+        },
+        {
+          "lat": 50.453489285830855,
+          "lon": 30.45340186310938,
+          "t": "2026-09-27T17:56:04Z"
+        },
+        {
+          "lat": 50.467916946306225,
+          "lon": 30.450232069608088,
+          "t": "2026-09-27T17:56:51Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790532096.505375,
+  "last_news_check": 1790532094.806189,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

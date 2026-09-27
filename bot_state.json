@@ -11,13 +11,94 @@
       "lon": 30.678077444929382,
       "heading": 221,
       "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "updatedAt": "2026-09-27T20:58:04Z",
-      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 6.",
+      "sourceCount": 8,
+      "updatedAt": "2026-09-27T21:16:55Z",
+      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 8.",
       "status": "active",
-      "confirmedAt": "2026-09-27T20:58:04Z",
+      "confirmedAt": "2026-09-27T21:16:55Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00222351": {
+      "id": "trk_00222351",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Жуляни",
+      "lat": 50.703775273598225,
+      "lon": 30.731947076269357,
+      "heading": 211,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "count": 1,
+      "updatedAt": "2026-09-27T21:15:12Z",
+      "explanationShort": "БпЛА курсом на Жуляни. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-09-27T21:15:12Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.39428,
+          "lon": 30.44057,
+          "t": "2026-09-27T21:08:08Z"
+        },
+        {
+          "lat": 50.3824024235192,
+          "lon": 30.449691978737256,
+          "t": "2026-09-27T21:08:09Z"
+        },
+        {
+          "lat": 50.39201397423615,
+          "lon": 30.442310307786638,
+          "t": "2026-09-27T21:09:44Z"
+        },
+        {
+          "lat": 50.39579260247086,
+          "lon": 30.43940832130238,
+          "t": "2026-09-27T21:14:00Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00222354": {
+      "id": "trk_00222354",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Печерськ",
+      "lat": 50.75405508287835,
+      "lon": 30.807496186893115,
+      "heading": 210,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-27T21:13:46Z",
+      "explanationShort": "БпЛА курсом на Печерськ. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-09-27T21:13:46Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.40206,
+          "lon": 30.51564,
+          "t": "2026-09-27T21:09:44Z"
+        },
+        {
+          "lat": 50.44286550502362,
+          "lon": 30.523194076963048,
+          "t": "2026-09-27T21:13:46Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -25,7 +106,7 @@
     }
   },
   "last_threat_update": 1790542859.94963,
-  "last_news_check": 1790541536.032084,
+  "last_news_check": 1790543902.231347,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

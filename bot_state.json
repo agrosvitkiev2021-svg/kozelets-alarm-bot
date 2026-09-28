@@ -1,23 +1,23 @@
 {
   "active_threats": {
-    "trk_00223745": {
-      "id": "trk_00223745",
+    "trk_00223777": {
+      "id": "trk_00223777",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Берковець",
-      "lat": 50.78615703268277,
-      "lon": 30.64774804749238,
-      "heading": 214,
+      "locality": "Вишгород",
+      "lat": 50.88604301670057,
+      "lon": 30.80036087376846,
+      "heading": 213,
       "confidenceLevel": "medium",
-      "sourceCount": 7,
+      "sourceCount": 4,
       "count": 1,
-      "updatedAt": "2026-09-28T11:31:57Z",
-      "explanationShort": "БпЛА курсом на Берковець. Підтверджень: 7.",
+      "updatedAt": "2026-09-28T11:43:36Z",
+      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 4.",
       "status": "active",
-      "confirmedAt": "2026-09-28T11:31:57Z",
-      "uncertaintyKm": 4,
+      "confirmedAt": "2026-09-28T11:43:36Z",
+      "uncertaintyKm": 10,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
@@ -26,7 +26,7 @@
     }
   },
   "last_threat_update": 1790595313.017767,
-  "last_news_check": 1790594151.029798,
+  "last_news_check": 1790596300.882153,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

@@ -1,72 +1,7 @@
 {
-  "active_threats": {
-    "trk_00223639": {
-      "id": "trk_00223639",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Мікрорайон Дарницького вагоноремонтного заводу",
-      "lat": 50.77792620966096,
-      "lon": 30.921479734958535,
-      "heading": 208,
-      "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-09-28T10:56:48Z",
-      "explanationShort": "БпЛА курсом на Мікрорайон Дарницького вагоноремонтного заводу. Підтверджень: 4.",
-      "status": "active",
-      "confirmedAt": "2026-09-28T10:56:48Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.47292,
-          "lon": 30.67139,
-          "t": "2026-09-28T10:54:52Z"
-        },
-        {
-          "lat": 50.4725,
-          "lon": 30.63113,
-          "t": "2026-09-28T10:55:35Z"
-        },
-        {
-          "lat": 50.46060868529782,
-          "lon": 30.654400117364517,
-          "t": "2026-09-28T10:55:48Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00223623": {
-      "id": "trk_00223623",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Велика Димерка",
-      "lat": 50.919107282077555,
-      "lon": 31.14428363358611,
-      "heading": 205,
-      "confidenceLevel": "medium",
-      "sourceCount": 7,
-      "count": 1,
-      "updatedAt": "2026-09-28T10:54:26Z",
-      "explanationShort": "БпЛА курсом на Велика Димерка. Підтверджень: 7.",
-      "status": "active",
-      "confirmedAt": "2026-09-28T10:54:26Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790583809.67931,
-  "last_news_check": 1790592248.344345,
+  "active_threats": {},
+  "last_threat_update": 1790594152.486438,
+  "last_news_check": 1790594151.029798,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

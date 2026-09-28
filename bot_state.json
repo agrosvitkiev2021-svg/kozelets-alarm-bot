@@ -11,11 +11,12 @@
       "lon": 30.80774606165047,
       "heading": 210,
       "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-09-28T13:24:52Z",
-      "explanationShort": "Розвідувальний БпЛА курсом на Київ. Підтверджень: 3.",
+      "sourceCount": 7,
+      "count": 1,
+      "updatedAt": "2026-09-28T13:40:55Z",
+      "explanationShort": "Розвідувальний БпЛА курсом на Київ. Підтверджень: 7.",
       "status": "active",
-      "confirmedAt": "2026-09-28T13:24:52Z",
+      "confirmedAt": "2026-09-28T13:40:55Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -24,8 +25,8 @@
       "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1790599918.231932,
-  "last_news_check": 1790600767.618761,
+  "last_threat_update": 1790603096.877925,
+  "last_news_check": 1790603095.664321,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -52,7 +53,9 @@
     "7113b971f03f7d1beeaf037e0c300151",
     "10d7e53e7c25a5376adcd03fbf4275e9",
     "47ac030e7f28cf31ab1530ff3e63f8d6",
-    "16cfc292bcee6ce9a58e64beeb5edc58"
+    "16cfc292bcee6ce9a58e64beeb5edc58",
+    "17b3684cce7a2f3a715cccc0170a1be3",
+    "2bdfaadf5b4de571816b235026e5f997"
   ],
   "last_weather_check": 1790589159.295585,
   "last_promo_check": 1790413539.404946,

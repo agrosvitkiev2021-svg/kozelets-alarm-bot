@@ -1,80 +1,23 @@
 {
   "active_threats": {
-    "trk_00223336": {
-      "id": "trk_00223336",
+    "trk_00223405": {
+      "id": "trk_00223405",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
-      "district": "Оболонський район",
-      "regionKey": "оболонський",
-      "locality": "Київ",
-      "lat": 50.761289488779006,
-      "lon": 30.80774606165047,
-      "heading": 210,
-      "confidenceLevel": "medium",
-      "sourceCount": 12,
-      "updatedAt": "2026-09-28T09:32:13Z",
-      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 12.",
-      "status": "active",
-      "confirmedAt": "2026-09-28T09:32:13Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00223351": {
-      "id": "trk_00223351",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
+      "region": "Чернігівська область",
       "district": "",
-      "locality": "Лісовий масив",
-      "lat": 50.784684385609964,
-      "lon": 30.898810562106714,
-      "heading": 209,
+      "locality": "Козелець",
+      "lat": 51.23305255359842,
+      "lon": 31.38084554848053,
+      "heading": 206,
       "confidenceLevel": "medium",
-      "sourceCount": 10,
-      "count": 1,
-      "updatedAt": "2026-09-28T09:31:59Z",
-      "explanationShort": "БпЛА курсом на Лісовий масив. Підтверджень: 10.",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-28T09:49:31Z",
+      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-09-28T09:31:59Z",
+      "confirmedAt": "2026-09-28T09:49:38Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.45885003044855,
-          "lon": 30.648043713362895,
-          "t": "2026-09-28T09:23:51Z"
-        },
-        {
-          "lat": 50.45616064135607,
-          "lon": 30.64301100133557,
-          "t": "2026-09-28T09:23:51Z"
-        },
-        {
-          "lat": 50.459953388832446,
-          "lon": 30.63762034341127,
-          "t": "2026-09-28T09:24:02Z"
-        },
-        {
-          "lat": 50.45914550808151,
-          "lon": 30.612922897389137,
-          "t": "2026-09-28T09:24:26Z"
-        },
-        {
-          "lat": 50.45179485278701,
-          "lon": 30.611234717717497,
-          "t": "2026-09-28T09:24:53Z"
-        },
-        {
-          "lat": 50.47038291739946,
-          "lon": 30.622965282585465,
-          "t": "2026-09-28T09:31:59Z"
-        }
-      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -111,7 +54,7 @@
     "47ac030e7f28cf31ab1530ff3e63f8d6",
     "16cfc292bcee6ce9a58e64beeb5edc58"
   ],
-  "last_weather_check": 1790574643.342491,
+  "last_weather_check": 1790589159.295585,
   "last_promo_check": 1790413539.404946,
   "district_alert_active": true,
   "district_alert_initialized": true,

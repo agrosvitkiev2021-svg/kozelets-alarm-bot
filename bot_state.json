@@ -1,37 +1,88 @@
 {
   "active_threats": {
-    "trk_00223339": {
-      "id": "trk_00223339",
+    "trk_00223336": {
+      "id": "trk_00223336",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Десна",
-      "lat": 50.908,
-      "lon": 30.779,
-      "heading": 114,
-      "confidenceLevel": "high",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-28T09:14:11Z",
-      "explanationShort": "БпЛА — Десна, Чернігівська область. Підтверджень: 2.",
+      "region": "Київська область",
+      "district": "Оболонський район",
+      "regionKey": "оболонський",
+      "locality": "Київ",
+      "lat": 50.761289488779006,
+      "lon": 30.80774606165047,
+      "heading": 210,
+      "confidenceLevel": "medium",
+      "sourceCount": 12,
+      "updatedAt": "2026-09-28T09:32:13Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 12.",
       "status": "active",
-      "confirmedAt": "2026-09-28T09:14:11Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "confirmed",
+      "confirmedAt": "2026-09-28T09:32:13Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00223351": {
+      "id": "trk_00223351",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Лісовий масив",
+      "lat": 50.784684385609964,
+      "lon": 30.898810562106714,
+      "heading": 209,
+      "confidenceLevel": "medium",
+      "sourceCount": 10,
+      "count": 1,
+      "updatedAt": "2026-09-28T09:31:59Z",
+      "explanationShort": "БпЛА курсом на Лісовий масив. Підтверджень: 10.",
+      "status": "active",
+      "confirmedAt": "2026-09-28T09:31:59Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
       "trail": [
         {
-          "lat": 50.908,
-          "lon": 30.779,
-          "t": "2026-09-28T09:14:05Z"
+          "lat": 50.45885003044855,
+          "lon": 30.648043713362895,
+          "t": "2026-09-28T09:23:51Z"
+        },
+        {
+          "lat": 50.45616064135607,
+          "lon": 30.64301100133557,
+          "t": "2026-09-28T09:23:51Z"
+        },
+        {
+          "lat": 50.459953388832446,
+          "lon": 30.63762034341127,
+          "t": "2026-09-28T09:24:02Z"
+        },
+        {
+          "lat": 50.45914550808151,
+          "lon": 30.612922897389137,
+          "t": "2026-09-28T09:24:26Z"
+        },
+        {
+          "lat": 50.45179485278701,
+          "lon": 30.611234717717497,
+          "t": "2026-09-28T09:24:53Z"
+        },
+        {
+          "lat": 50.47038291739946,
+          "lon": 30.622965282585465,
+          "t": "2026-09-28T09:31:59Z"
         }
       ],
-      "lifecycle": "created",
-      "displayConfidence": "high",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
       "presumptiveCourse": true
     }
   },
   "last_threat_update": 1790583809.67931,
-  "last_news_check": 1790585765.348869,
+  "last_news_check": 1790588143.436687,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -57,7 +108,8 @@
     "a714515a7a11df0cfda69fb7212940a2",
     "7113b971f03f7d1beeaf037e0c300151",
     "10d7e53e7c25a5376adcd03fbf4275e9",
-    "47ac030e7f28cf31ab1530ff3e63f8d6"
+    "47ac030e7f28cf31ab1530ff3e63f8d6",
+    "16cfc292bcee6ce9a58e64beeb5edc58"
   ],
   "last_weather_check": 1790574643.342491,
   "last_promo_check": 1790413539.404946,

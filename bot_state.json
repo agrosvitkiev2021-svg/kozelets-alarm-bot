@@ -1,7 +1,112 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790580466.336405,
-  "last_news_check": 1790581581.062028,
+  "active_threats": {
+    "trk_00223198": {
+      "id": "trk_00223198",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Козелець",
+      "lat": 51.23305255359842,
+      "lon": 31.38084554848053,
+      "heading": 206,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "count": 2,
+      "updatedAt": "2026-09-28T08:20:53Z",
+      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-09-28T08:20:53Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00223171": {
+      "id": "trk_00223171",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Бровари",
+      "lat": 50.83405637500026,
+      "lon": 31.03968646124768,
+      "heading": 206,
+      "confidenceLevel": "medium",
+      "sourceCount": 6,
+      "count": 1,
+      "updatedAt": "2026-09-28T08:22:11Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 6.",
+      "status": "active",
+      "confirmedAt": "2026-09-28T08:22:11Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.43857,
+          "lon": 31.08694,
+          "t": "2026-09-28T08:01:56Z"
+        },
+        {
+          "lat": 50.511,
+          "lon": 30.79,
+          "t": "2026-09-28T08:08:34Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00223173": {
+      "id": "trk_00223173",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Десна",
+      "lat": 51.0586961478696,
+      "lon": 30.67616301995122,
+      "heading": 156.78102678254507,
+      "confidenceLevel": "medium",
+      "sourceCount": 6,
+      "count": 2,
+      "updatedAt": "2026-09-28T08:18:47Z",
+      "explanationShort": "БпЛА курсом на Десна. Підтверджень: 6.",
+      "status": "active",
+      "velocity": {
+        "bearingDeg": 156.8,
+        "speedKmh": 92.2
+      },
+      "confirmedAt": "2026-09-28T08:18:47Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 51.10062,
+          "lon": 30.64741,
+          "t": "2026-09-28T08:03:44Z"
+        },
+        {
+          "lat": 50.91085995931042,
+          "lon": 30.777046194342965,
+          "t": "2026-09-28T08:10:12Z"
+        },
+        {
+          "lat": 50.87707463859606,
+          "lon": 30.800126925070835,
+          "t": "2026-09-28T08:18:06Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true
+    }
+  },
+  "last_threat_update": 1790583809.67931,
+  "last_news_check": 1790583807.993449,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -26,7 +131,8 @@
     "4674fca6d57ebde8bca65f1b86f42a2d",
     "a714515a7a11df0cfda69fb7212940a2",
     "7113b971f03f7d1beeaf037e0c300151",
-    "10d7e53e7c25a5376adcd03fbf4275e9"
+    "10d7e53e7c25a5376adcd03fbf4275e9",
+    "47ac030e7f28cf31ab1530ff3e63f8d6"
   ],
   "last_weather_check": 1790574643.342491,
   "last_promo_check": 1790413539.404946,

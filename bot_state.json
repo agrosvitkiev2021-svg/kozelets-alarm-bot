@@ -1,27 +1,60 @@
 {
   "active_threats": {
-    "trk_00224074": {
-      "id": "trk_00224074",
-      "type": "recon",
-      "title": "Розвідувальний БпЛА",
+    "trk_00224171": {
+      "id": "trk_00224171",
+      "type": "uav",
+      "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Київ",
-      "lat": 50.761289488779006,
-      "lon": 30.80774606165047,
-      "heading": 210,
+      "locality": "Димер",
+      "lat": 51.05736072931494,
+      "lon": 30.678077444929382,
+      "heading": 221,
       "confidenceLevel": "medium",
-      "sourceCount": 7,
-      "count": 1,
-      "updatedAt": "2026-09-28T13:40:55Z",
-      "explanationShort": "Розвідувальний БпЛА курсом на Київ. Підтверджень: 7.",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-28T13:57:03Z",
+      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-09-28T13:40:55Z",
+      "confirmedAt": "2026-09-28T13:57:03Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00224134": {
+      "id": "trk_00224134",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Олишівка",
+      "lat": 51.21893854346811,
+      "lon": 31.33295907659948,
+      "heading": 350,
+      "confidenceLevel": "high",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-28T13:57:03Z",
+      "explanationShort": "БпЛА — Олишівка, Чернігівська область. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-09-28T13:52:47Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 51.28801,
+          "lon": 30.71261,
+          "t": "2026-09-28T13:39:31Z"
+        },
+        {
+          "lat": 51.21893854346811,
+          "lon": 31.33295907659948,
+          "t": "2026-09-28T13:52:47Z"
+        }
+      ],
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
       "presumptiveCourse": true
     }
   },
@@ -57,7 +90,7 @@
     "17b3684cce7a2f3a715cccc0170a1be3",
     "2bdfaadf5b4de571816b235026e5f997"
   ],
-  "last_weather_check": 1790589159.295585,
+  "last_weather_check": 1790604020.552163,
   "last_promo_check": 1790413539.404946,
   "district_alert_active": true,
   "district_alert_initialized": true,

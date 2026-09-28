@@ -1,43 +1,6 @@
 {
-  "active_threats": {
-    "trk_00224767": {
-      "id": "trk_00224767",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Стоянка",
-      "lat": 50.74717708944432,
-      "lon": 30.552952207633055,
-      "heading": 215,
-      "confidenceLevel": "medium",
-      "sourceCount": 11,
-      "count": 1,
-      "updatedAt": "2026-09-28T18:56:48Z",
-      "explanationShort": "БпЛА курсом на Стоянка. Підтверджень: 11.",
-      "status": "active",
-      "confirmedAt": "2026-09-28T18:54:32Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.43034,
-          "lon": 30.28385,
-          "t": "2026-09-28T18:40:37Z"
-        },
-        {
-          "lat": 50.45295803326028,
-          "lon": 30.226861718927637,
-          "t": "2026-09-28T18:54:32Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790622031.907935,
+  "active_threats": {},
+  "last_threat_update": 1790623142.145413,
   "last_news_check": 1790622031.04301,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

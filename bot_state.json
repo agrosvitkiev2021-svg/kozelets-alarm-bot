@@ -1,40 +1,23 @@
 {
   "active_threats": {
-    "trk_00224552": {
-      "id": "trk_00224552",
+    "trk_00224633": {
+      "id": "trk_00224633",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київ",
+      "region": "Київська область",
       "district": "",
-      "locality": "Жуляни",
-      "lat": 50.70201682054029,
-      "lon": 30.73328661552486,
-      "heading": 211,
+      "locality": "Русанів",
+      "lat": 50.839800292682746,
+      "lon": 31.343460595736932,
+      "heading": 198,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-09-28T17:51:08Z",
-      "explanationShort": "БпЛА курсом на Жуляни. Підтверджень: 4.",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-28T17:57:41Z",
+      "explanationShort": "БпЛА курсом на Русанів. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-09-28T17:51:08Z",
+      "confirmedAt": "2026-09-28T17:57:41Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.39428,
-          "lon": 30.44057,
-          "t": "2026-09-28T17:21:23Z"
-        },
-        {
-          "lat": 50.37672493760453,
-          "lon": 30.454052287919726,
-          "t": "2026-09-28T17:22:41Z"
-        },
-        {
-          "lat": 50.384246220000925,
-          "lon": 30.448275943039288,
-          "t": "2026-09-28T17:22:56Z"
-        }
-      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -73,7 +56,7 @@
     "17b3684cce7a2f3a715cccc0170a1be3",
     "2bdfaadf5b4de571816b235026e5f997"
   ],
-  "last_weather_check": 1790604020.552163,
+  "last_weather_check": 1790618646.174446,
   "last_promo_check": 1790413539.404946,
   "district_alert_active": true,
   "district_alert_initialized": true,

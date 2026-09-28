@@ -1,65 +1,79 @@
 {
   "active_threats": {
-    "trk_00224171": {
-      "id": "trk_00224171",
+    "trk_00224206": {
+      "id": "trk_00224206",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Київ",
       "district": "",
-      "locality": "Димер",
-      "lat": 51.05736072931494,
-      "lon": 30.678077444929382,
-      "heading": 221,
+      "locality": "Теремки",
+      "lat": 50.681720466984416,
+      "lon": 30.742673644640096,
+      "heading": 210,
       "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-28T13:57:03Z",
-      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 2.",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-28T14:21:10Z",
+      "explanationShort": "БпЛА курсом на Теремки. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-09-28T13:57:03Z",
+      "confirmedAt": "2026-09-28T14:21:10Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.34071,
+          "lon": 30.42356,
+          "t": "2026-09-28T14:13:32Z"
+        },
+        {
+          "lat": 50.37053,
+          "lon": 30.45881,
+          "t": "2026-09-28T14:21:10Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00224134": {
-      "id": "trk_00224134",
+    "trk_00224212": {
+      "id": "trk_00224212",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Чернігівська область",
+      "region": "Київська область",
       "district": "",
-      "locality": "Олишівка",
-      "lat": 51.21893854346811,
-      "lon": 31.33295907659948,
-      "heading": 350,
-      "confidenceLevel": "high",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-28T13:57:03Z",
-      "explanationShort": "БпЛА — Олишівка, Чернігівська область. Підтверджень: 2.",
+      "locality": "Чайки",
+      "lat": 50.72813792620076,
+      "lon": 30.601633840523537,
+      "heading": 214,
+      "confidenceLevel": "medium",
+      "sourceCount": 7,
+      "count": 1,
+      "updatedAt": "2026-09-28T14:22:30Z",
+      "explanationShort": "БпЛА курсом на Чайки. Підтверджень: 7.",
       "status": "active",
-      "confirmedAt": "2026-09-28T13:52:47Z",
+      "confirmedAt": "2026-09-28T14:21:24Z",
       "uncertaintyKm": 10,
-      "positionQuality": "confirmed",
+      "positionQuality": "approx",
       "trail": [
         {
-          "lat": 51.28801,
-          "lon": 30.71261,
-          "t": "2026-09-28T13:39:31Z"
+          "lat": 50.45305,
+          "lon": 30.22663,
+          "t": "2026-09-28T14:16:10Z"
         },
         {
-          "lat": 51.21893854346811,
-          "lon": 31.33295907659948,
-          "t": "2026-09-28T13:52:47Z"
+          "lat": 50.43034,
+          "lon": 30.28385,
+          "t": "2026-09-28T14:21:22Z"
         }
       ],
-      "lifecycle": "confirmed",
-      "displayConfidence": "high",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
       "presumptiveCourse": true
     }
   },
   "last_threat_update": 1790603096.877925,
-  "last_news_check": 1790603095.664321,
+  "last_news_check": 1790605390.220422,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -92,7 +106,7 @@
   ],
   "last_weather_check": 1790604020.552163,
   "last_promo_check": 1790413539.404946,
-  "district_alert_active": true,
+  "district_alert_active": false,
   "district_alert_initialized": true,
   "last_history_check": 1790409240.435544,
   "last_dashboard_check": 1790063919.831967,

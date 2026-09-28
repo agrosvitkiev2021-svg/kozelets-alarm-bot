@@ -1,78 +1,6 @@
 {
-  "active_threats": {
-    "trk_00224206": {
-      "id": "trk_00224206",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Теремки",
-      "lat": 50.681720466984416,
-      "lon": 30.742673644640096,
-      "heading": 210,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-09-28T14:21:10Z",
-      "explanationShort": "БпЛА курсом на Теремки. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-09-28T14:21:10Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.34071,
-          "lon": 30.42356,
-          "t": "2026-09-28T14:13:32Z"
-        },
-        {
-          "lat": 50.37053,
-          "lon": 30.45881,
-          "t": "2026-09-28T14:21:10Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00224212": {
-      "id": "trk_00224212",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Чайки",
-      "lat": 50.72813792620076,
-      "lon": 30.601633840523537,
-      "heading": 214,
-      "confidenceLevel": "medium",
-      "sourceCount": 7,
-      "count": 1,
-      "updatedAt": "2026-09-28T14:22:30Z",
-      "explanationShort": "БпЛА курсом на Чайки. Підтверджень: 7.",
-      "status": "active",
-      "confirmedAt": "2026-09-28T14:21:24Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.45305,
-          "lon": 30.22663,
-          "t": "2026-09-28T14:16:10Z"
-        },
-        {
-          "lat": 50.43034,
-          "lon": 30.28385,
-          "t": "2026-09-28T14:21:22Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790603096.877925,
+  "active_threats": {},
+  "last_threat_update": 1790606486.940173,
   "last_news_check": 1790605390.220422,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -106,7 +34,7 @@
   ],
   "last_weather_check": 1790604020.552163,
   "last_promo_check": 1790413539.404946,
-  "district_alert_active": false,
+  "district_alert_active": true,
   "district_alert_initialized": true,
   "last_history_check": 1790409240.435544,
   "last_dashboard_check": 1790063919.831967,

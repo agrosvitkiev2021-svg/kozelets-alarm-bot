@@ -1,29 +1,6 @@
 {
-  "active_threats": {
-    "trk_00223049": {
-      "id": "trk_00223049",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Велика Димерка",
-      "lat": 50.59333,
-      "lon": 30.90313,
-      "heading": 219,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-28T07:04:28Z",
-      "explanationShort": "БпЛА — Велика Димерка, Київська область. Підтверджень: 1.",
-      "status": "active",
-      "confirmedAt": "2026-09-28T07:04:28Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "confirmed",
-      "lifecycle": "confirmed",
-      "displayConfidence": "medium",
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790574644.502984,
+  "active_threats": {},
+  "last_threat_update": 1790580466.336405,
   "last_news_check": 1790579229.573761,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -52,7 +29,7 @@
   ],
   "last_weather_check": 1790574643.342491,
   "last_promo_check": 1790413539.404946,
-  "district_alert_active": true,
+  "district_alert_active": false,
   "district_alert_initialized": true,
   "last_history_check": 1790409240.435544,
   "last_dashboard_check": 1790063919.831967,

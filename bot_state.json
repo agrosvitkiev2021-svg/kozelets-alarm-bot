@@ -1,47 +1,35 @@
 {
   "active_threats": {
-    "trk_00227600": {
-      "id": "trk_00227600",
+    "trk_00227587": {
+      "id": "trk_00227587",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Бровари",
-      "lat": 50.83405637500026,
-      "lon": 31.03968646124768,
-      "heading": 206,
-      "confidenceLevel": "medium",
-      "sourceCount": 8,
-      "count": 1,
-      "updatedAt": "2026-09-29T21:53:48Z",
-      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 8.",
-      "status": "active",
-      "confirmedAt": "2026-09-29T21:53:48Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00227613": {
-      "id": "trk_00227613",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Стар.Басань",
-      "lat": 50.98589781355234,
-      "lon": 31.47208959519588,
-      "heading": 196,
+      "locality": "Ірпінь",
+      "lat": 50.81938313908469,
+      "lon": 30.573968730809746,
+      "heading": 217,
       "confidenceLevel": "medium",
       "sourceCount": 1,
-      "updatedAt": "2026-09-29T21:52:04Z",
-      "explanationShort": "БпЛА курсом на Стар.Басань. Підтверджень: 1.",
+      "updatedAt": "2026-09-29T21:41:15Z",
+      "explanationShort": "БпЛА курсом на Ірпінь. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-09-29T21:52:04Z",
-      "uncertaintyKm": 10,
+      "confirmedAt": "2026-09-29T22:10:42Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.53259764591017,
+          "lon": 30.23128418095032,
+          "t": "2026-09-29T21:41:15Z"
+        },
+        {
+          "lat": 50.54345,
+          "lon": 30.21201,
+          "t": "2026-09-29T21:41:15Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -49,7 +37,7 @@
     }
   },
   "last_threat_update": 1790717453.22765,
-  "last_news_check": 1790718397.88756,
+  "last_news_check": 1790720200.0794,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

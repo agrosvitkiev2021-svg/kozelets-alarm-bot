@@ -1,52 +1,6 @@
 {
-  "active_threats": {
-    "trk_00227695": {
-      "id": "trk_00227695",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Корчувате",
-      "lat": 50.6931876159335,
-      "lon": 30.825571135043784,
-      "heading": 208,
-      "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "updatedAt": "2026-09-29T22:50:49Z",
-      "explanationShort": "БпЛА курсом на Корчувате. Підтверджень: 6.",
-      "status": "active",
-      "confirmedAt": "2026-09-29T22:50:48Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.37439,
-          "lon": 30.53054,
-          "t": "2026-09-29T22:31:02Z"
-        },
-        {
-          "lat": 50.36347,
-          "lon": 30.55502,
-          "t": "2026-09-29T22:34:15Z"
-        },
-        {
-          "lat": 50.38205715911765,
-          "lon": 30.56094774168411,
-          "t": "2026-09-29T22:50:27Z"
-        },
-        {
-          "lat": 50.375869172591536,
-          "lon": 30.55897429402385,
-          "t": "2026-09-29T22:50:48Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790722674.154505,
+  "active_threats": {},
+  "last_threat_update": 1790723719.623464,
   "last_news_check": 1790722020.329559,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

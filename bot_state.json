@@ -1,7 +1,93 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790666553.114748,
-  "last_news_check": 1790681014.103205,
+  "active_threats": {
+    "trk_00226355": {
+      "id": "trk_00226355",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Сирець",
+      "lat": 50.773255911905416,
+      "lon": 30.747152700896855,
+      "heading": 212,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "updatedAt": "2026-09-29T11:51:39Z",
+      "explanationShort": "БпЛА курсом на Сирець. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-09-29T11:51:39Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.47955,
+          "lon": 30.44491,
+          "t": "2026-09-29T11:50:54Z"
+        },
+        {
+          "lat": 50.47207837925797,
+          "lon": 30.425415771316985,
+          "t": "2026-09-29T11:50:54Z"
+        },
+        {
+          "lat": 50.47017247189376,
+          "lon": 30.44234919861753,
+          "t": "2026-09-29T11:50:57Z"
+        },
+        {
+          "lat": 50.4653697279729,
+          "lon": 30.445719814610758,
+          "t": "2026-09-29T11:51:07Z"
+        },
+        {
+          "lat": 50.46857604681254,
+          "lon": 30.44571454378915,
+          "t": "2026-09-29T11:51:39Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00226359": {
+      "id": "trk_00226359",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Петропавлівська Борщагівка",
+      "lat": 50.73170144976149,
+      "lon": 30.63060938973022,
+      "heading": 214,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "updatedAt": "2026-09-29T11:53:16Z",
+      "explanationShort": "БпЛА курсом на Петропавлівська Борщагівка. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-09-29T11:52:53Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.43034,
+          "lon": 30.28385,
+          "t": "2026-09-29T11:52:30Z"
+        },
+        {
+          "lat": 50.43390357837664,
+          "lon": 30.312801374629647,
+          "t": "2026-09-29T11:52:53Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790682902.980819,
+  "last_news_check": 1790682901.423585,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

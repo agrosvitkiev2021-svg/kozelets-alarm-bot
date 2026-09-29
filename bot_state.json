@@ -1,6 +1,90 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790686747.014396,
+  "active_threats": {
+    "trk_00226707": {
+      "id": "trk_00226707",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Ірпінь",
+      "lat": 50.81262773083354,
+      "lon": 30.58495861718211,
+      "heading": 216,
+      "confidenceLevel": "medium",
+      "sourceCount": 6,
+      "updatedAt": "2026-09-29T16:44:32Z",
+      "explanationShort": "БпЛА курсом на Ірпінь. Підтверджень: 6.",
+      "status": "active",
+      "confirmedAt": "2026-09-29T16:44:32Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.31196936332766,
+          "lon": 30.41056337011886,
+          "t": "2026-09-29T16:29:16Z"
+        },
+        {
+          "lat": 50.53858,
+          "lon": 30.35565,
+          "t": "2026-09-29T16:36:21Z"
+        },
+        {
+          "lat": 50.52175,
+          "lon": 30.25055,
+          "t": "2026-09-29T16:37:26Z"
+        },
+        {
+          "lat": 50.532602354089825,
+          "lon": 30.23127581904968,
+          "t": "2026-09-29T16:37:26Z"
+        },
+        {
+          "lat": 50.544845090036034,
+          "lon": 30.242789784233718,
+          "t": "2026-09-29T16:37:32Z"
+        },
+        {
+          "lat": 50.53885903250749,
+          "lon": 30.245087454166633,
+          "t": "2026-09-29T16:37:37Z"
+        },
+        {
+          "lat": 50.539856134236686,
+          "lon": 30.23797864116661,
+          "t": "2026-09-29T16:37:37Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00226727": {
+      "id": "trk_00226727",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Мінський масив",
+      "lat": 50.81943399379441,
+      "lon": 30.772497672319155,
+      "heading": 213,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-29T16:39:52Z",
+      "explanationShort": "БпЛА курсом на Мінський масив. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-09-29T16:39:52Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790700358.875228,
   "last_news_check": 1790699193.023471,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

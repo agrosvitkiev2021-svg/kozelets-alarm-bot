@@ -1,71 +1,37 @@
 {
   "active_threats": {
-    "trk_00226754": {
-      "id": "trk_00226754",
+    "trk_00226742": {
+      "id": "trk_00226742",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Чернігівська область",
       "district": "",
-      "locality": "Петропавлівська Борщагівка",
-      "lat": 50.738225181289685,
-      "lon": 30.647049600560088,
-      "heading": 213,
-      "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-09-29T16:58:55Z",
-      "explanationShort": "БпЛА курсом на Петропавлівська Борщагівка. Підтверджень: 4.",
+      "locality": "Топчіївка",
+      "lat": 51.22616431605962,
+      "lon": 31.285609835608742,
+      "heading": 356,
+      "confidenceLevel": "high",
+      "sourceCount": 11,
+      "updatedAt": "2026-09-29T17:12:11Z",
+      "explanationShort": "БпЛА — Топчіївка, Чернігівська область. Підтверджень: 11.",
       "status": "active",
-      "confirmedAt": "2026-09-29T16:58:55Z",
+      "confirmedAt": "2026-09-29T17:10:51Z",
       "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00226716": {
-      "id": "trk_00226716",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Нивки",
-      "lat": 50.76752173545007,
-      "lon": 30.69488339384223,
-      "heading": 213,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-09-29T16:53:55Z",
-      "explanationShort": "БпЛА курсом на Нивки. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-09-29T16:53:55Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
+      "positionQuality": "confirmed",
       "trail": [
         {
-          "lat": 50.46341,
-          "lon": 30.34612,
-          "t": "2026-09-29T16:34:10Z"
+          "lat": 51.21862,
+          "lon": 31.33582,
+          "t": "2026-09-29T17:04:31Z"
         },
         {
-          "lat": 50.44573777682751,
-          "lon": 30.370442223530084,
-          "t": "2026-09-29T16:35:07Z"
-        },
-        {
-          "lat": 50.462852799130104,
-          "lon": 30.34688687375304,
-          "t": "2026-09-29T16:47:50Z"
-        },
-        {
-          "lat": 50.46623698208083,
-          "lon": 30.385109967923093,
-          "t": "2026-09-29T16:53:55Z"
+          "lat": 51.22616431605962,
+          "lon": 31.285609835608742,
+          "t": "2026-09-29T17:10:51Z"
         }
       ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
       "presumptiveCourse": true
     }
   },

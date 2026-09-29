@@ -1,42 +1,6 @@
 {
-  "active_threats": {
-    "trk_00227587": {
-      "id": "trk_00227587",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Ірпінь",
-      "lat": 50.81938313908469,
-      "lon": 30.573968730809746,
-      "heading": 217,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-29T21:41:15Z",
-      "explanationShort": "БпЛА курсом на Ірпінь. Підтверджень: 1.",
-      "status": "active",
-      "confirmedAt": "2026-09-29T22:10:42Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.53259764591017,
-          "lon": 30.23128418095032,
-          "t": "2026-09-29T21:41:15Z"
-        },
-        {
-          "lat": 50.54345,
-          "lon": 30.21201,
-          "t": "2026-09-29T21:41:15Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790717453.22765,
+  "active_threats": {},
+  "last_threat_update": 1790721177.461628,
   "last_news_check": 1790720200.0794,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

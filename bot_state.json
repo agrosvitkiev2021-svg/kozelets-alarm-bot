@@ -1,92 +1,46 @@
 {
   "active_threats": {
-    "trk_00227587": {
-      "id": "trk_00227587",
+    "trk_00227600": {
+      "id": "trk_00227600",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Ірпінь",
-      "lat": 50.81938924906304,
-      "lon": 30.573957923905855,
-      "heading": 217,
+      "locality": "Бровари",
+      "lat": 50.83405637500026,
+      "lon": 31.03968646124768,
+      "heading": 206,
       "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-29T21:41:15Z",
-      "explanationShort": "БпЛА курсом на Ірпінь. Підтверджень: 1.",
+      "sourceCount": 8,
+      "count": 1,
+      "updatedAt": "2026-09-29T21:53:48Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 8.",
       "status": "active",
-      "confirmedAt": "2026-09-29T21:41:15Z",
+      "confirmedAt": "2026-09-29T21:53:48Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.54345,
-          "lon": 30.21201,
-          "t": "2026-09-29T21:41:15Z"
-        },
-        {
-          "lat": 50.53259764591017,
-          "lon": 30.23128418095032,
-          "t": "2026-09-29T21:41:15Z"
-        }
-      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00227538": {
-      "id": "trk_00227538",
+    "trk_00227613": {
+      "id": "trk_00227613",
       "type": "uav",
       "title": "БпЛА",
       "region": "Чернігівська область",
       "district": "",
-      "locality": "Олишівка",
-      "lat": 51.21862,
-      "lon": 31.33582,
-      "heading": 350,
+      "locality": "Стар.Басань",
+      "lat": 50.98589781355234,
+      "lon": 31.47208959519588,
+      "heading": 196,
       "confidenceLevel": "medium",
       "sourceCount": 1,
-      "updatedAt": "2026-09-29T21:40:09Z",
-      "explanationShort": "БпЛА — Олишівка, Чернігівська область. Підтверджень: 1.",
+      "updatedAt": "2026-09-29T21:52:04Z",
+      "explanationShort": "БпЛА курсом на Стар.Басань. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-09-29T21:40:09Z",
+      "confirmedAt": "2026-09-29T21:52:04Z",
       "uncertaintyKm": 10,
-      "positionQuality": "confirmed",
-      "trail": [
-        {
-          "lat": 51.29556,
-          "lon": 30.73047,
-          "t": "2026-09-29T21:26:46Z"
-        },
-        {
-          "lat": 51.21862,
-          "lon": 31.33582,
-          "t": "2026-09-29T21:40:09Z"
-        }
-      ],
-      "lifecycle": "confirmed",
-      "displayConfidence": "medium",
-      "presumptiveCourse": true
-    },
-    "trk_00227560": {
-      "id": "trk_00227560",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Бориспіль",
-      "lat": 50.68870527135638,
-      "lon": 31.160694294099425,
-      "heading": 201,
-      "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "count": 1,
-      "updatedAt": "2026-09-29T21:45:46Z",
-      "explanationShort": "БпЛА курсом на Бориспіль. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-09-29T21:45:46Z",
-      "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",

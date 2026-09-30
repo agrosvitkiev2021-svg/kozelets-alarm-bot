@@ -1,6 +1,44 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790781851.526728,
+  "active_threats": {
+    "trk_00230603": {
+      "id": "trk_00230603",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Бобровиця",
+      "lat": 50.72935208533023,
+      "lon": 31.352404401582326,
+      "heading": 252.14275829000155,
+      "confidenceLevel": "high",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-30T16:56:05Z",
+      "explanationShort": "БпЛА — Бобровиця, Чернігівська область. Підтверджень: 2.",
+      "status": "active",
+      "velocity": {
+        "bearingDeg": 252.1,
+        "speedKmh": 99.2
+      },
+      "confirmedAt": "2026-09-30T16:56:05Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 50.84436,
+          "lon": 31.91776,
+          "t": "2026-09-30T16:31:29Z"
+        },
+        {
+          "lat": 50.73715633386868,
+          "lon": 31.39076850561229,
+          "t": "2026-09-30T16:52:24Z"
+        }
+      ],
+      "lifecycle": "tracking",
+      "displayConfidence": "high"
+    }
+  },
+  "last_threat_update": 1790787410.815623,
   "last_news_check": 1790786474.887093,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -51,7 +89,7 @@
   ],
   "last_weather_check": 1790784033.1656,
   "last_promo_check": 1790413539.404946,
-  "district_alert_active": false,
+  "district_alert_active": true,
   "district_alert_initialized": true,
   "last_history_check": 1790409240.435544,
   "last_dashboard_check": 1790063919.831967,

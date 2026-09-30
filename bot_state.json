@@ -1,95 +1,33 @@
 {
   "active_threats": {
-    "trk_00228467": {
-      "id": "trk_00228467",
+    "trk_00228733": {
+      "id": "trk_00228733",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Вишгород",
-      "lat": 50.88604301670057,
-      "lon": 30.80036087376846,
-      "heading": 213,
-      "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "updatedAt": "2026-09-30T06:09:38Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T06:09:38Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00228639": {
-      "id": "trk_00228639",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Бобровиця",
-      "lat": 51.084377795237096,
-      "lon": 31.538213605913636,
-      "heading": 195,
+      "locality": "Буча",
+      "lat": 50.81939395715848,
+      "lon": 30.573949596554744,
+      "heading": 217,
       "confidenceLevel": "medium",
       "sourceCount": 1,
-      "updatedAt": "2026-09-30T06:09:23Z",
-      "explanationShort": "БпЛА курсом на Бобровиця. Підтверджень: 1.",
+      "updatedAt": "2026-09-30T06:36:16Z",
+      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-09-30T06:09:23Z",
+      "confirmedAt": "2026-09-30T06:36:16Z",
       "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00228489": {
-      "id": "trk_00228489",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "Шевченківський район",
-      "regionKey": "шевченківський",
-      "locality": "Печерськ",
-      "lat": 50.77902330107511,
-      "lon": 30.789689229424138,
-      "heading": 211,
-      "confidenceLevel": "medium",
-      "sourceCount": 9,
-      "updatedAt": "2026-09-30T06:12:16Z",
-      "explanationShort": "БпЛА курсом на Печерськ. Підтверджень: 9.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T06:12:16Z",
-      "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
         {
-          "lat": 50.41118674186281,
-          "lon": 30.614088685542896,
-          "t": "2026-09-30T05:51:55Z"
+          "lat": 50.52175,
+          "lon": 30.25055,
+          "t": "2026-09-30T06:36:16Z"
         },
         {
-          "lat": 50.43231612036461,
-          "lon": 30.56717923524918,
-          "t": "2026-09-30T05:56:28Z"
-        },
-        {
-          "lat": 50.48454067176529,
-          "lon": 30.501145922681427,
-          "t": "2026-09-30T06:08:37Z"
-        },
-        {
-          "lat": 50.479363614697405,
-          "lon": 30.489597014372467,
-          "t": "2026-09-30T06:09:47Z"
-        },
-        {
-          "lat": 50.47104161234959,
-          "lon": 30.49668000059617,
-          "t": "2026-09-30T06:10:50Z"
+          "lat": 50.532602354089825,
+          "lon": 30.23127581904968,
+          "t": "2026-09-30T06:36:16Z"
         }
       ],
       "lifecycle": "uncertain",
@@ -97,22 +35,23 @@
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00228627": {
-      "id": "trk_00228627",
+    "trk_00228724": {
+      "id": "trk_00228724",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Димер",
-      "lat": 51.05736072931494,
-      "lon": 30.678077444929382,
-      "heading": 221,
+      "locality": "Київ",
+      "lat": 50.761289488779006,
+      "lon": 30.80774606165047,
+      "heading": 210,
       "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-30T06:06:35Z",
-      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 2.",
+      "sourceCount": 6,
+      "count": 1,
+      "updatedAt": "2026-09-30T06:37:16Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 6.",
       "status": "active",
-      "confirmedAt": "2026-09-30T06:06:35Z",
+      "confirmedAt": "2026-09-30T06:37:16Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -122,7 +61,7 @@
     }
   },
   "last_threat_update": 1790745809.543969,
-  "last_news_check": 1790747708.064078,
+  "last_news_check": 1790750317.790193,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -155,7 +94,8 @@
     "1cd610d2b27186d442690a2fce75a25e",
     "294fc92fa107b3ea126a6aba912ba3b9",
     "baa1061dbf800b20e38c840569d15cdb",
-    "c28ed70afa1a5c6b0445ce7238d1a562"
+    "c28ed70afa1a5c6b0445ce7238d1a562",
+    "fd984ce894488b8fe0e2f4719592a74d"
   ],
   "last_weather_check": 1790739728.625079,
   "last_promo_check": 1790413539.404946,

@@ -1,28 +1,5 @@
 {
   "active_threats": {
-    "trk_00228472": {
-      "id": "trk_00228472",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Русанів",
-      "lat": 50.839800292682746,
-      "lon": 31.343460595736932,
-      "heading": 198,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-30T05:21:23Z",
-      "explanationShort": "БпЛА курсом на Русанів. Підтверджень: 2.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T05:21:23Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
     "trk_00228467": {
       "id": "trk_00228467",
       "type": "uav",
@@ -34,37 +11,74 @@
       "lon": 30.80036087376846,
       "heading": 213,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-09-30T05:18:33Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 4.",
+      "sourceCount": 3,
+      "updatedAt": "2026-09-30T05:37:00Z",
+      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-09-30T05:18:33Z",
-      "uncertaintyKm": 10,
+      "confirmedAt": "2026-09-30T05:37:00Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00228445": {
-      "id": "trk_00228445",
+    "trk_00228489": {
+      "id": "trk_00228489",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Чернігівська область",
+      "region": "Київ",
       "district": "",
-      "locality": "Бобровиця",
-      "lat": 51.084377795237096,
-      "lon": 31.538213605913636,
-      "heading": 195,
+      "locality": "Теличка",
+      "lat": 50.72245262983534,
+      "lon": 30.853034440481945,
+      "heading": 209,
       "confidenceLevel": "medium",
       "sourceCount": 7,
-      "count": 2,
-      "updatedAt": "2026-09-30T05:21:23Z",
-      "explanationShort": "БпЛА курсом на Бобровиця. Підтверджень: 7.",
+      "count": 1,
+      "updatedAt": "2026-09-30T05:39:09Z",
+      "explanationShort": "БпЛА курсом на Теличка. Підтверджень: 7.",
       "status": "active",
-      "confirmedAt": "2026-09-30T05:21:23Z",
-      "uncertaintyKm": 10,
+      "confirmedAt": "2026-09-30T05:39:09Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.39304896995061,
+          "lon": 30.5824578574925,
+          "t": "2026-09-30T05:28:53Z"
+        },
+        {
+          "lat": 50.39546095790834,
+          "lon": 30.568440370948895,
+          "t": "2026-09-30T05:29:19Z"
+        },
+        {
+          "lat": 50.396857185275415,
+          "lon": 30.559703598928643,
+          "t": "2026-09-30T05:29:51Z"
+        },
+        {
+          "lat": 50.397808492312414,
+          "lon": 30.554947375493047,
+          "t": "2026-09-30T05:29:59Z"
+        },
+        {
+          "lat": 50.39847131701469,
+          "lon": 30.550341153698557,
+          "t": "2026-09-30T05:30:28Z"
+        },
+        {
+          "lat": 50.40742641574195,
+          "lon": 30.565974394603856,
+          "t": "2026-09-30T05:34:59Z"
+        },
+        {
+          "lat": 50.40804500574989,
+          "lon": 30.577969194017832,
+          "t": "2026-09-30T05:36:18Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,

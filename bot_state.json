@@ -1,92 +1,29 @@
 {
   "active_threats": {
-    "trk_00228467": {
-      "id": "trk_00228467",
+    "trk_00228581": {
+      "id": "trk_00228581",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Чернігівська область",
       "district": "",
-      "locality": "Вишгород",
-      "lat": 50.88604301670057,
-      "lon": 30.80036087376846,
-      "heading": 213,
+      "locality": "Соколівка",
+      "lat": 51.15891,
+      "lon": 30.91242,
+      "heading": 33,
       "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-09-30T05:37:00Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 3.",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-30T05:52:31Z",
+      "explanationShort": "БпЛА — Соколівка, Чернігівська область. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-09-30T05:37:00Z",
-      "uncertaintyKm": 4,
+      "uncertaintyKm": 25,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00228489": {
-      "id": "trk_00228489",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Теличка",
-      "lat": 50.72245262983534,
-      "lon": 30.853034440481945,
-      "heading": 209,
-      "confidenceLevel": "medium",
-      "sourceCount": 7,
-      "count": 1,
-      "updatedAt": "2026-09-30T05:39:09Z",
-      "explanationShort": "БпЛА курсом на Теличка. Підтверджень: 7.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T05:39:09Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.39304896995061,
-          "lon": 30.5824578574925,
-          "t": "2026-09-30T05:28:53Z"
-        },
-        {
-          "lat": 50.39546095790834,
-          "lon": 30.568440370948895,
-          "t": "2026-09-30T05:29:19Z"
-        },
-        {
-          "lat": 50.396857185275415,
-          "lon": 30.559703598928643,
-          "t": "2026-09-30T05:29:51Z"
-        },
-        {
-          "lat": 50.397808492312414,
-          "lon": 30.554947375493047,
-          "t": "2026-09-30T05:29:59Z"
-        },
-        {
-          "lat": 50.39847131701469,
-          "lon": 30.550341153698557,
-          "t": "2026-09-30T05:30:28Z"
-        },
-        {
-          "lat": 50.40742641574195,
-          "lon": 30.565974394603856,
-          "t": "2026-09-30T05:34:59Z"
-        },
-        {
-          "lat": 50.40804500574989,
-          "lon": 30.577969194017832,
-          "t": "2026-09-30T05:36:18Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
       "presumptiveCourse": true
     }
   },
   "last_threat_update": 1790745809.543969,
-  "last_news_check": 1790745807.306023,
+  "last_news_check": 1790747708.064078,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -118,7 +55,8 @@
     "2bdfaadf5b4de571816b235026e5f997",
     "1cd610d2b27186d442690a2fce75a25e",
     "294fc92fa107b3ea126a6aba912ba3b9",
-    "baa1061dbf800b20e38c840569d15cdb"
+    "baa1061dbf800b20e38c840569d15cdb",
+    "c28ed70afa1a5c6b0445ce7238d1a562"
   ],
   "last_weather_check": 1790739728.625079,
   "last_promo_check": 1790413539.404946,

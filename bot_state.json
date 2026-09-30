@@ -1,128 +1,7 @@
 {
-  "active_threats": {
-    "trk_00229732": {
-      "id": "trk_00229732",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Ірпінь",
-      "lat": 50.821942043994966,
-      "lon": 30.580364329581105,
-      "heading": 217,
-      "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-09-30T12:14:28Z",
-      "explanationShort": "БпЛА курсом на Ірпінь. Підтверджень: 4.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T12:14:28Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.553190484894614,
-          "lon": 30.23272804259034,
-          "t": "2026-09-30T11:45:29Z"
-        },
-        {
-          "lat": 50.542590158663955,
-          "lon": 30.210181114722328,
-          "t": "2026-09-30T11:52:09Z"
-        },
-        {
-          "lat": 50.52082775625988,
-          "lon": 30.244702507566725,
-          "t": "2026-09-30T12:12:41Z"
-        },
-        {
-          "lat": 50.5318710105599,
-          "lon": 30.228735817138332,
-          "t": "2026-09-30T12:12:41Z"
-        },
-        {
-          "lat": 50.52853745766316,
-          "lon": 30.235904951075483,
-          "t": "2026-09-30T12:13:17Z"
-        },
-        {
-          "lat": 50.53215542656555,
-          "lon": 30.229992437370974,
-          "t": "2026-09-30T12:13:27Z"
-        },
-        {
-          "lat": 50.53006220046537,
-          "lon": 30.234112099685017,
-          "t": "2026-09-30T12:13:27Z"
-        },
-        {
-          "lat": 50.532220666211764,
-          "lon": 30.230433306682,
-          "t": "2026-09-30T12:13:36Z"
-        },
-        {
-          "lat": 50.53744323067014,
-          "lon": 30.23544906232827,
-          "t": "2026-09-30T12:13:36Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00229644": {
-      "id": "trk_00229644",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Димер",
-      "lat": 51.07093352913658,
-      "lon": 30.692290420633697,
-      "heading": 222,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-30T12:10:21Z",
-      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 1.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T12:10:21Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.54345,
-          "lon": 30.21201,
-          "t": "2026-09-30T11:17:55Z"
-        },
-        {
-          "lat": 50.78608809231394,
-          "lon": 30.302457637160398,
-          "t": "2026-09-30T11:38:26Z"
-        },
-        {
-          "lat": 50.81307724538986,
-          "lon": 30.312518320960695,
-          "t": "2026-09-30T11:45:04Z"
-        },
-        {
-          "lat": 50.822591455717436,
-          "lon": 30.31606491100915,
-          "t": "2026-09-30T12:04:59Z"
-        },
-        {
-          "lat": 50.80422744595138,
-          "lon": 30.309219401813582,
-          "t": "2026-09-30T12:10:21Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790767391.022366,
-  "last_news_check": 1790769327.707642,
+  "active_threats": {},
+  "last_threat_update": 1790772247.681225,
+  "last_news_check": 1790772246.716278,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -162,7 +41,8 @@
     "cb6b1c7dbd018d213de41fa21a6379b4",
     "74e9e459c6dc1227d3f17059f8bbd3d6",
     "910b72af972a27607c5b9814e7f0c899",
-    "168beaa754a0cf09fe12334c8d29a6ed"
+    "168beaa754a0cf09fe12334c8d29a6ed",
+    "bd5ee8b1af368d02db59982a8a066fe2"
   ],
   "last_weather_check": 1790769327.707642,
   "last_promo_check": 1790413539.404946,

@@ -1,98 +1,88 @@
 {
   "active_threats": {
-    "trk_00229711": {
-      "id": "trk_00229711",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Клов",
-      "lat": 50.73673594737973,
-      "lon": 30.81587820835048,
-      "heading": 210,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-09-30T11:37:24Z",
-      "explanationShort": "БпЛА курсом на Клов. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T11:37:24Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.40206,
-          "lon": 30.51564,
-          "t": "2026-09-30T11:36:21Z"
-        },
-        {
-          "lat": 50.42554615638995,
-          "lon": 30.531681245061712,
-          "t": "2026-09-30T11:37:24Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00229626": {
-      "id": "trk_00229626",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Лук'янівка",
-      "lat": 50.773423017183475,
-      "lon": 30.769358230738785,
-      "heading": 211,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "count": 1,
-      "updatedAt": "2026-09-30T11:34:21Z",
-      "explanationShort": "БпЛА курсом на Лук'янівка. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T11:33:54Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.46936,
-          "lon": 30.51627,
-          "t": "2026-09-30T11:13:39Z"
-        },
-        {
-          "lat": 50.4492679847604,
-          "lon": 30.52207614949409,
-          "t": "2026-09-30T11:15:16Z"
-        },
-        {
-          "lat": 50.465441255234516,
-          "lon": 30.47638408614002,
-          "t": "2026-09-30T11:33:28Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00229423": {
-      "id": "trk_00229423",
+    "trk_00229410": {
+      "id": "trk_00229410",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Козин",
-      "lat": 50.545090568593636,
-      "lon": 30.893175765675778,
-      "heading": 205,
+      "locality": "Бориспіль",
+      "lat": 50.68865906776992,
+      "lon": 31.158484948866786,
+      "heading": 201,
       "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "count": 2,
-      "updatedAt": "2026-09-30T11:39:17Z",
-      "explanationShort": "БпЛА курсом на Козин. Підтверджень: 2.",
+      "sourceCount": 6,
+      "count": 1,
+      "updatedAt": "2026-09-30T11:52:33Z",
+      "explanationShort": "БпЛА курсом на Бориспіль. Підтверджень: 6.",
       "status": "active",
-      "uncertaintyKm": 25,
+      "confirmedAt": "2026-09-30T11:52:33Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00229732": {
+      "id": "trk_00229732",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Буча",
+      "lat": 50.82938158306406,
+      "lon": 30.552928205562488,
+      "heading": 217,
+      "confidenceLevel": "medium",
+      "sourceCount": 10,
+      "count": 1,
+      "updatedAt": "2026-09-30T11:52:33Z",
+      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 10.",
+      "status": "active",
+      "confirmedAt": "2026-09-30T11:52:33Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.56841,
+          "lon": 30.2651,
+          "t": "2026-09-30T11:43:23Z"
+        },
+        {
+          "lat": 50.553190484894614,
+          "lon": 30.23272804259034,
+          "t": "2026-09-30T11:45:29Z"
+        },
+        {
+          "lat": 50.542590158663955,
+          "lon": 30.210181114722328,
+          "t": "2026-09-30T11:52:09Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00229733": {
+      "id": "trk_00229733",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Бровари",
+      "lat": 50.83405637500026,
+      "lon": 31.03968646124768,
+      "heading": 206,
+      "confidenceLevel": "medium",
+      "sourceCount": 11,
+      "count": 2,
+      "updatedAt": "2026-09-30T11:52:33Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 11.",
+      "status": "active",
+      "confirmedAt": "2026-09-30T11:52:33Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
@@ -101,7 +91,7 @@
     }
   },
   "last_threat_update": 1790767391.022366,
-  "last_news_check": 1790767388.27385,
+  "last_news_check": 1790769327.707642,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -143,7 +133,7 @@
     "910b72af972a27607c5b9814e7f0c899",
     "168beaa754a0cf09fe12334c8d29a6ed"
   ],
-  "last_weather_check": 1790754798.215916,
+  "last_weather_check": 1790769327.707642,
   "last_promo_check": 1790413539.404946,
   "district_alert_active": true,
   "district_alert_initialized": true,

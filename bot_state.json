@@ -1,7 +1,145 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790766347.016255,
-  "last_news_check": 1790765542.867573,
+  "active_threats": {
+    "trk_00229522": {
+      "id": "trk_00229522",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Київ",
+      "lat": 50.75564999550142,
+      "lon": 30.801232687277466,
+      "heading": 210,
+      "confidenceLevel": "medium",
+      "sourceCount": 9,
+      "count": 1,
+      "updatedAt": "2026-09-30T11:18:18Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 9.",
+      "status": "active",
+      "confirmedAt": "2026-09-30T11:18:18Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.4,
+          "lon": 30.56667,
+          "t": "2026-09-30T10:43:00Z"
+        },
+        {
+          "lat": 50.40134783514782,
+          "lon": 30.596254721294763,
+          "t": "2026-09-30T10:43:14Z"
+        },
+        {
+          "lat": 50.40022908142195,
+          "lon": 30.571698292987648,
+          "t": "2026-09-30T10:45:34Z"
+        },
+        {
+          "lat": 50.419396610152454,
+          "lon": 30.519208496010958,
+          "t": "2026-09-30T11:11:34Z"
+        },
+        {
+          "lat": 50.435175734797554,
+          "lon": 30.520753362830458,
+          "t": "2026-09-30T11:12:05Z"
+        },
+        {
+          "lat": 50.44446043728215,
+          "lon": 30.51692088921404,
+          "t": "2026-09-30T11:17:55Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00229410": {
+      "id": "trk_00229410",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Бориспіль",
+      "lat": 50.68865906776992,
+      "lon": 31.158484948866786,
+      "heading": 201,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-30T11:18:18Z",
+      "explanationShort": "БпЛА курсом на Бориспіль. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-09-30T11:18:18Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00229626": {
+      "id": "trk_00229626",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Печерськ",
+      "lat": 50.7604574837851,
+      "lon": 30.806417155480922,
+      "heading": 210,
+      "confidenceLevel": "medium",
+      "sourceCount": 4,
+      "updatedAt": "2026-09-30T11:15:27Z",
+      "explanationShort": "БпЛА курсом на Печерськ. Підтверджень: 4.",
+      "status": "active",
+      "confirmedAt": "2026-09-30T11:15:27Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.46936,
+          "lon": 30.51627,
+          "t": "2026-09-30T11:13:39Z"
+        },
+        {
+          "lat": 50.4492679847604,
+          "lon": 30.52207614949409,
+          "t": "2026-09-30T11:15:16Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00229637": {
+      "id": "trk_00229637",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Вишгород",
+      "lat": 50.88604301670057,
+      "lon": 30.80036087376846,
+      "heading": 213,
+      "confidenceLevel": "medium",
+      "sourceCount": 7,
+      "updatedAt": "2026-09-30T11:18:18Z",
+      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 7.",
+      "status": "active",
+      "confirmedAt": "2026-09-30T11:18:18Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790767391.022366,
+  "last_news_check": 1790767388.27385,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -40,7 +178,8 @@
     "cf1d16dd60d4ab1a65481f3a81a4efa3",
     "cb6b1c7dbd018d213de41fa21a6379b4",
     "74e9e459c6dc1227d3f17059f8bbd3d6",
-    "910b72af972a27607c5b9814e7f0c899"
+    "910b72af972a27607c5b9814e7f0c899",
+    "168beaa754a0cf09fe12334c8d29a6ed"
   ],
   "last_weather_check": 1790754798.215916,
   "last_promo_check": 1790413539.404946,

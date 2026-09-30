@@ -1,6 +1,30 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790735793.675955,
+  "active_threats": {
+    "trk_00228075": {
+      "id": "trk_00228075",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Київ",
+      "lat": 50.78044363559988,
+      "lon": 30.787316412197306,
+      "heading": 211,
+      "confidenceLevel": "medium",
+      "sourceCount": 4,
+      "updatedAt": "2026-09-30T02:59:10Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 4.",
+      "status": "active",
+      "confirmedAt": "2026-09-30T02:59:10Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790737445.737665,
   "last_news_check": 1790736709.607334,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -37,7 +61,7 @@
   ],
   "last_weather_check": 1790724583.878625,
   "last_promo_check": 1790413539.404946,
-  "district_alert_active": false,
+  "district_alert_active": true,
   "district_alert_initialized": true,
   "last_history_check": 1790409240.435544,
   "last_dashboard_check": 1790063919.831967,

@@ -1,40 +1,5 @@
 {
   "active_threats": {
-    "trk_00228733": {
-      "id": "trk_00228733",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Буча",
-      "lat": 50.81939395715848,
-      "lon": 30.573949596554744,
-      "heading": 217,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-30T06:36:16Z",
-      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 1.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T06:36:16Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.52175,
-          "lon": 30.25055,
-          "t": "2026-09-30T06:36:16Z"
-        },
-        {
-          "lat": 50.532602354089825,
-          "lon": 30.23127581904968,
-          "t": "2026-09-30T06:36:16Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
     "trk_00228724": {
       "id": "trk_00228724",
       "type": "uav",
@@ -46,12 +11,12 @@
       "lon": 30.80774606165047,
       "heading": 210,
       "confidenceLevel": "medium",
-      "sourceCount": 6,
+      "sourceCount": 11,
       "count": 1,
-      "updatedAt": "2026-09-30T06:37:16Z",
-      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 6.",
+      "updatedAt": "2026-09-30T06:56:27Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 11.",
       "status": "active",
-      "confirmedAt": "2026-09-30T06:37:16Z",
+      "confirmedAt": "2026-09-30T06:56:27Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -60,7 +25,7 @@
       "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1790745809.543969,
+  "last_threat_update": 1790751452.354573,
   "last_news_check": 1790750317.790193,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

@@ -1,29 +1,6 @@
 {
-  "active_threats": {
-    "trk_00231101": {
-      "id": "trk_00231101",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Сувид",
-      "lat": 50.85743,
-      "lon": 30.75859,
-      "heading": 175,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-09-30T20:18:13Z",
-      "explanationShort": "БпЛА — Сувид, Київська область. Підтверджень: 1.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T20:18:13Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "confirmed",
-      "lifecycle": "confirmed",
-      "displayConfidence": "medium",
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790798500.098865,
+  "active_threats": {},
+  "last_threat_update": 1790800680.618069,
   "last_news_check": 1790799718.536415,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

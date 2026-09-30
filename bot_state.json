@@ -1,6 +1,42 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790774717.892531,
+  "active_threats": {
+    "trk_00230055": {
+      "id": "trk_00230055",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Мінський масив",
+      "lat": 50.819360174506684,
+      "lon": 30.772528309933932,
+      "heading": 213,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-30T13:34:21Z",
+      "explanationShort": "БпЛА курсом на Мінський масив. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-09-30T13:34:21Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.44487,
+          "lon": 30.49328,
+          "t": "2026-09-30T13:07:44Z"
+        },
+        {
+          "lat": 50.518076179630974,
+          "lon": 30.46241112785757,
+          "t": "2026-09-30T13:33:27Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790775741.581836,
   "last_news_check": 1790774717.480775,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

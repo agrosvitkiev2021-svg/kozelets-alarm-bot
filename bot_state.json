@@ -1,66 +1,7 @@
 {
-  "active_threats": {
-    "trk_00230265": {
-      "id": "trk_00230265",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Ворзел",
-      "lat": 50.82734611142942,
-      "lon": 30.50366776334965,
-      "heading": 218,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-09-30T14:16:34Z",
-      "explanationShort": "БпЛА курсом на Ворзел. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T14:16:34Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00230266": {
-      "id": "trk_00230266",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Теремки",
-      "lat": 50.681720466984416,
-      "lon": 30.742673644640096,
-      "heading": 210,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-30T14:18:38Z",
-      "explanationShort": "БпЛА курсом на Теремки. Підтверджень: 2.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T14:18:38Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.35165,
-          "lon": 30.4765,
-          "t": "2026-09-30T14:16:07Z"
-        },
-        {
-          "lat": 50.37053,
-          "lon": 30.45881,
-          "t": "2026-09-30T14:16:18Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790778110.395572,
-  "last_news_check": 1790776714.066174,
+  "active_threats": {},
+  "last_threat_update": 1790779279.225148,
+  "last_news_check": 1790779277.98422,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

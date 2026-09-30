@@ -1,35 +1,84 @@
 {
   "active_threats": {
-    "trk_00230453": {
-      "id": "trk_00230453",
+    "trk_00230534": {
+      "id": "trk_00230534",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Київ",
       "district": "",
-      "locality": "Київ",
-      "lat": 50.76179369440273,
-      "lon": 30.799972915730198,
-      "heading": 211,
+      "locality": "Теличка",
+      "lat": 50.71869436095623,
+      "lon": 30.86468075733086,
+      "heading": 208,
       "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "updatedAt": "2026-09-30T17:10:43Z",
-      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 5.",
+      "sourceCount": 1,
+      "updatedAt": "2026-09-30T17:29:45Z",
+      "explanationShort": "БпЛА курсом на Теличка. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-09-30T17:10:43Z",
+      "confirmedAt": "2026-09-30T17:29:45Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
         {
-          "lat": 50.44991520846935,
-          "lon": 30.524710900806536,
-          "t": "2026-09-30T16:44:24Z"
+          "lat": 50.417754275949235,
+          "lon": 30.41298236899837,
+          "t": "2026-09-30T16:16:23Z"
         },
         {
-          "lat": 50.4545511600052,
-          "lon": 30.50396639927673,
-          "t": "2026-09-30T16:58:26Z"
+          "lat": 50.40022767279773,
+          "lon": 30.418644747126265,
+          "t": "2026-09-30T16:18:40Z"
+        },
+        {
+          "lat": 50.38130781381741,
+          "lon": 30.537819839284204,
+          "t": "2026-09-30T16:42:43Z"
+        },
+        {
+          "lat": 50.412015291826805,
+          "lon": 30.533671685363593,
+          "t": "2026-09-30T16:43:49Z"
+        },
+        {
+          "lat": 50.40749341819398,
+          "lon": 30.580587688744696,
+          "t": "2026-09-30T17:03:10Z"
+        },
+        {
+          "lat": 50.40271587228498,
+          "lon": 30.626397941182407,
+          "t": "2026-09-30T17:29:09Z"
+        },
+        {
+          "lat": 50.401376193881866,
+          "lon": 30.597938843199532,
+          "t": "2026-09-30T17:29:45Z"
         }
       ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00230678": {
+      "id": "trk_00230678",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Димер",
+      "lat": 51.05736072931494,
+      "lon": 30.678077444929382,
+      "heading": 221,
+      "confidenceLevel": "medium",
+      "sourceCount": 9,
+      "count": 1,
+      "updatedAt": "2026-09-30T17:29:13Z",
+      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 9.",
+      "status": "active",
+      "confirmedAt": "2026-09-30T17:29:13Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -46,12 +95,11 @@
       "lon": 30.80036087376846,
       "heading": 213,
       "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "count": 1,
-      "updatedAt": "2026-09-30T17:06:34Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 3.",
+      "sourceCount": 4,
+      "updatedAt": "2026-09-30T17:24:36Z",
+      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 4.",
       "status": "active",
-      "confirmedAt": "2026-09-30T17:06:34Z",
+      "confirmedAt": "2026-09-30T17:24:36Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",

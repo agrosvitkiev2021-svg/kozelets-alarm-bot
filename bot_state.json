@@ -1,7 +1,31 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790752670.057463,
-  "last_news_check": 1790752669.655104,
+  "active_threats": {
+    "trk_00228961": {
+      "id": "trk_00228961",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Київ",
+      "lat": 50.761289488779006,
+      "lon": 30.80774606165047,
+      "heading": 210,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "updatedAt": "2026-09-30T07:52:32Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-09-30T07:52:32Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790754799.782892,
+  "last_news_check": 1790754798.215916,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -36,9 +60,10 @@
     "baa1061dbf800b20e38c840569d15cdb",
     "c28ed70afa1a5c6b0445ce7238d1a562",
     "fd984ce894488b8fe0e2f4719592a74d",
-    "5833e61ffca1df1d9eb6e01eb2312eac"
+    "5833e61ffca1df1d9eb6e01eb2312eac",
+    "cf1d16dd60d4ab1a65481f3a81a4efa3"
   ],
-  "last_weather_check": 1790739728.625079,
+  "last_weather_check": 1790754798.215916,
   "last_promo_check": 1790413539.404946,
   "district_alert_active": true,
   "district_alert_initialized": true,

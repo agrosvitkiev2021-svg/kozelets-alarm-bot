@@ -1,22 +1,21 @@
 {
   "active_threats": {
-    "trk_00229410": {
-      "id": "trk_00229410",
+    "trk_00229423": {
+      "id": "trk_00229423",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Бориспіль",
-      "lat": 50.68865906776992,
-      "lon": 31.158484948866786,
-      "heading": 201,
+      "locality": "Козин",
+      "lat": 50.545090568593636,
+      "lon": 30.893175765675778,
+      "heading": 205,
       "confidenceLevel": "medium",
       "sourceCount": 2,
-      "updatedAt": "2026-09-30T10:32:07Z",
-      "explanationShort": "БпЛА курсом на Бориспіль. Підтверджень: 2.",
+      "updatedAt": "2026-09-30T10:45:49Z",
+      "explanationShort": "БпЛА курсом на Козин. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-09-30T10:32:07Z",
-      "uncertaintyKm": 4,
+      "uncertaintyKm": 25,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
@@ -25,7 +24,7 @@
     }
   },
   "last_threat_update": 1790764492.225658,
-  "last_news_check": 1790763308.286257,
+  "last_news_check": 1790765542.867573,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -62,7 +61,9 @@
     "fd984ce894488b8fe0e2f4719592a74d",
     "5833e61ffca1df1d9eb6e01eb2312eac",
     "cf1d16dd60d4ab1a65481f3a81a4efa3",
-    "cb6b1c7dbd018d213de41fa21a6379b4"
+    "cb6b1c7dbd018d213de41fa21a6379b4",
+    "74e9e459c6dc1227d3f17059f8bbd3d6",
+    "910b72af972a27607c5b9814e7f0c899"
   ],
   "last_weather_check": 1790754798.215916,
   "last_promo_check": 1790413539.404946,

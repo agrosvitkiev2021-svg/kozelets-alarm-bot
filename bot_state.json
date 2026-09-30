@@ -1,36 +1,113 @@
 {
   "active_threats": {
-    "trk_00229134": {
-      "id": "trk_00229134",
+    "trk_00229156": {
+      "id": "trk_00229156",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Десна",
+      "lat": 51.05766510143705,
+      "lon": 30.863360631622392,
+      "heading": 199.52161973116472,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-30T09:14:26Z",
+      "explanationShort": "БпЛА курсом на Десна. Підтверджень: 2.",
+      "status": "active",
+      "velocity": {
+        "bearingDeg": 199.5,
+        "speedKmh": 105.1
+      },
+      "confirmedAt": "2026-09-30T09:14:26Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 51.19591,
+          "lon": 30.94189,
+          "t": "2026-09-30T08:50:59Z"
+        },
+        {
+          "lat": 50.908874400225834,
+          "lon": 30.77949470686251,
+          "t": "2026-09-30T09:05:27Z"
+        },
+        {
+          "lat": 50.87139722262045,
+          "lon": 30.758291353522438,
+          "t": "2026-09-30T09:14:26Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true
+    },
+    "trk_00229251": {
+      "id": "trk_00229251",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Буча",
-      "lat": 50.830300499351694,
-      "lon": 30.551096439657435,
-      "heading": 217,
+      "locality": "Лебедівка",
+      "lat": 51.00319488690064,
+      "lon": 30.873306805361533,
+      "heading": 215,
       "confidenceLevel": "medium",
-      "sourceCount": 7,
-      "count": 1,
-      "updatedAt": "2026-09-30T08:58:59Z",
-      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 7.",
+      "sourceCount": 2,
+      "updatedAt": "2026-09-30T09:17:03Z",
+      "explanationShort": "БпЛА курсом на Лебедівка. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-09-30T08:58:59Z",
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00229232": {
+      "id": "trk_00229232",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Ворзел",
+      "lat": 50.82734611142942,
+      "lon": 30.50366776334965,
+      "heading": 218,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "count": 1,
+      "updatedAt": "2026-09-30T09:14:52Z",
+      "explanationShort": "БпЛА курсом на Ворзел. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-09-30T09:14:52Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.5444,
-          "lon": 30.15305,
-          "t": "2026-09-30T08:43:11Z"
-        },
-        {
-          "lat": 50.54350909139391,
-          "lon": 30.208342601489722,
-          "t": "2026-09-30T08:58:38Z"
-        }
-      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00229237": {
+      "id": "trk_00229237",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Козелець",
+      "lat": 51.23305255359842,
+      "lon": 31.38084554848053,
+      "heading": 206,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "count": 1,
+      "updatedAt": "2026-09-30T09:17:31Z",
+      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-09-30T09:17:31Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,

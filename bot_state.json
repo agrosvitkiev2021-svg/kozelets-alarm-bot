@@ -1,121 +1,45 @@
 {
   "active_threats": {
-    "trk_00229156": {
-      "id": "trk_00229156",
+    "trk_00229066": {
+      "id": "trk_00229066",
       "type": "uav",
       "title": "БпЛА",
       "region": "Чернігівська область",
       "district": "",
-      "locality": "Десна",
-      "lat": 51.05766510143705,
-      "lon": 30.863360631622392,
-      "heading": 199.52161973116472,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-30T09:14:26Z",
-      "explanationShort": "БпЛА курсом на Десна. Підтверджень: 2.",
+      "locality": "Кіпті",
+      "lat": 51.094050553694046,
+      "lon": 31.1688071787562,
+      "heading": 235.09877561079918,
+      "confidenceLevel": "high",
+      "sourceCount": 4,
+      "updatedAt": "2026-09-30T09:39:31Z",
+      "explanationShort": "БпЛА — Кіпті, Чернігівська область. Підтверджень: 4.",
       "status": "active",
       "velocity": {
-        "bearingDeg": 199.5,
-        "speedKmh": 105.1
+        "bearingDeg": 235.1,
+        "speedKmh": 95.5
       },
-      "confirmedAt": "2026-09-30T09:14:26Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
+      "confirmedAt": "2026-09-30T09:39:31Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
       "trail": [
         {
-          "lat": 51.19591,
-          "lon": 30.94189,
-          "t": "2026-09-30T08:50:59Z"
+          "lat": 51.31283,
+          "lon": 31.78625,
+          "t": "2026-09-30T08:40:27Z"
         },
         {
-          "lat": 50.908874400225834,
-          "lon": 30.77949470686251,
-          "t": "2026-09-30T09:05:27Z"
-        },
-        {
-          "lat": 50.87139722262045,
-          "lon": 30.758291353522438,
-          "t": "2026-09-30T09:14:26Z"
+          "lat": 51.233014518879095,
+          "lon": 31.40464202673508,
+          "t": "2026-09-30T09:27:53Z"
         }
       ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true
-    },
-    "trk_00229251": {
-      "id": "trk_00229251",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Лебедівка",
-      "lat": 51.00319488690064,
-      "lon": 30.873306805361533,
-      "heading": 215,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-09-30T09:17:03Z",
-      "explanationShort": "БпЛА курсом на Лебедівка. Підтверджень: 2.",
-      "status": "active",
-      "uncertaintyKm": 25,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00229232": {
-      "id": "trk_00229232",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Ворзел",
-      "lat": 50.82734611142942,
-      "lon": 30.50366776334965,
-      "heading": 218,
-      "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "count": 1,
-      "updatedAt": "2026-09-30T09:14:52Z",
-      "explanationShort": "БпЛА курсом на Ворзел. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T09:14:52Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00229237": {
-      "id": "trk_00229237",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Козелець",
-      "lat": 51.23305255359842,
-      "lon": 31.38084554848053,
-      "heading": 206,
-      "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "count": 1,
-      "updatedAt": "2026-09-30T09:17:31Z",
-      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-09-30T09:17:31Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
+      "lifecycle": "tracking",
+      "displayConfidence": "high"
     }
   },
   "last_threat_update": 1790758920.936748,
-  "last_news_check": 1790758919.56983,
+  "last_news_check": 1790761216.543894,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -151,7 +75,8 @@
     "c28ed70afa1a5c6b0445ce7238d1a562",
     "fd984ce894488b8fe0e2f4719592a74d",
     "5833e61ffca1df1d9eb6e01eb2312eac",
-    "cf1d16dd60d4ab1a65481f3a81a4efa3"
+    "cf1d16dd60d4ab1a65481f3a81a4efa3",
+    "cb6b1c7dbd018d213de41fa21a6379b4"
   ],
   "last_weather_check": 1790754798.215916,
   "last_promo_check": 1790413539.404946,

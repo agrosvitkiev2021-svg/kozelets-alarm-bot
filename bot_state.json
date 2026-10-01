@@ -1,74 +1,6 @@
 {
-  "active_threats": {
-    "trk_00233206": {
-      "id": "trk_00233206",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Бровари",
-      "lat": 50.83405637500026,
-      "lon": 31.03968646124768,
-      "heading": 206,
-      "confidenceLevel": "medium",
-      "sourceCount": 9,
-      "count": 1,
-      "updatedAt": "2026-10-01T20:16:49Z",
-      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 9.",
-      "status": "active",
-      "confirmedAt": "2026-10-01T20:16:49Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00233220": {
-      "id": "trk_00233220",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Позняки",
-      "lat": 50.57378798842666,
-      "lon": 30.81217722201538,
-      "heading": 213.3111367612808,
-      "confidenceLevel": "medium",
-      "sourceCount": 7,
-      "updatedAt": "2026-10-01T20:18:34Z",
-      "explanationShort": "БпЛА курсом на Позняки. Підтверджень: 7.",
-      "status": "active",
-      "velocity": {
-        "bearingDeg": 213.3,
-        "speedKmh": 173.4
-      },
-      "confirmedAt": "2026-10-01T20:18:34Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.44953,
-          "lon": 30.67608,
-          "t": "2026-10-01T20:15:51Z"
-        },
-        {
-          "lat": 50.423322930240566,
-          "lon": 30.665852539402042,
-          "t": "2026-10-01T20:16:58Z"
-        },
-        {
-          "lat": 50.40862976109774,
-          "lon": 30.64127912954491,
-          "t": "2026-10-01T20:17:31Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true
-    }
-  },
-  "last_threat_update": 1790884851.362901,
+  "active_threats": {},
+  "last_threat_update": 1790887126.168134,
   "last_news_check": 1790886026.289891,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -122,7 +54,7 @@
   ],
   "last_weather_check": 1790873259.842413,
   "last_promo_check": 1790413539.404946,
-  "district_alert_active": true,
+  "district_alert_active": false,
   "district_alert_initialized": true,
   "last_history_check": 1790409240.435544,
   "last_dashboard_check": 1790063919.831967,

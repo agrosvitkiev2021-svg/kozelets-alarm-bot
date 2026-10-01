@@ -1,6 +1,29 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790833493.606247,
+  "active_threats": {
+    "trk_00231661": {
+      "id": "trk_00231661",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Мрин",
+      "lat": 51.05269,
+      "lon": 31.54802,
+      "heading": 91,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-01T07:23:56Z",
+      "explanationShort": "БпЛА — Мрин, Чернігівська область. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-10-01T07:23:56Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "medium",
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790839633.967357,
   "last_news_check": 1790838306.061244,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -53,7 +76,7 @@
   ],
   "last_weather_check": 1790829367.41222,
   "last_promo_check": 1790413539.404946,
-  "district_alert_active": false,
+  "district_alert_active": true,
   "district_alert_initialized": true,
   "last_history_check": 1790409240.435544,
   "last_dashboard_check": 1790063919.831967,

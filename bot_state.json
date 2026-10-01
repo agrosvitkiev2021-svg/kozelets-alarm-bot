@@ -1,30 +1,6 @@
 {
-  "active_threats": {
-    "trk_00231290": {
-      "id": "trk_00231290",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Вишгород",
-      "lat": 50.88604301670057,
-      "lon": 30.80036087376846,
-      "heading": 213,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-10-01T01:52:43Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 2.",
-      "status": "active",
-      "confirmedAt": "2026-10-01T01:52:43Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790819769.484153,
+  "active_threats": {},
+  "last_threat_update": 1790820801.965877,
   "last_news_check": 1790819768.288737,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

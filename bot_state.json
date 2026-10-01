@@ -1,7 +1,32 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790887126.168134,
-  "last_news_check": 1790888018.7973,
+  "active_threats": {
+    "trk_00233324": {
+      "id": "trk_00233324",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Теличка",
+      "lat": 50.714302282669486,
+      "lon": 30.842100865820694,
+      "heading": 209,
+      "confidenceLevel": "medium",
+      "sourceCount": 7,
+      "count": 1,
+      "updatedAt": "2026-10-01T21:20:37Z",
+      "explanationShort": "БпЛА курсом на Теличка. Підтверджень: 7.",
+      "status": "active",
+      "confirmedAt": "2026-10-01T21:20:37Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790889887.785632,
+  "last_news_check": 1790889886.265135,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

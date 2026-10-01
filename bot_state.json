@@ -1,30 +1,75 @@
 {
   "active_threats": {
-    "trk_00233147": {
-      "id": "trk_00233147",
+    "trk_00233206": {
+      "id": "trk_00233206",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Чернігівська область",
+      "region": "Київська область",
       "district": "",
-      "locality": "Десна",
-      "lat": 50.908,
-      "lon": 30.779,
-      "heading": 114,
+      "locality": "Бровари",
+      "lat": 50.83405637500026,
+      "lon": 31.03968646124768,
+      "heading": 206,
       "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-10-01T19:54:42Z",
-      "explanationShort": "БпЛА — Десна, Чернігівська область. Підтверджень: 1.",
+      "sourceCount": 9,
+      "count": 1,
+      "updatedAt": "2026-10-01T20:16:49Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 9.",
       "status": "active",
-      "confirmedAt": "2026-10-01T19:54:42Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "confirmed",
-      "lifecycle": "confirmed",
+      "confirmedAt": "2026-10-01T20:16:49Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
       "displayConfidence": "medium",
+      "destination": true,
       "presumptiveCourse": true
+    },
+    "trk_00233220": {
+      "id": "trk_00233220",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Позняки",
+      "lat": 50.57378798842666,
+      "lon": 30.81217722201538,
+      "heading": 213.3111367612808,
+      "confidenceLevel": "medium",
+      "sourceCount": 7,
+      "updatedAt": "2026-10-01T20:18:34Z",
+      "explanationShort": "БпЛА курсом на Позняки. Підтверджень: 7.",
+      "status": "active",
+      "velocity": {
+        "bearingDeg": 213.3,
+        "speedKmh": 173.4
+      },
+      "confirmedAt": "2026-10-01T20:18:34Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.44953,
+          "lon": 30.67608,
+          "t": "2026-10-01T20:15:51Z"
+        },
+        {
+          "lat": 50.423322930240566,
+          "lon": 30.665852539402042,
+          "t": "2026-10-01T20:16:58Z"
+        },
+        {
+          "lat": 50.40862976109774,
+          "lon": 30.64127912954491,
+          "t": "2026-10-01T20:17:31Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true
     }
   },
   "last_threat_update": 1790884851.362901,
-  "last_news_check": 1790883262.981729,
+  "last_news_check": 1790886026.289891,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

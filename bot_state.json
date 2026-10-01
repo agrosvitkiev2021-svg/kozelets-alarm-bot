@@ -1,71 +1,7 @@
 {
-  "active_threats": {
-    "trk_00232995": {
-      "id": "trk_00232995",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Мікрорайон Дарницького вагоноремонтного заводу",
-      "lat": 50.76976636319283,
-      "lon": 30.934307417211485,
-      "heading": 207,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-10-01T18:34:59Z",
-      "explanationShort": "БпЛА курсом на Мікрорайон Дарницького вагоноремонтного заводу. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-10-01T18:34:17Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00232998": {
-      "id": "trk_00232998",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Теличка",
-      "lat": 50.71826702799158,
-      "lon": 30.854236694186238,
-      "heading": 208,
-      "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "updatedAt": "2026-10-01T18:35:56Z",
-      "explanationShort": "БпЛА курсом на Теличка. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-10-01T18:35:56Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.42627,
-          "lon": 30.60218,
-          "t": "2026-10-01T18:34:59Z"
-        },
-        {
-          "lat": 50.40259,
-          "lon": 30.62352,
-          "t": "2026-10-01T18:35:15Z"
-        },
-        {
-          "lat": 50.40094885628622,
-          "lon": 30.587497212305692,
-          "t": "2026-10-01T18:35:56Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790880002.316935,
-  "last_news_check": 1790878542.198948,
+  "active_threats": {},
+  "last_threat_update": 1790881044.218125,
+  "last_news_check": 1790881043.167564,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -118,7 +54,7 @@
   ],
   "last_weather_check": 1790873259.842413,
   "last_promo_check": 1790413539.404946,
-  "district_alert_active": true,
+  "district_alert_active": false,
   "district_alert_initialized": true,
   "last_history_check": 1790409240.435544,
   "last_dashboard_check": 1790063919.831967,

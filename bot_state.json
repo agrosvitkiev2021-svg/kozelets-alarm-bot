@@ -1,28 +1,7 @@
 {
-  "active_threats": {
-    "trk_00232388": {
-      "id": "trk_00232388",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "",
-      "district": "",
-      "locality": "Кіпті",
-      "lat": 51.05656,
-      "lon": 31.15338,
-      "heading": null,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-10-01T13:45:06Z",
-      "explanationShort": "БпЛА — Кіпті. Підтверджень: 1.",
-      "status": "active",
-      "uncertaintyKm": 25,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium"
-    }
-  },
-  "last_threat_update": 1790862341.583608,
-  "last_news_check": 1790861171.396273,
+  "active_threats": {},
+  "last_threat_update": 1790863265.235685,
+  "last_news_check": 1790863264.122612,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

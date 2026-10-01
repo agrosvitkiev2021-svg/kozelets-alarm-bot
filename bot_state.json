@@ -1,66 +1,7 @@
 {
-  "active_threats": {
-    "trk_00231349": {
-      "id": "trk_00231349",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Вишгород",
-      "lat": 50.88604301670057,
-      "lon": 30.80036087376846,
-      "heading": 213,
-      "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "updatedAt": "2026-10-01T03:31:24Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-10-01T04:09:51Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00231372": {
-      "id": "trk_00231372",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Гостомель",
-      "lat": 50.854615670232256,
-      "lon": 30.60678756571286,
-      "heading": 217,
-      "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-10-01T04:09:31Z",
-      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 4.",
-      "status": "active",
-      "confirmedAt": "2026-10-01T04:09:31Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.54345,
-          "lon": 30.21201,
-          "t": "2026-10-01T04:03:42Z"
-        },
-        {
-          "lat": 50.56782469758536,
-          "lon": 30.26385505988809,
-          "t": "2026-10-01T04:09:31Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1790828167.281012,
-  "last_news_check": 1790827020.019953,
+  "active_threats": {},
+  "last_threat_update": 1790829368.594966,
+  "last_news_check": 1790829367.41222,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -109,7 +50,7 @@
     "d028cc53d9fd9d858035633b35c31599",
     "e51615d158211eb30ac3659e866e6ad1"
   ],
-  "last_weather_check": 1790814355.340776,
+  "last_weather_check": 1790829367.41222,
   "last_promo_check": 1790413539.404946,
   "district_alert_active": true,
   "district_alert_initialized": true,

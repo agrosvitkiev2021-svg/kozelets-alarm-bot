@@ -1,71 +1,56 @@
 {
   "active_threats": {
-    "trk_00234814": {
-      "id": "trk_00234814",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Десна",
-      "lat": 51.202211613968394,
-      "lon": 31.108301475213516,
-      "heading": 215,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-10-02T15:37:02Z",
-      "explanationShort": "БпЛА курсом на Десна. Підтверджень: 2.",
-      "status": "active",
-      "confirmedAt": "2026-10-02T15:37:02Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00234823": {
-      "id": "trk_00234823",
+    "trk_00234828": {
+      "id": "trk_00234828",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Вишгород",
-      "lat": 50.88604301670057,
-      "lon": 30.80036087376846,
-      "heading": 213,
+      "locality": "Гостомель",
+      "lat": 50.838692920618364,
+      "lon": 30.58757659798138,
+      "heading": 217,
       "confidenceLevel": "medium",
-      "sourceCount": 6,
+      "sourceCount": 12,
       "count": 1,
-      "updatedAt": "2026-10-02T15:38:17Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 6.",
+      "updatedAt": "2026-10-02T15:58:18Z",
+      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 12.",
       "status": "active",
-      "confirmedAt": "2026-10-02T15:38:18Z",
+      "confirmedAt": "2026-10-02T15:58:18Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00234818": {
-      "id": "trk_00234818",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Жукин",
-      "lat": 51.109422013333294,
-      "lon": 31.015268525255998,
-      "heading": 214,
-      "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "count": 1,
-      "updatedAt": "2026-10-02T15:34:31Z",
-      "explanationShort": "БпЛА курсом на Жукин. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-10-02T15:34:31Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.54879644790264,
+          "lon": 30.243800438257146,
+          "t": "2026-10-02T15:47:33Z"
+        },
+        {
+          "lat": 50.545619207428146,
+          "lon": 30.244573302801513,
+          "t": "2026-10-02T15:49:03Z"
+        },
+        {
+          "lat": 50.54879644790264,
+          "lon": 30.243800438257146,
+          "t": "2026-10-02T15:49:03Z"
+        },
+        {
+          "lat": 50.545344324775456,
+          "lon": 30.246991102791952,
+          "t": "2026-10-02T15:53:14Z"
+        },
+        {
+          "lat": 50.54811281112979,
+          "lon": 30.246587451726917,
+          "t": "2026-10-02T15:53:14Z"
+        },
+        {
+          "lat": 50.547443516749375,
+          "lon": 30.24030738723412,
+          "t": "2026-10-02T15:57:23Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,

@@ -1,7 +1,111 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790906657.340468,
-  "last_news_check": 1790907733.149391,
+  "active_threats": {
+    "trk_00233691": {
+      "id": "trk_00233691",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Київ",
+      "lat": 50.761289488779006,
+      "lon": 30.80774606165047,
+      "heading": 210,
+      "confidenceLevel": "medium",
+      "sourceCount": 4,
+      "updatedAt": "2026-10-02T02:49:26Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 4.",
+      "status": "active",
+      "confirmedAt": "2026-10-02T02:49:26Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00233697": {
+      "id": "trk_00233697",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Голосіїв",
+      "lat": 50.6616487845289,
+      "lon": 30.818197750596596,
+      "heading": 208,
+      "confidenceLevel": "medium",
+      "sourceCount": 7,
+      "updatedAt": "2026-10-02T02:48:58Z",
+      "explanationShort": "БпЛА курсом на Голосіїв. Підтверджень: 7.",
+      "status": "active",
+      "confirmedAt": "2026-10-02T02:48:58Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.37439,
+          "lon": 30.53054,
+          "t": "2026-10-02T02:48:27Z"
+        },
+        {
+          "lat": 50.34433,
+          "lon": 30.55178,
+          "t": "2026-10-02T02:48:54Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00233698": {
+      "id": "trk_00233698",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Теремки",
+      "lat": 50.68521977746283,
+      "lon": 30.736520303206298,
+      "heading": 210,
+      "confidenceLevel": "medium",
+      "sourceCount": 4,
+      "updatedAt": "2026-10-02T02:49:50Z",
+      "explanationShort": "БпЛА курсом на Теремки. Підтверджень: 4.",
+      "status": "active",
+      "confirmedAt": "2026-10-02T02:49:50Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.37053,
+          "lon": 30.45881,
+          "t": "2026-10-02T02:48:38Z"
+        },
+        {
+          "lat": 50.383030000159195,
+          "lon": 30.449209999877738,
+          "t": "2026-10-02T02:48:59Z"
+        },
+        {
+          "lat": 50.37870622948296,
+          "lon": 30.45253065575709,
+          "t": "2026-10-02T02:49:09Z"
+        },
+        {
+          "lat": 50.37402935342846,
+          "lon": 30.452635488603228,
+          "t": "2026-10-02T02:49:50Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790909601.191262,
+  "last_news_check": 1790909599.570551,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

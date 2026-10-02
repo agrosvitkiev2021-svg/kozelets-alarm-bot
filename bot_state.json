@@ -1,7 +1,31 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790930094.188402,
-  "last_news_check": 1790946729.904536,
+  "active_threats": {
+    "trk_00234666": {
+      "id": "trk_00234666",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Буча",
+      "lat": 50.82679781002413,
+      "lon": 30.53769359920202,
+      "heading": 218,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "updatedAt": "2026-10-02T13:50:32Z",
+      "explanationShort": "БпЛА курсом на Буча. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-10-02T13:50:32Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790949107.653277,
+  "last_news_check": 1790949106.137908,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

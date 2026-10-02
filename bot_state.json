@@ -1,6 +1,28 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790898337.306348,
+  "active_threats": {
+    "trk_00233616": {
+      "id": "trk_00233616",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Остер",
+      "lat": 50.94966,
+      "lon": 30.87735,
+      "heading": 123,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-02T01:49:38Z",
+      "explanationShort": "БпЛА — Остер, Чернігівська область. Підтверджень: 2.",
+      "status": "active",
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790905886.990381,
   "last_news_check": 1790904957.820566,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -54,7 +76,7 @@
   ],
   "last_weather_check": 1790902838.082174,
   "last_promo_check": 1790413539.404946,
-  "district_alert_active": false,
+  "district_alert_active": true,
   "district_alert_initialized": true,
   "last_history_check": 1790409240.435544,
   "last_dashboard_check": 1790063919.831967,

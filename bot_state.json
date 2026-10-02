@@ -1,6 +1,31 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790949952.325868,
+  "active_threats": {
+    "trk_00234666": {
+      "id": "trk_00234666",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Гостомель",
+      "lat": 50.85709746802951,
+      "lon": 30.614550304969477,
+      "heading": 217,
+      "confidenceLevel": "medium",
+      "sourceCount": 10,
+      "count": 1,
+      "updatedAt": "2026-10-02T14:47:46Z",
+      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 10.",
+      "status": "active",
+      "confirmedAt": "2026-10-02T14:47:46Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790952491.73099,
   "last_news_check": 1790951251.628801,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

@@ -1,6 +1,29 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1790957941.52525,
+  "active_threats": {
+    "trk_00235574": {
+      "id": "trk_00235574",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Остер",
+      "lat": 51.25093761398577,
+      "lon": 31.19036900580171,
+      "heading": 213,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-03T03:24:51Z",
+      "explanationShort": "БпЛА курсом на Остер. Підтверджень: 2.",
+      "status": "active",
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1790998373.502258,
   "last_news_check": 1790996931.989089,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

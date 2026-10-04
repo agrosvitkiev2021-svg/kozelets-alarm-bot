@@ -1,7 +1,48 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1791088020.579552,
-  "last_news_check": 1791110995.757733,
+  "active_threats": {
+    "trk_00238598": {
+      "id": "trk_00238598",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Десна",
+      "lat": 51.20318722419254,
+      "lon": 31.10881137951749,
+      "heading": 215,
+      "confidenceLevel": "medium",
+      "sourceCount": 7,
+      "updatedAt": "2026-10-04T17:12:24Z",
+      "explanationShort": "БпЛА курсом на Десна. Підтверджень: 7.",
+      "status": "active",
+      "confirmedAt": "2026-10-04T17:12:24Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.908,
+          "lon": 30.779,
+          "t": "2026-10-04T17:05:09Z"
+        },
+        {
+          "lat": 50.92227456297476,
+          "lon": 30.786358451347546,
+          "t": "2026-10-04T17:07:33Z"
+        },
+        {
+          "lat": 50.90897562633815,
+          "lon": 30.77950292950862,
+          "t": "2026-10-04T17:12:24Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1791134428.451635,
+  "last_news_check": 1791134425.885132,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -55,9 +96,9 @@
     "69522295a164a0061f802924f9e5d8b2",
     "1a71ce9075f3f0da31c10d1a6890d3c6"
   ],
-  "last_weather_check": 1791110995.757733,
+  "last_weather_check": 1791134425.885132,
   "last_promo_check": 1790413539.404946,
-  "district_alert_active": false,
+  "district_alert_active": true,
   "district_alert_initialized": true,
   "last_history_check": 1790409240.435544,
   "last_dashboard_check": 1790063919.831967,

@@ -1,5 +1,39 @@
 {
   "active_threats": {
+    "trk_00239806": {
+      "id": "trk_00239806",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Козелець",
+      "lat": 50.90999055501647,
+      "lon": 31.127347127883503,
+      "heading": 136,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-05T08:55:52Z",
+      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-10-05T08:55:52Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 50.908,
+          "lon": 30.779,
+          "t": "2026-10-05T08:44:17Z"
+        },
+        {
+          "lat": 50.90999055501647,
+          "lon": 31.127347127883503,
+          "t": "2026-10-05T08:55:52Z"
+        }
+      ],
+      "lifecycle": "confirmed",
+      "displayConfidence": "medium",
+      "presumptiveCourse": true
+    },
     "trk_00239748": {
       "id": "trk_00239748",
       "type": "uav",
@@ -11,11 +45,11 @@
       "lon": 31.21509,
       "heading": 163,
       "confidenceLevel": "high",
-      "sourceCount": 3,
-      "updatedAt": "2026-10-05T08:38:16Z",
-      "explanationShort": "БпЛА — Чемер, Чернігівська область. Підтверджень: 3.",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-05T08:55:52Z",
+      "explanationShort": "БпЛА — Чемер, Чернігівська область. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-10-05T08:38:16Z",
+      "confirmedAt": "2026-10-05T08:55:52Z",
       "uncertaintyKm": 4,
       "positionQuality": "confirmed",
       "trail": [

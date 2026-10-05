@@ -1,71 +1,7 @@
 {
-  "active_threats": {
-    "trk_00241510": {
-      "id": "trk_00241510",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Жуляни",
-      "lat": 50.70226269084258,
-      "lon": 30.733099318493423,
-      "heading": 211,
-      "confidenceLevel": "medium",
-      "sourceCount": 8,
-      "updatedAt": "2026-10-05T22:21:18Z",
-      "explanationShort": "БпЛА курсом на Жуляни. Підтверджень: 8.",
-      "status": "active",
-      "confirmedAt": "2026-10-05T22:21:18Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00241521": {
-      "id": "trk_00241521",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Теличка",
-      "lat": 50.7177671131243,
-      "lon": 30.84326069515659,
-      "heading": 208,
-      "confidenceLevel": "medium",
-      "sourceCount": 5,
-      "updatedAt": "2026-10-05T22:21:18Z",
-      "explanationShort": "БпЛА курсом на Теличка. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-10-05T22:21:18Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.4,
-          "lon": 30.56667,
-          "t": "2026-10-05T22:14:49Z"
-        },
-        {
-          "lat": 50.402063408489624,
-          "lon": 30.611961418005958,
-          "t": "2026-10-05T22:17:33Z"
-        },
-        {
-          "lat": 50.40044893600151,
-          "lon": 30.576524058566072,
-          "t": "2026-10-05T22:21:18Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1791238964.845095,
-  "last_news_check": 1791237858.080352,
+  "active_threats": {},
+  "last_threat_update": 1791239871.958096,
+  "last_news_check": 1791239871.053001,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

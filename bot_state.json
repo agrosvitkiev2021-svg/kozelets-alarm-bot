@@ -1,57 +1,6 @@
 {
-  "active_threats": {
-    "trk_00239748": {
-      "id": "trk_00239748",
-      "type": "uav",
-      "title": "Група БпЛА (2+)",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Чемер",
-      "lat": 51.091573995827275,
-      "lon": 31.217888236783544,
-      "heading": 208.69199820067962,
-      "confidenceLevel": "high",
-      "sourceCount": 5,
-      "count": 2,
-      "updatedAt": "2026-10-05T09:22:49Z",
-      "explanationShort": "БпЛА — Чемер, Чернігівська область. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-10-05T09:22:49Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "confirmed",
-      "trail": [
-        {
-          "lat": 51.3729,
-          "lon": 31.64604,
-          "t": "2026-10-05T08:25:05Z"
-        },
-        {
-          "lat": 51.10276,
-          "lon": 31.21509,
-          "t": "2026-10-05T08:38:16Z"
-        },
-        {
-          "lat": 51.17707736832372,
-          "lon": 31.292531186584867,
-          "t": "2026-10-05T09:01:09Z"
-        },
-        {
-          "lat": 51.08397091523011,
-          "lon": 31.222104714397133,
-          "t": "2026-10-05T09:22:14Z"
-        },
-        {
-          "lat": 51.091573995827275,
-          "lon": 31.217888236783544,
-          "t": "2026-10-05T09:22:49Z"
-        }
-      ],
-      "lifecycle": "confirmed",
-      "displayConfidence": "high",
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1791192318.195594,
+  "active_threats": {},
+  "last_threat_update": 1791193555.424644,
   "last_news_check": 1791192317.424498,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

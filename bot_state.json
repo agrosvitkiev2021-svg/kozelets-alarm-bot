@@ -1,28 +1,5 @@
 {
   "active_threats": {
-    "trk_00239626": {
-      "id": "trk_00239626",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Бровари",
-      "lat": 50.83405637500026,
-      "lon": 31.03968646124768,
-      "heading": 206,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-10-05T07:35:56Z",
-      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-10-05T07:35:56Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
     "trk_00239641": {
       "id": "trk_00239641",
       "type": "uav",
@@ -34,12 +11,12 @@
       "lon": 31.158484948866786,
       "heading": 201,
       "confidenceLevel": "medium",
-      "sourceCount": 9,
+      "sourceCount": 6,
       "count": 1,
-      "updatedAt": "2026-10-05T07:35:56Z",
-      "explanationShort": "БпЛА курсом на Бориспіль. Підтверджень: 9.",
+      "updatedAt": "2026-10-05T07:53:55Z",
+      "explanationShort": "БпЛА курсом на Бориспіль. Підтверджень: 6.",
       "status": "active",
-      "confirmedAt": "2026-10-05T07:35:56Z",
+      "confirmedAt": "2026-10-05T07:53:55Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -48,8 +25,8 @@
       "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1791182040.745616,
-  "last_news_check": 1791185017.699751,
+  "last_threat_update": 1791187226.3521,
+  "last_news_check": 1791187225.97441,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -101,7 +78,8 @@
     "14da9e08ad92c2c1bb94161d180470bc",
     "1b74a6f7eccd63f6b42a8e9d4d575619",
     "69522295a164a0061f802924f9e5d8b2",
-    "1a71ce9075f3f0da31c10d1a6890d3c6"
+    "1a71ce9075f3f0da31c10d1a6890d3c6",
+    "b6e0e33dba57d3371254031acb434a6f"
   ],
   "last_weather_check": 1791179344.4379,
   "last_promo_check": 1790413539.404946,

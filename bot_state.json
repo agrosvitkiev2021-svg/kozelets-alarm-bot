@@ -1,32 +1,7 @@
 {
-  "active_threats": {
-    "trk_00243508": {
-      "id": "trk_00243508",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Борщагівка",
-      "lat": 50.74469085497775,
-      "lon": 30.68327410910753,
-      "heading": 213,
-      "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "count": 1,
-      "updatedAt": "2026-10-06T20:03:02Z",
-      "explanationShort": "БпЛА курсом на Борщагівка. Підтверджень: 4.",
-      "status": "active",
-      "confirmedAt": "2026-10-06T20:03:02Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1791317014.213944,
-  "last_news_check": 1791315385.819139,
+  "active_threats": {},
+  "last_threat_update": 1791318253.234338,
+  "last_news_check": 1791318252.408375,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

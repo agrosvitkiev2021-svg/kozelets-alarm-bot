@@ -1,7 +1,59 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1791256836.135705,
-  "last_news_check": 1791258946.324471,
+  "active_threats": {
+    "trk_00241887": {
+      "id": "trk_00241887",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "",
+      "district": "",
+      "locality": "Остер",
+      "lat": 51.25093761398577,
+      "lon": 31.19036900580171,
+      "heading": 213,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-06T04:32:08Z",
+      "explanationShort": "БпЛА курсом на Остер. Підтверджень: 1.",
+      "status": "active",
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00241888": {
+      "id": "trk_00241888",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Десна",
+      "lat": 50.908,
+      "lon": 30.779,
+      "heading": 114,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-06T04:32:08Z",
+      "explanationShort": "БпЛА — Десна, Чернігівська область. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-10-06T04:32:08Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 50.908,
+          "lon": 30.779,
+          "t": "2026-10-06T04:32:08Z"
+        }
+      ],
+      "lifecycle": "created",
+      "displayConfidence": "medium",
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1791261223.70941,
+  "last_news_check": 1791261221.594353,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

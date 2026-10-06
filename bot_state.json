@@ -66,9 +66,9 @@
     "83b731fe41fb03c7422e8a870f537338",
     "97f6809b01a6b313c1448f03002638dd"
   ],
-  "last_weather_check": 1791313229.783932,
+  "last_weather_check": 1791327646.733414,
   "last_promo_check": 1790413539.404946,
-  "district_alert_active": true,
+  "district_alert_active": false,
   "district_alert_initialized": true,
   "last_history_check": 1790409240.435544,
   "last_dashboard_check": 1790063919.831967,

@@ -1,7 +1,120 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1791369641.412291,
-  "last_news_check": 1791373989.145619,
+  "active_threats": {
+    "trk_00245199": {
+      "id": "trk_00245199",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Велика Димерка",
+      "lat": 50.59333,
+      "lon": 30.90313,
+      "heading": 239,
+      "confidenceLevel": "high",
+      "sourceCount": 3,
+      "updatedAt": "2026-10-07T12:34:00Z",
+      "explanationShort": "БпЛА — Велика Димерка, Київська область. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-10-07T12:34:00Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 51.05656,
+          "lon": 31.15338,
+          "t": "2026-10-07T12:16:33Z"
+        },
+        {
+          "lat": 50.59333,
+          "lon": 30.90313,
+          "t": "2026-10-07T12:31:47Z"
+        }
+      ],
+      "lifecycle": "confirmed",
+      "displayConfidence": "high"
+    },
+    "trk_00245201": {
+      "id": "trk_00245201",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Бровари",
+      "lat": 50.612786180812265,
+      "lon": 31.056958478259105,
+      "heading": 239,
+      "confidenceLevel": "medium",
+      "sourceCount": 6,
+      "updatedAt": "2026-10-07T12:34:00Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 6.",
+      "status": "active",
+      "confirmedAt": "2026-10-07T12:34:00Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.31196936332766,
+          "lon": 30.41056337011886,
+          "t": "2026-10-07T12:17:52Z"
+        },
+        {
+          "lat": 50.511,
+          "lon": 30.79,
+          "t": "2026-10-07T12:29:04Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true
+    },
+    "trk_00245216": {
+      "id": "trk_00245216",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Козелець",
+      "lat": 51.23305255359842,
+      "lon": 31.38084554848053,
+      "heading": 206,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-07T12:36:41Z",
+      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-10-07T12:36:41Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00245245": {
+      "id": "trk_00245245",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Омелянів",
+      "lat": 50.76667,
+      "lon": 31.03333,
+      "heading": 97,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-07T12:36:41Z",
+      "explanationShort": "БпЛА — Омелянів, Чернігівська область. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-10-07T12:36:41Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "lifecycle": "created",
+      "displayConfidence": "medium",
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1791376686.22287,
+  "last_news_check": 1791376683.701742,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

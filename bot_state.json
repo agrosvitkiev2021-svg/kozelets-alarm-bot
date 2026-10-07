@@ -11,12 +11,11 @@
       "lon": 30.80774606165047,
       "heading": 210,
       "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "count": 6,
-      "updatedAt": "2026-10-07T00:24:15Z",
-      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 6.",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-07T00:49:31Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-10-07T00:24:15Z",
+      "confirmedAt": "2026-10-07T00:49:31Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -25,7 +24,7 @@
       "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1791333112.087589,
+  "last_threat_update": 1791334656.531567,
   "last_news_check": 1791333110.796276,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

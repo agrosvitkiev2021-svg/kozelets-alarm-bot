@@ -1,31 +1,7 @@
 {
-  "active_threats": {
-    "trk_00246239": {
-      "id": "trk_00246239",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Жукин",
-      "lat": 51.109422013333294,
-      "lon": 31.015268525255998,
-      "heading": 214,
-      "confidenceLevel": "medium",
-      "sourceCount": 7,
-      "updatedAt": "2026-10-07T18:55:13Z",
-      "explanationShort": "БпЛА курсом на Жукин. Підтверджень: 7.",
-      "status": "active",
-      "confirmedAt": "2026-10-07T18:55:13Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1791396853.084342,
-  "last_news_check": 1791398375.849511,
+  "active_threats": {},
+  "last_threat_update": 1791400866.017622,
+  "last_news_check": 1791400865.038688,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -114,7 +90,8 @@
     "032750f5893e60ac85c22438325b8616",
     "0fc4bbb11b1d149412fa6cfcebde7b5d",
     "e6159b32c4fc055a6f563520a2f0e330",
-    "d60514b40b21fc14c9601cb7bdcf58bb"
+    "d60514b40b21fc14c9601cb7bdcf58bb",
+    "3da8538727d30238230ba4cf8c3e3223"
   ],
   "last_weather_check": 1791388428.422494,
   "last_promo_check": 1790413539.404946,

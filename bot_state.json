@@ -1,23 +1,172 @@
 {
   "active_threats": {
+    "trk_00245452": {
+      "id": "trk_00245452",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Жуляни",
+      "lat": 50.70178346053215,
+      "lon": 30.733464382588437,
+      "heading": 211,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "count": 2,
+      "updatedAt": "2026-10-07T13:56:26Z",
+      "explanationShort": "БпЛА курсом на Жуляни. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-10-07T13:56:26Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.37053,
+          "lon": 30.45881,
+          "t": "2026-10-07T13:48:29Z"
+        },
+        {
+          "lat": 50.39380076344349,
+          "lon": 30.440938053675403,
+          "t": "2026-10-07T13:55:15Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00245462": {
+      "id": "trk_00245462",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Берковець",
+      "lat": 50.78615703268277,
+      "lon": 30.64774804749238,
+      "heading": 214,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-07T13:57:13Z",
+      "explanationShort": "БпЛА курсом на Берковець. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-10-07T13:57:13Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
     "trk_00245425": {
       "id": "trk_00245425",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київ",
       "district": "",
-      "locality": "Борщагівка",
-      "lat": 50.7362803764185,
-      "lon": 30.691100113751823,
-      "heading": 212,
+      "locality": "Святошин",
+      "lat": 50.76000892761744,
+      "lon": 30.693931650532775,
+      "heading": 213,
       "confidenceLevel": "medium",
       "sourceCount": 4,
       "count": 1,
-      "updatedAt": "2026-10-07T13:41:05Z",
-      "explanationShort": "БпЛА курсом на Борщагівка. Підтверджень: 4.",
+      "updatedAt": "2026-10-07T13:58:22Z",
+      "explanationShort": "БпЛА курсом на Святошин. Підтверджень: 4.",
       "status": "active",
-      "confirmedAt": "2026-10-07T13:40:18Z",
-      "uncertaintyKm": 10,
+      "confirmedAt": "2026-10-07T13:58:22Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.4316,
+          "lon": 30.3899,
+          "t": "2026-10-07T13:35:03Z"
+        },
+        {
+          "lat": 50.463332709724554,
+          "lon": 30.405309734531496,
+          "t": "2026-10-07T13:53:47Z"
+        },
+        {
+          "lat": 50.44765453844992,
+          "lon": 30.39769625117698,
+          "t": "2026-10-07T13:55:29Z"
+        },
+        {
+          "lat": 50.45449334554873,
+          "lon": 30.401017247171954,
+          "t": "2026-10-07T13:56:41Z"
+        },
+        {
+          "lat": 50.45872406446119,
+          "lon": 30.384207960042183,
+          "t": "2026-10-07T13:58:22Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00245464": {
+      "id": "trk_00245464",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Лук'янівка",
+      "lat": 50.7804806431578,
+      "lon": 30.775549896586885,
+      "heading": 211,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "updatedAt": "2026-10-07T13:55:42Z",
+      "explanationShort": "БпЛА курсом на Лук'янівка. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-10-07T13:55:42Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.46642,
+          "lon": 30.47591,
+          "t": "2026-10-07T13:54:23Z"
+        },
+        {
+          "lat": 50.47886836739563,
+          "lon": 30.489469413270655,
+          "t": "2026-10-07T13:54:53Z"
+        },
+        {
+          "lat": 50.47249897348984,
+          "lon": 30.48253153607702,
+          "t": "2026-10-07T13:55:42Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00245467": {
+      "id": "trk_00245467",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Верхньолибідська слобідка",
+      "lat": 50.71325007976304,
+      "lon": 30.799694543270302,
+      "heading": 210,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "updatedAt": "2026-10-07T13:58:13Z",
+      "explanationShort": "БпЛА курсом на Верхньолибідська слобідка. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-10-07T13:58:13Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
@@ -26,7 +175,7 @@
     }
   },
   "last_threat_update": 1791379535.239722,
-  "last_news_check": 1791379533.502345,
+  "last_news_check": 1791381636.558099,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

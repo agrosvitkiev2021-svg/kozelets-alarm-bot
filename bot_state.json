@@ -1,31 +1,7 @@
 {
-  "active_threats": {
-    "trk_00244824": {
-      "id": "trk_00244824",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Димер",
-      "lat": 51.05736072931494,
-      "lon": 30.678077444929382,
-      "heading": 221,
-      "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-10-07T08:57:53Z",
-      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 4.",
-      "status": "active",
-      "confirmedAt": "2026-10-07T08:57:53Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1791363777.118792,
-  "last_news_check": 1791363000.803203,
+  "active_threats": {},
+  "last_threat_update": 1791365073.123304,
+  "last_news_check": 1791365071.64721,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -103,7 +79,10 @@
     "8fabcbda30ba26ade10e16f8425de1a5",
     "79ec7d7838ae3f81131b4b1bcaa0d02e",
     "e10558d852b1b9d04aaf3e9cf7b21476",
-    "18aa7cd47fb0a17a59a6de09c69cf1e1"
+    "18aa7cd47fb0a17a59a6de09c69cf1e1",
+    "f674d62897ebc761330a6c2a77bbd1b2",
+    "517064c9d54abdbec36ab77f3e632b8b",
+    "5d5f49a344c5160ec46f1ef87c885b5b"
   ],
   "last_weather_check": 1791358393.242095,
   "last_promo_check": 1790413539.404946,

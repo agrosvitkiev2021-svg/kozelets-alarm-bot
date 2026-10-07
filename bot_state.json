@@ -1,7 +1,94 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1791390937.071126,
-  "last_news_check": 1791389521.033582,
+  "active_threats": {
+    "trk_00245945": {
+      "id": "trk_00245945",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Димер",
+      "lat": 51.05736072931494,
+      "lon": 30.678077444929382,
+      "heading": 221,
+      "confidenceLevel": "medium",
+      "sourceCount": 6,
+      "count": 1,
+      "updatedAt": "2026-10-07T17:15:39Z",
+      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 6.",
+      "status": "active",
+      "confirmedAt": "2026-10-07T17:15:39Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00245860": {
+      "id": "trk_00245860",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Олишівка",
+      "lat": 51.21808930658433,
+      "lon": 31.33628234983144,
+      "heading": 350,
+      "confidenceLevel": "high",
+      "sourceCount": 2,
+      "count": 1,
+      "updatedAt": "2026-10-07T17:15:32Z",
+      "explanationShort": "БпЛА — Олишівка, Чернігівська область. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-10-07T17:15:32Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 51.3729,
+          "lon": 31.64604,
+          "t": "2026-10-07T16:24:29Z"
+        },
+        {
+          "lat": 50.93799,
+          "lon": 31.58031,
+          "t": "2026-10-07T16:57:11Z"
+        },
+        {
+          "lat": 51.21808930658433,
+          "lon": 31.33628234983144,
+          "t": "2026-10-07T17:15:32Z"
+        }
+      ],
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
+      "presumptiveCourse": true
+    },
+    "trk_00245936": {
+      "id": "trk_00245936",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Козелець",
+      "lat": 50.91,
+      "lon": 31.129,
+      "heading": 136,
+      "confidenceLevel": "high",
+      "sourceCount": 3,
+      "updatedAt": "2026-10-07T17:16:58Z",
+      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-10-07T17:16:58Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1791393521.972635,
+  "last_news_check": 1791393520.431074,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

@@ -1,7 +1,51 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1791474688.691155,
-  "last_news_check": 1791478375.10141,
+  "active_threats": {
+    "trk_00248556": {
+      "id": "trk_00248556",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Ковпита",
+      "lat": 51.168126864312995,
+      "lon": 30.867547433306296,
+      "heading": 358.60644384476564,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-08T17:22:21Z",
+      "explanationShort": "БпЛА курсом на Ковпита. Підтверджень: 2.",
+      "status": "active",
+      "velocity": {
+        "bearingDeg": 358.6,
+        "speedKmh": 128.7
+      },
+      "confirmedAt": "2026-10-08T17:22:21Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 51.338,
+          "lon": 30.85231,
+          "t": "2026-10-08T17:21:41Z"
+        },
+        {
+          "lat": 51.343626220438274,
+          "lon": 30.86085185289651,
+          "t": "2026-10-08T17:21:41Z"
+        },
+        {
+          "lat": 51.36569687048999,
+          "lon": 30.8598823803245,
+          "t": "2026-10-08T17:22:21Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true
+    }
+  },
+  "last_threat_update": 1791480497.849468,
+  "last_news_check": 1791480496.194383,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

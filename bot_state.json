@@ -1,7 +1,42 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1791450134.26514,
-  "last_news_check": 1791449221.269908,
+  "active_threats": {
+    "trk_00247507": {
+      "id": "trk_00247507",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Чабани",
+      "lat": 50.65190083272671,
+      "lon": 30.707243414150305,
+      "heading": 210,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-08T09:17:12Z",
+      "explanationShort": "БпЛА курсом на Чабани. Підтверджень: 2.",
+      "status": "active",
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.31196936332766,
+          "lon": 30.41056337011886,
+          "t": "2026-10-08T09:11:23Z"
+        },
+        {
+          "lat": 50.34071,
+          "lon": 30.42356,
+          "t": "2026-10-08T09:15:17Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1791451462.340724,
+  "last_news_check": 1791451460.770738,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -95,7 +130,8 @@
     "d40a690a269f17e78e64865f220e46e6",
     "0ed525156e0c144b6d98c5291150bef4",
     "c9e37767e6624be29cb4cd2443a41a74",
-    "56b0e796559689535890e8835bf47fb2"
+    "56b0e796559689535890e8835bf47fb2",
+    "10a4ade2240325692fb9250c703d32c6"
   ],
   "last_weather_check": 1791449221.269908,
   "last_promo_check": 1790413539.404946,

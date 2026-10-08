@@ -1,93 +1,125 @@
 {
   "active_threats": {
-    "trk_00246954": {
-      "id": "trk_00246954",
+    "trk_00246969": {
+      "id": "trk_00246969",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Чернігівська область",
+      "region": "Київ",
       "district": "",
-      "locality": "Остер",
-      "lat": 51.25093761398577,
-      "lon": 31.19036900580171,
+      "locality": "Борщагівка",
+      "lat": 50.742349240692576,
+      "lon": 30.686481428508927,
       "heading": 213,
       "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-10-08T04:43:20Z",
-      "explanationShort": "БпЛА курсом на Остер. Підтверджень: 2.",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-08T04:58:15Z",
+      "explanationShort": "БпЛА курсом на Борщагівка. Підтверджень: 1.",
       "status": "active",
-      "uncertaintyKm": 25,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00246929": {
-      "id": "trk_00246929",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Київ",
-      "lat": 50.761289488779006,
-      "lon": 30.80774606165047,
-      "heading": 210,
-      "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "count": 2,
-      "updatedAt": "2026-10-08T04:43:20Z",
-      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 6.",
-      "status": "active",
-      "confirmedAt": "2026-10-08T04:43:20Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00246953": {
-      "id": "trk_00246953",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Десна",
-      "lat": 51.202211613968394,
-      "lon": 31.108301475213516,
-      "heading": 215,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-10-08T04:43:20Z",
-      "explanationShort": "БпЛА курсом на Десна. Підтверджень: 2.",
-      "status": "active",
-      "confirmedAt": "2026-10-08T04:43:20Z",
+      "confirmedAt": "2026-10-08T04:58:15Z",
       "uncertaintyKm": 10,
       "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.46341,
+          "lon": 30.34612,
+          "t": "2026-10-08T04:57:19Z"
+        },
+        {
+          "lat": 50.44106411960861,
+          "lon": 30.376874562827258,
+          "t": "2026-10-08T04:58:15Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00246942": {
-      "id": "trk_00246942",
+    "trk_00246965": {
+      "id": "trk_00246965",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Бровари",
-      "lat": 50.83405637500026,
-      "lon": 31.03968646124768,
-      "heading": 206,
+      "locality": "Димер",
+      "lat": 51.05736072931494,
+      "lon": 30.678077444929382,
+      "heading": 221,
       "confidenceLevel": "medium",
       "sourceCount": 6,
-      "count": 2,
-      "updatedAt": "2026-10-08T04:40:15Z",
-      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 6.",
+      "count": 1,
+      "updatedAt": "2026-10-08T05:00:05Z",
+      "explanationShort": "БпЛА курсом на Димер. Підтверджень: 6.",
       "status": "active",
-      "confirmedAt": "2026-10-08T04:40:15Z",
+      "confirmedAt": "2026-10-08T05:00:05Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00246966": {
+      "id": "trk_00246966",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Гостомель",
+      "lat": 50.855430867497695,
+      "lon": 30.60852751832783,
+      "heading": 217,
+      "confidenceLevel": "medium",
+      "sourceCount": 9,
+      "count": 1,
+      "updatedAt": "2026-10-08T05:00:05Z",
+      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 9.",
+      "status": "active",
+      "confirmedAt": "2026-10-08T05:00:05Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.56841,
+          "lon": 30.2651,
+          "t": "2026-10-08T04:52:59Z"
+        },
+        {
+          "lat": 50.55592729225428,
+          "lon": 30.23854924061618,
+          "t": "2026-10-08T04:52:59Z"
+        },
+        {
+          "lat": 50.560778770953334,
+          "lon": 30.24886835135868,
+          "t": "2026-10-08T04:53:17Z"
+        },
+        {
+          "lat": 50.55583637656478,
+          "lon": 30.23835586265321,
+          "t": "2026-10-08T04:54:49Z"
+        },
+        {
+          "lat": 50.55875339149291,
+          "lon": 30.244560362754743,
+          "t": "2026-10-08T04:54:51Z"
+        },
+        {
+          "lat": 50.55581496022882,
+          "lon": 30.238310310037992,
+          "t": "2026-10-08T04:54:56Z"
+        },
+        {
+          "lat": 50.55873261976812,
+          "lon": 30.24451618122955,
+          "t": "2026-10-08T04:55:08Z"
+        },
+        {
+          "lat": 50.568639909453,
+          "lon": 30.265589018143416,
+          "t": "2026-10-08T05:00:05Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,

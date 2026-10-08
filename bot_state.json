@@ -1,6 +1,63 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1791431439.647218,
+  "active_threats": {
+    "trk_00246908": {
+      "id": "trk_00246908",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Олишівка",
+      "lat": 51.21862,
+      "lon": 31.33582,
+      "heading": 350,
+      "confidenceLevel": "high",
+      "sourceCount": 4,
+      "updatedAt": "2026-10-08T04:20:38Z",
+      "explanationShort": "БпЛА — Олишівка, Чернігівська область. Підтверджень: 4.",
+      "status": "active",
+      "confirmedAt": "2026-10-08T04:20:38Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 51.3729,
+          "lon": 31.64604,
+          "t": "2026-10-08T04:13:27Z"
+        },
+        {
+          "lat": 51.21862,
+          "lon": 31.33582,
+          "t": "2026-10-08T04:20:38Z"
+        }
+      ],
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
+      "presumptiveCourse": true
+    },
+    "trk_00246919": {
+      "id": "trk_00246919",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Кіпті",
+      "lat": 51.05656,
+      "lon": 31.15338,
+      "heading": 155,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-08T04:20:38Z",
+      "explanationShort": "БпЛА — Кіпті, Чернігівська область. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-10-08T04:20:38Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "medium",
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1791433521.639049,
   "last_news_check": 1791432204.655549,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

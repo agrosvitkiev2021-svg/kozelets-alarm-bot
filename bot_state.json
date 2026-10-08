@@ -11,11 +11,11 @@
       "lon": 31.538213605913636,
       "heading": 195,
       "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-10-08T08:24:41Z",
-      "explanationShort": "БпЛА курсом на Бобровиця. Підтверджень: 3.",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-08T08:45:09Z",
+      "explanationShort": "БпЛА курсом на Бобровиця. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-10-08T08:24:41Z",
+      "confirmedAt": "2026-10-08T08:45:09Z",
       "uncertaintyKm": 10,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -23,46 +23,24 @@
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00247357": {
-      "id": "trk_00247357",
+    "trk_00247381": {
+      "id": "trk_00247381",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київ",
+      "region": "Київська область",
       "district": "",
-      "locality": "Поділ",
-      "lat": 50.771092059504284,
-      "lon": 30.788800994647765,
-      "heading": 211,
+      "locality": "Бровари",
+      "lat": 50.83405637500026,
+      "lon": 31.03968646124768,
+      "heading": 206,
       "confidenceLevel": "medium",
-      "sourceCount": 9,
-      "updatedAt": "2026-10-08T08:20:59Z",
-      "explanationShort": "БпЛА курсом на Поділ. Підтверджень: 9.",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-08T08:16:48Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-10-08T08:20:59Z",
+      "confirmedAt": "2026-10-08T08:45:46Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.4501,
-          "lon": 30.5234,
-          "t": "2026-10-08T08:09:06Z"
-        },
-        {
-          "lat": 50.46205354945644,
-          "lon": 30.518974828264565,
-          "t": "2026-10-08T08:19:33Z"
-        },
-        {
-          "lat": 50.45921560828772,
-          "lon": 30.4870769273544,
-          "t": "2026-10-08T08:20:24Z"
-        },
-        {
-          "lat": 50.46311026708334,
-          "lon": 30.49584144955296,
-          "t": "2026-10-08T08:20:59Z"
-        }
-      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -70,7 +48,7 @@
     }
   },
   "last_threat_update": 1791446602.937537,
-  "last_news_check": 1791446602.05752,
+  "last_news_check": 1791449221.269908,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -166,7 +144,7 @@
     "c9e37767e6624be29cb4cd2443a41a74",
     "56b0e796559689535890e8835bf47fb2"
   ],
-  "last_weather_check": 1791434669.180033,
+  "last_weather_check": 1791449221.269908,
   "last_promo_check": 1790413539.404946,
   "district_alert_active": true,
   "district_alert_initialized": true,

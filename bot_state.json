@@ -1,26 +1,33 @@
 {
   "active_threats": {
-    "trk_00247104": {
-      "id": "trk_00247104",
+    "trk_00247231": {
+      "id": "trk_00247231",
       "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
+      "title": "Група БпЛА (2+)",
+      "region": "Чернігівська область",
       "district": "",
-      "locality": "Бориспіль",
-      "lat": 50.68865906776992,
-      "lon": 31.158484948866786,
-      "heading": 201,
-      "confidenceLevel": "medium",
-      "sourceCount": 7,
-      "updatedAt": "2026-10-08T06:38:31Z",
-      "explanationShort": "БпЛА курсом на Бориспіль. Підтверджень: 7.",
+      "locality": "Козелець",
+      "lat": 50.91,
+      "lon": 31.129,
+      "heading": 136,
+      "confidenceLevel": "high",
+      "sourceCount": 5,
+      "count": 2,
+      "updatedAt": "2026-10-08T07:04:42Z",
+      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 5.",
       "status": "active",
-      "confirmedAt": "2026-10-08T06:38:31Z",
+      "confirmedAt": "2026-10-08T07:04:42Z",
       "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 50.91,
+          "lon": 31.129,
+          "t": "2026-10-08T07:04:31Z"
+        }
+      ],
+      "lifecycle": "created",
+      "displayConfidence": "high",
       "presumptiveCourse": true
     }
   },

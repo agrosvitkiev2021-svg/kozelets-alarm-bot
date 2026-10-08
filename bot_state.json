@@ -1,38 +1,7 @@
 {
-  "active_threats": {
-    "trk_00247231": {
-      "id": "trk_00247231",
-      "type": "uav",
-      "title": "Група БпЛА (2+)",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Козелець",
-      "lat": 50.91,
-      "lon": 31.129,
-      "heading": 136,
-      "confidenceLevel": "high",
-      "sourceCount": 5,
-      "count": 2,
-      "updatedAt": "2026-10-08T07:04:42Z",
-      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 5.",
-      "status": "active",
-      "confirmedAt": "2026-10-08T07:04:42Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "confirmed",
-      "trail": [
-        {
-          "lat": 50.91,
-          "lon": 31.129,
-          "t": "2026-10-08T07:04:31Z"
-        }
-      ],
-      "lifecycle": "created",
-      "displayConfidence": "high",
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1791440308.976123,
-  "last_news_check": 1791441946.394425,
+  "active_threats": {},
+  "last_threat_update": 1791444529.815598,
+  "last_news_check": 1791444528.080385,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

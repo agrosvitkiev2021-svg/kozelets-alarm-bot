@@ -1,31 +1,6 @@
 {
-  "active_threats": {
-    "trk_00246864": {
-      "id": "trk_00246864",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Десна",
-      "lat": 51.202211613968394,
-      "lon": 31.108301475213516,
-      "heading": 215,
-      "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "count": 1,
-      "updatedAt": "2026-10-08T03:25:28Z",
-      "explanationShort": "БпЛА курсом на Десна. Підтверджень: 4.",
-      "status": "active",
-      "confirmedAt": "2026-10-08T03:25:28Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1791430211.46056,
+  "active_threats": {},
+  "last_threat_update": 1791431439.647218,
   "last_news_check": 1791430210.589404,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

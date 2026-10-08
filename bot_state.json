@@ -11,14 +11,58 @@
       "lon": 31.538213605913636,
       "heading": 195,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "count": 2,
-      "updatedAt": "2026-10-08T07:58:30Z",
-      "explanationShort": "БпЛА курсом на Бобровиця. Підтверджень: 4.",
+      "sourceCount": 3,
+      "updatedAt": "2026-10-08T08:24:41Z",
+      "explanationShort": "БпЛА курсом на Бобровиця. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-10-08T07:58:30Z",
+      "confirmedAt": "2026-10-08T08:24:41Z",
       "uncertaintyKm": 10,
       "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00247357": {
+      "id": "trk_00247357",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Поділ",
+      "lat": 50.771092059504284,
+      "lon": 30.788800994647765,
+      "heading": 211,
+      "confidenceLevel": "medium",
+      "sourceCount": 9,
+      "updatedAt": "2026-10-08T08:20:59Z",
+      "explanationShort": "БпЛА курсом на Поділ. Підтверджень: 9.",
+      "status": "active",
+      "confirmedAt": "2026-10-08T08:20:59Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.4501,
+          "lon": 30.5234,
+          "t": "2026-10-08T08:09:06Z"
+        },
+        {
+          "lat": 50.46205354945644,
+          "lon": 30.518974828264565,
+          "t": "2026-10-08T08:19:33Z"
+        },
+        {
+          "lat": 50.45921560828772,
+          "lon": 30.4870769273544,
+          "t": "2026-10-08T08:20:24Z"
+        },
+        {
+          "lat": 50.46311026708334,
+          "lon": 30.49584144955296,
+          "t": "2026-10-08T08:20:59Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,

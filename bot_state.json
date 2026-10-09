@@ -1,7 +1,67 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1791511407.831745,
-  "last_news_check": 1791515738.974723,
+  "active_threats": {
+    "trk_00249889": {
+      "id": "trk_00249889",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Бориспіль",
+      "lat": 50.68865906776992,
+      "lon": 31.158484948866786,
+      "heading": 201,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-09T03:48:24Z",
+      "explanationShort": "БпЛА курсом на Бориспіль. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-10-09T03:48:24Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00249892": {
+      "id": "trk_00249892",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Чабани",
+      "lat": 50.65190083272671,
+      "lon": 30.707243414150305,
+      "heading": 210,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "count": 1,
+      "updatedAt": "2026-10-09T03:52:59Z",
+      "explanationShort": "БпЛА курсом на Чабани. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-10-09T03:52:59Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.31196936332766,
+          "lon": 30.41056337011886,
+          "t": "2026-10-09T03:49:12Z"
+        },
+        {
+          "lat": 50.34071,
+          "lon": 30.42356,
+          "t": "2026-10-09T03:51:13Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1791518125.91276,
+  "last_news_check": 1791518124.314399,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

@@ -1,68 +1,6 @@
 {
-  "active_threats": {
-    "trk_00250404": {
-      "id": "trk_00250404",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Гостомель",
-      "lat": 50.862500750466516,
-      "lon": 30.617974114924,
-      "heading": 217,
-      "confidenceLevel": "medium",
-      "sourceCount": 11,
-      "count": 1,
-      "updatedAt": "2026-10-09T08:36:16Z",
-      "explanationShort": "БпЛА курсом на Гостомель. Підтверджень: 11.",
-      "status": "active",
-      "confirmedAt": "2026-10-09T08:36:16Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.53450128076481,
-          "lon": 30.223731860682335,
-          "t": "2026-10-09T08:14:17Z"
-        },
-        {
-          "lat": 50.52768504218088,
-          "lon": 30.232785799580498,
-          "t": "2026-10-09T08:15:26Z"
-        },
-        {
-          "lat": 50.53200030093007,
-          "lon": 30.226922931707357,
-          "t": "2026-10-09T08:15:26Z"
-        },
-        {
-          "lat": 50.525682415321754,
-          "lon": 30.233078978622416,
-          "t": "2026-10-09T08:15:58Z"
-        },
-        {
-          "lat": 50.52987058582371,
-          "lon": 30.22797398403621,
-          "t": "2026-10-09T08:15:58Z"
-        },
-        {
-          "lat": 50.56581829739299,
-          "lon": 30.26497583112076,
-          "t": "2026-10-09T08:25:57Z"
-        },
-        {
-          "lat": 50.57102965212258,
-          "lon": 30.270066619791827,
-          "t": "2026-10-09T08:29:55Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1791533642.427656,
+  "active_threats": {},
+  "last_threat_update": 1791536130.516188,
   "last_news_check": 1791535003.602196,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -164,7 +102,7 @@
   ],
   "last_weather_check": 1791524929.286572,
   "last_promo_check": 1790413539.404946,
-  "district_alert_active": false,
+  "district_alert_active": true,
   "district_alert_initialized": true,
   "last_history_check": 1790409240.435544,
   "last_dashboard_check": 1790063919.831967,

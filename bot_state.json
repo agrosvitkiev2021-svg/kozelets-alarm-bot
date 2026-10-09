@@ -1,25 +1,26 @@
 {
   "active_threats": {
-    "trk_00252081": {
-      "id": "trk_00252081",
+    "trk_00252075": {
+      "id": "trk_00252075",
       "type": "uav",
       "title": "БпЛА",
       "region": "Чернігівська область",
       "district": "",
-      "locality": "Смолянка",
-      "lat": 51.2477,
-      "lon": 31.45803,
-      "heading": 337,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-10-09T20:52:24Z",
-      "explanationShort": "БпЛА — Смолянка, Чернігівська область. Підтверджень: 1.",
+      "locality": "Олишівка",
+      "lat": 51.21862,
+      "lon": 31.33582,
+      "heading": 350,
+      "confidenceLevel": "high",
+      "sourceCount": 8,
+      "count": 1,
+      "updatedAt": "2026-10-09T21:08:23Z",
+      "explanationShort": "БпЛА — Олишівка, Чернігівська область. Підтверджень: 8.",
       "status": "active",
-      "confirmedAt": "2026-10-09T20:52:24Z",
+      "confirmedAt": "2026-10-09T21:08:23Z",
       "uncertaintyKm": 10,
       "positionQuality": "confirmed",
       "lifecycle": "confirmed",
-      "displayConfidence": "medium",
+      "displayConfidence": "high",
       "presumptiveCourse": true
     }
   },

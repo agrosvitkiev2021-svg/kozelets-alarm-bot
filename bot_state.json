@@ -1,23 +1,23 @@
 {
   "active_threats": {
-    "trk_00251915": {
-      "id": "trk_00251915",
+    "trk_00251982": {
+      "id": "trk_00251982",
       "type": "uav",
       "title": "БпЛА",
       "region": "Чернігівська область",
       "district": "",
-      "locality": "Десна",
-      "lat": 51.202211613968394,
-      "lon": 31.108301475213516,
-      "heading": 215,
+      "locality": "Козелець",
+      "lat": 51.23305255359842,
+      "lon": 31.38084554848053,
+      "heading": 206,
       "confidenceLevel": "medium",
-      "sourceCount": 10,
+      "sourceCount": 1,
       "count": 1,
-      "updatedAt": "2026-10-09T19:52:50Z",
-      "explanationShort": "БпЛА курсом на Десна. Підтверджень: 10.",
+      "updatedAt": "2026-10-09T20:12:51Z",
+      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-10-09T19:52:50Z",
-      "uncertaintyKm": 10,
+      "confirmedAt": "2026-10-09T20:12:51Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
@@ -26,7 +26,7 @@
     }
   },
   "last_threat_update": 1791576028.790777,
-  "last_news_check": 1791574327.73563,
+  "last_news_check": 1791577182.121016,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -124,7 +124,8 @@
     "10a4ade2240325692fb9250c703d32c6",
     "ac4f504c2cfa47470f1b471b7a4cc237",
     "77ed3c1de277ecf8caa4de4258d9364a",
-    "af593585bf4f1fb145d4a89ffef17432"
+    "af593585bf4f1fb145d4a89ffef17432",
+    "9c71e5ebe77b8d9918ecb7c2201d3079"
   ],
   "last_weather_check": 1791569607.473492,
   "last_promo_check": 1790413539.404946,

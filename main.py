@@ -68,6 +68,9 @@ WEATHER_CHECK_SECONDS = 4 * 60 * 60
 # Промо — раз на 6 годин
 PROMO_CHECK_SECONDS = 6 * 60 * 60
 
+# Історія / Цікаві факти про Козелеччину — раз на 12 годин
+HISTORY_CHECK_SECONDS = 12 * 60 * 60
+
 
 # ============================================================
 # ОФІЦІЙНИЙ API ПОВІТРЯНОЇ ТРИВОГИ
@@ -121,15 +124,57 @@ NEWS_FEEDS = [
     (
         "Остер",
         "https://news.google.com/rss/search?"
-        "q=%D0%9E%D1%81%D1%82%D0%B5%D1%80+%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B3%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0"
+        "q=%D0%9E%D1%81%D1%82%D0%B5%D1%80+%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B3%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%Bа"
         "&hl=uk&gl=UA&ceid=UA:uk"
     ),
     (
         "Чернігівська область",
         "https://news.google.com/rss/search?"
-        "q=%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B3%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C"
+        "q=%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B3%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%Bа+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C"
         "&hl=uk&gl=UA&ceid=UA:uk"
     ),
+]
+
+
+# ============================================================
+# ІСТОРІЯ ТА ВИДАТНІ МІСЦЯ КОЗЕЛЕЧЧИНИ
+# ============================================================
+
+LOCAL_HISTORY_POSTS = [
+    (
+        "🏛 <b>Історія Козельця: Собор Різдва Богородиці</b>\n\n"
+        "Величний архітектурний шедевр у стилі українського бароко, збудований у 1752–1763 роках коштом графині Віри Разумовської (матері Олексія та Кирила Розумовських). "
+        "Головна святиня храму — унікальний п'ятиярусний різьблений іконостас.\n\n"
+        "📌 <i>Цікавий факт:</i> За легендою, іконостас спочатку виготовляли для іншого храму, але він вразив своєю красою, і його встановили саме в Козельці."
+    ),
+    (
+        "📜 <b>Козацьке минуле Козельця</b>\n\n"
+        "У XVII–XVIII століттях Козелець був сотенним містечком Київського полку. Тут активно розвивалося ремесло та торгівля, а міська старшина відігравала важливу роль у регіоні.\n\n"
+        "📌 <i>Цікавий факт:</i> У 1656 році Богдан Хмельницький надав Козельцю Магдебурзьке право, що дало місту самоврядування та власний герб."
+    ),
+    (
+        "🏛 <b>Поштова станція у Козельці</b>\n\n"
+        "Комплекс споруд колишньої поштової станції (середина XIX століття) — одна з небагатьох добре збережених пам'яток дорожньої архітектури в Україні.\n\n"
+        "📌 <i>Цікавий факт:</i> Тут свого часу зупинялися видатні діячі культури, зокрема Тарас Шевченко, який подорожував Лівобережною Україною та замальовував місцеві краєвиди."
+    ),
+    (
+        "🌿 <b>Остерський міст та руїни «Божниці»</b>\n\n"
+        "Неподалік від Козельця, у місті Остер, знаходяться залишки давньоруського Михайлівського храму (XII ст.), відомого як «Божниця» — єдиної вцілілої споруди стародавнього Остра часів Київської Русі.\n\n"
+        "📌 <i>Цікавий факт:</i> Храм збудував ще князь Володимир Мономах як частину укріпленого дитинця."
+    ),
+    (
+        "⭐ <b>Видатні постаті: родина Розумовських</b>\n\n"
+        "Козелеччина тісно пов'язана з родом Розумовських, які залишили величезний слід в історії української та європейської культури.\n\n"
+        "📌 <i>Цікавий факт:</i> Завдяки фінансовій підтримці та впливу Розумовських у Козельці та на сусідніх територіях з'явилися монументальні кам'яні храми та розвинулася освіта."
+    )
+]
+
+PROMO_POSTS = [
+    (
+        "📢 <b>Долучайтеся до нашої спільноти!</b>\n\n"
+        "Запрошуйте друзів та знайомих до нашого каналу — оперативні новини, безпека та історія Козелеччини разом.\n\n"
+        "🔗 Поділіться посиланням на канал з тими, хто тут мешкає!"
+    )
 ]
 
 
@@ -140,19 +185,52 @@ NEWS_FEEDS = [
 TELEGRAM_URL = f"https://api.telegram.org/bot{BOT_TOKEN}"
 
 
-def telegram_send(text):
+def telegram_send(text, show_buttons=True, comment_url=None):
     """
-    Відправка повідомлення в Telegram.
+    Відправка повідомлення в Telegram з Inline-кнопками «Поділитися» та «Обговорити».
     """
     try:
+        channel_name = CHANNEL.replace("@", "") if CHANNEL.startswith("@") else CHANNEL
+        channel_link = f"https://t.me/{channel_name}"
+        
+        share_text = "Оперативні сповіщення, тривоги та новини Козелеччини! 🔔"
+        share_url = (
+            f"https://t.me/share/url?"
+            f"url={requests.utils.quote(channel_link)}&"
+            f"text={requests.utils.quote(share_text)}"
+        )
+
+        data = {
+            "chat_id": CHANNEL,
+            "text": text,
+            "parse_mode": "HTML",
+            "disable_web_page_preview": True,
+        }
+
+        if show_buttons:
+            row_buttons = [
+                {
+                    "text": "📢 Поділитися",
+                    "url": share_url
+                }
+            ]
+
+            discussion_link = comment_url if comment_url else channel_link
+            row_buttons.append({
+                "text": "💬 Обговорити",
+                "url": discussion_link
+            })
+
+            reply_markup = {
+                "inline_keyboard": [
+                    row_buttons
+                ]
+            }
+            data["reply_markup"] = json.dumps(reply_markup)
+
         response = requests.post(
             f"{TELEGRAM_URL}/sendMessage",
-            data={
-                "chat_id": CHANNEL,
-                "text": text,
-                "parse_mode": "HTML",
-                "disable_web_page_preview": True,
-            },
+            data=data,
             timeout=30,
         )
 
@@ -190,6 +268,10 @@ def default_state():
 
         # Промо
         "last_promo_check": 0,
+
+        # Історія
+        "last_history_check": 0,
+        "published_history_indexes": [],
 
         # Офіційна тривога Чернігівського району
         "district_alert_active": None,
@@ -523,7 +605,8 @@ def process_district_alert(state):
                 f"📍 <b>{html.escape(AIR_REGION_NAME)}</b>\n\n"
                 "⚠️ У районі оголошено "
                 "повітряну тривогу.\n\n"
-                f"🕐 Час: {current_time_string()}"
+                f"🕐 Час: {current_time_string()}",
+                show_buttons=False
             )
         return
 
@@ -547,7 +630,7 @@ def process_district_alert(state):
             "та дотримуйтесь правил безпеки."
         )
 
-        if telegram_send(message):
+        if telegram_send(message, show_buttons=False):
             state["district_alert_active"] = True
 
     elif (
@@ -568,7 +651,7 @@ def process_district_alert(state):
             f"{current_time_string()}"
         )
 
-        if telegram_send(message):
+        if telegram_send(message, show_buttons=False):
             state["district_alert_active"] = False
 
     else:
@@ -958,229 +1041,3 @@ def process_threats(state):
         if (
             place is None
             or distance is None
-            or distance > THREAT_RADIUS_KM
-        ):
-            continue
-
-        threat_id = make_threat_id(threat)
-        current[threat_id] = threat
-
-    previous = state.get("active_threats", {})
-
-    if not isinstance(previous, dict):
-        previous = {}
-
-    # Нові загрози
-    new_ids = [
-        threat_id
-        for threat_id in current
-        if threat_id not in previous
-    ]
-
-    for threat_id in new_ids:
-        telegram_send(
-            build_threat_message(current[threat_id])
-        )
-
-    now = now_timestamp()
-    last_update = state.get("last_threat_update", 0)
-
-    # Оновлення активної загрози
-    if (
-        current
-        and not new_ids
-        and (now - last_update >= THREAT_UPDATE_SECONDS)
-    ):
-        for threat_id, threat in list(current.items())[:5]:
-            telegram_send(build_threat_message(threat))
-
-        state["last_threat_update"] = now
-
-    # Відбій NEPTUN
-    if previous and not current:
-        telegram_send(
-            "🟢 <b>ВІДБІЙ ПОБЛИЗУ</b>\n\n"
-            "У радіусі 25 км активних "
-            "цілей не виявлено."
-        )
-        state["last_threat_update"] = now
-
-    if not previous and current:
-        state["last_threat_update"] = now
-
-    state["active_threats"] = current
-
-
-# ============================================================
-# НОВИНИ
-# ============================================================
-
-def process_news(state):
-    print("📰 Обробка новин...")
-
-    now = now_timestamp()
-    published = state.get("published_news", [])
-    published_set = set(str(x) for x in published)
-
-    for source_name, feed_url in NEWS_FEEDS:
-        try:
-            feed = feedparser.parse(feed_url)
-
-            for entry in feed.entries:
-                title = getattr(entry, "title", "").strip()
-                link = getattr(entry, "link", "").strip()
-
-                if not title or not link:
-                    continue
-
-                published_time = None
-
-                if getattr(entry, "published_parsed", None):
-                    published_time = datetime(
-                        *entry.published_parsed[:6],
-                        tzinfo=timezone.utc
-                    ).timestamp()
-
-                if published_time is None:
-                    continue
-
-                age = now - published_time
-
-                if (
-                    age < 0
-                    or age > NEWS_MAX_AGE_MINUTES * 60
-                ):
-                    continue
-
-                item_id = hashlib.md5(
-                    (title + "|" + link).encode("utf-8")
-                ).hexdigest()
-
-                if item_id in published_set:
-                    continue
-
-                message = (
-                    "📰 <b>НОВИНА</b>\n\n"
-                    f"📍 <b>{html.escape(source_name)}</b>\n"
-                    f"{html.escape(title)}\n\n"
-                    f'<a href="{html.escape(link, quote=True)}">'
-                    "🔗 Читати новину</a>"
-                )
-
-                if telegram_send(message):
-                    published.append(item_id)
-                    published_set.add(item_id)
-
-        except Exception as e:
-            print(f"❌ Помилка RSS {source_name}: {e}")
-
-    state["published_news"] = published[-500:]
-
-
-# ============================================================
-# ПОГОДА
-# ============================================================
-
-def process_weather():
-    print("🌤 Публікація погоди...")
-
-    lat, lon = PLACES["Козелець"]
-
-    url = (
-        "https://api.open-meteo.com/v1/forecast?"
-        f"latitude={lat}"
-        f"&longitude={lon}"
-        "&current="
-        "temperature_2m,"
-        "apparent_temperature,"
-        "relative_humidity_2m,"
-        "wind_speed_10m"
-        "&daily=sunrise,sunset"
-        "&timezone=Europe%2FKyiv"
-    )
-
-    try:
-        response = requests.get(url, timeout=30)
-        response.raise_for_status()
-
-        data = response.json()
-        current = data.get("current", {})
-        daily = data.get("daily", {})
-
-        temp = round(float(current.get("temperature_2m", 0)), 1)
-        feels = round(float(current.get("apparent_temperature", 0)), 1)
-        humidity = current.get("relative_humidity_2m")
-        wind = round(float(current.get("wind_speed_10m", 0)), 1)
-
-        sunrise_str = daily.get("sunrise", [""])[0]
-        sunset_str = daily.get("sunset", [""])[0]
-
-        if sunrise_str and sunset_str:
-            sunrise_dt = datetime.fromisoformat(sunrise_str)
-            sunset_dt = datetime.fromisoformat(sunset_str)
-
-            sunrise = sunrise_dt.strftime("%H:%M")
-            sunset = sunset_dt.strftime("%H:%M")
-
-            day_duration = sunset_dt - sunrise_dt
-            total_minutes = int(day_duration.total_seconds() // 60)
-
-            hours = total_minutes // 60
-            minutes = total_minutes % 60
-
-            day_len_str = f"{hours} год {minutes} хв"
-        else:
-            sunrise = "—"
-            sunset = "—"
-            day_len_str = "—"
-
-        msg = (
-            "🌤 <b>ПОГОДА — КОЗЕЛЕЦЬ</b>\n\n"
-            f"🌡 Температура: {temp}°C\n"
-            f"🥶 Відчувається: {feels}°C\n"
-            f"💧 Вологість: {humidity}%\n"
-            f"💨 Вітер: {wind} км/год\n\n"
-            f"🌅 Схід: {sunrise}\n"
-            f"🌇 Захід: {sunset}\n"
-            f"⏳ Тривалість дня: {day_len_str}\n\n"
-            f"🕐 Оновлено: {current_time_string()}"
-        )
-
-        telegram_send(msg)
-
-    except Exception as e:
-        print(f"❌ Помилка погоди: {e}")
-
-
-# ============================================================
-# ГОЛОВНА ЛОГІКА ЗАПУСКУ
-# ============================================================
-
-def main():
-    state = load_state()
-    now = now_timestamp()
-
-    # 1. Перевірка тривоги в Чернігівському районі
-    process_district_alert(state)
-
-    # 2. Перевірка загроз Neptun
-    process_threats(state)
-
-    # 3. Перевірка новин
-    last_news = state.get("last_news_check", 0)
-    if now - last_news >= NEWS_CHECK_SECONDS:
-        process_news(state)
-        state["last_news_check"] = now
-
-    # 4. Перевірка погоди
-    last_weather = state.get("last_weather_check", 0)
-    if now - last_weather >= WEATHER_CHECK_SECONDS:
-        process_weather()
-        state["last_weather_check"] = now
-
-    # Збереження оновленого стану
-    save_state(state)
-
-
-if __name__ == "__main__":
-    main()

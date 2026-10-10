@@ -1,28 +1,5 @@
 {
   "active_threats": {
-    "trk_00254213": {
-      "id": "trk_00254213",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Київ",
-      "lat": 50.761289488779006,
-      "lon": 30.80774606165047,
-      "heading": 210,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-10-10T13:54:32Z",
-      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 1.",
-      "status": "active",
-      "confirmedAt": "2026-10-10T13:54:32Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
     "trk_00254193": {
       "id": "trk_00254193",
       "type": "uav",
@@ -34,10 +11,10 @@
       "lon": 30.893175765675778,
       "heading": 205,
       "confidenceLevel": "medium",
-      "sourceCount": 8,
+      "sourceCount": 7,
       "count": 2,
-      "updatedAt": "2026-10-10T13:53:24Z",
-      "explanationShort": "БпЛА курсом на Козин. Підтверджень: 8.",
+      "updatedAt": "2026-10-10T14:04:01Z",
+      "explanationShort": "БпЛА курсом на Козин. Підтверджень: 7.",
       "status": "active",
       "uncertaintyKm": 25,
       "positionQuality": "approx",
@@ -45,74 +22,9 @@
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
-    },
-    "trk_00254200": {
-      "id": "trk_00254200",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Гнідин",
-      "lat": 50.64397521816181,
-      "lon": 30.953586538041066,
-      "heading": 205,
-      "confidenceLevel": "medium",
-      "sourceCount": 7,
-      "count": 2,
-      "updatedAt": "2026-10-10T13:53:24Z",
-      "explanationShort": "БпЛА курсом на Гнідин. Підтверджень: 7.",
-      "status": "active",
-      "confirmedAt": "2026-10-10T13:53:24Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.32899,
-          "lon": 30.71059,
-          "t": "2026-10-10T13:45:20Z"
-        },
-        {
-          "lat": 50.30376095460194,
-          "lon": 30.71820390251452,
-          "t": "2026-10-10T13:48:20Z"
-        },
-        {
-          "lat": 50.3181955133839,
-          "lon": 30.713847680482655,
-          "t": "2026-10-10T13:50:49Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00254206": {
-      "id": "trk_00254206",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Хотів",
-      "lat": 50.64499308232605,
-      "lon": 30.74338438945259,
-      "heading": 209,
-      "confidenceLevel": "medium",
-      "sourceCount": 8,
-      "count": 1,
-      "updatedAt": "2026-10-10T13:52:55Z",
-      "explanationShort": "БпЛА курсом на Хотів. Підтверджень: 8.",
-      "status": "active",
-      "confirmedAt": "2026-10-10T13:50:04Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1791640530.677904,
+  "last_threat_update": 1791641400.717606,
   "last_news_check": 1791639687.446027,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

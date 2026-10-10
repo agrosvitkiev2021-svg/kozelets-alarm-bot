@@ -1,6 +1,30 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1791650194.917113,
+  "active_threats": {
+    "trk_00255113": {
+      "id": "trk_00255113",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Вишенки",
+      "lat": 50.627801519036,
+      "lon": 30.95017025439543,
+      "heading": 204,
+      "confidenceLevel": "medium",
+      "sourceCount": 7,
+      "updatedAt": "2026-10-10T19:28:26Z",
+      "explanationShort": "БпЛА курсом на Вишенки. Підтверджень: 7.",
+      "status": "active",
+      "confirmedAt": "2026-10-10T19:27:46Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1791660885.606805,
   "last_news_check": 1791659934.011827,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

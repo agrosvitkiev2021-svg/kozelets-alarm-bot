@@ -1,6 +1,52 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1791670896.36557,
+  "active_threats": {
+    "trk_00255474": {
+      "id": "trk_00255474",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Козелець",
+      "lat": 50.91,
+      "lon": 31.129,
+      "heading": 136,
+      "confidenceLevel": "high",
+      "sourceCount": 5,
+      "updatedAt": "2026-10-10T23:04:00Z",
+      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-10-10T23:04:00Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
+      "presumptiveCourse": true
+    },
+    "trk_00255477": {
+      "id": "trk_00255477",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Калита",
+      "lat": 51.0647759877491,
+      "lon": 31.244911736642162,
+      "heading": 205,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "updatedAt": "2026-10-10T23:05:33Z",
+      "explanationShort": "БпЛА курсом на Калита. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-10-10T23:05:33Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1791673590.352397,
   "last_news_check": 1791671898.942743,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -104,7 +150,7 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1791658874.060435,
+  "last_weather_check": 1791673588.016716,
   "last_promo_check": 1791653216.313507,
   "last_history_check": 1791653216.313507,
   "published_history_indexes": [

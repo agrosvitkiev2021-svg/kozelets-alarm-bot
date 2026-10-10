@@ -11,12 +11,13 @@
       "lon": 31.108301475213516,
       "heading": 215,
       "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-10-10T04:07:46Z",
-      "explanationShort": "БпЛА курсом на Десна. Підтверджень: 2.",
+      "sourceCount": 4,
+      "count": 2,
+      "updatedAt": "2026-10-10T04:29:21Z",
+      "explanationShort": "БпЛА курсом на Десна. Підтверджень: 4.",
       "status": "active",
-      "confirmedAt": "2026-10-10T04:07:46Z",
-      "uncertaintyKm": 10,
+      "confirmedAt": "2026-10-10T04:29:21Z",
+      "uncertaintyKm": 28,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
@@ -24,7 +25,7 @@
       "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1791605508.703443,
+  "last_threat_update": 1791606713.634808,
   "last_news_check": 1791605507.67515,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

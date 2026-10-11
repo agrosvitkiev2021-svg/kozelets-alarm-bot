@@ -113,7 +113,7 @@
     0
   ],
   "last_digest_check": 1791739815.718302,
-  "district_alert_active": false,
+  "district_alert_active": true,
   "district_alert_initialized": true,
   "last_dashboard_check": 1790063919.831967,
   "alert": {

@@ -1,26 +1,27 @@
 {
   "active_threats": {
-    "trk_00257687": {
-      "id": "trk_00257687",
+    "trk_00257738": {
+      "id": "trk_00257738",
       "type": "uav",
       "title": "БпЛА",
       "region": "Чернігівська область",
       "district": "",
-      "locality": "Олишівка",
-      "lat": 51.21862,
-      "lon": 31.33582,
-      "heading": 350,
-      "confidenceLevel": "high",
-      "sourceCount": 10,
+      "locality": "Козелець",
+      "lat": 51.23305255359842,
+      "lon": 31.38084554848053,
+      "heading": 206,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
       "count": 1,
-      "updatedAt": "2026-10-11T19:49:10Z",
-      "explanationShort": "БпЛА — Олишівка, Чернігівська область. Підтверджень: 10.",
+      "updatedAt": "2026-10-11T20:00:33Z",
+      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-10-11T19:49:10Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "confirmed",
-      "lifecycle": "confirmed",
-      "displayConfidence": "high",
+      "confirmedAt": "2026-10-11T20:00:33Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
       "presumptiveCourse": true
     }
   },
@@ -128,7 +129,7 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1791733858.220735,
+  "last_weather_check": 1791748880.311326,
   "last_promo_check": 1791741580.200455,
   "last_history_check": 1791739815.718302,
   "published_history_indexes": [

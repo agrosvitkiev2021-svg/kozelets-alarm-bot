@@ -1,6 +1,29 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1791730671.74205,
+  "active_threats": {
+    "trk_00257151": {
+      "id": "trk_00257151",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Кіпті",
+      "lat": 51.05656,
+      "lon": 31.15338,
+      "heading": 155,
+      "confidenceLevel": "high",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-11T15:48:25Z",
+      "explanationShort": "БпЛА — Кіпті, Чернігівська область. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-10-11T15:48:06Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1791733860.019867,
   "last_news_check": 1791732841.464762,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -104,7 +127,7 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1791718833.515729,
+  "last_weather_check": 1791733858.220735,
   "last_promo_check": 1791719744.959375,
   "last_history_check": 1791696592.219838,
   "published_history_indexes": [

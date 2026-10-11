@@ -1,6 +1,52 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1791708841.443015,
+  "active_threats": {
+    "trk_00256249": {
+      "id": "trk_00256249",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Бровари",
+      "lat": 50.841204549351566,
+      "lon": 31.038211995150174,
+      "heading": 207,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "updatedAt": "2026-10-11T09:21:35Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-10-11T09:21:35Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.353,
+          "lon": 30.955,
+          "t": "2026-10-11T08:30:00Z"
+        },
+        {
+          "lat": 50.510792319599325,
+          "lon": 30.79021688143109,
+          "t": "2026-10-11T08:52:01Z"
+        },
+        {
+          "lat": 50.52883384608669,
+          "lon": 30.771376046808204,
+          "t": "2026-10-11T09:16:52Z"
+        },
+        {
+          "lat": 50.52096891281245,
+          "lon": 30.77958942649333,
+          "t": "2026-10-11T09:21:35Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1791710883.479465,
   "last_news_check": 1791709718.458585,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

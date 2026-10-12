@@ -1,31 +1,65 @@
 {
   "active_threats": {
-    "trk_00260707": {
-      "id": "trk_00260707",
+    "trk_00260848": {
+      "id": "trk_00260848",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Чернігівська область",
       "district": "",
-      "locality": "Бровари",
-      "lat": 50.7532922812502,
-      "lon": 30.97726484593576,
-      "heading": 206.188,
+      "locality": "Козелець",
+      "lat": 51.23305255359842,
+      "lon": 31.38084554848053,
+      "heading": 206.196,
       "confidenceLevel": "medium",
-      "sourceCount": 9,
-      "updatedAt": "2026-10-12T20:59:36Z",
-      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 9.",
+      "sourceCount": 3,
+      "count": 1,
+      "updatedAt": "2026-10-12T21:19:05Z",
+      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-10-12T20:59:36Z",
+      "confirmedAt": "2026-10-12T21:19:05Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
       "presumptiveCourse": true
+    },
+    "trk_00260851": {
+      "id": "trk_00260851",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Кіпті",
+      "lat": 51.07010774720697,
+      "lon": 31.17147591948359,
+      "heading": null,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-12T21:19:05Z",
+      "explanationShort": "БпЛА — Кіпті, Чернігівська область. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-10-12T21:19:05Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 51.10276,
+          "lon": 31.21509,
+          "t": "2026-10-12T21:18:08Z"
+        },
+        {
+          "lat": 51.07010774720697,
+          "lon": 31.17147591948359,
+          "t": "2026-10-12T21:19:05Z"
+        }
+      ],
+      "lifecycle": "confirmed",
+      "displayConfidence": "medium"
     }
   },
   "last_threat_update": 1791838917.943494,
-  "last_news_check": 1791837872.234655,
+  "last_news_check": 1791840071.051761,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

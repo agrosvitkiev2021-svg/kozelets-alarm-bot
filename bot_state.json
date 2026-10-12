@@ -1,22 +1,21 @@
 {
   "active_threats": {
-    "trk_00258662": {
-      "id": "trk_00258662",
+    "trk_00258707": {
+      "id": "trk_00258707",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Бровари",
-      "lat": 50.83405637500026,
-      "lon": 31.03968646124768,
-      "heading": 206,
+      "locality": "Ворзел",
+      "lat": 50.82734611142942,
+      "lon": 30.50366776334965,
+      "heading": 218,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "count": 1,
-      "updatedAt": "2026-10-12T05:18:52Z",
-      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 4.",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-12T05:35:27Z",
+      "explanationShort": "БпЛА курсом на Ворзел. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-10-12T05:18:52Z",
+      "confirmedAt": "2026-10-12T05:35:27Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -24,24 +23,37 @@
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00258643": {
-      "id": "trk_00258643",
+    "trk_00258701": {
+      "id": "trk_00258701",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
-      "locality": "Вишгород",
-      "lat": 50.88604301670057,
-      "lon": 30.80036087376846,
-      "heading": 213,
+      "locality": "Київ",
+      "lat": 50.76086629131269,
+      "lon": 30.80468956804215,
+      "heading": 210,
       "confidenceLevel": "medium",
-      "sourceCount": 7,
-      "updatedAt": "2026-10-12T05:15:47Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 7.",
+      "sourceCount": 9,
+      "count": 1,
+      "updatedAt": "2026-10-12T05:40:00Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 9.",
       "status": "active",
-      "confirmedAt": "2026-10-12T05:15:47Z",
+      "confirmedAt": "2026-10-12T05:40:00Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.4316,
+          "lon": 30.3899,
+          "t": "2026-10-12T05:31:25Z"
+        },
+        {
+          "lat": 50.44967679732218,
+          "lon": 30.520346077973567,
+          "t": "2026-10-12T05:37:48Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -49,7 +61,7 @@
     }
   },
   "last_threat_update": 1791781120.973268,
-  "last_news_check": 1791781119.463485,
+  "last_news_check": 1791783639.85041,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -154,11 +166,12 @@
   ],
   "last_weather_check": 1791779915.466018,
   "last_promo_check": 1791764252.279583,
-  "last_history_check": 1791739815.718302,
+  "last_history_check": 1791783639.85041,
   "published_history_indexes": [
     4,
     7,
-    0
+    0,
+    2
   ],
   "last_digest_check": 1791739815.718302,
   "district_alert_active": true,

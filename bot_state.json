@@ -1,30 +1,6 @@
 {
-  "active_threats": {
-    "trk_00260643": {
-      "id": "trk_00260643",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Жуляни",
-      "lat": 50.70226269084258,
-      "lon": 30.733099318493423,
-      "heading": 211.226,
-      "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-10-12T20:01:02Z",
-      "explanationShort": "БпЛА курсом на Жуляни. Підтверджень: 4.",
-      "status": "active",
-      "confirmedAt": "2026-10-12T20:01:02Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1791835295.651485,
+  "active_threats": {},
+  "last_threat_update": 1791836618.561923,
   "last_news_check": 1791835294.494926,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

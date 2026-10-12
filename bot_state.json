@@ -1,66 +1,7 @@
 {
-  "active_threats": {
-    "trk_00258353": {
-      "id": "trk_00258353",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Голосіїв",
-      "lat": 50.6616487845289,
-      "lon": 30.818197750596596,
-      "heading": 208,
-      "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "updatedAt": "2026-10-12T03:06:41Z",
-      "explanationShort": "БпЛА курсом на Голосіїв. Підтверджень: 6.",
-      "status": "active",
-      "confirmedAt": "2026-10-12T03:05:23Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00258358": {
-      "id": "trk_00258358",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Гнідин",
-      "lat": 50.65476961026248,
-      "lon": 30.950383947201704,
-      "heading": 205,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-10-12T03:07:22Z",
-      "explanationShort": "БпЛА курсом на Гнідин. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-10-12T03:07:22Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.2994,
-          "lon": 30.71952,
-          "t": "2026-10-12T03:05:24Z"
-        },
-        {
-          "lat": 50.32899,
-          "lon": 30.71059,
-          "t": "2026-10-12T03:06:18Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1791773552.879983,
-  "last_news_check": 1791773551.290178,
+  "active_threats": {},
+  "last_threat_update": 1791775874.342899,
+  "last_news_check": 1791775873.388874,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

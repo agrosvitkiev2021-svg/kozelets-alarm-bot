@@ -11,11 +11,11 @@
       "lon": 30.97726484593576,
       "heading": 206.188,
       "confidenceLevel": "medium",
-      "sourceCount": 8,
-      "updatedAt": "2026-10-12T20:43:37Z",
-      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 8.",
+      "sourceCount": 9,
+      "updatedAt": "2026-10-12T20:59:36Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 9.",
       "status": "active",
-      "confirmedAt": "2026-10-12T20:43:37Z",
+      "confirmedAt": "2026-10-12T20:59:36Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -24,7 +24,7 @@
       "presumptiveCourse": true
     }
   },
-  "last_threat_update": 1791837873.377495,
+  "last_threat_update": 1791838917.943494,
   "last_news_check": 1791837872.234655,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

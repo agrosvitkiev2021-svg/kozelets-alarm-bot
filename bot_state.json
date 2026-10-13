@@ -1,23 +1,35 @@
 {
   "active_threats": {
-    "trk_00261473": {
-      "id": "trk_00261473",
+    "trk_00261494": {
+      "id": "trk_00261494",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Чернігівська область",
+      "region": "Київ",
       "district": "",
-      "locality": "Бобровиця",
-      "lat": 51.084377795237096,
-      "lon": 31.538213605913636,
-      "heading": 195.115,
+      "locality": "Теличка",
+      "lat": 50.714302282669486,
+      "lon": 30.842100865820694,
+      "heading": 209.213,
       "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-10-13T03:43:13Z",
-      "explanationShort": "БпЛА курсом на Бобровиця. Підтверджень: 2.",
+      "sourceCount": 4,
+      "updatedAt": "2026-10-13T04:01:38Z",
+      "explanationShort": "БпЛА курсом на Теличка. Підтверджень: 4.",
       "status": "active",
-      "confirmedAt": "2026-10-13T03:43:14Z",
-      "uncertaintyKm": 10,
+      "confirmedAt": "2026-10-13T04:01:38Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.38076,
+          "lon": 30.6015,
+          "t": "2026-10-13T03:59:20Z"
+        },
+        {
+          "lat": 50.4,
+          "lon": 30.56667,
+          "t": "2026-10-13T04:00:12Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,

@@ -6,71 +6,44 @@
       "title": "БпЛА",
       "region": "Чернігівська область",
       "district": "",
-      "locality": "Кіпті",
-      "lat": 51.05880048876411,
-      "lon": 31.156372652849207,
-      "heading": null,
+      "locality": "Бобровиця",
+      "lat": 50.76988016842517,
+      "lon": 31.362133754740995,
+      "heading": 156.2,
       "confidenceLevel": "high",
-      "sourceCount": 6,
-      "updatedAt": "2026-10-13T22:39:05Z",
-      "explanationShort": "БпЛА — Кіпті, Чернігівська область. Підтверджень: 6.",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-13T23:01:47Z",
+      "explanationShort": "БпЛА — Бобровиця, Чернігівська область. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-10-13T22:39:05Z",
+      "velocity": {
+        "bearingDeg": 156.2,
+        "speedKmh": 85.9
+      },
+      "confirmedAt": "2026-10-13T23:01:47Z",
       "uncertaintyKm": 4,
       "positionQuality": "confirmed",
       "trail": [
         {
           "lat": 51.07594564035429,
           "lon": 31.179273676758946,
-          "t": "2026-10-13T22:20:46Z"
+          "t": "2026-10-13T22:21:25Z"
         },
         {
           "lat": 51.05880048876411,
           "lon": 31.156372652849207,
           "t": "2026-10-13T22:38:56Z"
-        }
-      ],
-      "lifecycle": "confirmed",
-      "displayConfidence": "high"
-    },
-    "trk_00263925": {
-      "id": "trk_00263925",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "Дарницький район",
-      "regionKey": "дарницький",
-      "locality": "Київ",
-      "lat": 50.761289488779006,
-      "lon": 30.80774606165047,
-      "heading": 210.22,
-      "confidenceLevel": "medium",
-      "sourceCount": 9,
-      "updatedAt": "2026-10-13T22:41:19Z",
-      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 9.",
-      "status": "active",
-      "confirmedAt": "2026-10-13T22:41:19Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.31196936332766,
-          "lon": 30.41056337011886,
-          "t": "2026-10-13T22:19:55Z"
         },
         {
-          "lat": 50.4501,
-          "lon": 30.5234,
-          "t": "2026-10-13T22:36:15Z"
+          "lat": 50.76988016842517,
+          "lon": 31.362133754740995,
+          "t": "2026-10-13T23:01:41Z"
         }
       ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
+      "lifecycle": "tracking",
+      "displayConfidence": "high"
     }
   },
-  "last_threat_update": 1791929542.10962,
+  "last_threat_update": 1791932873.77358,
   "last_news_check": 1791931463.693736,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -174,7 +147,7 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1791917436.58151,
+  "last_weather_check": 1791932873.294993,
   "last_promo_check": 1791919027.012311,
   "last_history_check": 1791914197.422592,
   "published_history_indexes": [

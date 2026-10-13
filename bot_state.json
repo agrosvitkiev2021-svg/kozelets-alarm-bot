@@ -7,23 +7,71 @@
       "region": "Чернігівська область",
       "district": "",
       "locality": "Кіпті",
-      "lat": 51.05656,
-      "lon": 31.15338,
+      "lat": 51.05880048876411,
+      "lon": 31.156372652849207,
       "heading": null,
       "confidenceLevel": "high",
-      "sourceCount": 3,
-      "updatedAt": "2026-10-13T22:11:30Z",
-      "explanationShort": "БпЛА — Кіпті, Чернігівська область. Підтверджень: 3.",
+      "sourceCount": 6,
+      "updatedAt": "2026-10-13T22:39:05Z",
+      "explanationShort": "БпЛА — Кіпті, Чернігівська область. Підтверджень: 6.",
       "status": "active",
-      "confirmedAt": "2026-10-13T22:10:59Z",
+      "confirmedAt": "2026-10-13T22:39:05Z",
       "uncertaintyKm": 4,
       "positionQuality": "confirmed",
-      "lifecycle": "created",
+      "trail": [
+        {
+          "lat": 51.07594564035429,
+          "lon": 31.179273676758946,
+          "t": "2026-10-13T22:20:46Z"
+        },
+        {
+          "lat": 51.05880048876411,
+          "lon": 31.156372652849207,
+          "t": "2026-10-13T22:38:56Z"
+        }
+      ],
+      "lifecycle": "confirmed",
       "displayConfidence": "high"
+    },
+    "trk_00263925": {
+      "id": "trk_00263925",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "Дарницький район",
+      "regionKey": "дарницький",
+      "locality": "Київ",
+      "lat": 50.761289488779006,
+      "lon": 30.80774606165047,
+      "heading": 210.22,
+      "confidenceLevel": "medium",
+      "sourceCount": 9,
+      "updatedAt": "2026-10-13T22:41:19Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 9.",
+      "status": "active",
+      "confirmedAt": "2026-10-13T22:41:19Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.31196936332766,
+          "lon": 30.41056337011886,
+          "t": "2026-10-13T22:19:55Z"
+        },
+        {
+          "lat": 50.4501,
+          "lon": 30.5234,
+          "t": "2026-10-13T22:36:15Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
     }
   },
   "last_threat_update": 1791929542.10962,
-  "last_news_check": 1791928247.034146,
+  "last_news_check": 1791931463.693736,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

@@ -1,7 +1,7 @@
 {
   "active_threats": {},
   "last_threat_update": 1791909449.937343,
-  "last_news_check": 1791911868.098009,
+  "last_news_check": 1791914197.422592,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -106,16 +106,17 @@
   ],
   "last_weather_check": 1791901537.260878,
   "last_promo_check": 1791896835.585286,
-  "last_history_check": 1791870672.201645,
+  "last_history_check": 1791914197.422592,
   "published_history_indexes": [
     4,
     7,
     0,
     2,
     5,
-    3
+    3,
+    1
   ],
-  "last_digest_check": 1791827362.125165,
+  "last_digest_check": 1791914197.422592,
   "district_alert_active": true,
   "district_alert_initialized": true,
   "last_dashboard_check": 1790063919.831967,

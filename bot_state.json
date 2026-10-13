@@ -1,9 +1,9 @@
 {
   "active_threats": {
-    "trk_00261706": {
-      "id": "trk_00261706",
+    "trk_00261761": {
+      "id": "trk_00261761",
       "type": "uav",
-      "title": "Група БпЛА (2+)",
+      "title": "БпЛА",
       "region": "Чернігівська область",
       "district": "",
       "locality": "Олишівка",
@@ -11,40 +11,15 @@
       "lon": 31.33582,
       "heading": null,
       "confidenceLevel": "high",
-      "sourceCount": 3,
-      "count": 2,
-      "updatedAt": "2026-10-13T06:31:51Z",
-      "explanationShort": "БпЛА — Олишівка, Чернігівська область. Підтверджень: 3.",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-13T07:03:49Z",
+      "explanationShort": "БпЛА — Олишівка, Чернігівська область. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-10-13T06:31:51Z",
+      "confirmedAt": "2026-10-13T07:03:49Z",
       "uncertaintyKm": 10,
       "positionQuality": "confirmed",
       "lifecycle": "confirmed",
       "displayConfidence": "high"
-    },
-    "trk_00261716": {
-      "id": "trk_00261716",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Козелець",
-      "lat": 51.23305255359842,
-      "lon": 31.38084554848053,
-      "heading": 206.196,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "count": 1,
-      "updatedAt": "2026-10-13T06:31:31Z",
-      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 3.",
-      "status": "active",
-      "confirmedAt": "2026-10-13T06:31:31Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
     }
   },
   "last_threat_update": 1791873354.15513,
@@ -152,7 +127,7 @@
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
   "last_weather_check": 1791870672.201645,
-  "last_promo_check": 1791853173.026813,
+  "last_promo_check": 1791875147.544355,
   "last_history_check": 1791870672.201645,
   "published_history_indexes": [
     4,

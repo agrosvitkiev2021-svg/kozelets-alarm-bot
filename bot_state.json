@@ -1,6 +1,51 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1791955129.417516,
+  "active_threats": {
+    "trk_00264896": {
+      "id": "trk_00264896",
+      "type": "uav",
+      "title": "Група БпЛА (2+)",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Олишівка",
+      "lat": 51.21862,
+      "lon": 31.33582,
+      "heading": null,
+      "confidenceLevel": "high",
+      "sourceCount": 2,
+      "count": 2,
+      "updatedAt": "2026-10-14T06:17:44Z",
+      "explanationShort": "БпЛА — Олишівка, Чернігівська область. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-10-14T06:17:44Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "high"
+    },
+    "trk_00264917": {
+      "id": "trk_00264917",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Остер",
+      "lat": 51.25093761398577,
+      "lon": 31.19036900580171,
+      "heading": 213.244,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-14T06:17:28Z",
+      "explanationShort": "БпЛА курсом на Остер. Підтверджень: 1.",
+      "status": "active",
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1791958742.311221,
   "last_news_check": 1791957148.664885,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
@@ -106,7 +151,7 @@
   ],
   "last_weather_check": 1791947527.054309,
   "last_promo_check": 1791942457.780513,
-  "last_history_check": 1791914197.422592,
+  "last_history_check": 1791958740.84832,
   "published_history_indexes": [
     4,
     7,
@@ -114,7 +159,8 @@
     2,
     5,
     3,
-    1
+    1,
+    6
   ],
   "last_digest_check": 1791914197.422592,
   "district_alert_active": true,

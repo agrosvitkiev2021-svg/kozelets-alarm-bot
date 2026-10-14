@@ -1,6 +1,28 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1792017889.923929,
+  "active_threats": {
+    "trk_00267913": {
+      "id": "trk_00267913",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Лихачів",
+      "lat": 51.13429,
+      "lon": 31.51239,
+      "heading": null,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-14T23:02:33Z",
+      "explanationShort": "БпЛА — Лихачів, Чернігівська область. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-10-14T23:02:33Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "lifecycle": "confirmed",
+      "displayConfidence": "medium"
+    }
+  },
+  "last_threat_update": 1792019330.568322,
   "last_news_check": 1792017889.025772,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",

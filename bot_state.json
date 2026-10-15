@@ -1,28 +1,5 @@
 {
   "active_threats": {
-    "trk_00269918": {
-      "id": "trk_00269918",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київська область",
-      "district": "",
-      "locality": "Вишгород",
-      "lat": 50.81072226252543,
-      "lon": 30.722720655326345,
-      "heading": 213.231,
-      "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "updatedAt": "2026-10-15T17:07:28Z",
-      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 6.",
-      "status": "active",
-      "confirmedAt": "2026-10-15T17:07:28Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
     "trk_00269942": {
       "id": "trk_00269942",
       "type": "uav",
@@ -34,11 +11,12 @@
       "lon": 30.80774606165047,
       "heading": 210.22,
       "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-10-15T17:03:23Z",
-      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 4.",
+      "sourceCount": 10,
+      "count": 1,
+      "updatedAt": "2026-10-15T17:35:25Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 10.",
       "status": "active",
-      "confirmedAt": "2026-10-15T17:03:30Z",
+      "confirmedAt": "2026-10-15T17:35:25Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -46,24 +24,41 @@
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00269946": {
-      "id": "trk_00269946",
+    "trk_00270039": {
+      "id": "trk_00270039",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Київ",
       "district": "",
-      "locality": "Бровари",
-      "lat": 50.7532922812502,
-      "lon": 30.97726484593576,
-      "heading": 206.188,
+      "locality": "Жуляни",
+      "lat": 50.705154797747,
+      "lon": 30.73150450897764,
+      "heading": 211.226,
       "confidenceLevel": "medium",
-      "sourceCount": 6,
-      "updatedAt": "2026-10-15T17:03:57Z",
-      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 6.",
+      "sourceCount": 3,
+      "updatedAt": "2026-10-15T17:33:11Z",
+      "explanationShort": "БпЛА курсом на Жуляни. Підтверджень: 3.",
       "status": "active",
-      "confirmedAt": "2026-10-15T17:03:57Z",
+      "confirmedAt": "2026-10-15T17:33:11Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.39428,
+          "lon": 30.44057,
+          "t": "2026-10-15T17:27:56Z"
+        },
+        {
+          "lat": 50.41027394979884,
+          "lon": 30.431650704972984,
+          "t": "2026-10-15T17:29:20Z"
+        },
+        {
+          "lat": 50.39717214460165,
+          "lon": 30.43895714693448,
+          "t": "2026-10-15T17:33:11Z"
+        }
+      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -174,7 +169,7 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1792071440.367464,
+  "last_weather_check": 1792085937.651043,
   "last_promo_check": 1792079972.522776,
   "last_history_check": 1792048180.108447,
   "published_history_indexes": [

@@ -1,7 +1,214 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1792041476.513337,
-  "last_news_check": 1792039952.17489,
+  "active_threats": {
+    "trk_00268524": {
+      "id": "trk_00268524",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Жуляни",
+      "lat": 50.694288797531,
+      "lon": 30.733097103204994,
+      "heading": 210.219,
+      "confidenceLevel": "medium",
+      "sourceCount": 8,
+      "count": 2,
+      "updatedAt": "2026-10-15T05:51:21Z",
+      "explanationShort": "БпЛА курсом на Жуляни. Підтверджень: 8.",
+      "status": "active",
+      "confirmedAt": "2026-10-15T05:51:21Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.31196936332766,
+          "lon": 30.41056337011886,
+          "t": "2026-10-15T05:26:38Z"
+        },
+        {
+          "lat": 50.37183726270547,
+          "lon": 30.457806022242202,
+          "t": "2026-10-15T05:42:20Z"
+        },
+        {
+          "lat": 50.33069,
+          "lon": 30.46836,
+          "t": "2026-10-15T05:42:21Z"
+        },
+        {
+          "lat": 50.37183726270547,
+          "lon": 30.457806022242202,
+          "t": "2026-10-15T05:42:43Z"
+        },
+        {
+          "lat": 50.36718434481907,
+          "lon": 30.461379463178954,
+          "t": "2026-10-15T05:47:12Z"
+        },
+        {
+          "lat": 50.38309848483831,
+          "lon": 30.449157403644183,
+          "t": "2026-10-15T05:51:16Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00268541": {
+      "id": "trk_00268541",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Воскресенка",
+      "lat": 50.721237856405345,
+      "lon": 30.808954111785898,
+      "heading": 209.207,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "updatedAt": "2026-10-15T05:49:13Z",
+      "explanationShort": "БпЛА курсом на Воскресенка. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-10-15T05:49:17Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.4725,
+          "lon": 30.63113,
+          "t": "2026-10-15T05:32:46Z"
+        },
+        {
+          "lat": 50.460260510709034,
+          "lon": 30.655081460323416,
+          "t": "2026-10-15T05:33:28Z"
+        },
+        {
+          "lat": 50.47096308159865,
+          "lon": 30.634137596087964,
+          "t": "2026-10-15T05:36:47Z"
+        },
+        {
+          "lat": 50.48551188679,
+          "lon": 30.602003179789776,
+          "t": "2026-10-15T05:49:13Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00268547": {
+      "id": "trk_00268547",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Вишгород",
+      "lat": 50.81072226252543,
+      "lon": 30.722720655326345,
+      "heading": 213.231,
+      "confidenceLevel": "medium",
+      "sourceCount": 8,
+      "count": 2,
+      "updatedAt": "2026-10-15T05:50:30Z",
+      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 8.",
+      "status": "active",
+      "confirmedAt": "2026-10-15T05:50:30Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00268549": {
+      "id": "trk_00268549",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Верхньолибідська слобідка",
+      "lat": 50.73428647378564,
+      "lon": 30.80371648919323,
+      "heading": 210.22,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-15T05:50:32Z",
+      "explanationShort": "БпЛА курсом на Верхньолибідська слобідка. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-10-15T05:50:32Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.44441,
+          "lon": 30.52348,
+          "t": "2026-10-15T05:35:53Z"
+        },
+        {
+          "lat": 50.42309665266453,
+          "lon": 30.519534388592444,
+          "t": "2026-10-15T05:50:32Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00268561": {
+      "id": "trk_00268561",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "",
+      "district": "",
+      "locality": "Погреби",
+      "lat": 50.71012409994675,
+      "lon": 30.787041264662278,
+      "heading": 210.207,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "updatedAt": "2026-10-15T05:44:25Z",
+      "explanationShort": "БпЛА курсом на Погреби. Підтверджень: 3.",
+      "status": "active",
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00268563": {
+      "id": "trk_00268563",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Бровари",
+      "lat": 50.7532922812502,
+      "lon": 30.97726484593576,
+      "heading": 206.188,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "count": 1,
+      "updatedAt": "2026-10-15T05:45:48Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 3.",
+      "status": "active",
+      "confirmedAt": "2026-10-15T05:45:48Z",
+      "uncertaintyKm": 28,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1792043542.203521,
+  "last_news_check": 1792043533.160681,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

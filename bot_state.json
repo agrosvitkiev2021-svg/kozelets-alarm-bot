@@ -1,34 +1,86 @@
 {
   "active_threats": {
-    "trk_00270201": {
-      "id": "trk_00270201",
+    "trk_00270524": {
+      "id": "trk_00270524",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
       "district": "",
       "locality": "Київ",
-      "lat": 50.76141525425201,
-      "lon": 30.8077002672711,
+      "lat": 50.75765132740301,
+      "lon": 30.815399741524306,
       "heading": 210.22,
       "confidenceLevel": "medium",
-      "sourceCount": 15,
-      "count": 4,
-      "updatedAt": "2026-10-15T18:45:21Z",
-      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 15.",
+      "sourceCount": 11,
+      "updatedAt": "2026-10-15T20:20:50Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 11.",
       "status": "active",
-      "confirmedAt": "2026-10-15T18:45:21Z",
+      "confirmedAt": "2026-10-15T21:49:39Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00270703": {
+      "id": "trk_00270703",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Лук'янівка",
+      "lat": 50.77656020962806,
+      "lon": 30.76791040464498,
+      "heading": 211.226,
+      "confidenceLevel": "medium",
+      "sourceCount": 5,
+      "updatedAt": "2026-10-15T21:49:33Z",
+      "explanationShort": "БпЛА курсом на Лук'янівка. Підтверджень: 5.",
+      "status": "active",
+      "confirmedAt": "2026-10-15T21:49:33Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "trail": [
         {
-          "lat": 50.46936,
-          "lon": 30.51627,
-          "t": "2026-10-15T18:35:00Z"
+          "lat": 50.46642,
+          "lon": 30.47591,
+          "t": "2026-10-15T21:43:47Z"
         },
         {
-          "lat": 50.45022576702177,
-          "lon": 30.523353441388096,
-          "t": "2026-10-15T18:44:28Z"
+          "lat": 50.45961052878686,
+          "lon": 30.46383192547654,
+          "t": "2026-10-15T21:44:05Z"
+        },
+        {
+          "lat": 50.461292813164796,
+          "lon": 30.442454885924874,
+          "t": "2026-10-15T21:44:10Z"
+        },
+        {
+          "lat": 50.463728135314675,
+          "lon": 30.45641455480665,
+          "t": "2026-10-15T21:44:21Z"
+        },
+        {
+          "lat": 50.47044976010565,
+          "lon": 30.45207557711912,
+          "t": "2026-10-15T21:44:47Z"
+        },
+        {
+          "lat": 50.463728135314675,
+          "lon": 30.45641455480665,
+          "t": "2026-10-15T21:44:51Z"
+        },
+        {
+          "lat": 50.47044976010565,
+          "lon": 30.45207557711912,
+          "t": "2026-10-15T21:44:59Z"
+        },
+        {
+          "lat": 50.468578488695584,
+          "lon": 30.474916607783406,
+          "t": "2026-10-15T21:49:33Z"
         }
       ],
       "lifecycle": "uncertain",
@@ -38,7 +90,7 @@
     }
   },
   "last_threat_update": 1792079974.572245,
-  "last_news_check": 1792090046.662781,
+  "last_news_check": 1792101035.790063,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -141,12 +193,13 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1792085937.651043,
+  "last_weather_check": 1792101035.790063,
   "last_promo_check": 1792079972.522776,
-  "last_history_check": 1792048180.108447,
+  "last_history_check": 1792101035.790063,
   "published_history_indexes": [
     4,
-    5
+    5,
+    6
   ],
   "last_digest_check": 1792087710.546185,
   "district_alert_active": true,

@@ -1,7 +1,41 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1792048181.40575,
-  "last_news_check": 1792060625.242284,
+  "active_threats": {
+    "trk_00269220": {
+      "id": "trk_00269220",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Топчіївка",
+      "lat": 51.23307,
+      "lon": 31.23965,
+      "heading": null,
+      "confidenceLevel": "high",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-15T11:05:09Z",
+      "explanationShort": "БпЛА — Топчіївка, Чернігівська область. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-10-15T11:05:09Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 51.46379,
+          "lon": 31.56417,
+          "t": "2026-10-15T10:47:31Z"
+        },
+        {
+          "lat": 51.23307,
+          "lon": 31.23965,
+          "t": "2026-10-15T11:05:09Z"
+        }
+      ],
+      "lifecycle": "confirmed",
+      "displayConfidence": "high"
+    }
+  },
+  "last_threat_update": 1792062497.822743,
+  "last_news_check": 1792062496.456793,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

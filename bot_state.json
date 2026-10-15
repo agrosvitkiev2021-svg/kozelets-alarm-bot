@@ -1,7 +1,30 @@
 {
   "active_threats": {
-    "trk_00269831": {
-      "id": "trk_00269831",
+    "trk_00269918": {
+      "id": "trk_00269918",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Вишгород",
+      "lat": 50.81072226252543,
+      "lon": 30.722720655326345,
+      "heading": 213.231,
+      "confidenceLevel": "medium",
+      "sourceCount": 6,
+      "updatedAt": "2026-10-15T17:07:28Z",
+      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 6.",
+      "status": "active",
+      "confirmedAt": "2026-10-15T17:07:28Z",
+      "uncertaintyKm": 10,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00269942": {
+      "id": "trk_00269942",
       "type": "uav",
       "title": "БпЛА",
       "region": "Київська область",
@@ -11,12 +34,11 @@
       "lon": 30.80774606165047,
       "heading": 210.22,
       "confidenceLevel": "medium",
-      "sourceCount": 11,
-      "count": 1,
-      "updatedAt": "2026-10-15T16:31:57Z",
-      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 11.",
+      "sourceCount": 4,
+      "updatedAt": "2026-10-15T17:03:23Z",
+      "explanationShort": "БпЛА курсом на Київ. Підтверджень: 4.",
       "status": "active",
-      "confirmedAt": "2026-10-15T16:32:10Z",
+      "confirmedAt": "2026-10-15T17:03:30Z",
       "uncertaintyKm": 4,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
@@ -24,71 +46,24 @@
       "destination": true,
       "presumptiveCourse": true
     },
-    "trk_00269846": {
-      "id": "trk_00269846",
+    "trk_00269946": {
+      "id": "trk_00269946",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київ",
+      "region": "Київська область",
       "district": "",
-      "locality": "Воскресенка",
-      "lat": 50.71487263857872,
-      "lon": 30.822972331635363,
-      "heading": 209.207,
-      "confidenceLevel": "medium",
-      "sourceCount": 4,
-      "updatedAt": "2026-10-15T16:31:31Z",
-      "explanationShort": "БпЛА курсом на Воскресенка. Підтверджень: 4.",
-      "status": "active",
-      "confirmedAt": "2026-10-15T16:30:18Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.4725,
-          "lon": 30.63113,
-          "t": "2026-10-15T16:29:57Z"
-        },
-        {
-          "lat": 50.47914661360856,
-          "lon": 30.61604958423338,
-          "t": "2026-10-15T16:30:14Z"
-        }
-      ],
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    },
-    "trk_00269851": {
-      "id": "trk_00269851",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Київ",
-      "district": "",
-      "locality": "Шулявка",
-      "lat": 50.76793172174886,
-      "lon": 30.771587173401738,
-      "heading": 211.226,
+      "locality": "Бровари",
+      "lat": 50.7532922812502,
+      "lon": 30.97726484593576,
+      "heading": 206.188,
       "confidenceLevel": "medium",
       "sourceCount": 6,
-      "updatedAt": "2026-10-15T16:31:29Z",
-      "explanationShort": "БпЛА курсом на Шулявка. Підтверджень: 6.",
+      "updatedAt": "2026-10-15T17:03:57Z",
+      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 6.",
       "status": "active",
-      "confirmedAt": "2026-10-15T16:32:10Z",
-      "uncertaintyKm": 10,
+      "confirmedAt": "2026-10-15T17:03:57Z",
+      "uncertaintyKm": 4,
       "positionQuality": "approx",
-      "trail": [
-        {
-          "lat": 50.46936,
-          "lon": 30.51627,
-          "t": "2026-10-15T16:31:15Z"
-        },
-        {
-          "lat": 50.4599498880185,
-          "lon": 30.47864741937522,
-          "t": "2026-10-15T16:32:10Z"
-        }
-      ],
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
       "destination": true,
@@ -96,7 +71,7 @@
     }
   },
   "last_threat_update": 1792079974.572245,
-  "last_news_check": 1792081969.342126,
+  "last_news_check": 1792084147.143921,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",

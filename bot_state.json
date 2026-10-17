@@ -1,7 +1,40 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1792270579.453423,
-  "last_news_check": 1792270578.665007,
+  "active_threats": {
+    "trk_00277128": {
+      "id": "trk_00277128",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Коростень",
+      "lat": 51.21599,
+      "lon": 31.412,
+      "heading": null,
+      "confidenceLevel": "medium",
+      "sourceCount": 3,
+      "updatedAt": "2026-10-17T22:48:06Z",
+      "explanationShort": "БпЛА — Коростень, Чернігівська область. Підтверджень: 3.",
+      "status": "active",
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 51.3645049148264,
+          "lon": 32.04995756466877,
+          "t": "2026-10-17T22:24:23Z"
+        },
+        {
+          "lat": 51.21599,
+          "lon": 31.412,
+          "t": "2026-10-17T22:48:06Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium"
+    }
+  },
+  "last_threat_update": 1792277756.02924,
+  "last_news_check": 1792277755.21243,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -105,7 +138,7 @@
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
   "last_weather_check": 1792270578.665007,
-  "last_promo_check": 1792253949.835493,
+  "last_promo_check": 1792277755.21243,
   "last_history_check": 1792262142.307122,
   "published_history_indexes": [
     4,

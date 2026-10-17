@@ -1,7 +1,31 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1792108608.260269,
-  "last_news_check": 1792198122.457596,
+  "active_threats": {
+    "trk_00275001": {
+      "id": "trk_00275001",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київська область",
+      "district": "",
+      "locality": "Вишгород",
+      "lat": 50.81072226252543,
+      "lon": 30.722720655326345,
+      "heading": 213.231,
+      "confidenceLevel": "medium",
+      "sourceCount": 4,
+      "updatedAt": "2026-10-17T04:59:07Z",
+      "explanationShort": "БпЛА курсом на Вишгород. Підтверджень: 4.",
+      "status": "active",
+      "confirmedAt": "2026-10-17T04:59:07Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1792213479.502808,
+  "last_news_check": 1792213477.769058,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -104,14 +128,15 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1792190839.740542,
+  "last_weather_check": 1792213477.769058,
   "last_promo_check": 1792198122.457596,
-  "last_history_check": 1792157396.087323,
+  "last_history_check": 1792213477.769058,
   "published_history_indexes": [
     4,
     5,
     6,
-    7
+    7,
+    2
   ],
   "last_digest_check": 1792181124.781577,
   "district_alert_active": true,

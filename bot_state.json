@@ -1,30 +1,7 @@
 {
-  "active_threats": {
-    "trk_00281854": {
-      "id": "trk_00281854",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "",
-      "district": "",
-      "locality": "Соцмісто",
-      "lat": 50.76042771440462,
-      "lon": 30.894569733308348,
-      "heading": 208.206,
-      "confidenceLevel": "medium",
-      "sourceCount": 3,
-      "updatedAt": "2026-10-19T13:47:44Z",
-      "explanationShort": "БпЛА курсом на Соцмісто. Підтверджень: 3.",
-      "status": "active",
-      "uncertaintyKm": 25,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1792418660.174807,
-  "last_news_check": 1792418659.437531,
+  "active_threats": {},
+  "last_threat_update": 1792439456.828024,
+  "last_news_check": 1792439456.17759,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -127,7 +104,7 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1792418659.437531,
+  "last_weather_check": 1792439456.17759,
   "last_promo_check": 1792418659.437531,
   "last_history_check": 1792418659.437531,
   "published_history_indexes": [

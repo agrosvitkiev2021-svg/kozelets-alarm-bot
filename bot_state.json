@@ -1,29 +1,29 @@
 {
   "active_threats": {
-    "trk_00284679": {
-      "id": "trk_00284679",
+    "trk_00285374": {
+      "id": "trk_00285374",
       "type": "uav",
       "title": "БпЛА",
       "region": "Чернігівська область",
       "district": "",
-      "locality": "Десна",
-      "lat": 50.908,
-      "lon": 30.779,
+      "locality": "Козелець",
+      "lat": 50.91,
+      "lon": 31.129,
       "heading": null,
       "confidenceLevel": "medium",
       "sourceCount": 1,
-      "updatedAt": "2026-10-20T12:04:40Z",
-      "explanationShort": "БпЛА — Десна, Чернігівська область. Підтверджень: 1.",
+      "updatedAt": "2026-10-20T17:17:19Z",
+      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 1.",
       "status": "active",
-      "confirmedAt": "2026-10-20T12:04:40Z",
-      "uncertaintyKm": 10,
+      "confirmedAt": "2026-10-20T17:17:19Z",
+      "uncertaintyKm": 4,
       "positionQuality": "confirmed",
       "lifecycle": "confirmed",
       "displayConfidence": "medium"
     }
   },
   "last_threat_update": 1792498634.203814,
-  "last_news_check": 1792498633.246589,
+  "last_news_check": 1792516788.043804,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -126,8 +126,8 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1792498633.246589,
-  "last_promo_check": 1792478659.947271,
+  "last_weather_check": 1792516788.043804,
+  "last_promo_check": 1792516788.043804,
   "last_history_check": 1792478659.947271,
   "published_history_indexes": [
     4,

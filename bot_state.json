@@ -1,29 +1,96 @@
 {
   "active_threats": {
-    "trk_00285374": {
-      "id": "trk_00285374",
+    "trk_00285867": {
+      "id": "trk_00285867",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Чернігівська область",
+      "region": "Київ",
       "district": "",
-      "locality": "Козелець",
-      "lat": 50.91,
-      "lon": 31.129,
-      "heading": null,
+      "locality": "Лук'янівка",
+      "lat": 50.710881354069144,
+      "lon": 30.690395059987146,
+      "heading": 212.225,
       "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-10-20T17:17:19Z",
-      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 1.",
+      "sourceCount": 6,
+      "updatedAt": "2026-10-20T20:24:04Z",
+      "explanationShort": "БпЛА курсом на Лук'янівка. Підтверджень: 6.",
       "status": "active",
-      "confirmedAt": "2026-10-20T17:17:19Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "confirmed",
-      "lifecycle": "confirmed",
-      "displayConfidence": "medium"
+      "confirmedAt": "2026-10-20T20:23:57Z",
+      "uncertaintyKm": 54.8,
+      "positionQuality": "approx",
+      "trail": [
+        {
+          "lat": 50.495095905038504,
+          "lon": 30.45022708869971,
+          "t": "2026-10-20T20:22:30Z"
+        },
+        {
+          "lat": 50.491489587619704,
+          "lon": 30.460123862563577,
+          "t": "2026-10-20T20:22:31Z"
+        },
+        {
+          "lat": 50.495095905038504,
+          "lon": 30.45022708869971,
+          "t": "2026-10-20T20:22:46Z"
+        },
+        {
+          "lat": 50.491489587619704,
+          "lon": 30.460123862563577,
+          "t": "2026-10-20T20:22:47Z"
+        },
+        {
+          "lat": 50.483930896412645,
+          "lon": 30.46108005275297,
+          "t": "2026-10-20T20:22:59Z"
+        },
+        {
+          "lat": 50.491489587619704,
+          "lon": 30.460123862563577,
+          "t": "2026-10-20T20:23:00Z"
+        },
+        {
+          "lat": 50.48488061278631,
+          "lon": 30.460527863458744,
+          "t": "2026-10-20T20:23:00Z"
+        },
+        {
+          "lat": 50.48237159848431,
+          "lon": 30.464249736255237,
+          "t": "2026-10-20T20:23:57Z"
+        }
+      ],
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00285901": {
+      "id": "trk_00285901",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Київ",
+      "district": "",
+      "locality": "Голосіїв",
+      "lat": 50.6616487845289,
+      "lon": 30.818197750596596,
+      "heading": 208.206,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-20T20:24:16Z",
+      "explanationShort": "БпЛА курсом на Голосіїв. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-10-20T20:24:17Z",
+      "uncertaintyKm": 54.5,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
     }
   },
   "last_threat_update": 1792498634.203814,
-  "last_news_check": 1792516788.043804,
+  "last_news_check": 1792528994.939757,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -128,10 +195,11 @@
   ],
   "last_weather_check": 1792516788.043804,
   "last_promo_check": 1792516788.043804,
-  "last_history_check": 1792478659.947271,
+  "last_history_check": 1792528994.939757,
   "published_history_indexes": [
     4,
-    0
+    0,
+    7
   ],
   "last_digest_check": 1792451412.615999,
   "district_alert_active": true,

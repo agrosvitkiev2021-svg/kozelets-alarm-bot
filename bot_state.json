@@ -1,7 +1,51 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1792978961.524347,
-  "last_news_check": 1793023669.225704,
+  "active_threats": {
+    "trk_00303915": {
+      "id": "trk_00303915",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Кіпті",
+      "lat": 51.13519587032586,
+      "lon": 31.22286369754404,
+      "heading": 209.054,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-26T19:50:55Z",
+      "explanationShort": "БпЛА курсом на Кіпті. Підтверджень: 1.",
+      "status": "active",
+      "confirmedAt": "2026-10-26T19:50:55Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    },
+    "trk_00303928": {
+      "id": "trk_00303928",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "",
+      "district": "",
+      "locality": "Мрин",
+      "lat": 51.05269,
+      "lon": 31.54802,
+      "heading": null,
+      "confidenceLevel": "medium",
+      "sourceCount": 1,
+      "updatedAt": "2026-10-26T19:54:05Z",
+      "explanationShort": "БпЛА — Мрин. Підтверджень: 1.",
+      "status": "active",
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium"
+    }
+  },
+  "last_threat_update": 1793044492.136032,
+  "last_news_check": 1793044489.895352,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -104,17 +148,18 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1793023669.225704,
+  "last_weather_check": 1793044489.895352,
   "last_promo_check": 1793023669.225704,
-  "last_history_check": 1792998083.053529,
+  "last_history_check": 1793044489.895352,
   "published_history_indexes": [
     3,
     7,
     0,
-    4
+    4,
+    5
   ],
   "last_digest_check": 1792998083.053529,
-  "district_alert_active": false,
+  "district_alert_active": true,
   "district_alert_initialized": true,
   "last_dashboard_check": 1790063919.831967,
   "alert": {

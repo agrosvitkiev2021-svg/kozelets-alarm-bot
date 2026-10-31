@@ -1,22 +1,22 @@
 {
   "active_threats": {
-    "trk_00315422": {
-      "id": "trk_00315422",
+    "trk_00316943": {
+      "id": "trk_00316943",
       "type": "uav",
       "title": "БпЛА",
-      "region": "Київська область",
+      "region": "Чернігівська область",
       "district": "",
-      "locality": "Бровари",
-      "lat": 50.59181399600195,
-      "lon": 30.852100055820024,
-      "heading": 206.048,
+      "locality": "Бобровиця",
+      "lat": 50.82386199938078,
+      "lon": 31.426846459139252,
+      "heading": 195.029,
       "confidenceLevel": "medium",
-      "sourceCount": 13,
-      "updatedAt": "2026-10-31T15:02:18Z",
-      "explanationShort": "БпЛА курсом на Бровари. Підтверджень: 13.",
+      "sourceCount": 2,
+      "updatedAt": "2026-10-31T19:12:39Z",
+      "explanationShort": "БпЛА курсом на Бобровиця. Підтверджень: 2.",
       "status": "active",
-      "confirmedAt": "2026-10-31T15:02:18Z",
-      "uncertaintyKm": 4,
+      "confirmedAt": "2026-10-31T19:12:39Z",
+      "uncertaintyKm": 10,
       "positionQuality": "approx",
       "lifecycle": "uncertain",
       "displayConfidence": "medium",
@@ -25,7 +25,7 @@
     }
   },
   "last_threat_update": 1793459127.244377,
-  "last_news_check": 1793459126.002901,
+  "last_news_check": 1793474100.240214,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -128,7 +128,7 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1793459126.002901,
+  "last_weather_check": 1793474100.240214,
   "last_promo_check": 1793459126.002901,
   "last_history_check": 1793459126.002901,
   "published_history_indexes": [
@@ -138,7 +138,7 @@
     7,
     2
   ],
-  "last_digest_check": 1793374220.681944,
+  "last_digest_check": 1793474100.240214,
   "district_alert_active": false,
   "district_alert_initialized": true,
   "last_dashboard_check": 1790063919.831967,

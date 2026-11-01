@@ -1,31 +1,7 @@
 {
-  "active_threats": {
-    "trk_00317802": {
-      "id": "trk_00317802",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Козелець",
-      "lat": 50.990813759635834,
-      "lon": 31.19163240967479,
-      "heading": 206.049,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-10-31T22:31:57Z",
-      "explanationShort": "БпЛА курсом на Козелець. Підтверджень: 1.",
-      "status": "active",
-      "confirmedAt": "2026-10-31T22:31:57Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1793459127.244377,
-  "last_news_check": 1793486026.060388,
+  "active_threats": {},
+  "last_threat_update": 1793496358.713956,
+  "last_news_check": 1793496358.081499,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -128,7 +104,7 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1793474100.240214,
+  "last_weather_check": 1793496358.081499,
   "last_promo_check": 1793486026.060388,
   "last_history_check": 1793459126.002901,
   "published_history_indexes": [

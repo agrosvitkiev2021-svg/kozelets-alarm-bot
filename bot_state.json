@@ -1,7 +1,69 @@
 {
-  "active_threats": {},
-  "last_threat_update": 1793757578.173929,
-  "last_news_check": 1793900779.538313,
+  "active_threats": {
+    "trk_00335131": {
+      "id": "trk_00335131",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Чемер",
+      "lat": 51.10179777420987,
+      "lon": 31.20725561969585,
+      "heading": 233.88,
+      "confidenceLevel": "high",
+      "sourceCount": 2,
+      "updatedAt": "2026-11-05T22:50:23Z",
+      "explanationShort": "БпЛА — Чемер, Чернігівська область. Підтверджень: 2.",
+      "status": "active",
+      "confirmedAt": "2026-11-05T22:50:23Z",
+      "uncertaintyKm": 4,
+      "positionQuality": "confirmed",
+      "trail": [
+        {
+          "lat": 51.11361,
+          "lon": 31.30343,
+          "t": "2026-11-05T22:44:30Z"
+        },
+        {
+          "lat": 51.105132431661,
+          "lon": 31.234406185523696,
+          "t": "2026-11-05T22:45:47Z"
+        },
+        {
+          "lat": 51.10179777420987,
+          "lon": 31.20725561969585,
+          "t": "2026-11-05T22:50:23Z"
+        }
+      ],
+      "lifecycle": "confirmed",
+      "displayConfidence": "high",
+      "presumptiveCourse": true
+    },
+    "trk_00335139": {
+      "id": "trk_00335139",
+      "type": "uav",
+      "title": "БпЛА",
+      "region": "Чернігівська область",
+      "district": "",
+      "locality": "Остер",
+      "lat": 51.025057597560796,
+      "lon": 30.95522294451234,
+      "heading": 213.061,
+      "confidenceLevel": "medium",
+      "sourceCount": 2,
+      "updatedAt": "2026-11-05T22:52:26Z",
+      "explanationShort": "БпЛА курсом на Остер. Підтверджень: 2.",
+      "status": "active",
+      "uncertaintyKm": 25,
+      "positionQuality": "approx",
+      "lifecycle": "uncertain",
+      "displayConfidence": "medium",
+      "destination": true,
+      "presumptiveCourse": true
+    }
+  },
+  "last_threat_update": 1793919319.67116,
+  "last_news_check": 1793919318.155497,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -104,14 +166,15 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1793900779.538313,
+  "last_weather_check": 1793919318.155497,
   "last_promo_check": 1793900779.538313,
-  "last_history_check": 1793872354.096766,
+  "last_history_check": 1793919318.155497,
   "published_history_indexes": [
     4,
     1,
     6,
-    2
+    2,
+    0
   ],
   "last_digest_check": 1793846578.895252,
   "district_alert_active": true,

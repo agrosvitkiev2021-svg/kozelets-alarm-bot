@@ -1,31 +1,7 @@
 {
-  "active_threats": {
-    "trk_00357300": {
-      "id": "trk_00357300",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Олишівка",
-      "lat": 51.2987319986922,
-      "lon": 31.401118185270846,
-      "heading": 207.051,
-      "confidenceLevel": "medium",
-      "sourceCount": 2,
-      "updatedAt": "2026-11-13T10:46:04Z",
-      "explanationShort": "БпЛА курсом на Олишівка. Підтверджень: 2.",
-      "status": "active",
-      "confirmedAt": "2026-11-13T10:46:04Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1794567027.401911,
-  "last_news_check": 1794567025.515452,
+  "active_threats": {},
+  "last_threat_update": 1794593385.566001,
+  "last_news_check": 1794593384.584066,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -128,13 +104,13 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1794567025.515452,
-  "last_promo_check": 1794567025.515452,
+  "last_weather_check": 1794593384.584066,
+  "last_promo_check": 1794593384.584066,
   "last_history_check": 1794567025.515452,
   "published_history_indexes": [
     0
   ],
-  "last_digest_check": 1794505363.622505,
+  "last_digest_check": 1794593384.584066,
   "district_alert_active": true,
   "district_alert_initialized": true,
   "last_dashboard_check": 1790063919.831967,

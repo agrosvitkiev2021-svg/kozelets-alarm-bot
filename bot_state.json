@@ -1,130 +1,7 @@
 {
-  "active_threats": {
-    "trk_00358876": {
-      "id": "trk_00358876",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Мрин",
-      "lat": 51.023831934766,
-      "lon": 31.504943328838518,
-      "heading": 255.9,
-      "confidenceLevel": "high",
-      "sourceCount": 2,
-      "updatedAt": "2026-11-14T03:25:27Z",
-      "explanationShort": "БпЛА — Мрин, Чернігівська область. Підтверджень: 2.",
-      "status": "active",
-      "velocity": {
-        "bearingDeg": 255.9,
-        "speedKmh": 100.4
-      },
-      "confirmedAt": "2026-11-14T03:25:27Z",
-      "uncertaintyKm": 10,
-      "positionQuality": "confirmed",
-      "trail": [
-        {
-          "lat": 51.25343,
-          "lon": 32.4269,
-          "t": "2026-11-14T02:52:49Z"
-        },
-        {
-          "lat": 51.048479082486274,
-          "lon": 31.89042695034544,
-          "t": "2026-11-14T03:05:56Z"
-        }
-      ],
-      "lifecycle": "tracking",
-      "displayConfidence": "high"
-    },
-    "trk_00358884": {
-      "id": "trk_00358884",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Козелець",
-      "lat": 50.89082543673954,
-      "lon": 31.113439455052315,
-      "heading": 234.7,
-      "confidenceLevel": "high",
-      "sourceCount": 3,
-      "updatedAt": "2026-11-14T03:26:10Z",
-      "explanationShort": "БпЛА — Козелець, Чернігівська область. Підтверджень: 3.",
-      "status": "active",
-      "velocity": {
-        "bearingDeg": 234.7,
-        "speedKmh": 122.3
-      },
-      "confirmedAt": "2026-11-14T03:26:10Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "confirmed",
-      "trail": [
-        {
-          "lat": 51.26976,
-          "lon": 31.85101,
-          "t": "2026-11-14T02:56:13Z"
-        },
-        {
-          "lat": 51.05474148375974,
-          "lon": 31.550883495943086,
-          "t": "2026-11-14T03:04:22Z"
-        },
-        {
-          "lat": 50.89082543673954,
-          "lon": 31.113439455052315,
-          "t": "2026-11-14T03:24:18Z"
-        }
-      ],
-      "lifecycle": "tracking",
-      "displayConfidence": "high"
-    },
-    "trk_00358952": {
-      "id": "trk_00358952",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "",
-      "district": "",
-      "locality": "Олишівка",
-      "lat": 51.21862,
-      "lon": 31.33582,
-      "heading": null,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-11-14T03:28:24Z",
-      "explanationShort": "БпЛА — Олишівка. Підтверджень: 1.",
-      "status": "active",
-      "uncertaintyKm": 25,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium"
-    },
-    "trk_00358954": {
-      "id": "trk_00358954",
-      "type": "uav",
-      "title": "БпЛА",
-      "region": "Чернігівська область",
-      "district": "",
-      "locality": "Кіпті",
-      "lat": 51.13519587032586,
-      "lon": 31.22286369754404,
-      "heading": 209.054,
-      "confidenceLevel": "medium",
-      "sourceCount": 1,
-      "updatedAt": "2026-11-14T03:28:39Z",
-      "explanationShort": "БпЛА курсом на Кіпті. Підтверджень: 1.",
-      "status": "active",
-      "confirmedAt": "2026-11-14T03:28:39Z",
-      "uncertaintyKm": 4,
-      "positionQuality": "approx",
-      "lifecycle": "uncertain",
-      "displayConfidence": "medium",
-      "destination": true,
-      "presumptiveCourse": true
-    }
-  },
-  "last_threat_update": 1794627025.658707,
-  "last_news_check": 1794627022.576334,
+  "active_threats": {},
+  "last_threat_update": 1794653477.884719,
+  "last_news_check": 1794653476.50935,
   "published_news": [
     "87ba0f17717e998555f3f8fa0bbe969f",
     "23c0e2ef0704371ad5ed0309d3918541",
@@ -227,15 +104,15 @@
     "d32d8564acdfc11007fb3c9a7bd64335",
     "a46ee80d322f890d099fcdc50e8dbfb1"
   ],
-  "last_weather_check": 1794612706.513884,
-  "last_promo_check": 1794627022.576334,
+  "last_weather_check": 1794653476.50935,
+  "last_promo_check": 1794653476.50935,
   "last_history_check": 1794612706.513884,
   "published_history_indexes": [
     0,
     1
   ],
   "last_digest_check": 1794593384.584066,
-  "district_alert_active": true,
+  "district_alert_active": false,
   "district_alert_initialized": true,
   "last_dashboard_check": 1790063919.831967,
   "alert": {
